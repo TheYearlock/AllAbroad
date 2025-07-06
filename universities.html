@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AllAbroad - Universities</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #222;
+    }
+
+    /* NAVBAR STYLES */
+    nav.navbar {
+      background-color: #d72631;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1.5rem;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav.navbar .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav.navbar ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav.navbar ul.nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav.navbar ul.nav-links li a:hover,
+    nav.navbar ul.nav-links li a:focus {
+      color: #f5a623;
+      outline: none;
+    }
+
+    /* Hamburger menu (mobile) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      background: white;
+      height: 3px;
+      width: 25px;
+      border-radius: 2px;
+    }
+
+    /* Responsive nav */
+    @media (max-width: 768px) {
+      nav.navbar ul.nav-links {
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background-color: #d72631;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      nav.navbar ul.nav-links.open {
+        max-height: 300px;
+      }
+      nav.navbar ul.nav-links li {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid #b71c27;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Page title and main content */
+    header {
+      padding: 1.5rem 2rem;
+      border-bottom: 2px solid #d72631;
+      margin-bottom: 1.5rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header h1.page-title {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #d72631;
+      margin: 0;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    /* Search/filter container */
+    .search-filter-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .search-filter-container label {
+      font-weight: 600;
+      color: #555;
+      min-width: 60px;
+    }
+
+    input#search-universities {
+      flex-grow: 2;
+      min-width: 200px;
+      padding: 0.5rem 0.75rem;
+      border: 1.5px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input#search-universities:focus {
+      border-color: #d72631;
+      outline: none;
+    }
+
+    select#country-filter {
+      flex-grow: 1;
+      min-width: 180px;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      border: 1.5px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      background: white;
+      transition: border-color 0.3s ease;
+    }
+
+    select#country-filter:focus {
+      border-color: #d72631;
+      outline: none;
+    }
+
+    ul.universities-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1.5px solid #eee;
+    }
+
+    ul.universities-list li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid #eee;
+      padding: 0.6rem 0;
+      font-size: 1.1rem;
+      transition: background-color 0.15s ease;
+    }
+    ul.universities-list li:hover {
+      background-color: #fff0f1;
+    }
+
+    ul.universities-list li .ranking {
+      font-weight: 700;
+      color: #000;
+      width: 3rem;
+      text-align: right;
+      user-select: none;
+      flex-shrink: 0;
+      font-size: 1.15rem;
+    }
+
+    ul.universities-list li a {
+      color: #d72631;
+      font-weight: 700;
+      text-decoration: none;
+      flex-grow: 1;
+      outline-offset: 3px;
+    }
+    ul.universities-list li a:hover,
+    ul.universities-list li a:focus {
+      text-decoration: underline;
+    }
+
+    ul.universities-list li a span.country {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #555;
+      margin-left: 0.5rem;
+    }
+
+    #pagination {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #pagination button {
+      padding: 0.4rem 0.8rem;
+      border: 1.5px solid #ccc;
+      background: white;
+      color: #222;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      min-width: 38px;
+      transition: all 0.3s ease;
+    }
+    #pagination button:hover:not(:disabled),
+    #pagination button:focus:not(:disabled) {
+      border-color: #d72631;
+      color: #d72631;
+      background-color: #fff0f1;
+      outline: none;
+    }
+    #pagination button:disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Primary Navigation">
+    <a href="index.html" class="logo">AllAbroad</a>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="universities.html" aria-current="page">Universities</a></li>
+      <li><a href="scholarships.html">Scholarships</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1 class="page-title">All Universities</h1>
+  </header>
+
+  <main role="main" aria-label="University listing and filter">
+    <div
+      class="search-filter-container"
+      role="search"
+      aria-label="Filter universities"
+    >
+      <label for="search-universities">Search:</label>
+      <input
+        type="search"
+        id="search-universities"
+        placeholder="Search by university or country"
+        aria-describedby="search-desc"
+        autocomplete="off"
+      />
+
+      <label for="country-filter">Country:</label>
+      <select id="country-filter" aria-label="Filter by country">
+        <option value="">All Countries</option>
+      </select>
+    </div>
+
+    <ul
+      id="universities-list"
+      class="universities-list"
+      aria-live="polite"
+      aria-relevant="additions removals"
+    >
+      <!-- JS inserts list items here -->
+    </ul>
+
+    <nav id="pagination" aria-label="Pagination navigation"></nav>
+  </main>
+
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    hamburger.addEventListener("click", () => {
+      const expanded = hamburger.getAttribute("aria-expanded") === "true" || false;
+      hamburger.setAttribute("aria-expanded", !expanded);
+      navMenu.classList.toggle("open");
+    });
+
+    const listElement = document.getElementById("universities-list");
+    const paginationElement = document.getElementById("pagination");
+    const searchInput = document.getElementById("search-universities");
+    const countryFilter = document.getElementById("country-filter");
+
+    let universities = [];
+    let filteredUniversities = [];
+    const itemsPerPage = 50;
+    let currentPage = 1;
+
+    async function fetchUniversities() {
+      try {
+        const res = await fetch("universities.json");
+        if (!res.ok) throw new Error("Failed to load universities data");
+        const data = await res.json();
+
+        universities = data.map((u, i) => ({
+          rank: i + 1,
+          name: u.name || "Unknown University",
+          country: u.country || "Unknown Country",
+        }));
+
+        populateCountryFilter();
+        applyFilters();
+      } catch (err) {
+        listElement.innerHTML =
+          '<li style="color:red; padding: 1rem;">Error loading universities. Please try again later.</li>';
+        console.error(err);
+      }
+    }
+
+    function populateCountryFilter() {
+      while (countryFilter.options.length > 1) {
+        countryFilter.remove(1);
+      }
+
+      const countries = [...new Set(universities.map((u) => u.country))].sort();
+      countries.forEach((country) => {
+        const option = document.createElement("option");
+        option.value = country;
+        option.textContent = country;
+        countryFilter.appendChild(option);
+      });
+    }
+
+    function applyFilters() {
+      const query = searchInput.value.trim().toLowerCase();
+      const selectedCountry = countryFilter.value;
+
+      filteredUniversities = universities.filter((u) => {
+        const matchesSearch =
+          u.name.toLowerCase().includes(query) ||
+          u.country.toLowerCase().includes(query);
+        const matchesCountry =
+          selectedCountry === "" || u.country === selectedCountry;
+        return matchesSearch && matchesCountry;
+      });
+
+      currentPage = 1;
+      renderList();
+      renderPagination();
+    }
+
+    function renderList() {
+      listElement.innerHTML = "";
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const pageItems = filteredUniversities.slice(
+        startIndex,
+        startIndex + itemsPerPage
+      );
+
+      if (pageItems.length === 0) {
+        listElement.innerHTML = "<li>No universities found.</li>";
+        return;
+      }
+
+      for (const uni of pageItems) {
+        const linkURL = `universities/${encodeURIComponent(
+          uni.name.toLowerCase().replace(/\s+/g, "-")
+        )}.html`;
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <div class="ranking">${uni.rank}</div>
+          <a href="${linkURL}" target="_blank" rel="noopener noreferrer">
+            ${uni.name} <span class="country">(${uni.country})</span>
+          </a>
+        `;
+        listElement.appendChild(li);
+      }
+    }
+
+    function renderPagination() {
+      paginationElement.innerHTML = "";
+
+      const totalPages = Math.ceil(filteredUniversities.length / itemsPerPage);
+      if (totalPages <= 1) return;
+
+      const createButton = (label, page, disabled = false) => {
+        const btn = document.createElement("button");
+        btn.textContent = label;
+        btn.disabled = disabled;
+        btn.setAttribute("aria-label", `Go to page ${page}`);
+        btn.addEventListener("click", () => {
+          currentPage = page;
+          renderList();
+          renderPagination();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        return btn;
+      };
+
+      paginationElement.appendChild(
+        createButton("Prev", currentPage - 1, currentPage === 1)
+      );
+
+      const maxPageButtons = 5;
+      let startPage = Math.max(1, currentPage - 2);
+      let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+
+      if (endPage - startPage < maxPageButtons - 1) {
+        startPage = Math.max(1, endPage - maxPageButtons + 1);
+      }
+
+      for (let p = startPage; p <= endPage; p++) {
+        const btn = createButton(p, p, false);
+        if (p === currentPage) {
+          btn.disabled = true;
+          btn.style.fontWeight = "700";
+          btn.style.backgroundColor = "#d72631";
+          btn.style.color = "white";
+        }
+        paginationElement.appendChild(btn);
+      }
+
+      paginationElement.appendChild(
+        createButton("Next", currentPage + 1, currentPage === totalPages)
+      );
+    }
+
+    searchInput.addEventListener("input", () => {
+      applyFilters();
+    });
+
+    countryFilter.addEventListener("change", () => {
+      applyFilters();
+    });
+
+    // ✅ AUTO-SELECT COUNTRY BASED ON URL PARAM
+    const urlParams = new URLSearchParams(window.location.search);
+    const preselectedCountry = urlParams.get("country");
+    if (preselectedCountry) {
+      const observer = new MutationObserver(() => {
+        const optionExists = Array.from(countryFilter.options).some(
+          (opt) => opt.value === preselectedCountry
+        );
+        if (optionExists) {
+          countryFilter.value = preselectedCountry;
+          applyFilters();
+          observer.disconnect();
+        }
+      });
+      observer.observe(countryFilter, { childList: true });
+    }
+
+    // Initial fetch
+    fetchUniversities();
+  </script>
+</body>
+</html>

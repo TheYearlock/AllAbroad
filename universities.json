@@ -1,0 +1,3164 @@
+[
+  {
+    "name": "Harvard University",
+    "country": "United States of America",
+    "top_3_majors": ["Economics", "Computer Science", "Political Science"],
+    "gpa_acceptance_rate": {"average_gpa": 3.9, "acceptance_rate": "5%"},
+    "region": "Northeast, USA",
+    "city_type": "Urban (Cambridge, MA)",
+    "climate": "Humid continental",
+    "tuition": {"annual_usd": 55500, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "California Institute of Technology",
+    "country": "United States of America",
+    "top_3_majors": ["Physics", "Engineering", "Computer Science"],
+    "gpa_acceptance_rate": {"average_gpa": 3.95, "acceptance_rate": "7%"},
+    "region": "West, USA",
+    "city_type": "Suburban (Pasadena, CA)",
+    "climate": "Mediterranean",
+    "tuition": {"annual_usd": 58500, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Massachusetts Institute of Technology",
+    "country": "United States of America",
+    "top_3_majors": ["Engineering", "Computer Science", "Mathematics"],
+    "gpa_acceptance_rate": {"average_gpa": 3.9, "acceptance_rate": "7%"},
+    "region": "Northeast, USA",
+    "city_type": "Urban (Cambridge, MA)",
+    "climate": "Humid continental",
+    "tuition": {"annual_usd": 55800, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Stanford University",
+    "country": "United States of America",
+    "top_3_majors": ["Computer Science", "Engineering", "Business"],
+    "gpa_acceptance_rate": {"average_gpa": 3.95, "acceptance_rate": "5%"},
+    "region": "West, USA",
+    "city_type": "Suburban (Stanford, CA)",
+    "climate": "Mediterranean",
+    "tuition": {"annual_usd": 57000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Princeton University",
+    "country": "United States of America",
+    "top_3_majors": ["Economics", "Public Policy", "Computer Science"],
+    "gpa_acceptance_rate": {"average_gpa": 3.85, "acceptance_rate": "6%"},
+    "region": "Northeast, USA",
+    "city_type": "Suburban (Princeton, NJ)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 56000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of Cambridge",
+    "country": "United Kingdom",
+    "top_3_majors": ["Natural Sciences", "Engineering", "Law"],
+    "gpa_acceptance_rate": {"average_gpa": 3.8, "acceptance_rate": "21%"},
+    "region": "East of England",
+    "city_type": "Historic City (Cambridge)",
+    "climate": "Temperate oceanic",
+    "tuition": {"annual_usd": 33000, "currency": "GBP (varies by course)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 20 hrs/week for int'l students"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of Oxford",
+    "country": "United Kingdom",
+    "top_3_majors": ["Philosophy, Politics and Economics (PPE)", "Medicine", "Law"],
+    "gpa_acceptance_rate": {"average_gpa": 3.85, "acceptance_rate": "17%"},
+    "region": "South East England",
+    "city_type": "Historic City (Oxford)",
+    "climate": "Temperate oceanic",
+    "tuition": {"annual_usd": 35000, "currency": "GBP (varies by course)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 20 hrs/week for int'l students"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of California, Berkeley",
+    "country": "United States of America",
+    "top_3_majors": ["Computer Science", "Electrical Engineering", "Business"],
+    "gpa_acceptance_rate": {"average_gpa": 3.7, "acceptance_rate": "16%"},
+    "region": "West, USA",
+    "city_type": "Urban (Berkeley, CA)",
+    "climate": "Mediterranean",
+    "tuition": {"annual_usd": 44000, "currency": "USD (out-of-state)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Imperial College London",
+    "country": "United Kingdom",
+    "top_3_majors": ["Engineering", "Medicine", "Natural Sciences"],
+    "gpa_acceptance_rate": {"average_gpa": 3.75, "acceptance_rate": "14%"},
+    "region": "London",
+    "city_type": "Urban (London)",
+    "climate": "Temperate oceanic",
+    "tuition": {"annual_usd": 38000, "currency": "GBP (varies by course)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 20 hrs/week for int'l students"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Yale University",
+    "country": "United States of America",
+    "top_3_majors": ["Political Science", "Economics", "History"],
+    "gpa_acceptance_rate": {"average_gpa": 3.9, "acceptance_rate": "6%"},
+    "region": "Northeast, USA",
+    "city_type": "Urban (New Haven, CT)",
+    "climate": "Humid continental",
+    "tuition": {"annual_usd": 59000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of California, Los Angeles",
+    "country": "United States of America",
+    "top_3_majors": ["Biology", "Political Science", "Psychology"],
+    "gpa_acceptance_rate": {"average_gpa": 3.7, "acceptance_rate": "12%"},
+    "region": "West, USA",
+    "city_type": "Urban (Los Angeles, CA)",
+    "climate": "Mediterranean",
+    "tuition": {"annual_usd": 43000, "currency": "USD (out-of-state)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of Chicago",
+    "country": "United States of America",
+    "top_3_majors": ["Economics", "Mathematics", "Public Policy"],
+    "gpa_acceptance_rate": {"average_gpa": 3.9, "acceptance_rate": "7%"},
+    "region": "Midwest, USA",
+    "city_type": "Urban (Chicago, IL)",
+    "climate": "Humid continental",
+    "tuition": {"annual_usd": 61000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Johns Hopkins University",
+    "country": "United States of America",
+    "top_3_majors": ["Biomedical Engineering", "Public Health", "International Relations"],
+    "gpa_acceptance_rate": {"average_gpa": 3.85, "acceptance_rate": "11%"},
+    "region": "Northeast, USA",
+    "city_type": "Urban (Baltimore, MD)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 58000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Cornell University",
+    "country": "United States of America",
+    "top_3_majors": ["Engineering", "Business", "Hotel Administration"],
+    "gpa_acceptance_rate": {"average_gpa": 3.8, "acceptance_rate": "11%"},
+    "region": "Northeast, USA",
+    "city_type": "Rural (Ithaca, NY)",
+    "climate": "Humid continental",
+    "tuition": {"annual_usd": 60000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "ETH Zurich – Swiss Federal Institute of Technology Zurich",
+    "country": "Switzerland",
+    "top_3_majors": ["Engineering", "Physics", "Computer Science"],
+    "gpa_acceptance_rate": {"average_gpa": 3.7, "acceptance_rate": "27%"},
+    "region": "Zurich",
+    "city_type": "Urban (Zurich)",
+    "climate": "Oceanic",
+    "tuition": {"annual_usd": 1500, "currency": "CHF (semester fee)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 15 hrs/week for int'l students"},
+    "languages": ["German", "English (some programs)"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of Michigan",
+    "country": "United States of America",
+    "top_3_majors": ["Business", "Engineering", "Political Science"],
+    "gpa_acceptance_rate": {"average_gpa": 3.75, "acceptance_rate": "23%"},
+    "region": "Midwest, USA",
+    "city_type": "College Town (Ann Arbor, MI)",
+    "climate": "Humid continental",
+    "tuition": {"annual_usd": 52000, "currency": "USD (out-of-state)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of Toronto",
+    "country": "Canada",
+    "top_3_majors": ["Computer Science", "Life Sciences", "Business"],
+    "gpa_acceptance_rate": {"average_gpa": 3.6, "acceptance_rate": "43%"},
+    "region": "Ontario",
+    "city_type": "Urban (Toronto)",
+    "climate": "Humid continental",
+    "tuition": {"annual_usd": 45000, "currency": "CAD (international)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 20 hrs/week for int'l students"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Columbia University",
+    "country": "United States of America",
+    "top_3_majors": ["Economics", "Political Science", "Computer Science"],
+    "gpa_acceptance_rate": {"average_gpa": 3.9, "acceptance_rate": "6%"},
+    "region": "Northeast, USA",
+    "city_type": "Urban (New York, NY)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 64000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of Pennsylvania",
+    "country": "United States of America",
+    "top_3_majors": ["Finance", "Nursing", "Economics"],
+    "gpa_acceptance_rate": {"average_gpa": 3.85, "acceptance_rate": "8%"},
+    "region": "Northeast, USA",
+    "city_type": "Urban (Philadelphia, PA)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 61000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Carnegie Mellon University",
+    "country": "United States of America",
+    "top_3_majors": ["Computer Science", "Engineering", "Drama"],
+    "gpa_acceptance_rate": {"average_gpa": 3.8, "acceptance_rate": "17%"},
+    "region": "Northeast, USA",
+    "city_type": "Urban (Pittsburgh, PA)",
+    "climate": "Humid continental",
+    "tuition": {"annual_usd": 59000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of Hong Kong",
+    "country": "Hong Kong",
+    "top_3_majors": ["Business", "Medicine", "Law"],
+    "gpa_acceptance_rate": {"average_gpa": 3.5, "acceptance_rate": "40%"},
+    "region": "Hong Kong Island",
+    "city_type": "Urban (Hong Kong)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 22000, "currency": "HKD (local)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 20 hrs/week for int'l students"},
+    "languages": ["English", "Cantonese"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University College London",
+    "country": "United Kingdom",
+    "top_3_majors": ["Architecture", "Medicine", "Economics"],
+    "gpa_acceptance_rate": {"average_gpa": 3.7, "acceptance_rate": "48%"},
+    "region": "London",
+    "city_type": "Urban (London)",
+    "climate": "Temperate oceanic",
+    "tuition": {"annual_usd": 29000, "currency": "GBP (international)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 20 hrs/week for int'l students"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of Washington",
+    "country": "United States of America",
+    "top_3_majors": ["Computer Science", "Engineering", "Business"],
+    "gpa_acceptance_rate": {"average_gpa": 3.75, "acceptance_rate": "53%"},
+    "region": "West, USA",
+    "city_type": "Urban (Seattle, WA)",
+    "climate": "Marine west coast",
+    "tuition": {"annual_usd": 39000, "currency": "USD (out-of-state)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Duke University",
+    "country": "United States of America",
+    "top_3_majors": ["Economics", "Public Policy", "Biology"],
+    "gpa_acceptance_rate": {"average_gpa": 3.85, "acceptance_rate": "8%"},
+    "region": "Southeast, USA",
+    "city_type": "Suburban (Durham, NC)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 60000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Northwestern University",
+    "country": "United States of America",
+    "top_3_majors": ["Journalism", "Engineering", "Economics"],
+    "gpa_acceptance_rate": {"average_gpa": 3.9, "acceptance_rate": "9%"},
+    "region": "Midwest, USA",
+    "city_type": "Suburban (Evanston, IL)",
+    "climate": "Humid continental",
+    "tuition": {"annual_usd": 60000, "currency": "USD"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of Tokyo",
+    "country": "Japan",
+    "top_3_majors": ["Engineering", "Natural Sciences", "Economics"],
+    "gpa_acceptance_rate": {"average_gpa": 3.5, "acceptance_rate": "34%"},
+    "region": "Kanto",
+    "city_type": "Urban (Tokyo)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 5000, "currency": "JPY (national)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 28 hrs/week for int'l students"},
+    "languages": ["Japanese", "English (some programs)"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Georgia Institute of Technology",
+    "country": "United States of America",
+    "top_3_majors": ["Engineering", "Computer Science", "Business"],
+    "gpa_acceptance_rate": {"average_gpa": 3.8, "acceptance_rate": "21%"},
+    "region": "Southeast, USA",
+    "city_type": "Urban (Atlanta, GA)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 33000, "currency": "USD (out-of-state)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "Pohang University of Science and Technology",
+    "country": "South Korea",
+    "top_3_majors": ["Engineering", "Materials Science", "Computer Science"],
+    "gpa_acceptance_rate": {"average_gpa": 3.6, "acceptance_rate": "25%"},
+    "region": "Gyeongsangbuk-do",
+    "city_type": "Suburban (Pohang)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 8000, "currency": "KRW (international)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 20 hrs/week for int'l students"},
+    "languages": ["Korean", "English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of California, Santa Barbara",
+    "country": "United States of America",
+    "top_3_majors": ["Environmental Science", "Physics", "Economics"],
+    "gpa_acceptance_rate": {"average_gpa": 3.7, "acceptance_rate": "32%"},
+    "region": "West, USA",
+    "city_type": "Suburban (Santa Barbara, CA)",
+    "climate": "Mediterranean",
+    "tuition": {"annual_usd": 44000, "currency": "USD (out-of-state)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of British Columbia",
+    "country": "Canada",
+    "top_3_majors": ["Business", "Computer Science", "Forestry"],
+    "gpa_acceptance_rate": {"average_gpa": 3.6, "acceptance_rate": "52%"},
+    "region": "British Columbia",
+    "city_type": "Urban (Vancouver)",
+    "climate": "Oceanic",
+    "tuition": {"annual_usd": 42000, "currency": "CAD (international)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "Up to 20 hrs/week for int'l students"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of North Carolina at Chapel Hill",
+    "country": "United States of America",
+    "top_3_majors": ["Business", "Journalism", "Biology"],
+    "gpa_acceptance_rate": {"average_gpa": 3.7, "acceptance_rate": "23%"},
+    "region": "Southeast, USA",
+    "city_type": "College Town (Chapel Hill, NC)",
+    "climate": "Humid subtropical",
+    "tuition": {"annual_usd": 37000, "currency": "USD (out-of-state)"},
+    "scholarships_available": true,
+    "part_time_job_support": {"on_campus_jobs": true, "off_campus_work_permit": "CPT/OPT"},
+    "languages": ["English"],
+    "prep_year_required": false,
+    "yok_equality": true
+  },
+  {
+    "name": "University of California, San Diego",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Illinois at Urbana-Champaign",
+    "country": "United States of America"
+  },
+  {
+    "name": "National University of Singapore",
+    "country": "Singapore"
+  },
+  {
+    "name": "McGill University",
+    "country": "Canada"
+  },
+  {
+    "name": "University of Melbourne",
+    "country": "Australia"
+  },
+  {
+    "name": "Peking University",
+    "country": "China"
+  },
+  {
+    "name": "Washington University in St Louis",
+    "country": "United States of America"
+  },
+  {
+    "name": "École Polytechnique",
+    "country": "France"
+  },
+  {
+    "name": "University of Edinburgh",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Hong Kong University of Science and Technology",
+    "country": "Hong Kong"
+  },
+  {
+    "name": "École Normale Supérieure",
+    "country": "France"
+  },
+  {
+    "name": "Australian National University",
+    "country": "Australia"
+  },
+  {
+    "name": "Karolinska Institute",
+    "country": "Sweden"
+  },
+  {
+    "name": "University of Göttingen",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Wisconsin",
+    "country": "United States of America"
+  },
+  {
+    "name": "Rice University",
+    "country": "United States of America"
+  },
+  {
+    "name": "École Polytechnique Fédérale de Lausanne",
+    "country": "Switzerland"
+  },
+  {
+    "name": "University of California, Irvine",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Science and Technology of China",
+    "country": "China"
+  },
+  {
+    "name": "Vanderbilt University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Minnesota",
+    "country": "United States of America"
+  },
+  {
+    "name": "Tufts University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of California, Davis",
+    "country": "United States of America"
+  },
+  {
+    "name": "Brown University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Massachusetts",
+    "country": "United States of America"
+  },
+  {
+    "name": "Kyoto University",
+    "country": "Japan"
+  },
+  {
+    "name": "Tsinghua University",
+    "country": "China"
+  },
+  {
+    "name": "Boston University",
+    "country": "United States of America"
+  },
+  {
+    "name": "New York University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Emory University",
+    "country": "United States of America"
+  },
+  {
+    "name": "LMU Munich",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Notre Dame",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Pittsburgh",
+    "country": "United States of America"
+  },
+  {
+    "name": "Case Western Reserve University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Ohio State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Colorado Boulder",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Bristol",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of California, Santa Cruz",
+    "country": "United States of America"
+  },
+  {
+    "name": "Yeshiva University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Sydney",
+    "country": "Australia"
+  },
+  {
+    "name": "University of Virginia",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Adelaide",
+    "country": "Australia"
+  },
+  {
+    "name": "University of Southern California",
+    "country": "United States of America"
+  },
+  {
+    "name": "William & Mary",
+    "country": "United States of America"
+  },
+  {
+    "name": "Trinity College Dublin",
+    "country": "Republic of Ireland"
+  },
+  {
+    "name": "King's College London",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Stony Brook University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Korea Advanced Institute of Science and Technology (KAIST)",
+    "country": "South Korea"
+  },
+  {
+    "name": "University of Sussex",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "The University of Queensland",
+    "country": "Australia"
+  },
+  {
+    "name": "University of York",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Heidelberg University",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Utah",
+    "country": "United States of America"
+  },
+  {
+    "name": "Durham University",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "London School of Economics and Political Science",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Manchester",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Royal Holloway, University of London",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Lund University",
+    "country": "Sweden"
+  },
+  {
+    "name": "University of Southampton",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Zurich",
+    "country": "Switzerland"
+  },
+  {
+    "name": "Wake Forest University",
+    "country": "United States of America"
+  },
+  {
+    "name": "McMaster University",
+    "country": "Canada"
+  },
+  {
+    "name": "University College Dublin",
+    "country": "Republic of Ireland"
+  },
+  {
+    "name": "George Washington University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Arizona",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Basel",
+    "country": "Switzerland"
+  },
+  {
+    "name": "University of Maryland, College Park",
+    "country": "United States of America"
+  },
+  {
+    "name": "Dartmouth College",
+    "country": "United States of America"
+  },
+  {
+    "name": "École Normale Supérieure de Lyon",
+    "country": "France"
+  },
+  {
+    "name": "Technical University of Munich",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Helsinki",
+    "country": "Finland"
+  },
+  {
+    "name": "University of St Andrews",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Rensselaer Polytechnic Institute",
+    "country": "United States of America"
+  },
+  {
+    "name": "Rutgers, the State University of New Jersey",
+    "country": "United States of America"
+  },
+  {
+    "name": "Purdue University",
+    "country": "United States of America"
+  },
+  {
+    "name": "National Tsing Hua University",
+    "country": "Taiwan"
+  },
+  {
+    "name": "University of Cape Town",
+    "country": "South Africa"
+  },
+  {
+    "name": "Pennsylvania State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Seoul National University",
+    "country": "South Korea"
+  },
+  {
+    "name": "Hong Kong Baptist University",
+    "country": "Hong Kong"
+  },
+  {
+    "name": "Bilkent University",
+    "country": "Turkey"
+  },
+  {
+    "name": "Tokyo Institute of Technology",
+    "country": "Japan"
+  },
+  {
+    "name": "Eindhoven University of Technology",
+    "country": "Netherlands"
+  },
+  {
+    "name": "National Taiwan University",
+    "country": "Taiwan"
+  },
+  {
+    "name": "University of Hawai'i at Mānoa",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of California, Riverside",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Geneva",
+    "country": "Switzerland"
+  },
+  {
+    "name": "KU Leuven",
+    "country": "Belgium"
+  },
+  {
+    "name": "Nanjing University",
+    "country": "China"
+  },
+  {
+    "name": "Queen Mary University of London",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Michigan State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Technical University of Denmark",
+    "country": "Denmark"
+  },
+  {
+    "name": "Ghent University",
+    "country": "Belgium"
+  },
+  {
+    "name": "Lancaster University",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Leiden University",
+    "country": "Netherlands"
+  },
+  {
+    "name": "University of Alberta",
+    "country": "Canada"
+  },
+  {
+    "name": "University of Glasgow",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Stockholm University",
+    "country": "Sweden"
+  },
+  {
+    "name": "Osaka University",
+    "country": "Japan"
+  },
+  {
+    "name": "University of Victoria",
+    "country": "Canada"
+  },
+  {
+    "name": "Tohoku University",
+    "country": "Japan"
+  },
+  {
+    "name": "University of Freiburg",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Iowa",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Bergen",
+    "country": "Norway"
+  },
+  {
+    "name": "University of Lausanne",
+    "country": "Switzerland"
+  },
+  {
+    "name": "University of Sheffield",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Montreal",
+    "country": "Canada"
+  },
+  {
+    "name": "VU University Amsterdam",
+    "country": "Netherlands"
+  },
+  {
+    "name": "Pierre and Marie Curie University",
+    "country": "France"
+  },
+  {
+    "name": "University of Dundee",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Barcelona",
+    "country": "Spain"
+  },
+  {
+    "name": "Utrecht University",
+    "country": "Netherlands"
+  },
+  {
+    "name": "Wageningen University and Research Center",
+    "country": "Netherlands"
+  },
+  {
+    "name": "University of Auckland",
+    "country": "New Zealand"
+  },
+  {
+    "name": "University of Birmingham",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Alexandria University",
+    "country": "Egypt"
+  },
+  {
+    "name": "Uppsala University",
+    "country": "Sweden"
+  },
+  {
+    "name": "Hong Kong Polytechnic University",
+    "country": "Hong Kong"
+  },
+  {
+    "name": "University of Aberdeen",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Delft University of Technology",
+    "country": "Netherlands"
+  },
+  {
+    "name": "Birkbeck, University of London",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Newcastle University",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of New South Wales",
+    "country": "Australia"
+  },
+  {
+    "name": "Pompeu Fabra University",
+    "country": "Spain"
+  },
+  {
+    "name": "Indiana University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Iowa State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Georgia Health Sciences University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Erasmus University Rotterdam",
+    "country": "Netherlands"
+  },
+  {
+    "name": "University of Delaware",
+    "country": "United States of America"
+  },
+  {
+    "name": "Arizona State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Boston College",
+    "country": "United States of America"
+  },
+  {
+    "name": "National Sun Yat-Sen University",
+    "country": "Taiwan"
+  },
+  {
+    "name": "Georgetown University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Amsterdam",
+    "country": "Netherlands"
+  },
+  {
+    "name": "University of Liverpool",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Aarhus University",
+    "country": "Denmark"
+  },
+  {
+    "name": "University of Leeds",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Würzburg",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Groningen",
+    "country": "Netherlands"
+  },
+  {
+    "name": "Sun Yat-sen University",
+    "country": "China"
+  },
+  {
+    "name": "Goethe University Frankfurt",
+    "country": "Germany"
+  },
+  {
+    "name": "Bielefeld University",
+    "country": "Germany"
+  },
+  {
+    "name": "Nanyang Technological University",
+    "country": "Singapore"
+  },
+  {
+    "name": "University of East Anglia",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Nottingham",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Copenhagen",
+    "country": "Denmark"
+  },
+  {
+    "name": "Humboldt University of Berlin",
+    "country": "Germany"
+  },
+  {
+    "name": "Monash University",
+    "country": "Australia"
+  },
+  {
+    "name": "University of Bonn",
+    "country": "Germany"
+  },
+  {
+    "name": "National Chiao Tung University",
+    "country": "Taiwan"
+  },
+  {
+    "name": "RWTH Aachen University",
+    "country": "Germany"
+  },
+  {
+    "name": "Middle East Technical University",
+    "country": "Turkey"
+  },
+  {
+    "name": "University of Exeter",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Twente",
+    "country": "Netherlands"
+  },
+  {
+    "name": "University of Konstanz",
+    "country": "Germany"
+  },
+  {
+    "name": "Karlsruhe Institute of Technology",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Innsbruck",
+    "country": "Austria"
+  },
+  {
+    "name": "University of Tübingen",
+    "country": "Germany"
+  },
+  {
+    "name": "Drexel University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Cincinnati",
+    "country": "United States of America"
+  },
+  {
+    "name": "Yonsei University",
+    "country": "South Korea"
+  },
+  {
+    "name": "Dalhousie University",
+    "country": "Canada"
+  },
+  {
+    "name": "KTH Royal Institute of Technology",
+    "country": "Sweden"
+  },
+  {
+    "name": "University of Vienna",
+    "country": "Austria"
+  },
+  {
+    "name": "Kent State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Illinois at Chicago",
+    "country": "United States of America"
+  },
+  {
+    "name": "Zhejiang University",
+    "country": "China"
+  },
+  {
+    "name": "Simon Fraser University",
+    "country": "Canada"
+  },
+  {
+    "name": "Swedish University of Agricultural Sciences",
+    "country": "Sweden"
+  },
+  {
+    "name": "University of Wisconsin-Madison",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Texas at Austin",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Rochester",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Bern",
+    "country": "Switzerland"
+  },
+  {
+    "name": "Hebrew University of Jerusalem",
+    "country": "Israel"
+  },
+  {
+    "name": "University of Florida",
+    "country": "United States of America"
+  },
+  {
+    "name": "Brandeis University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Chinese University of Hong Kong",
+    "country": "Hong Kong"
+  },
+  {
+    "name": "Free University of Berlin",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Warwick",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Radboud University Nijmegen",
+    "country": "Netherlands"
+  },
+  {
+    "name": "Medical University of South Carolina",
+    "country": "United States of America"
+  },
+  {
+    "name": "Texas A&M University",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Reading",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Tel Aviv University",
+    "country": "Israel"
+  },
+  {
+    "name": "Paris Diderot University – Paris 7",
+    "country": "France"
+  },
+  {
+    "name": "Université Catholique de Louvain",
+    "country": "Belgium"
+  },
+  {
+    "name": "University of Miami",
+    "country": "United States of America"
+  },
+  {
+    "name": "Queen's University",
+    "country": "Canada"
+  },
+  {
+    "name": "University of São Paulo",
+    "country": "Brazil"
+  },
+  {
+    "name": "University of Oslo",
+    "country": "Norway"
+  },
+  {
+    "name": "University of Ottawa",
+    "country": "Canada"
+  },
+  {
+    "name": "University of Western Australia",
+    "country": "Australia"
+  },
+  {
+    "name": "City University of Hong Kong",
+    "country": "Hong Kong"
+  },
+  {
+    "name": "Maastricht University",
+    "country": "Netherlands"
+  },
+  {
+    "name": "University of Leicester",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Autonomous University of Barcelona",
+    "country": "Spain"
+  },
+  {
+    "name": "Cardiff University",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Colorado School of Mines",
+    "country": "United States of America"
+  },
+  {
+    "name": "Nagoya University",
+    "country": "Japan"
+  },
+  {
+    "name": "Northeastern University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Technion Israel Institute of Technology",
+    "country": "Israel"
+  },
+  {
+    "name": "Tulane University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Ulm University",
+    "country": "Germany"
+  },
+  {
+    "name": "Umeå University",
+    "country": "Sweden"
+  },
+  {
+    "name": "University at Buffalo",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Essex",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Georgia",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Gothenburg",
+    "country": "Sweden"
+  },
+  {
+    "name": "University of Medicine and Dentistry of New Jersey",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Otago",
+    "country": "New Zealand"
+  },
+  {
+    "name": "University of South Carolina",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Strasbourg",
+    "country": "France"
+  },
+  {
+    "name": "University of Waterloo",
+    "country": "Canada"
+  },
+  {
+    "name": "University of Western Ontario",
+    "country": "Canada"
+  },
+  {
+    "name": "Université Libre de Bruxelles",
+    "country": "Belgium"
+  },
+  {
+    "name": "Carleton University",
+    "country": "Canada"
+  },
+  {
+    "name": "Chalmers University of Technology",
+    "country": "Sweden"
+  },
+  {
+    "name": "Colorado State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Creighton University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Fudan University",
+    "country": "China"
+  },
+  {
+    "name": "Korea University",
+    "country": "South Korea"
+  },
+  {
+    "name": "Macquarie University",
+    "country": "Australia"
+  },
+  {
+    "name": "State University of New York Albany",
+    "country": "United States of America"
+  },
+  {
+    "name": "Tokyo Metropolitan University",
+    "country": "Japan"
+  },
+  {
+    "name": "University of Bologna",
+    "country": "Italy"
+  },
+  {
+    "name": "University of Calgary",
+    "country": "Canada"
+  },
+  {
+    "name": "University of Hamburg",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Milan",
+    "country": "Italy"
+  },
+  {
+    "name": "University of Milan-Bicocca",
+    "country": "Italy"
+  },
+  {
+    "name": "University of Missouri",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Padua",
+    "country": "Italy"
+  },
+  {
+    "name": "University of Trieste",
+    "country": "Italy"
+  },
+  {
+    "name": "Bangor University",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Brunel University London",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Johannes Kepler University of Linz",
+    "country": "Austria"
+  },
+  {
+    "name": "Kyushu University",
+    "country": "Japan"
+  },
+  {
+    "name": "Norwegian University of Science and Technology",
+    "country": "Norway"
+  },
+  {
+    "name": "Queen's University Belfast",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Ruhr University Bochum",
+    "country": "Germany"
+  },
+  {
+    "name": "Stellenbosch University",
+    "country": "South Africa"
+  },
+  {
+    "name": "Tilburg University",
+    "country": "Netherlands"
+  },
+  {
+    "name": "TU Dresden",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Bath",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Graz",
+    "country": "Austria"
+  },
+  {
+    "name": "University of Kiel",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Southern Denmark",
+    "country": "Denmark"
+  },
+  {
+    "name": "University of Texas at Dallas",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of the Witwatersrand",
+    "country": "South Africa"
+  },
+  {
+    "name": "University of Tsukuba",
+    "country": "Japan"
+  },
+  {
+    "name": "University of Wollongong",
+    "country": "Australia"
+  },
+  {
+    "name": "Victoria University of Wellington",
+    "country": "New Zealand"
+  },
+  {
+    "name": "Virginia Polytechnic Institute and State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Wayne State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Aberystwyth University",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Autonomous University of Madrid",
+    "country": "Spain"
+  },
+  {
+    "name": "Hokkaido University",
+    "country": "Japan"
+  },
+  {
+    "name": "Istanbul Technical University",
+    "country": "Turkey"
+  },
+  {
+    "name": "Lomonosov Moscow State University",
+    "country": "Russian Federation"
+  },
+  {
+    "name": "Montpellier University",
+    "country": "France"
+  },
+  {
+    "name": "Queensland University of Technology",
+    "country": "Australia"
+  },
+  {
+    "name": "State University of Campinas",
+    "country": "Brazil"
+  },
+  {
+    "name": "Technical University of Darmstadt",
+    "country": "Germany"
+  },
+  {
+    "name": "Tokyo Medical and Dental University (TMDU)",
+    "country": "Japan"
+  },
+  {
+    "name": "UiT The Arctic University of Norway",
+    "country": "Norway"
+  },
+  {
+    "name": "University of Antwerp",
+    "country": "Belgium"
+  },
+  {
+    "name": "University of Crete",
+    "country": "Greece"
+  },
+  {
+    "name": "University of Guelph",
+    "country": "Canada"
+  },
+  {
+    "name": "University of Iceland",
+    "country": "Iceland"
+  },
+  {
+    "name": "University of Kansas",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Kentucky",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Münster",
+    "country": "Germany"
+  },
+  {
+    "name": "University of Newcastle",
+    "country": "Australia"
+  },
+  {
+    "name": "University of Texas at San Antonio",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Trento",
+    "country": "Italy"
+  },
+  {
+    "name": "York University",
+    "country": "Canada"
+  },
+  {
+    "name": "Aalborg University",
+    "country": "Denmark"
+  },
+  {
+    "name": "Aalto University",
+    "country": "Finland"
+  },
+  {
+    "name": "Bar-Ilan University",
+    "country": "Israel"
+  },
+  {
+    "name": "Binghamton University, State University of New York",
+    "country": "United States of America"
+  },
+  {
+    "name": "Boğaziçi University",
+    "country": "Turkey"
+  },
+  {
+    "name": "Charles Darwin University",
+    "country": "Australia"
+  },
+  {
+    "name": "Charles University in Prague",
+    "country": "Czech Republic"
+  },
+  {
+    "name": "George Mason University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Indian Institute of Technology Bombay",
+    "country": "India"
+  },
+  {
+    "name": "Jagiellonian University",
+    "country": "Poland"
+  },
+  {
+    "name": "Keele University",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Keio University",
+    "country": "Japan"
+  },
+  {
+    "name": "Lehigh University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Linköping University",
+    "country": "Sweden"
+  },
+  {
+    "name": "National Taiwan University of Science and Technology (Taiwan Tech)",
+    "country": "Taiwan"
+  },
+  {
+    "name": "Plymouth University",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Polytechnic University of Milan",
+    "country": "Italy"
+  },
+  {
+    "name": "Sapienza University of Rome",
+    "country": "Italy"
+  },
+  {
+    "name": "Shanghai Jiao Tong University",
+    "country": "China"
+  },
+  {
+    "name": "Sharif University of Technology",
+    "country": "Iran"
+  },
+  {
+    "name": "Sungkyunkwan University (SKKU)",
+    "country": "South Korea"
+  },
+  {
+    "name": "University College Cork",
+    "country": "Republic of Ireland"
+  },
+  {
+    "name": "University of Aveiro",
+    "country": "Portugal"
+  },
+  {
+    "name": "University of Canterbury",
+    "country": "New Zealand"
+  },
+  {
+    "name": "University of Eastern Finland",
+    "country": "Finland"
+  },
+  {
+    "name": "University of Ferrara",
+    "country": "Italy"
+  },
+  {
+    "name": "University of Hertfordshire",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Houston",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Hull",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Liège",
+    "country": "Belgium"
+  },
+  {
+    "name": "University of Manitoba",
+    "country": "Canada"
+  },
+  {
+    "name": "University of Maryland, Baltimore County",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Modena and Reggio Emilia",
+    "country": "Italy"
+  },
+  {
+    "name": "University of Oklahoma",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Pisa",
+    "country": "Italy"
+  },
+  {
+    "name": "University of Porto",
+    "country": "Portugal"
+  },
+  {
+    "name": "University of South Florida",
+    "country": "United States of America"
+  },
+  {
+    "name": "University of Stirling",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Surrey",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "University of Tampere",
+    "country": "Finland"
+  },
+  {
+    "name": "University of Tasmania",
+    "country": "Australia"
+  },
+  {
+    "name": "University of Valencia",
+    "country": "Spain"
+  },
+  {
+    "name": "University of Waikato",
+    "country": "New Zealand"
+  },
+  {
+    "name": "University of Warsaw",
+    "country": "Poland"
+  },
+  {
+    "name": "Vienna University of Technology",
+    "country": "Austria"
+  },
+  {
+    "name": "Vrije Universiteit Brussel",
+    "country": "Belgium"
+  },
+  {
+    "name": "Washington State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Aston University",
+    "country": "United Kingdom"
+  },
+  {
+    "name": "Auburn University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Clemson University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Curtin University",
+    "country": "Australia"
+  },
+  {
+    "name": "Deakin University",
+    "country": "Australia"
+  },
+  {
+    "name": "Flinders University",
+    "country": "Australia"
+  },
+  {
+    "name": "Georgia State University",
+    "country": "United States of America"
+  },
+  {
+    "name": "Griffith University",
+    "country": "Australia"
+  },
+  {
+    "name": "Harbin Institute of Technology",
+    "country": "China"
+  },
+  {
+    "name": "Heriot-Watt University",
+    "country": "United Kingdom"
+  },
+     {
+      "name": "Hiroshima University",
+      "country": "Japan"
+    },
+    {
+      "name": "Kansas State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Kobe University",
+      "country": "Japan"
+    },
+    {
+      "name": "Kyung Hee University",
+      "country": "South Korea"
+    },
+    {
+      "name": "La Trobe University",
+      "country": "Australia"
+    },
+    {
+      "name": "Leibniz University of Hanover",
+      "country": "Germany"
+    },
+    {
+      "name": "Liverpool John Moores University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Loughborough University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Mahidol University",
+      "country": "Thailand"
+    },
+    {
+      "name": "Massey University",
+      "country": "New Zealand"
+    },
+    {
+      "name": "Michigan Technological University",
+      "country": "United States of America"
+    },
+    {
+      "name": "National Central University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "National Taiwan Ocean University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "National University of Ireland, Galway",
+      "country": "Republic of Ireland"
+    },
+    {
+      "name": "National University of Ireland, Maynooth",
+      "country": "Republic of Ireland"
+    },
+    {
+      "name": "New Jersey Institute of Technology",
+      "country": "United States of America"
+    },
+    {
+      "name": "New University of Lisbon",
+      "country": "Portugal"
+    },
+    {
+      "name": "Old Dominion University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Polytechnic University of Catalonia",
+      "country": "Spain"
+    },
+    {
+      "name": "Polytechnic University of Turin",
+      "country": "Italy"
+    },
+    {
+      "name": "Polytechnic University of Valencia",
+      "country": "Spain"
+    },
+    {
+      "name": "Pontifical Catholic University of Chile",
+      "country": "Chile"
+    },
+    {
+      "name": "Saint Petersburg State University",
+      "country": "Russian Federation"
+    },
+    {
+      "name": "Swansea University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Swinburne University of Technology",
+      "country": "Australia"
+    },
+    {
+      "name": "Tokyo University of Agriculture and Technology",
+      "country": "Japan"
+    },
+    {
+      "name": "University of Bari Aldo Moro",
+      "country": "Italy"
+    },
+    {
+      "name": "University of Coimbra",
+      "country": "Portugal"
+    },
+    {
+      "name": "University of Idaho",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Kent",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Paris North – Paris 13",
+      "country": "France"
+    },
+    {
+      "name": "University of Salento",
+      "country": "Italy"
+    },
+    {
+      "name": "University of South Australia",
+      "country": "Australia"
+    },
+    {
+      "name": "University of Strathclyde",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Tartu",
+      "country": "Estonia"
+    },
+    {
+      "name": "University of Turku",
+      "country": "Finland"
+    },
+    {
+      "name": "University of Wyoming",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Zaragoza",
+      "country": "Spain"
+    },
+    {
+      "name": "Waseda University",
+      "country": "Japan"
+    },
+    {
+      "name": "Wuhan University",
+      "country": "China"
+    },
+    {
+      "name": "Yuan Ze University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "Paris-Sud University",
+      "country": "France"
+    },
+    {
+      "name": "Joseph Fourier University",
+      "country": "France"
+    },
+    {
+      "name": "Johannes Gutenberg University of Mainz",
+      "country": "Germany"
+    },
+    {
+      "name": "St George's, University of London",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Erlangen-Nuremberg",
+      "country": "Germany"
+    },
+    {
+      "name": "Florida Institute of Technology",
+      "country": "United States of America"
+    },
+    {
+      "name": "Indian Institute of Technology Kharagpur",
+      "country": "India"
+    },
+    {
+      "name": "Koç University",
+      "country": "Turkey"
+    },
+    {
+      "name": "Laval University",
+      "country": "Canada"
+    },
+    {
+      "name": "Mines ParisTech",
+      "country": "France"
+    },
+    {
+      "name": "National Research Nuclear University MePhI",
+      "country": "Russian Federation"
+    },
+    {
+      "name": "University of Connecticut",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Oregon",
+      "country": "United States of America"
+    },
+    {
+      "name": "Bayreuth University",
+      "country": "Germany"
+    },
+    {
+      "name": "Oregon State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Montana",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Turin",
+      "country": "Italy"
+    },
+    {
+      "name": "Claude Bernard University Lyon 1",
+      "country": "France"
+    },
+    {
+      "name": "King Abdulaziz University",
+      "country": "Saudi Arabia"
+    },
+    {
+      "name": "Medical University of Vienna",
+      "country": "Austria"
+    },
+    {
+      "name": "Murdoch University",
+      "country": "Australia"
+    },
+    {
+      "name": "National Cheng Kung University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "North Carolina State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Renmin University of China",
+      "country": "China"
+    },
+    {
+      "name": "University of Fribourg",
+      "country": "Switzerland"
+    },
+    {
+      "name": "University of Pavia",
+      "country": "Italy"
+    },
+    {
+      "name": "University of Portsmouth",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Vermont",
+      "country": "United States of America"
+    },
+    {
+      "name": "Indian Institute of Technology Roorkee",
+      "country": "India"
+    },
+    {
+      "name": "King Mongkut's University of Technology Thonburi",
+      "country": "Thailand"
+    },
+    {
+      "name": "National Autonomous University of Mexico",
+      "country": "Mexico"
+    },
+    {
+      "name": "Paris Dauphine University",
+      "country": "France"
+    },
+    {
+      "name": "Southern Methodist University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Temple University",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Duisburg-Essen",
+      "country": "Germany"
+    },
+    {
+      "name": "University of Jyväskylä",
+      "country": "Finland"
+    },
+    {
+      "name": "University of KwaZulu-Natal",
+      "country": "South Africa"
+    },
+    {
+      "name": "University of Minho",
+      "country": "Portugal"
+    },
+    {
+      "name": "University of Technology Sydney",
+      "country": "Australia"
+    },
+    {
+      "name": "University of the Andes, Colombia",
+      "country": "Colombia"
+    },
+    {
+      "name": "University of Vigo",
+      "country": "Spain"
+    },
+    {
+      "name": "Panjab University",
+      "country": "India"
+    },
+    {
+      "name": "University of Cologne",
+      "country": "Germany"
+    },
+    {
+      "name": "University of Nebraska-Lincoln",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Alaska Fairbanks",
+      "country": "United States of America"
+    },
+    {
+      "name": "Wuhan University of Technology",
+      "country": "China"
+    },
+    {
+      "name": "China Medical University, Taiwan",
+      "country": "Taiwan"
+    },
+    {
+      "name": "Hanyang University",
+      "country": "South Korea"
+    },
+    {
+      "name": "Indian Institute of Technology Delhi",
+      "country": "India"
+    },
+    {
+      "name": "Indian Institute of Technology Kanpur",
+      "country": "India"
+    },
+    {
+      "name": "King Saud University",
+      "country": "Saudi Arabia"
+    },
+    {
+      "name": "San Diego State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Florence",
+      "country": "Italy"
+    },
+    {
+      "name": "University of Navarra",
+      "country": "Spain"
+    },
+    {
+      "name": "University of Rovira i Virgili",
+      "country": "Spain"
+    },
+    {
+      "name": "Scuola Normale Superiore di Pisa",
+      "country": "Italy"
+    },
+    {
+      "name": "Syracuse University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Sabancı University",
+      "country": "Turkey"
+    },
+    {
+      "name": "Technical University of Berlin",
+      "country": "Germany"
+    },
+    {
+      "name": "Federico Santa María Technical University",
+      "country": "Chile"
+    },
+    {
+      "name": "University of Bremen",
+      "country": "Germany"
+    },
+    {
+      "name": "University of New Mexico",
+      "country": "United States of America"
+    },
+    {
+      "name": "Indian Institute of Science",
+      "country": "India"
+    },
+    {
+      "name": "Lappeenranta University of Technology",
+      "country": "Finland"
+    },
+    {
+      "name": "University of Macau",
+      "country": "Macau"
+    },
+    {
+      "name": "Illinois Institute of Technology",
+      "country": "United States of America"
+    },
+    {
+      "name": "Novosibirsk State University",
+      "country": "Russian Federation"
+    },
+    {
+      "name": "University of Marrakech Cadi Ayyad",
+      "country": "Morocco"
+    },
+    {
+      "name": "University of Nebraska Medical Center",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Stuttgart",
+      "country": "Germany"
+    },
+    {
+      "name": "Ewha Womans University",
+      "country": "South Korea"
+    },
+    {
+      "name": "Isfahan University of Technology",
+      "country": "Iran"
+    },
+    {
+      "name": "Royal College of Surgeons in Ireland",
+      "country": "Republic of Ireland"
+    },
+    {
+      "name": "University of Lisbon",
+      "country": "Portugal"
+    },
+    {
+      "name": "University of Rome III",
+      "country": "Italy"
+    },
+    {
+      "name": "University of Seoul",
+      "country": "South Korea"
+    },
+    {
+      "name": "Western Sydney University",
+      "country": "Australia"
+    },
+    {
+      "name": "University of Mannheim",
+      "country": "Germany"
+    },
+    {
+      "name": "Scuola Superiore Sant'Anna",
+      "country": "Italy"
+    },
+    {
+      "name": "University of Luxembourg",
+      "country": "Luxembourg"
+    },
+    {
+      "name": "Charité - Universitätsmedizin Berlin",
+      "country": "Germany"
+    },
+    {
+      "name": "Copenhagen Business School",
+      "country": "Denmark"
+    },
+    {
+      "name": "Florida State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Oregon Health and Science University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Paris Descartes University",
+      "country": "France"
+    },
+    {
+      "name": "Peter the Great St Petersburg Polytechnic University",
+      "country": "Russian Federation"
+    },
+    {
+      "name": "Royal Veterinary College",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Rush University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Aix-Marseille University",
+      "country": "France"
+    },
+    {
+      "name": "University of Bordeaux",
+      "country": "France"
+    },
+    {
+      "name": "James Cook University",
+      "country": "Australia"
+    },
+    {
+      "name": "Justus Liebig University Giessen",
+      "country": "Germany"
+    },
+    {
+      "name": "Saint Louis University",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Tennessee, Knoxville",
+      "country": "United States of America"
+    },
+    {
+      "name": "Tomsk Polytechnic University",
+      "country": "Russian Federation"
+    },
+    {
+      "name": "University of Greifswald",
+      "country": "Germany"
+    },
+    {
+      "name": "Gwangju Institute of Science and Technology",
+      "country": "South Korea"
+    },
+    {
+      "name": "University of Hohenheim",
+      "country": "Germany"
+    },
+    {
+      "name": "Kazan Federal University",
+      "country": "Russian Federation"
+    },
+    {
+      "name": "Medical College of Wisconsin",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Naples Federico II",
+      "country": "Italy"
+    },
+    {
+      "name": "Örebro University",
+      "country": "Sweden"
+    },
+    {
+      "name": "Technical University of Dortmund",
+      "country": "Germany"
+    },
+    {
+      "name": "Toulouse 1 Capitole University",
+      "country": "France"
+    },
+    {
+      "name": "VŠB - Technical University of Ostrava",
+      "country": "Czech Republic"
+    },
+    {
+      "name": "University of Cyprus",
+      "country": "Cyprus"
+    },
+    {
+      "name": "University of St Gallen",
+      "country": "Switzerland"
+    },
+    {
+      "name": "Graz University of Technology",
+      "country": "Austria"
+    },
+    {
+      "name": "Instituto Superior Técnico Lisboa",
+      "country": "Portugal"
+    },
+    {
+      "name": "University of Oulu",
+      "country": "Finland"
+    },
+    {
+      "name": "Panthéon-Sorbonne University – Paris 1",
+      "country": "France"
+    },
+    {
+      "name": "University of South Dakota",
+      "country": "United States of America"
+    },
+    {
+      "name": "Lille 2 University – Health and Law",
+      "country": "France"
+    },
+    {
+      "name": "Verona University",
+      "country": "Italy"
+    },
+    {
+      "name": "American University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Bournemouth University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Brescia",
+      "country": "Italy"
+    },
+    {
+      "name": "Brno University of Technology",
+      "country": "Czech Republic"
+    },
+    {
+      "name": "Ca' Foscari University of Venice",
+      "country": "Italy"
+    },
+    {
+      "name": "University of Cagliari",
+      "country": "Italy"
+    },
+    {
+      "name": "Catholic University of the Sacred Heart",
+      "country": "Italy"
+    },
+    {
+      "name": "City University London",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Complutense University of Madrid",
+      "country": "Spain"
+    },
+    {
+      "name": "Concordia University",
+      "country": "Canada"
+    },
+    {
+      "name": "Dublin City University",
+      "country": "Republic of Ireland"
+    },
+    {
+      "name": "East China University of Science and Technology",
+      "country": "China"
+    },
+    {
+      "name": "Florida International University",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Genoa",
+      "country": "Italy"
+    },
+    {
+      "name": "Howard University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Indian Institute of Technology Madras",
+      "country": "India"
+    },
+    {
+      "name": "University of Ioannina",
+      "country": "Greece"
+    },
+    {
+      "name": "Iran University of Science and Technology",
+      "country": "Iran"
+    },
+    {
+      "name": "University of Kaiserslautern",
+      "country": "Germany"
+    },
+    {
+      "name": "Louisiana State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Makerere University",
+      "country": "Uganda"
+    },
+    {
+      "name": "Marche Polytechnic University",
+      "country": "Italy"
+    },
+    {
+      "name": "University of Nantes",
+      "country": "France"
+    },
+    {
+      "name": "National and Kapodistrian University of Athens",
+      "country": "Greece"
+    },
+    {
+      "name": "National Institute of Applied Sciences of Lyon (INSA Lyon)",
+      "country": "France"
+    },
+    {
+      "name": "National Yang-Ming University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "University of Neuchâtel",
+      "country": "Switzerland"
+    },
+    {
+      "name": "University of Nice Sophia Antipolis",
+      "country": "France"
+    },
+    {
+      "name": "The Open University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Oxford Brookes University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Palermo",
+      "country": "Italy"
+    },
+    {
+      "name": "University of Parma",
+      "country": "Italy"
+    },
+    {
+      "name": "RMIT University",
+      "country": "Australia"
+    },
+    {
+      "name": "University of Rome II – Tor Vergata",
+      "country": "Italy"
+    },
+    {
+      "name": "University of San Francisco",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Saskatchewan",
+      "country": "Canada"
+    },
+    {
+      "name": "University of Siena",
+      "country": "Italy"
+    },
+    {
+      "name": "Southern Cross University",
+      "country": "Australia"
+    },
+    {
+      "name": "Tampere University of Technology",
+      "country": "Finland"
+    },
+    {
+      "name": "University of Ulsan",
+      "country": "South Korea"
+    },
+    {
+      "name": "Ulster University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Université du Québec à Montréal",
+      "country": "Canada"
+    },
+    {
+      "name": "Universiti Teknologi Malaysia",
+      "country": "Malaysia"
+    },
+    {
+      "name": "University of Urbino Carlo Bo",
+      "country": "Italy"
+    },
+    {
+      "name": "Xiamen University",
+      "country": "China"
+    },
+    {
+      "name": "American University of Beirut",
+      "country": "Lebanon"
+    },
+    {
+      "name": "Amirkabir University of Technology",
+      "country": "Iran"
+    },
+    {
+      "name": "University of Arkansas",
+      "country": "United States of America"
+    },
+    {
+      "name": "Babeş-Bolyai University",
+      "country": "Romania"
+    },
+    {
+      "name": "University of the Basque Country",
+      "country": "Spain"
+    },
+    {
+      "name": "Bauman Moscow State Technical University",
+      "country": "Russian Federation"
+    },
+    {
+      "name": "Ben-Gurion University of the Negev",
+      "country": "Israel"
+    },
+    {
+      "name": "Blaise Pascal University",
+      "country": "France"
+    },
+    {
+      "name": "University of Burgundy",
+      "country": "France"
+    },
+    {
+      "name": "University of Canberra",
+      "country": "Australia"
+    },
+    {
+      "name": "University of Catania",
+      "country": "Italy"
+    },
+    {
+      "name": "Central Queensland University",
+      "country": "Australia"
+    },
+    {
+      "name": "University of Chile",
+      "country": "Chile"
+    },
+    {
+      "name": "China Agricultural University",
+      "country": "China"
+    },
+    {
+      "name": "Chung-Ang University",
+      "country": "South Korea"
+    },
+    {
+      "name": "Czech Technical University in Prague",
+      "country": "Czech Republic"
+    },
+    {
+      "name": "De Montfort University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "East China Normal University",
+      "country": "China"
+    },
+    {
+      "name": "Edith Cowan University",
+      "country": "Australia"
+    },
+    {
+      "name": "Federal University of Rio de Janeiro",
+      "country": "Brazil"
+    },
+    {
+      "name": "University of Granada",
+      "country": "Spain"
+    },
+    {
+      "name": "University of Haifa",
+      "country": "Israel"
+    },
+    {
+      "name": "Huazhong University of Science and Technology",
+      "country": "China"
+    },
+    {
+      "name": "Indian Institute of Technology Guwahati",
+      "country": "India"
+    },
+    {
+      "name": "Jadavpur University",
+      "country": "India"
+    },
+    {
+      "name": "Kanazawa University",
+      "country": "Japan"
+    },
+    {
+      "name": "King Fahd University of Petroleum and Minerals",
+      "country": "Saudi Arabia"
+    },
+    {
+      "name": "University of La Laguna",
+      "country": "Spain"
+    },
+    {
+      "name": "University of Limerick",
+      "country": "Republic of Ireland"
+    },
+    {
+      "name": "Manchester Metropolitan University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Maribor",
+      "country": "Slovenia"
+    },
+    {
+      "name": "Masaryk University",
+      "country": "Czech Republic"
+    },
+    {
+      "name": "Memorial University of Newfoundland",
+      "country": "Canada"
+    },
+    {
+      "name": "Missouri University of Science and Technology",
+      "country": "United States of America"
+    },
+    {
+      "name": "Montana State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Monterrey Institute of Technology and Higher Education",
+      "country": "Mexico"
+    },
+    {
+      "name": "National Taiwan Normal University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "National Technical University of Athens",
+      "country": "Greece"
+    },
+    {
+      "name": "New Mexico State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of North Carolina at Greensboro",
+      "country": "United States of America"
+    },
+    {
+      "name": "Oklahoma State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "Osaka City University",
+      "country": "Japan"
+    },
+    {
+      "name": "Otto von Guericke University of Magdeburg",
+      "country": "Germany"
+    },
+    {
+      "name": "University of Oviedo",
+      "country": "Spain"
+    },
+    {
+      "name": "Palacký University in Olomouc",
+      "country": "Czech Republic"
+    },
+    {
+      "name": "Pontifical Catholic University of Rio de Janeiro (PUC-Rio)",
+      "country": "Brazil"
+    },
+    {
+      "name": "Portland State University",
+      "country": "United States of America"
+    },
+    {
+      "name": "University of Pretoria",
+      "country": "South Africa"
+    },
+    {
+      "name": "Pusan National University",
+      "country": "South Korea"
+    },
+    {
+      "name": "Quaid-i-azam University",
+      "country": "Pakistan"
+    },
+    {
+      "name": "University of Regina",
+      "country": "Canada"
+    },
+    {
+      "name": "University of Rennes 1",
+      "country": "France"
+    },
+    {
+      "name": "University of Salamanca",
+      "country": "Spain"
+    },
+    {
+      "name": "University of Santiago de Compostela",
+      "country": "Spain"
+    },
+    {
+      "name": "Semmelweis University",
+      "country": "Hungary"
+    },
+    {
+      "name": "University of Seville",
+      "country": "Spain"
+    },
+    {
+      "name": "Université de Sherbrooke",
+      "country": "Canada"
+    },
+    {
+      "name": "Soochow University",
+      "country": "China"
+    },
+    {
+      "name": "South China University of Technology",
+      "country": "China"
+    },
+    {
+      "name": "Tallinn University of Technology",
+      "country": "Estonia"
+    },
+    {
+      "name": "Tehran University of Medical Sciences",
+      "country": "Iran"
+    },
+    {
+      "name": "University of Texas at Arlington",
+      "country": "United States of America"
+    },
+    {
+      "name": "Tianjin University",
+      "country": "China"
+    },
+    {
+      "name": "University of Toledo",
+      "country": "United States of America"
+    },
+    {
+      "name": "Tongji University",
+      "country": "China"
+    },
+    {
+      "name": "University of Tulsa",
+      "country": "United States of America"
+    },
+    {
+      "name": "United Arab Emirates University",
+      "country": "United Arab Emirates"
+    },
+    {
+      "name": "University of Wisconsin-Milwaukee",
+      "country": "United States of America"
+    },
+    {
+      "name": "Xi'an Jiaotong University",
+      "country": "China"
+    },
+    {
+      "name": "University of A Coruña",
+      "country": "Spain"
+    },
+    {
+      "name": "Adam Mickiewicz University",
+      "country": "Poland"
+    },
+    {
+      "name": "AGH University of Science and Technology",
+      "country": "Poland"
+    },
+    {
+      "name": "Ajou University",
+      "country": "South Korea"
+    },
+    {
+      "name": "University of Alcalá",
+      "country": "Spain"
+    },
+    {
+      "name": "Alexandru Ioan Cuza University",
+      "country": "Romania"
+    },
+    {
+      "name": "Aligarh Muslim University",
+      "country": "India"
+    },
+    {
+      "name": "American University of Sharjah",
+      "country": "United Arab Emirates"
+    },
+    {
+      "name": "Amrita University",
+      "country": "India"
+    },
+    {
+      "name": "Anadolu University",
+      "country": "Turkey"
+    },
+    {
+      "name": "Andhra University",
+      "country": "India"
+    },
+    {
+      "name": "University of Antioquia",
+      "country": "Colombia"
+    },
+    {
+      "name": "Aristotle University of Thessaloniki",
+      "country": "Greece"
+    },
+    {
+      "name": "Asia University, Taiwan",
+      "country": "Taiwan"
+    },
+    {
+      "name": "Athens University of Economics and Business",
+      "country": "Greece"
+    },
+    {
+      "name": "Auckland University of Technology",
+      "country": "New Zealand"
+    },
+    {
+      "name": "Austral University of Chile",
+      "country": "Chile"
+    },
+    {
+      "name": "Beijing Institute of Technology",
+      "country": "China"
+    },
+    {
+      "name": "Belarusian State University",
+      "country": "Belarus"
+    },
+    {
+      "name": "University of Belgrade",
+      "country": "Serbia"
+    },
+    {
+      "name": "Birla Institute of Technology and Science, Pilani",
+      "country": "India"
+    },
+    {
+      "name": "University of Bradford",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Brasília",
+      "country": "Brazil"
+    },
+    {
+      "name": "University of Brighton",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Bucharest",
+      "country": "Romania"
+    },
+    {
+      "name": "Budapest University of Technology and Economics",
+      "country": "Hungary"
+    },
+    {
+      "name": "Cairo University",
+      "country": "Egypt"
+    },
+    {
+      "name": "University of Calcutta",
+      "country": "India"
+    },
+    {
+      "name": "California State University, Long Beach",
+      "country": "United States of America"
+    },
+    {
+      "name": "Capital Medical University",
+      "country": "China"
+    },
+    {
+      "name": "University of Castilla-La Mancha",
+      "country": "Spain"
+    },
+    {
+      "name": "University of Central Lancashire",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Cergy-Pontoise",
+      "country": "France"
+    },
+    {
+      "name": "Chang Gung University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "Carlos III University of Madrid",
+      "country": "Spain"
+    },
+    {
+      "name": "University of Chemistry and Technology, Prague",
+      "country": "Czech Republic"
+    },
+    {
+      "name": "Chiang Mai University",
+      "country": "Thailand"
+    },
+    {
+      "name": "Chiba University",
+      "country": "Japan"
+    },
+    {
+      "name": "China University of Geosciences (Wuhan)",
+      "country": "China"
+    },
+    {
+      "name": "China University of Petroleum (Beijing)",
+      "country": "China"
+    },
+    {
+      "name": "Chonbuk National University",
+      "country": "South Korea"
+    },
+    {
+      "name": "Chongqing University",
+      "country": "China"
+    },
+    {
+      "name": "Chonnam National University",
+      "country": "South Korea"
+    },
+    {
+      "name": "Chulalongkorn University",
+      "country": "Thailand"
+    },
+    {
+      "name": "Chung Yuan Christian University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "Chungnam National University",
+      "country": "South Korea"
+    },
+    {
+      "name": "Comenius University in Bratislava",
+      "country": "Slovakia"
+    },
+    {
+      "name": "Coventry University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Dalian University of Technology",
+      "country": "China"
+    },
+    {
+      "name": "University of Debrecen",
+      "country": "Hungary"
+    },
+    {
+      "name": "University of Delhi",
+      "country": "India"
+    },
+    {
+      "name": "University of Dhaka",
+      "country": "Bangladesh"
+    },
+    {
+      "name": "Dublin Institute of Technology",
+      "country": "Republic of Ireland"
+    },
+    {
+      "name": "Ehime University",
+      "country": "Japan"
+    },
+    {
+      "name": "University of Electronic Science and Technology of China",
+      "country": "China"
+    },
+    {
+      "name": "Eötvös Loránd University",
+      "country": "Hungary"
+    },
+    {
+      "name": "Erciyes University",
+      "country": "Turkey"
+    },
+    {
+      "name": "Federal University of Bahia",
+      "country": "Brazil"
+    },
+    {
+      "name": "Federal University of Minas Gerais",
+      "country": "Brazil"
+    },
+    {
+      "name": "Federal University of Paraná (UFPR)",
+      "country": "Brazil"
+    },
+    {
+      "name": "Federal University of Rio Grande do Sul",
+      "country": "Brazil"
+    },
+    {
+      "name": "Federal University of Santa Catarina",
+      "country": "Brazil"
+    },
+    {
+      "name": "Federal University of São Carlos",
+      "country": "Brazil"
+    },
+    {
+      "name": "Federal University of Viçosa",
+      "country": "Brazil"
+    },
+    {
+      "name": "Federal University of Lavras",
+      "country": "Brazil"
+    },
+    {
+      "name": "Feng Chia University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "Fu Jen Catholic University",
+      "country": "Taiwan"
+    },
+    {
+      "name": "Gdańsk University of Technology",
+      "country": "Poland"
+    },
+    {
+      "name": "University of Ghana",
+      "country": "Ghana"
+    },
+    {
+      "name": "Gifu University",
+      "country": "Japan"
+    },
+    {
+      "name": "Glasgow Caledonian University",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "University of Greenwich",
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Hacettepe University",
+      "country": "Turkey"
+    }
+]
+ 
