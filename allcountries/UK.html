@@ -267,6 +267,121 @@
         width: 120px;
       }
     }
+
+.subfooter {
+  background-color: #2a2a2a;
+  color: #fff;
+  padding: 50px 20px 20px;
+}
+
+.subfooter-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #444;
+}
+
+.subfooter-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.subfooter-column h4 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.subfooter-column h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background: #E63946;
+}
+
+.subfooter-column ul {
+  list-style: none;
+}
+
+.subfooter-column ul li {
+  margin-bottom: 12px;
+}
+
+.subfooter-column ul li a {
+  color: #bbb;
+  transition: color 0.3s;
+}
+
+.subfooter-column ul li a:hover {
+  color: #fff;
+}
+
+.subfooter-bottom {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.subfooter-bottom p {
+  color: #999;
+  font-size: 14px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #fff;
+  background: #444;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.social-links a:hover {
+  background: #E63946;
+}
+
+@media (max-width: 768px) {
+  .about-column {
+    min-width: 100%;
+  }
+  .subfooter-content {
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+  }
+  .subfooter-column {
+    min-width: 100%;
+  }
+  .subfooter {
+    padding: 20px 5px 10px;
+  }
+  .subfooter-bottom {
+    font-size: 12px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
   </style>
   </style>
 </head>
@@ -375,5 +490,44 @@
       <p>İngiltere'de üniversite okumak için zorludur fakat imkansız değildir, bizce en mantıklısı yüksek lisans için değerlendirmektir. <strong>Türk lise diploması yeterli değildir</strong>, ancak <strong>foundation yılı, AP/SAT/ACT gibi yollar</strong> sayesinde doğrudan veya dolaylı kabul alınabilir. Erken planlama, doğru okul ve mali strateji ile İngiltere'deki kaliteli eğitime ulaşabilirsiniz. </p>
     </section>
   </main>
+
+  <div class="subfooter-wrapper">
+    <div class="subfooter">
+      <div class="subfooter-content">
+        <div class="subfooter-column">
+          <h4>Countries</h4>
+          <ul>
+            <li><a href="UK.html">Europe</a></li>
+            <li><a href="americas.html">USA & Canada</a></li>
+            <li><a href="asia.html">Asia</a></li>
+          </ul>
+        </div>
+        <div class="subfooter-column">
+          <h4>Universities</h4>
+          <ul>
+            <li><a href="../universities.html#all">All Universities</a></li>
+            <li><a href="../universities.html#top">Top Rankings</a></li>
+          </ul>
+        </div>
+        <div class="subfooter-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="../scholarships.html">Scholarships</a></li>
+            <li><a href="../finder.html">Find Your Fit</a></li>
+          </ul>
+        </div>
+        <div class="subfooter-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="subfooter-bottom">
+        <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

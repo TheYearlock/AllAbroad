@@ -193,8 +193,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 tooltip.textContent = name;
                 tooltip.style.opacity = '1';
-                tooltip.style.left = `${event.pageX}px`;
-                tooltip.style.top = `${event.pageY - 30}px`;
+                // Use clientX/clientY plus scroll offsets for robust positioning
+                const scrollX = window.scrollX || window.pageXOffset;
+                const scrollY = window.scrollY || window.pageYOffset;
+                tooltip.style.left = `${event.clientX + scrollX}px`;
+                tooltip.style.top = `${event.clientY + scrollY - 30}px`;
             })
             .on("mouseout", function (event, d) {
                 const name = fixCountryName(d.properties.name);
@@ -205,8 +208,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 tooltip.style.opacity = '0';
             })
             .on("mousemove", function (event) {
-                tooltip.style.left = `${event.pageX}px`;
-                tooltip.style.top = `${event.pageY - 30}px`;
+                const scrollX = window.scrollX || window.pageXOffset;
+                const scrollY = window.scrollY || window.pageYOffset;
+                tooltip.style.left = `${event.clientX + scrollX}px`;
+                tooltip.style.top = `${event.clientY + scrollY - 30}px`;
             })
             .on("click", function (event, d) {
                 const name = fixCountryName(d.properties.name);

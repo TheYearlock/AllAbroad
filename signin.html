@@ -176,6 +176,64 @@
             20%, 60% { transform: translateX(-5px); }
             40%, 80% { transform: translateX(5px); }
         }
+
+        .subfooter-wrapper {
+            background-color: #f1f1f1;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .subfooter {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .subfooter-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .subfooter-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .subfooter-column h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #E63946;
+        }
+
+        .subfooter-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .subfooter-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .subfooter-column ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .subfooter-column ul li a:hover {
+            color: #E63946;
+        }
+
+        .subfooter-bottom {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -209,6 +267,44 @@
             
             <div class="login-footer">
                 <p>Don't have an account? <a href="login.html">Create one</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="subfooter-wrapper">
+        <div class="subfooter">
+            <div class="subfooter-content">
+                <div class="subfooter-column">
+                    <h4>Countries</h4>
+                    <ul>
+                        <li><a href="countries/europe.html">Europe</a></li>
+                        <li><a href="countries/americas.html">USA & Canada</a></li>
+                        <li><a href="countries/asia.html">Asia</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Universities</h4>
+                    <ul>
+                        <li><a href="universities.html#all">All Universities</a></li>
+                        <li><a href="universities.html#top">Top Rankings</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                        <li><a href="finder.html">Find Your Fit</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subfooter-bottom">
+                <p>&copy; 2024 AllAbroad. All rights reserved.</p>
             </div>
         </div>
     </div>

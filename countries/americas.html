@@ -83,6 +83,63 @@
       font-size: 36px;
       margin-bottom: 30px;
     }
+
+    .subfooter-wrapper {
+      background-color: #f8f8f8;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .subfooter {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .subfooter-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .subfooter-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .subfooter-column h4 {
+      color: #E63946;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .subfooter-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .subfooter-column li {
+      margin-bottom: 8px;
+    }
+
+    .subfooter-column a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .subfooter-column a:hover {
+      text-decoration: underline;
+    }
+
+    .subfooter-bottom {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+    }
   </style>
 </head>
 <body>
@@ -217,6 +274,45 @@
       <p>And remember — you're not alone. AllAbroad is here to guide you every step of the way.</p>
     </section>
   </main>
+
+  <div class="subfooter-wrapper">
+    <div class="subfooter">
+        <div class="subfooter-content">
+            <div class="subfooter-column">
+                <h4>Countries</h4>
+                <ul>
+                    <li><a href="europe.html">Europe</a></li>
+                    <li><a href="americas.html">USA & Canada</a></li>
+                    <li><a href="asia.html">Asia</a></li>
+                </ul>
+            </div>
+            <div class="subfooter-column">
+                <h4>Universities</h4>
+                <ul>
+                    <li><a href="../universities.html#all">All Universities</a></li>
+                    <li><a href="../universities.html#top">Top Rankings</a></li>
+                </ul>
+            </div>
+            <div class="subfooter-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="../scholarships.html">Scholarships</a></li>
+                    <li><a href="../finder.html">Find Your Fit</a></li>
+                </ul>
+            </div>
+            <div class="subfooter-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="subfooter-bottom">
+            <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+        </div>
+    </div>
+</div>
 
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://d3js.org/topojson.v3.min.js"></script>
