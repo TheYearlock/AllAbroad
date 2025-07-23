@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AllAbroad - Japonya'da Eğitim Rehberi</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <style>
+    /* Base styles (similar to your existing site) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #000;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-bottom: 50px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      padding: 15px 3%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+    .logo .all {
+      color: #e63946;
+    }
+    .logo .abroad {
+      color: #000000;
+    }
+    nav.main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav.main-nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav.main-nav ul li a:hover {
+      color: #e63946;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      border-radius: 5px;
+      padding: 10px 0;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 10px 15px;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f5f5f5;
+      color: #e63946;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .search-box {
+      position: relative;
+    }
+    .search-box input {
+      padding: 9px 15px 9px 38px;
+      border: 1.5px solid #ddd;
+      border-radius: 24px;
+      width: 190px;
+      font-size: 15px;
+      color: #222;
+      outline-offset: 2px;
+      transition: border-color 0.3s ease;
+    }
+    .search-box input:focus {
+      border-color: #e63946;
+    }
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 16px;
+      pointer-events: none;
+    }
+    .login-btn {
+      background-color: #e63946;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .login-btn:hover {
+      background-color: #c1121f;
+    }
+
+    /* Page Main Content */
+    .main-content {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+    .page-title {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #e63946;
+      font-weight: 700;
+    }
+
+    /* Guide Sections */
+    section.guide-section {
+      margin-bottom: 50px;
+    }
+    section.guide-section h2 {
+      font-size: 28px;
+      color: #e63946;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 6px;
+      font-weight: 700;
+    }
+    section.guide-section p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+      max-width: 850px;
+    }
+    section.guide-section ul {
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+    section.guide-section li {
+      margin-bottom: 10px;
+    }
+    .highlight-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #e63946;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .highlight-box h3 {
+      margin-bottom: 10px;
+      color: #e63946;
+    }
+
+    /* Hamburger Menu */
+    .hamburger-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .hamburger-icon {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .hamburger-icon span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #E63946;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu-panel {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        padding: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .hamburger-container:hover .menu-panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .menu-panel nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-panel nav li {
+        margin-bottom: 10px;
+    }
+
+    .menu-panel nav a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    .menu-panel nav a:hover {
+        color: #E63946;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        margin: 30px 15px;
+        padding: 0 10px;
+      }
+      nav.main-nav ul {
+        gap: 10px;
+      }
+      .search-box input {
+        width: 120px;
+      }
+    }
+
+    /* Sections */
+    section.content-section {
+      margin-bottom: 55px;
+    }
+
+    section.content-section h1,
+    section.content-section h2 {
+      color: #e63946;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 8px;
+    }
+
+    section.content-section h1 {
+      font-size: 32px;
+      margin-top: 0;
+    }
+
+    section.content-section h2 {
+      font-size: 26px;
+    }
+
+    section.content-section h3 {
+      font-size: 20px;
+      color: #e63946;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    section.content-section p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: #333;
+      max-width: 860px;
+      margin-bottom: 20px;
+    }
+
+    section.content-section ul {
+      margin: 18px 0 25px 20px;
+      color: #444;
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 860px;
+    }
+
+    section.content-section ul li {
+      margin-bottom: 12px;
+      padding-left: 5px;
+      position: relative;
+    }
+    section.content-section ul li::marker {
+      color: #e63946;
+      font-weight: 700;
+    }
+
+    /* Highlight Boxes */
+    .highlight-box {
+      background-color: #fff0f0;
+      border-left: 5px solid #e63946;
+      padding: 20px 25px;
+      margin: 30px 0 40px;
+      border-radius: 6px;
+      color: #722121;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 860px;
+    }
+    .highlight-box ul {
+      margin-top: 10px;
+      padding-left: 18px;
+      list-style-type: disc;
+      font-weight: 500;
+      color: #8b2222;
+    }
+    .highlight-box h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #b53030;
+    }
+
+/* Hamburger Menu */
+    .hamburger-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .hamburger-icon {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .hamburger-icon span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #E63946;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+    }
+    .menu-panel {
+      position: absolute;
+      top: 48px;
+      right: 0;
+      width: 220px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      padding: 18px 20px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px);
+      transition: all 0.3s ease;
+    }
+    .hamburger-container:hover .menu-panel,
+    .hamburger-container:focus-within .menu-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .menu-panel nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .menu-panel nav li {
+      margin-bottom: 15px;
+    }
+    .menu-panel nav a {
+      color: #444;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    .menu-panel nav a:hover {
+      color: #e63946;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main.main-content {
+        margin: 40px 15px 50px;
+        padding: 0 14px;
+      }
+      nav.main-nav ul {
+        gap: 15px;
+      }
+      .search-box input {
+        width: 140px;
+      }
+      .page-title {
+        font-size: 30px;
+      }
+      section.content-section h1 {
+        font-size: 28px;
+      }
+      section.content-section h2 {
+        font-size: 22px;
+      }
+    }
+
+    /* Subfooter Styles */
+    .subfooter {
+      background-color: #2a2a2a;
+      color: #fff;
+      padding: 50px 20px 20px;
+    }
+    .subfooter-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #444;
+    }
+    .subfooter-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    .subfooter-column h4 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .subfooter-column h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: #E63946;
+    }
+    .subfooter-column ul {
+      list-style: none;
+    }
+    .subfooter-column ul li {
+      margin-bottom: 12px;
+    }
+    .subfooter-column ul li a {
+      color: #bbb;
+      transition: color 0.3s;
+    }
+    .subfooter-column ul li a:hover {
+      color: #fff;
+    }
+    .subfooter-bottom {
+      max-width: 1200px;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 20px;
+    }
+    .subfooter-bottom p {
+      color: #999;
+      font-size: 14px;
+    }
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    .social-links a {
+      color: #fff;
+      background: #444;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .social-links a:hover {
+      background: #E63946;
+    }
+    @media (max-width: 768px) {
+      .about-column {
+        min-width: 100%;
+      }
+      .subfooter-content {
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 20px;
+      }
+      .subfooter-column {
+        min-width: 100%;
+      }
+      .subfooter {
+        padding: 20px 5px 10px;
+      }
+      .subfooter-bottom {
+        font-size: 12px;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hamburger-container" tabindex="0">
+    <div class="hamburger-icon" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="menu-panel" role="menu" aria-label="Mobile menu">
+      <nav>
+        <ul>
+          <li><a href="../about.html" role="menuitem">About</a></li>
+          <li><a href="../contact.html" role="menuitem">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <header>
+    <a href="../index.html" class="logo" aria-label="Go to homepage">
+      <span class="all">All</span><span class="abroad">Abroad</span>
+    </a>
+    <div class="nav-right">
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="../countries.html" aria-haspopup="true" aria-expanded="false">Countries</a>
+            <div class="dropdown-content" role="menu" aria-label="Countries submenu">
+              <a href="../europe.html" role="menuitem">Europe</a>
+              <a href="../americas.html" role="menuitem">USA and Canada</a>
+              <a href="../asia.html" role="menuitem">Asia</a>
+            </div>
+          </li>
+          <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="../universities.html" aria-haspopup="true" aria-expanded="false">Universities</a>
+            <div class="dropdown-content" role="menu" aria-label="Universities submenu">
+              <a href="../universities.html#all" role="menuitem">All Universities</a>
+              <a href="../universities.html#top" role="menuitem">By Ranking</a>
+            </div>
+          </li>
+          <li><a href="../scholarships.html">Scholarships</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input type="search" placeholder="Search" aria-label="Search the site" />
+      </div>
+      <a href="../login.html" class="login-btn">Log in</a>
+    </div>
+  </header>
+
+  <main class="main-content" role="main">
+    <section class="content-section">
+      <h1 class="page-title">Japonya'da Eğitim</h1>
+
+
+      <h2>Giriş</h2>
+      <p>Japonya, teknolojik gelişmişliği, kaliteli üniversiteleri, disiplinli yaşam tarzı ve düşük suç oranı ile öne çıkan bir ülke olsa da, eğitim sistemi ve sosyal yapısı yabancı öğrenciler için hem eşsiz fırsatlar hem de zorluklar sunar. Japon üniversiteleri, dünya sıralamalarında yüksek yerlerde bulunur ve birçok program, mühendislikten siyasete, ekonomiden uluslararası ilişkilere kadar geniş bir yelpazeyi kapsar. Ancak Japonya'da okumak, yalnızca akademik başarı değil, aynı zamanda kültürel adaptasyon, dil öğrenimi ve bağımsız yaşam becerileri de gerektirir.</p>
+
+      <h2>1. Türk Diplomasıyla Japonya'da Üniversiteye Giriş Mümkün mü?</h2>
+      <p>Japonya’da doğrudan Türk lise diploması ile kabul almak zordur çünkü Japonya'nın üniversiteye giriş sistemi farklıdır. Genellikle Türkiye’deki öğrencilerin aşağıdaki alternatif yolları değerlendirmesi gerekir:</p>
+      <ul>
+        <li><strong>Foundation Year:</strong> Tokyo International University, Ritsumeikan Asia Pacific University gibi bazı özel üniversiteler, 1 yıllık İngilizce eğitimli hazırlık programı sunar.</li>
+        <li><strong>AP / SAT / ACT:</strong> 3+ AP skoru (4 veya 5), ya da SAT (1300+) / ACT (27+) ile kabul.</li>
+        <li><strong>EJU:</strong> Japon üniversite sınavı – Japonca bölümler için zorunlu, İngilizce bölümler için bazen isteğe bağlı.</li>
+        <li><strong>JLPT / TOEFL / IELTS:</strong> Japonca programlar için JLPT N1–N2, İngilizce bölümler için TOEFL (90+) / IELTS (6.5+).</li>
+      </ul>
+      <div class="highlight-box" role="note">
+        <strong>Not:</strong> Üniversite başvuruları merkezi değildir. Her üniversitenin kendi sistemi ve takvimi vardır.
+      </div>
+
+      <h2>2. MEXT Bursu (Monbukagakusho)</h2>
+      <p>Japon hükümetinin sunduğu prestijli ve tam kapsamlı burstur. Her yıl Türkiye'den 5-10 öğrenci kabul edilir.</p>
+      <h3>Başvuru Aşamaları</h3>
+      <ul>
+        <li><strong>Başvuru:</strong> Nisan-Mayıs aylarında Japonya Büyükelçiliği'nde başlar.</li>
+        <li><strong>Sınav:</strong> İngilizce, Matematik, Japonca (isteğe bağlı), Fen veya Sosyal Bilimler.</li>
+        <li><strong>Mülakat:</strong> Neden Japonya, kariyer hedefleri, alan bilgisi ve kültürel farkındalık.</li>
+        <li><strong>Üniversite Seçimi:</strong> MEXT kazananı olunca tercih edilecek 3 üniversite belirlenir.</li>
+              <div class="highlight-box" role="note">
+        <strong>Not:</strong> Tarafımızca Japonya Büyükelçiliği yetkilileriyle yapılan görüşmelerde MEXT burslarının lisans öğrencilerine nadiren verildiğini öğrendik.</div>
+
+      </ul>
+      <div class="highlight-box">
+        <strong>Avantajlar:</strong>
+        <ul>
+          <li>Tam öğrenim ücreti + aylık 117,000 yen harçlık</li>
+          <li>Gidiş–dönüş uçuş</li>
+          <li>1 yıl Japonca hazırlık</li>
+        </ul>
+      </div>
+
+      <h2>3. G30 Programları (Global 30)</h2>
+      <p>Japonca bilmeyen öğrenciler için tamamen İngilizce eğitim verilen lisans programlarıdır.</p>
+         <p>Örnek üniversiteler: Nagoya, Tohoku, Kyushu, Waseda. </p>
+      <ul>
+        <li><strong>Başvuru Belgeleri:</strong> Transkript, dil puanları, AP/SAT skorları, niyet mektubu.</li>
+        <li><strong>Mülakat:</strong> Genellikle Zoom üzerinden akademik ve kişisel sorular içerir.</li>
+        <li><strong>Başvuru Dönemleri:</strong> Kasım–Nisan arası değişir.</li>
+      </ul>
+
+      <h2>4. Japonca Öğrenmek</h2>
+      <p>Japonya'da eğitim görmek istiyorsanız N2 veya N1 seviyesine ulaşmak gerekebilir. İngilizce programlar bile Japonya'da gündelik hayat için Japonca bilgisi gerektirir.</p>
+      <ul>
+        <li><strong>Hazırlık Yılı:</strong> MEXT ve bazı üniversiteler 1 yıl Japonca eğitimi verir.</li>
+        <li><strong>Kendi Başına Çalışma:</strong> Minna no Nihongo, Genki, Anki kartları, Italki, Tandem ve Kanji Study uygulamaları işinizi görür</li>
+        <li><strong>JLPT:</strong> Resmi sınav N5–N1 arası seviye sunar. N1 en zorudur.</li>
+      </ul>
+ <div class="highlight-box" role="note">
+         Gerçekçi olmak gerekirse, eğer şuanda 10.sınıf veya üstüyseniz ve bir herhangi altyapınız yoksa, aynı anda hem Japonca öğrenmek hem de notlarınızı yüksek tutmak zor olabilir, aynı zamanda risklidir.</div>
+
+      <h2>5. Kültürel Adaptasyon ve Yabancılara Yaklaşım</h2>
+      <p>Japonya, sosyal açıdan oldukça homojen ve kurallara bağlı bir toplumdur. Bu durum yabancı öğrenciler için zorlayıcı olabilir. Özellikle:</p>
+      <ul>
+        <li><strong>Yabancılara Yaklaşım:</strong> Genellikle kibar ama mesafeli olunur. "Gaijin" yani yabancı olmak bazı ayrımcı davranışlara neden olabilir.</li>
+        <li><strong>Arkadaşlık Kurmak:</strong> Kulüpler ve öğrenci topluluklarına katılmak önemli.</li>
+        <li><strong>Kurallar:</strong> Sessizlik, dakiklik, temizlik, sosyal mesafe gibi normlara dikkat etmek gerekir.</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>İpucu:</strong> Japon kültürünü öğrenmeye açık, sabırlı ve gözlemci olmak adaptasyonu kolaylaştırır. Özellikle üniversitelerdeki uluslararası ofislerden destek alabilirsiniz.
+      </div>
+
+      <h2>6. Yaşam Masrafları ve Çalışma İzinleri</h2>
+      <ul>
+        <li><strong>Yaşam Gideri:</strong> Tokyo'da ortalama 800–1000 USD/ay (konaklama, yemek, ulaşım dahil)</li>
+        <li><strong>Part-time İş:</strong> Haftada 28 saat çalışma izni vardır (konuşma seviyesi Japonca gerektirir)</li>
+        <li><strong>Yurtlar:</strong> Devlet yurtları uygun fiyatlıdır ama erken başvuru gerekir, genelde olduğu gibi öncelik ülke vatandaşlarına verildiği için yurtta size kontenjan kalmayabilir.</li>
+      </ul>
+
+      <h2>7. Japonya'da Mezuniyet Sonrası Olanaklar</h2>
+      <p>Japonya’da mezun olduktan sonra çalışma vizesine başvurabilirsiniz. Mühendislik, BT, ekonomi ve finans sektörlerinde yabancı öğrencilere iş imkânı vardır.</p>
+      <ul>
+        <li><strong>Shūkatsu:</strong> Mezuniyetten önce iş arama süreci, yoğun ve zaman alıcıdır</li>
+        <li><strong>Japonca Şartı:</strong> Çoğu iş için minimum JLPT N2 gerekir</li>
+      </ul>
+      <h2>8. Japonya'daki Türk Topluluğu</h2>
+      <p>Japonya’da büyük bir Türk diasporası yoktur ama üniversitelerde birkaç Türk öğrenci bulunabilir. Japonya Türk Büyükelçiliği ve Başkonsolosluğu, resmî işlemler ve acil durumlarda destek sağlar.</p>
+
+      <h2>Sonuç</h2>
+      <p>Japonya’da üniversite eğitimi, hem akademik hem kişisel açıdan dönüştürücü bir deneyim olabilir. Ancak bu yol, dil bariyeri, kültürel farklar ve yüksek yaşam maliyetleri nedeniyle sabır, bütçe ve dayanıklılık gerektirir. Türk öğrenciler için doğrudan giriş zordur ancak foundation, G30 programları veya MEXT gibi yollarla bu hedef ulaşılabilir haldedir.  </p>
+
+    </section>
+  </main>
+
+  <div class="subfooter-wrapper">
+    <div class="subfooter">
+      <div class="subfooter-content">
+        <div class="subfooter-column">
+          <h4>Countries</h4>
+          <ul>
+            <li><a href="japan.html">Asia</a></li>
+            <li><a href="UK.html">Europe</a></li>
+            <li><a href="americas.html">USA & Canada</a></li>
+          </ul>
+        </div>
+        <div class="subfooter-column">
+          <h4>Universities</h4>
+          <ul>
+            <li><a href="../universities.html#all">All Universities</a></li>
+            <li><a href="../universities.html#top">Top Rankings</a></li>
+          </ul>
+        </div>
+        <div class="subfooter-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="../scholarships.html">Scholarships</a></li>
+            <li><a href="../finder.html">Find Your Fit</a></li>
+          </ul>
+        </div>
+        <div class="subfooter-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="subfooter-bottom">
+        <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

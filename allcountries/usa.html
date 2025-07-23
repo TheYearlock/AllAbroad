@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AllAbroad - USA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />  
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #000;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      padding: 15px 3%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+    .logo .all {
+      color: #e63946;
+    }
+    .logo .abroad {
+      color: #000000;
+    }
+    nav.main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav.main-nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav.main-nav ul li a:hover {
+      color: #e63946;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      border-radius: 5px;
+      padding: 10px 0;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 10px 15px;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f5f5f5;
+      color: #e63946;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .search-box {
+      position: relative;
+    }
+    .search-box input {
+      padding: 9px 15px 9px 38px;
+      border: 1.5px solid #ddd;
+      border-radius: 24px;
+      width: 190px;
+      font-size: 15px;
+      color: #222;
+      outline-offset: 2px;
+      transition: border-color 0.3s ease;
+    }
+    .search-box input:focus {
+      border-color: #e63946;
+    }
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 16px;
+      pointer-events: none;
+    }
+    .login-btn {
+      background-color: #e63946;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .login-btn:hover {
+      background-color: #c1121f;
+    }
+
+    /* Page Main Content */
+    .main-content {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex: 1 0 auto;
+      /* Ensure same as index.html proportions */
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .page-title {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #e63946;
+      font-weight: 700;
+    }
+
+    /* Guide Sections */
+    section.guide-section {
+      margin-bottom: 50px;
+    }
+    section.guide-section h2 {
+      font-size: 28px;
+      color: #e63946;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 6px;
+      font-weight: 700;
+    }
+    section.guide-section p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+      max-width: 850px;
+    }
+    section.guide-section ul {
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+    section.guide-section li {
+      margin-bottom: 10px;
+    }
+    .highlight-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #e63946;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .highlight-box h3 {
+      margin-bottom: 10px;
+      color: #e63946;
+    }
+
+    /* Hamburger Menu */
+    .hamburger-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .hamburger-icon {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .hamburger-icon span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #E63946;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu-panel {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        padding: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .hamburger-container:hover .menu-panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .menu-panel nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-panel nav li {
+        margin-bottom: 10px;
+    }
+
+    .menu-panel nav a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    .menu-panel nav a:hover {
+        color: #E63946;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        margin: 30px 15px;
+        padding: 0 10px;
+        width: 100%;
+      }
+      nav.main-nav ul {
+        gap: 10px;
+      }
+      .search-box input {
+        width: 120px;
+      }
+    }
+
+    .subfooter-wrapper {
+      width: 100vw;
+      min-width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      background: #2a2a2a;
+      box-sizing: border-box;
+    }
+    .subfooter {
+      background-color: #2a2a2a;
+      color: #fff;
+      padding: 50px 20px 0px; /* Remove bottom padding, set top/bottom as needed */
+    }
+    .subfooter-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #444;
+    }
+
+    .subfooter-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .subfooter-column h4 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .subfooter-column h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: #E63946;
+    }
+
+    .subfooter-column ul {
+      list-style: none;
+    }
+
+    .subfooter-column ul li {
+      margin-bottom: 12px;
+    }
+
+    .subfooter-column ul li a {
+      color: #bbb;
+      transition: color 0.3s;
+    }
+
+    .subfooter-column ul li a:hover {
+      color: #fff;
+    }
+
+    .subfooter-bottom {
+      max-width: 1200px;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 20px;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .subfooter-bottom p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      color: #fff;
+      background: #444;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .social-links a:hover {
+      background: #E63946;
+    }
+
+    @media (max-width: 768px) {
+      .about-column {
+        min-width: 100%;
+      }
+      .subfooter-content {
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 20px;
+      }
+      .subfooter-column {
+        min-width: 100%;
+      }
+      .subfooter {
+        padding: 20px 5px 0px;
+      }
+      .subfooter-wrapper {
+        width: 100vw;
+        min-width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 0;
+      }
+      .subfooter-bottom {
+        font-size: 12px;
+        flex-direction: column;
+        text-align: center;
+      }
+      }
+  </style>
+</head>
+<body>
+  <div class="hamburger-container">
+    <div class="hamburger-icon" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="menu-panel">
+      <nav>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <header>
+    <a href="../index.html" class="logo" aria-label="Go to homepage">
+      <span class="all">All</span><span class="abroad">Abroad</span>
+    </a>
+    <div class="nav-right">
+      <nav class="main-nav">
+        <ul>
+          <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="../countries.html">Countries</a>
+            <div class="dropdown-content">
+              <a href="../europe.html">Europe</a>
+              <a href="../americas.html">USA and Canada</a>
+              <a href="../asia.html">Asia</a>
+            </div>
+          </li>
+          <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="../universities.html">Universities</a>
+            <div class="dropdown-content">
+              <a href="../universities.html#all">All Universities</a>
+              <a href="../universities.html#top">By Ranking</a>
+            </div>
+          </li>
+          <li><a href="../scholarships.html">Scholarships</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input type="text" placeholder="Search" aria-label="Search" />
+      </div>
+      <a href="../login.html" class="login-btn">Log in</a>
+    </div>
+  </header>
+  <div class="main-content">
+    <h1 class="page-title">Amerika'da Eğitim</h1>
+    <section class="guide-section" id="introduction">
+      <h2>Neden Amerika'da Eğitim?</h2>
+      <p>
+        Amerika Birleşik Devletleri, dünya çapında uluslararası öğrenciler için en popüler eğitim destinasyonu olmaya devam ediyor. Türk öğrenciler için ABD'nin sunduğu avantajlar:
+      </p>
+      <ul>
+        <li><strong>Dünya standartlarında eğitim:</strong> Dünyanın en iyi 10 üniversitesinden 8'i ABD'de</li>
+        <li><strong>Esnek akademik sistem:</strong> Bölüm değiştirme, disiplinlerarası ders alma imkanı</li>
+        <li><strong>Araştırma olanakları:</strong> Milyar dolarlık araştırma laboratuvarlarına erişim</li>
+        <li><strong>Kariyer fırsatları:</strong> Mezuniyet sonrası 1-3 yıl çalışma izni (OPT programı)</li>
+        <li><strong>Kültürel çeşitlilik:</strong> 1 milyondan fazla uluslararası öğrenci ile global network</li>
+      </ul>
+      <div class="highlight-box">
+        <h3>Türk Öğrenciler İçin Hızlı Bilgiler</h3>
+        <ul>
+          <li><strong>ABD'deki Türk öğrenci sayısı:</strong> ~12,000 (2023 verileri)</li>
+          <li><strong>Ortalama yıllık eğitim ücreti (Burssuz):</strong> $20,000-$60,000</li>
+          <li><strong>Yaşam maliyetleri:</strong> Yıllık $10,000-$30,000</li>
+          <li><strong>Popüler eyaletler:</strong> California, New York, Texas, Massachusetts</li>
+          <li><strong>Mezuniyet sonrası:</strong> 12-36 ay OPT çalışma izni</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="guide-section" id="education-system">
+      <h2>ABD Eğitim Sistemi</h2>
+      <p>
+        Türk öğrencilerin ABD yükseköğretim sistemini anlaması için temel bilgiler:
+      </p>
+      
+      <h3>1. Lisans Programları (Bachelor's Degree)</h3>
+      <ul>
+        <li><strong>Süre:</strong> 4 yıl (bazı mühendislik programları 5 yıl)</li>
+        <li><strong>Yapı:</strong> İlk 2 yıl genel eğitim, son 2 yıl bölüm dersleri</li>
+        <li><strong>Kredi sistemi:</strong> Mezuniyet için 120-130 kredi (dönemde 15 kredi)</li>
+        <li><strong>Türler:</strong> BA (Sanat), BS (Fen), BFA (Güzel Sanatlar), BEng (Mühendislik)</li>
+      </ul>
+      
+      <h3>2. Lisansüstü Programlar</h3>
+      <ul>
+        <li><strong>Yüksek Lisans:</strong> 1-2 yıl, tezli/tezsiz seçenekler</li>
+        <li><strong>Doktora:</strong> 5-7 yıl, araştırma odaklı</li>
+        <li><strong>Profesyonel Dereceler:</strong> MBA, JD (Hukuk), MD (Tıp) - lisans derecesi gerektirir</li>
+      </ul>
+      
+      <div class="highlight-box">
+        <h3>Türk Eğitim Sisteminden Farklar</h3>
+        <ul>
+          <li>Daha fazla sınıf katılımı ve sürekli değerlendirme</li>
+          <li>Bölüm değiştirmek kolay</li>
+          <li>Harf notu sistemi (A-F) ve GPA hesaplaması</li>
+          <li>Ders dışı aktiviteler ve kişisel gelişime önem</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="guide-section" id="standardized-tests">
+      <h2>Standart Testler: SAT, ACT, TOEFL, AP</h2>
+      
+      <h3>1. SAT (Scholastic Assessment Test)</h3>
+      <ul>
+        <li><strong>İçerik:</strong> Matematik (800 puan), Kanıta Dayalı Okuma ve Yazma (800 puan)</li>
+        <li><strong>Süre:</strong> 3 saat (isteğe bağlı essay ile 3 saat 50 dakika)</li>
+        <li><strong>Puan:</strong> 400-1600 arası (iki bölümün toplamı)</li>
+        <li><strong>Türk öğrenciler için hedef:</strong> İyi üniversiteler için 1400+, en iyiler için 1500+</li>
+        <li><strong>Hazırlık:</strong> Khan Academy resmi partner, 6-12 ay hazırlık optimaldir</li>
+        <li><strong>Sınav merkezleri:</strong> Anlaşmalı okullar (yılda 7 kez)</li>
+      </ul>
+      
+      <h3>2. ACT (American College Testing)</h3>
+      <ul>
+        <li><strong>İçerik:</strong> İngilizce, Matematik, Okuma, Fen Bilimleri (her biri 36 üzerinden)</li>
+        <li><strong>Avantaj:</strong> Fen bilgisi içermesi ve daha hızlı olması</li>
+        <li><strong>Hedef puan:</strong> İyi üniversiteler için 30+, en iyiler için 33+</li>
+      </ul>
+      
+      <h3>3. TOEFL/IELTS (İngilizce Yeterlilik)</h3>
+      <ul>
+        <li><strong>TOEFL iBT:</strong> 120 üzerinden puan (okuma, dinleme, konuşma, yazma)</li>
+        <li><strong>Minimum gereksinimler:</strong> Çoğu üniversite için 80+ (en iyiler 100+ ister)</li>
+        <li><strong>IELTS alternatifi:</strong> 9 üzerinden puan (6.5+ genel kabul, en iyiler 7.5+ ister)</li>
+      </ul>
+      
+      <h3>4. AP (Advanced Placement)</h3>
+      <ul>
+        <li><strong>Amacı:</strong> Üniversitede ders atlama, bazı üniversiteler için kabul şartı ve kredi kazanma</li>
+        <li><strong>İçerik:</strong> 38 farklı dersten 1-5 arası puanlama</li>
+        <li><strong>Türk öğrenciler için:</strong> Fen liseleri ve kolejlerde avantaj sağlayabilir</li>
+        <li><strong>Öner(diğim)ilen AP'ler:</strong> Calculus BC, Physics C, Chemistry, Computer Science, Microeconomy</li>
+      </ul>
+      
+      <div class="highlight-box">
+        <h3>Test Stratejileri</h3>
+        <ul>
+          <li>SAT/ACT'yi 11. sınıfın sonuna kadar tamamlayın</li>
+          <li>TOEFL/IELTS'i son 2 yıl içinde alın (geçerlilik süresi var)</li>
+          <li>AP sınavlarına 11-12. sınıflarda girin</li>
+          <li>Resmi deneme sınavlarıyla pratik yapın</li>
+          <li>SAT'yi en az 2 kere almaya çalışın. Böylece en iyi skorlarınızı kombine ederek <strong>superscore</strong> yapabilirsiniz</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="guide-section" id="extracurriculars">
+      <h2>Ders Dışı Aktiviteler ve Başarılar</h2>
+      <p>
+        ABD üniversiteleri sadece akademik başarıya değil, öğrencinin çok yönlülüğüne de bakar:
+      </p>
+      
+      <h3>1. Öne Çıkan Aktivite Türleri</h3>
+      <ul>
+        <li><strong>Liderlik:</strong> Öğrenci kulübü başkanlığı, proje yönetimi, sınıf başkanlığı (evet sınıf başkanlığı)</li>
+        <li><strong>Toplum Hizmeti:</strong> Gönüllülük, sosyal sorumluluk projeleri (100+ saat idealdir)</li>
+        <li><strong>Yetenekler:</strong> Müzik, spor, sanat alanında ulusal seviyede başarılar</li>
+        <li><strong>Araştırma:</strong> TÜBİTAK projeleri, üniversite laboratuvarlarında staj</li>
+        <li><strong>Girişimcilik:</strong> Startup fikirleri, sosyal girişimler</li>
+      </ul>
+      <h4>Tavsiye: Yaptığınız hobiyi sevdiğiniz için yaptığınızı göstermeniz; Bir alanda, herhangi bir alanda <i>spike</i> yapmanız admmissions office için önemlidir. Yani ne yaparsanız yapın, bu işin size ve çevrenize etkisini ve önemini göstermeniz ve alanda okul dışı, okul içi çalışma yapmanız bazen <i>Ay'a roket göndermek kadar</i> önemli olabilir. 
+      <h3>2. Türk Öğrenciler İçin Fırsatlar</h3>
+      <ul>
+        <li><strong>TÜBİTAK projeleri:</strong> Ulusal ve uluslararası yarışmalar</li>
+        <li><strong>Model Birleşmiş Milletler (MUN):</strong> Yurtiçi ve yurtdışı konferanslar</li>
+        <li><strong>Bilim olimpiyatları:</strong> Matematik, fizik, kimya, bilgisayar dalları</li>
+        <li><strong>Yaz programları:</strong> MITES, RSI gibi prestijli ABD yaz okulları</li>
+      </ul>
+      
+      <div class="highlight-box">
+        <h3>Başvuruda Aktivite Listesi İpuçları</h3>
+        <ul>
+          <li>9. sınıftan itibaren tüm aktiviteleri kaydedin</li>
+          <li>"Spike" oluşturun - bir alanda derinlemesine uzmanlaşma</li>
+          <li>10 adede kadar aktivite listesi (önem sırasına göre)</li>
+          <li>Haftalık zaman ve yıllık süre belirtin</li>
+          <li>Başarıları ölçülebilir şekilde sunun (örn. "500 kişiye ulaşıldı")</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="guide-section" id="admission-process">
+      <h2>Başvuru Süreci: Adım Adım</h2>
+      
+      <h3>1. Başvuru Dönemleri</h3>
+      <ul>
+        <li><strong>Early Decision (ED):</strong> Kasım başı - Bağlayıcı, kabul şansı yüksek</li>
+        <li><strong>Early Action (EA):</strong> Kasım - Bağlayıcı değil, erken cevap</li>
+        <li><strong>Regular Decision (RD):</strong> Ocak - Standart başvuru</li>
+        <li><strong>Rolling Admission:</strong> Başvuru açık olduğu sürece - Genelde devlet üniversiteleri</li>
+      </ul>
+      
+      <h3>2. Gerekli Belgeler</h3>
+      <ul>
+        <li><strong>Transkript:</strong> Not dökümü (İngilizce, noter onaylı)</li>
+        <li><strong>Standardize test sonuçları:</strong> SAT/ACT, TOEFL/IELTS</li>
+        <li><strong>Öğretmen referansları:</strong> 2-3 adet (genelde 1 fen/mat, 1 sosyal bilimler)</li>
+        <li><strong>Essay'ler:</strong> Personal statement (650 kelime) + ek essay'ler</li>
+        <li><strong>Ek bilgiler:</strong> Özel yetenekler, ailevi durum açıklamaları</li>
+      </ul>
+      
+      <h3>3. Başvuru Platformları</h3>
+      <ul>
+        <li><strong>Common Application:</strong> 900+ üniversiteye tek başvuru</li>
+        <li><strong>Coalition Application:</strong> 150+ üniversite</li>
+        <li><strong>Universal College App:</strong> Sınırlı sayıda üniversite</li>
+        <li><strong>Üniversiteye özel sistemler:</strong> MIT, Georgetown gibi okullar</li>
+      </ul>
+      
+      <div class="highlight-box">
+        <h3>Türk Öğrenciler İçin Kritik Tarihler</h3>
+        <table style="width:100%; border-collapse: collapse; margin: 10px 0;">
+          <tr style="background-color: #f0f0f0;">
+            <th style="padding: 8px; border: 1px solid #ddd;">Dönem</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Son Tarih</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Aksiyon</th>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;">11. Sınıf Bahar</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Mayıs</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">SAT/ACT hazırlığı</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 8px; border: 1px solid #ddd;">11. Sınıf Yaz</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Temmuz-Ağustos</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Essay taslakları</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;">12. Sınıf Güz</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Ekim-Kasım</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">ED/EA başvuruları</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="padding: 8px; border: 1px solid #ddd;">12. Sınıf Kış</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Aralık-Ocak</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">RD başvuruları</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;">12. Sınıf Bahar</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Mart-Nisan</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Kabul sonuçları</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="guide-section" id="financial-aid">
+      <h2>Mali Yardım ve Burslar</h2>
+      
+      <h3>1. Mali Yardım Türleri</h3>
+      <ul>
+        <li><strong>Need-blind:</strong> Harvard, MIT gibi okullar (mali duruma bakmadan kabul)</li>
+        <li><strong>Need-aware:</strong> Çoğu üniversite (mali durum kabulü etkileyebilir)</li>
+        <li><strong>Merit-based:</strong> Akademik/spor/özel yetenek bursları</li>
+      </ul>
+      
+      <h3>2. Türk Öğrenciler İçin Burs Kaynakları</h3>
+      <ul>
+        <li><strong>Üniversite bursları:</strong> Chicago, Duke gibi okullar tam burs veriyor</li>
+        <li><strong>Türk bursları:</strong>
+          <ul>
+            <li>Türk Eğitim Vakfı (TEV) - Yıllık $20,000'e kadar</li>
+            <li>Fulbright Türkiye - Yüksek lisans için tam burs</li>
+            <li>Türk Amerikan Bilim Adamları ve Akademisyenleri Derneği (TASSA)</li>
+          </ul>
+        </li>
+        <li><strong>Özel burslar:</strong> Aydın Doğan, Sabancı, Koç bursları, Coca Cola Bursları</li>
+      </ul>
+      
+      <div class="highlight-box">
+        <h3>Mali Yardım Başvuru Belgeleri</h3>
+        <ul>
+          <li>CSS Profile (College Board üzerinden)</li>
+          <li>Banka hesap özetleri (son 3 ay)</li>
+          <li>Aile gelir belgeleri (vergi levhası, maaş bordrosu)</li>
+          <li>Üniversiteye özel formlar</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="guide-section" id="visa-process">
+      <h2>F-1 Öğrenci Vizesi Süreci</h2>
+      
+      <h3>1. Gerekli Belgeler</h3>
+      <ul>
+        <li><strong>I-20 Formu:</strong> Kabul edildiğiniz üniversiteden gelir</li>
+        <li><strong>SEVIS Ücreti:</strong> $350 ödeme makbuzu</li>
+        <li><strong>DS-160 Formu:</strong> Online vize başvuru formu</li>
+        <li><strong>Mali Kaynak Kanıtı:</strong> 1 yıllık eğitim+yaşam maliyetleri</li>
+        <li><strong>Akademik Belgeler:</strong> Transkript, test sonuçları</li>
+      </ul>
+      
+      <h3>2. Mülakat Hazırlığı</h3>
+      <ul>
+        <li><strong>Sık Sorulan Sorular:</strong>
+          <ul>
+            <li>Neden bu üniversiteyi seçtiniz?</li>
+            <li>Eğitiminizi nasıl finanse edeceksiniz?</li>
+            <li>Mezuniyet sonrası planlarınız nedir?</li>
+          </ul>
+        </li>
+        <li><strong>İpuçları:</strong>
+          <ul>
+            <li>Gerçek cevaplar vermeye çalışın, klişelerden sakının.</li>
+            <li>Tüm orijinal belgeleri götürün</li>
+            <li>Türkiye'ye bağlarınızı kanıtlayın (aile, mülk, iş vaadi)</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="guide-section" id="success-tips">
+      <h2>Türk Öğrenciler İçin Başarı Stratejileri</h2>
+      
+      <h3>1. Başvuru Sürecinde</h3>
+      <ul>
+        <li><strong>Erken başlayın:</strong> 11. sınıftan itibaren hazırlıklara başlayın</li>
+        <li><strong>Test stratejisi:</strong> SAT/ACT'yi 2-3 kez alın, super score yapın</li>
+        <li><strong>Essay yazımı:</strong> Otantik hikayenizi anlatın, klişelerden kaçının</li>
+        <li><strong>Kabul ofisi ile iletişim:</strong> Demonstrated interest gösterin</li>
+      </ul>
+      
+      <h3>2. Okul Seçiminde</h3>
+      <ul>
+        <li><strong>Sıralamaya takılmayın:</strong> Fit en önemli faktör</li>
+        <li><strong>Mezun sonuçlarına bakın:</strong> Uluslararası öğrenci istihdam oranları</li>
+        <li><strong>Finansal gerçekçilik:</strong> Aile bütçesini zorlamayın</li>
+        <li><strong>Kampüs kültürü:</strong> Büyük devlet üniversitesi mi, küçük liberal arts koleji mi?</li>
+      </ul>
+      
+      <div class="highlight-box">
+        <h3>Türk Öğrenciler İçin Kaynaklar</h3>
+        <ul>
+          <li><strong>AllAbroad:</strong> Yurtdışı eğitimi için ihtiyacınız olan herşey.</li>
+          <li><strong>BlueBook:</strong> SAT sınavı bu platform üzerinden dijital olarak yapılmaktadır, deneme sınavı olabilirsiniz.</li>
+          <li><strong>Khan Academy:</strong> SAT,ACT, AP sınavları için konu anlatımlarına ve örnek sorulara ücretsiz olarak ulaşabilirsiniz.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+    <!-- Subfooter -->
+    <div class="subfooter-wrapper">
+  <div class="subfooter">
+    <div class="subfooter-content">
+      <div class="subfooter-column">
+        <h4>Countries</h4>
+        <ul>
+          <li><a href="countries/europe.html">Europe</a></li>
+          <li><a href="countries/americas.html">USA & Canada</a></li>
+          <li><a href="countries/asia.html">Asia</a></li>
+        </ul>
+      </div>
+      <div class="subfooter-column">
+        <h4>Universities</h4>
+        <ul>
+          <li><a href="universities.html#all">All Universities</a></li>
+          <li><a href="universities.html#top">Top Rankings</a></li>
+        </ul>
+      </div>
+      <div class="subfooter-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="scholarships.html">Scholarships</a></li>
+          <li><a href="finder.html">Find Your Fit</a></li>
+        </ul>
+      </div>
+      <div class="subfooter-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="subfooter-bottom">
+      <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

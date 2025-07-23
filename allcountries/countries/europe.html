@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AllAbroad - Europe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+  <style>
+    .content-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    .study-guide {
+      margin-top: 60px;
+      line-height: 1.8;
+    }
+
+    .study-guide h2 {
+      color: #E63946;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .study-guide h3 {
+      color: #E63946;
+      font-size: 22px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .study-guide p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .study-guide ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    .study-guide li {
+      margin-bottom: 10px;
+    }
+
+    .study-guide table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    .study-guide th, .study-guide td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .study-guide th {
+      background-color: #f8f8f8;
+      font-weight: 500;
+    }
+
+    .university-marker {
+      fill: #E63946;
+      stroke: white;
+      stroke-width: 1.5px;
+      cursor: pointer;
+    }
+
+    .university-marker:hover {
+      fill: #c1121f;
+    }
+
+    .university-tooltip {
+      position: sticky;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      pointer-events: none;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .page-title {
+      color: #E63946;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .map-container {
+      position: relative;
+      margin: 40px 0;
+    }
+
+    .map-controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+
+.country-tooltip {
+    position: fixed;
+    background-color: #000;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 100;
+    transform: translate(-50%, -120%);
+    white-space: nowrap;
+}
+
+    .control-btn {
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      font-weight: bold;
+    }
+          
+  </style>
+</head>
+
+<body>
+  <div class="hamburger-container">
+    <div class="hamburger-icon" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="menu-panel">
+      <nav>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <header>
+    <a href="../index.html" class="logo" aria-label="Go to homepage">
+      <span class="all">All</span><span class="abroad">Abroad</span>
+    </a>
+    <div class="nav-right">
+      <nav class="main-nav">
+        <ul>
+          <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="../countries.html">Countries</a>
+            <div class="dropdown-content">
+              <a href="europe.html">Europe</a>
+              <a href="americas.html">USA and Canada</a>
+              <a href="asia.html">Asia</a>
+            </div>
+          </li>
+          <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="../universities.html">Universities</a>
+            <div class="dropdown-content">
+              <a href="../universities.html#all">All Universities</a>
+              <a href="../universities.html#top">By Ranking</a>
+            </div>
+          </li>
+          <li><a href="../scholarships.html">Scholarships</a></li>
+             <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input type="text" placeholder="Search" aria-label="Search">
+      </div>
+      <a href="../login.html" class="login-btn">Log in</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="content-section">
+      <h1 class="page-title">Europe</h1>
+
+      <div class="map-container">
+        <div class="map-controls">
+          <div class="control-btn zoom-in" aria-label="Zoom In">+</div>
+          <div class="control-btn zoom-out" aria-label="Zoom Out">-</div>
+          <div class="control-btn reset" aria-label="Reset Zoom">↻</div>
+        </div>
+        <div id="europe-map"></div>
+        <div id="university-tooltip" class="university-tooltip"></div>
+         <div id="country-tooltip" class="country-tooltip"></div>
+      </div>
+    </section>
+
+    <section class="content-section study-guide">
+      <h2>Studying in Europe offers Turkish students world-class education at affordable costs.</h2>
+      <p>With centuries-old universities, innovative programs taught in English, and rich cultural experiences, Europe has become a prime destination for Turkish students. From Germany's tuition-free universities to the UK's prestigious Russell Group, this guide covers everything you need to know about studying in Europe.</p>
+      <p>Welcome to your comprehensive guide to European higher education.</p>
+    
+      <h3>Why Study in Europe?</h3>
+      <p>Europe combines academic excellence with cultural richness and affordability:</p>
+      <ul>
+        <li><strong>Affordable Education:</strong> Many countries offer free or low-cost tuition (Germany, Norway, France)</li>
+        <li><strong>English-Taught Programs:</strong> Over 20,000 bachelor's and master's programs taught entirely in English</li>
+        <li><strong>Central Location:</strong> Easy travel between countries during breaks</li>
+        <li><strong>Work Opportunities:</strong> Most countries allow international students to work part-time</li>
+        <li><strong>Post-Study Visas:</strong> Many countries offer work permits after graduation</li>
+      </ul>
+    
+      <h3>Understanding European Higher Education</h3>
+      <p>Europe's education systems vary by country but generally fall into these categories:</p>
+      <ul>
+        <li><strong>Research Universities:</strong> Focus on academic research (e.g., Sorbonne, Heidelberg, ETH Zurich)</li>
+        <li><strong>Technical Universities:</strong> STEM-focused (e.g., TU Munich, Delft University of Technology)</li>
+        <li><strong>Business Schools:</strong> Specialized in business/management (e.g., HEC Paris, Bocconi)</li>
+        <li><strong>Arts & Design Schools:</strong> World-renowned institutions (e.g., Central Saint Martins, Politecnico di Milano)</li>
+      </ul>
+    
+      <h3>Top Study Destinations</h3>
+      <p>Each European country offers unique advantages:</p>
+      <ul>
+        <li><strong>Germany:</strong> Free tuition at public universities, strong engineering programs</li>
+        <li><strong>UK:</strong> Prestigious universities (Oxford, Cambridge), 1-year master's programs</li>
+        <li><strong>Netherlands:</strong> Over 2,000 English-taught programs, international environment</li>
+        <li><strong>France:</strong> Low tuition fees, strong business and arts programs</li>
+        <li><strong>Nordic Countries:</strong> Free tuition (Norway), innovative teaching methods</li>
+        <li><strong>Italy:</strong> Affordable living costs, world-class design schools</li>
+      </ul>
+    
+      <h3>Application Process</h3>
+      <p>Requirements vary by country but generally include:</p>
+      <ul>
+        <li><strong>Academic Records:</strong> Translated transcripts (some countries require nostrification)</li>
+        <li><strong>Language Proficiency:</strong> IELTS/TOEFL for English programs, DELF/DALF for French, etc.</li>
+        <li><strong>Entrance Exams:</strong> Some countries require specific tests (e.g., TSA for Oxford)</li>
+        <li><strong>Motivation Letters:</strong> Particularly important for competitive programs</li>
+        <li><strong>Application Portals:</strong> Country-specific systems like UCAS (UK), Uni-Assist (Germany)</li>
+      </ul>
+    
+      <h3>Tuition Fees & Living Costs</h3>
+      <p>Europe offers options for every budget:</p>
+      <table>
+        <tr>
+          <th>Country</th>
+          <th>Annual Tuition (EUR)</th>
+          <th>Living Costs (EUR/month)</th>
+        </tr>
+        <tr>
+          <td>Germany</td>
+          <td>0-500 (public)</td>
+          <td>850-1,200</td>
+        </tr>
+        <tr>
+          <td>France</td>
+          <td>170-3,770 (public)</td>
+          <td>800-1,200</td>
+        </tr>
+        <tr>
+          <td>Netherlands</td>
+          <td>6,000-15,000</td>
+          <td>900-1,400</td>
+        </tr>
+        <tr>
+          <td>Italy</td>
+          <td>900-4,000 (public)</td>
+          <td>700-1,200</td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>10,000-38,000</td>
+          <td>1,000-1,500</td>
+        </tr>
+      </table>
+    
+      <h3>Scholarships & Funding</h3>
+      <p>Numerous funding options exist for Turkish students:</p>
+      <ul>
+        <li><strong>Erasmus+:</strong> EU-funded exchange programs</li>
+        <li><strong>DAAD Scholarships:</strong> For study in Germany</li>
+        <li><strong>Eiffel Scholarships:</strong> For study in France</li>
+        <li><strong>Chevening Scholarships:</strong> For UK master's programs</li>
+        <li><strong>Country-Specific Scholarships:</strong> Many European governments offer scholarships</li>
+      </ul>
+    
+      <h3>Final Considerations</h3>
+      <p>Studying in Europe can be your gateway to global opportunities. With proper planning, you can access world-class education at a fraction of U.S. or UK costs.</p>
+      <p>Whether you dream of studying engineering at ETH Zurich, fashion at Istituto Marangoni, or economics at the London School of Economics, Europe has options for every ambition.</p>
+      <p>AllAbroad is here to help you navigate the application process and find your perfect European university match.</p>
+    </section>
+  </main>
+
+  <div class="subfooter-wrapper">
+    <div class="subfooter">
+        <div class="subfooter-content">
+            <div class="subfooter-column">
+                <h4>Countries</h4>
+                <ul>
+                    <li><a href="../countries/europe.html">Europe</a></li>
+                    <li><a href="../countries/americas.html">USA & Canada</a></li>
+                    <li><a href="../countries/asia.html">Asia</a></li>
+                </ul>
+            </div>
+            <div class="subfooter-column">
+                <h4>Universities</h4>
+                <ul>
+                    <li><a href="../universities.html#all">All Universities</a></li>
+                    <li><a href="../universities.html#top">Top Rankings</a></li>
+                </ul>
+            </div>
+            <div class="subfooter-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="../scholarships.html">Scholarships</a></li>
+                    <li><a href="../finder.html">Find Your Fit</a></li>
+                </ul>
+            </div>
+            <div class="subfooter-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="subfooter-bottom">
+            <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+        </div>
+    </div>
+</div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v3.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tooltip = document.getElementById('university-tooltip');
+      const width = 1000;
+      const height = 600;
+      
+      const svg = d3.select("#europe-map")
+        .append("svg")
+        .attr("viewBox", [0, 0, width, height])
+        .attr("preserveAspectRatio", "xMidYMid meet");
+
+      const g = svg.append("g");
+      const projection = d3.geoMercator()
+        .center([15, 55])
+        .scale(600)
+        .translate([width/2, height/2]);
+      
+      const path = d3.geoPath().projection(projection);
+    // Zoom behavior
+    const zoom = d3.zoom()
+        .scaleExtent([1, 8])
+        .on("zoom", (event) => {
+            // Only allow panning if zoomed in (scale > 1)
+            if (event.transform.k === 1) {
+                // Reset any translation if at original scale
+                event.transform.x = 0;
+                event.transform.y = 0;
+            }
+            g.attr("transform", event.transform);
+        });
+    
+    svg.call(zoom);
+    
+      svg.call(zoom);
+
+      d3.json("https://raw.githubusercontent.com/leakyMirror/map-of-europe/master/GeoJSON/europe.geojson").then(europe => {
+        // Draw countries
+        const countryTooltip = document.getElementById('country-tooltip');
+          g.selectAll(".country")
+    .data(europe.features)
+    .enter().append("path")
+    .attr("class", "country")
+    .attr("d", path)
+    .attr("fill", "#f0f0f0")
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 0.5)
+    .on("mouseover", function(event, d) {
+    d3.select(this).attr("fill", "#ddd");
+    countryTooltip.textContent = d.properties.NAME; // Using 'name' property from the GeoJSON
+    countryTooltip.style.opacity = '1';
+  })
+  .on("mouseout", function() {
+    d3.select(this).attr("fill", "#f0f0f0");
+    countryTooltip.style.opacity = '0';
+  })
+  .on("mousemove", function(event) {
+    countryTooltip.style.left = `${event.pageX + 10}px`;
+    countryTooltip.style.top = `${event.pageY - 30}px`;
+  });
+
+        // Add university markers
+        const universities = [
+          { name: "University of Oxford", lat: 51.7548, lng: -1.2543, city: "Oxford, UK" },
+          { name: "University of Cambridge", lat: 52.2053, lng: 0.1218, city: "Cambridge, UK" },
+          { name: "ETH Zurich", lat: 47.3769, lng: 8.5417, city: "Zurich, Switzerland" },
+          { name: "Sorbonne University", lat: 48.8486, lng: 2.3550, city: "Paris, France" },
+          { name: "LMU Munich", lat: 48.1505, lng: 11.5802, city: "Munich, Germany" },
+          { name: "Delft University", lat: 52.0022, lng: 4.3736, city: "Delft, Netherlands" },
+          { name: "KU Leuven", lat: 50.8776, lng: 4.7009, city: "Leuven, Belgium" },
+          { name: "University of Copenhagen", lat: 55.6804, lng: 12.5715, city: "Copenhagen, Denmark" },
+          { name: "Karolinska Institute", lat: 59.3498, lng: 18.0256, city: "Stockholm, Sweden" },
+          { name: "University of Bologna", lat: 44.4949, lng: 11.3426, city: "Bologna, Italy" },
+          { name: "University of Vienna", lat: 48.2132, lng: 16.3601, city: "Vienna, Austria" },
+          { name: "Bocconi University", lat: 45.4490, lng: 9.1896, city: "Milan, Italy" },
+          { name: "Technical University of Berlin", lat: 52.5125, lng: 13.3266, city: "Berlin, Germany" },
+          { name: "University of Edinburgh", lat: 55.9446, lng: -3.1884, city: "Edinburgh, UK" }
+        ];
+
+        g.selectAll(".university-marker")
+          .data(universities)
+          .enter().append("circle")
+          .attr("class", "university-marker")
+          .attr("r", 5)
+          .attr("cx", d => projection([d.lng, d.lat])[0])
+          .attr("cy", d => projection([d.lng, d.lat])[1])
+          .on("mouseover", (event, d) => {
+            d3.select(event.currentTarget).attr("r", 7);
+            tooltip.textContent = `${d.name} (${d.city})`;
+            tooltip.style.opacity = '1';
+          })
+          .on("mouseout", (event) => {
+            d3.select(event.currentTarget).attr("r", 5);
+            tooltip.style.opacity = '0';
+          })
+          .on("mousemove", (event) => {
+            tooltip.style.left = `${event.pageX + 10}px`;
+            tooltip.style.top = `${event.pageY - 30}px`;
+          });
+      });
+
+      // Zoom controls
+      d3.select(".zoom-in").on("click", () => svg.transition().duration(300).call(zoom.scaleBy, 1.5));
+      d3.select(".zoom-out").on("click", () => svg.transition().duration(300).call(zoom.scaleBy, 0.75));
+      d3.select(".reset").on("click", () => svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity));
+    });
+  </script>
+</body>
+</html>

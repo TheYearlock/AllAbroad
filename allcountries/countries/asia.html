@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllAbroad - Asia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+      
+      .content-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        color: #333;
+      }
+
+      .study-guide {
+        margin-top: 60px;
+        line-height: 1.8;
+      }
+
+      .study-guide h2 {
+        color: #E63946;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .study-guide h3 {
+        color: #E63946;
+        font-size: 22px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      .study-guide p {
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .study-guide ul {
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+
+      .study-guide li {
+        margin-bottom: 10px;
+      }
+
+      .study-guide table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .study-guide th, .study-guide td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .study-guide th {
+        background-color: #f8f8f8;
+        font-weight: 500;
+      }
+
+      .university-marker {
+        fill: #E63946;
+        stroke: white;
+        stroke-width: 1.5px;
+        cursor: pointer;
+      }
+
+      .university-marker:hover {
+        fill: #c1121f;
+      }
+
+      .university-tooltip {
+        position: sticky;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 8px 12px;
+        border-radius: 4px;
+        pointer-events: none;
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .page-title {
+        color: #E63946;
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+
+      .map-container {
+        position: relative;
+        margin: 40px 0;
+      }
+
+      .map-controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .control-btn {
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        font-weight: bold;
+      }
+      .country-tooltip {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  pointer-events: none;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+    </style>
+  </head>
+  <body>
+    <div class="hamburger-container">
+      <div class="hamburger-icon" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="menu-panel">
+        <nav>
+          <ul>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <header>
+      <a href="../index.html" class="logo" aria-label="Go to homepage">
+        <span class="all">All</span><span class="abroad">Abroad</span>
+      </a>
+      <div class="nav-right">
+        <nav class="main-nav">
+          <ul>
+            <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a href="../countries.html">Countries</a>
+              <div class="dropdown-content">
+                <a href="europe.html">Europe</a>
+                <a href="americas.html">USA and Canada</a>
+                <a href="asia.html">Asia</a>
+              </div>
+            </li>
+            <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a href="../universities.html">Universities</a>
+              <div class="dropdown-content">
+                <a href="../universities.html#all">All Universities</a>
+                <a href="../universities.html#top">By Ranking</a>
+              </div>
+            </li>
+            <li><a href="../scholarships.html">Scholarships</a></li>
+      <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
+          <input type="text" placeholder="Search" aria-label="Search">
+        </div>
+        <a href="../login.html" class="login-btn">Log in</a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="content-section">
+        <h1 class="page-title">Asia</h1>
+
+        <div class="map-container">
+          <div class="map-controls">
+            <div class="control-btn zoom-in" aria-label="Zoom In">+</div>
+            <div class="control-btn zoom-out" aria-label="Zoom Out">-</div>
+            <div class="control-btn reset" aria-label="Reset Zoom">↻</div>
+          </div>
+          <div id="asia-map"></div>
+          <div id="university-tooltip" class="university-tooltip"></div>
+          <div id="country-tooltip" class="country-tooltip"></div>
+        </div>
+      
+
+      </section>
+
+      <section class="content-section study-guide">
+        <h2>Studying in Asia offers Turkish students cutting-edge education in dynamic environments.</h2>
+        <p>From the technological powerhouses of East Asia to the emerging education hubs in the Middle East, Asia presents diverse opportunities for Turkish students. This guide covers everything from Japan's prestigious universities to Singapore's innovative programs and the rapidly growing institutions in China and South Korea.</p>
+        <p>Welcome to your comprehensive guide to Asian higher education.</p>
+      
+        <h3>Why Study in Asia?</h3>
+        <p>Asia combines technological innovation with cultural richness and competitive costs:</p>
+        <ul>
+          <li><strong>Technological Leadership:</strong> World leaders in engineering and technology (Japan, South Korea, Singapore)</li>
+          <li><strong>English-Taught Programs:</strong> Increasing number of programs taught in English</li>
+          <li><strong>Cultural Diversity:</strong> Experience both ancient traditions and modern innovation</li>
+          <li><strong>Affordable Options:</strong> Many countries offer quality education at lower costs than the West</li>
+          <li><strong>Growing Economies:</strong> Study in the world's fastest-growing economic region</li>
+        </ul>
+      
+        <h3>Understanding Asian Higher Education</h3>
+        <p>Asia's education systems vary significantly by country:</p>
+        <ul>
+          <li><strong>Research Universities:</strong> Focus on academic research (e.g., University of Tokyo, National University of Singapore)</li>
+          <li><strong>Technical Institutes:</strong> STEM-focused (e.g., KAIST, Hong Kong University of Science and Technology)</li>
+          <li><strong>Business Schools:</strong> Specialized in business/management (e.g., CEIBS, Indian School of Business)</li>
+          <li><strong>Specialized Institutions:</strong> Focused on specific fields like technology or design</li>
+        </ul>
+      
+        <h3>Top Study Destinations</h3>
+        <p>Each Asian country offers unique advantages:</p>
+        <ul>
+          <li><strong>Japan:</strong> World-class technology programs, rich culture</li>
+          <li><strong>South Korea:</strong> Cutting-edge research, generous scholarships</li>
+          <li><strong>China:</strong> Rapidly improving universities, business opportunities</li>
+          <li><strong>Singapore:</strong> Global education hub, English-speaking</li>
+          <li><strong>Malaysia:</strong> Affordable Western-style education</li>
+          <li><strong>Middle East:</strong> Growing research universities with full funding</li>
+        </ul>
+      
+        <h3>Application Process</h3>
+        <p>Requirements vary by country but generally include:</p>
+        <ul>
+          <li><strong>Academic Records:</strong> Translated transcripts</li>
+          <li><strong>Language Proficiency:</strong> IELTS/TOEFL for English programs, local language tests when applicable</li>
+          <li><strong>Entrance Exams:</strong> Some countries require specific tests</li>
+          <li><strong>Motivation Letters:</strong> Important for competitive programs</li>
+          <li><strong>Application Portals:</strong> Country-specific systems</li>
+        </ul>
+      
+        <h3>Tuition Fees & Living Costs</h3>
+        <p>Asia offers options for every budget:</p>
+        <table>
+          <tr>
+            <th>Country</th>
+            <th>Annual Tuition (USD)</th>
+            <th>Living Costs (USD/month)</th>
+          </tr>
+          <tr>
+            <td>Japan</td>
+            <td>5,000-10,000 (public)</td>
+            <td>900-1,400</td>
+          </tr>
+          <tr>
+            <td>South Korea</td>
+            <td>3,000-10,000</td>
+            <td>800-1,200</td>
+          </tr>
+          <tr>
+            <td>China</td>
+            <td>2,000-10,000</td>
+            <td>500-1,000</td>
+          </tr>
+          <tr>
+            <td>Singapore</td>
+            <td>10,000-30,000</td>
+            <td>1,000-1,800</td>
+          </tr>
+          <tr>
+            <td>Malaysia</td>
+            <td>2,000-8,000</td>
+            <td>400-800</td>
+          </tr>
+        </table>
+      
+        <h3>Scholarships & Funding</h3>
+        <p>Numerous funding options exist for Turkish students:</p>
+        <ul>
+          <li><strong>MEXT Scholarships:</strong> Japanese government scholarships</li>
+          <li><strong>KGSP:</strong> Korean Government Scholarship Program</li>
+          <li><strong>CSC Scholarships:</strong> Chinese government scholarships</li>
+          <li><strong>ASEAN Scholarships:</strong> For study in Southeast Asia</li>
+          <li><strong>University-Specific Scholarships:</strong> Many Asian universities offer generous funding</li>
+        </ul>
+      
+        <h3>Final Considerations</h3>
+        <p>Studying in Asia can provide unique opportunities in the world's most dynamic region. With proper planning, you can access high-quality education while immersing yourself in fascinating cultures.</p>
+        <p>Whether you dream of studying robotics in Tokyo, business in Shanghai, or computer science in Singapore, Asia offers world-class options.</p>
+        <p>AllAbroad is here to help you navigate the application process and find your perfect Asian university match.</p>
+      </section>
+    </main>
+
+    <div class="subfooter-wrapper">
+        <div class="subfooter">
+            <div class="subfooter-content">
+                <div class="subfooter-column">
+                    <h4>Countries</h4>
+                    <ul>
+                        <li><a href="europe.html">Europe</a></li>
+                        <li><a href="americas.html">USA & Canada</a></li>
+                        <li><a href="asia.html">Asia</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Universities</h4>
+                    <ul>
+                        <li><a href="../universities.html#all">All Universities</a></li>
+                        <li><a href="../universities.html#top">Top Rankings</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../scholarships.html">Scholarships</a></li>
+                        <li><a href="../finder.html">Find Your Fit</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subfooter-bottom">
+                <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v3.min.js"></script>
+    
+    <script>
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        const tooltip = document.getElementById('university-tooltip');
+        const width = 1000;
+        const height = 600;
+        
+        const svg = d3.select("#asia-map")
+          .append("svg")
+          .attr("viewBox", [0, 0, width, height])
+          .attr("preserveAspectRatio", "xMidYMid meet");
+
+        const g = svg.append("g");
+        const projection = d3.geoMercator()
+          .center([100, 30])
+          .scale(400)
+          .translate([width/2, height/2]);
+        
+        const path = d3.geoPath().projection(projection);
+
+    // Zoom behavior
+        const zoom = d3.zoom()
+          .scaleExtent([1, 8])
+          .on("zoom", (event) => {
+            // Only allow panning if zoomed in (scale > 1)
+            if (event.transform.k === 1) {
+              // Reset any translation if at original scale
+              event.transform.x = 0;
+              event.transform.y = 0;
+            }
+            g.attr("transform", event.transform);
+          });
+      
+        svg.call(zoom);
+
+
+        d3.json("https://raw.githubusercontent.com/datasets/geo-boundaries-world-110m/master/countries.geojson").then(world => {
+          // Filter Asian countries (simplified - would need proper country filtering in production)
+          const asiaCountries = world.features.filter(feature => {
+            const region = feature.properties.region_un;
+            return region === "Asia" || feature.properties.name === "Turkey" || feature.properties.name === "Russia";
+            
+          });
+
+          // Draw countries
+const countryTooltip = document.getElementById('country-tooltip');
+
+g.selectAll(".country")
+  .data(asiaCountries)
+  .enter().append("path")
+  .attr("class", "country")
+  .attr("d", path)
+  .attr("fill", "#f0f0f0")
+  .attr("stroke", "#fff")
+  .attr("stroke-width", 0.5)
+  .on("mouseover", function(event, d) {
+    d3.select(this).attr("fill", "#ddd");
+    countryTooltip.textContent = d.properties.name; // Using 'name' property from the GeoJSON
+    countryTooltip.style.opacity = '1';
+  })
+  .on("mouseout", function() {
+    d3.select(this).attr("fill", "#f0f0f0");
+    countryTooltip.style.opacity = '0';
+  })
+  .on("mousemove", function(event) {
+    countryTooltip.style.left = `${event.pageX + 10}px`;
+    countryTooltip.style.top = `${event.pageY - 30}px`;
+  });
+          // Add university markers
+          const universities = [
+            { name: "University of Tokyo", lat: 35.7127, lng: 139.7620, city: "Tokyo, Japan" },
+            { name: "National University of Singapore", lat: 1.2966, lng: 103.7764, city: "Singapore" },
+            { name: "Tsinghua University", lat: 40.0000, lng: 116.3264, city: "Beijing, China" },
+            { name: "KAIST", lat: 36.3741, lng: 127.3625, city: "Daejeon, South Korea" },
+            { name: "Hong Kong University", lat: 22.2833, lng: 114.1378, city: "Hong Kong" },
+            { name: "Peking University", lat: 39.9924, lng: 116.3057, city: "Beijing, China" },
+            { name: "Seoul National University", lat: 37.4596, lng: 126.9513, city: "Seoul, South Korea" },
+            { name: "University of Hong Kong", lat: 22.2833, lng: 114.1378, city: "Hong Kong" },
+            { name: "Kyoto University", lat: 35.0264, lng: 135.7808, city: "Kyoto, Japan" },
+            { name: "Indian Institute of Technology Bombay", lat: 19.1334, lng: 72.9133, city: "Mumbai, India" },
+            { name: "King Abdulaziz University", lat: 21.4858, lng: 39.2376, city: "Jeddah, Saudi Arabia" },
+            { name: "Tel Aviv University", lat: 32.1133, lng: 34.8044, city: "Tel Aviv, Israel" }
+          ];
+
+          g.selectAll(".university-marker")
+            .data(universities)
+            .enter().append("circle")
+            .attr("class", "university-marker")
+            .attr("r", 5)
+            .attr("cx", d => projection([d.lng, d.lat])[0])
+            .attr("cy", d => projection([d.lng, d.lat])[1])
+            .on("mouseover", (event, d) => {
+              d3.select(event.currentTarget).attr("r", 7);
+              tooltip.textContent = `${d.name} (${d.city})`;
+              tooltip.style.opacity = '1';
+            })
+            .on("mouseout", (event) => {
+              d3.select(event.currentTarget).attr("r", 5);
+              tooltip.style.opacity = '0';
+            })
+            .on("mousemove", (event) => {
+              tooltip.style.left = `${event.pageX + 10}px`;
+              tooltip.style.top = `${event.pageY - 30}px`;
+            });
+        });
+
+        // Zoom controls
+        d3.select(".zoom-in").on("click", () => svg.transition().duration(300).call(zoom.scaleBy, 1.5));
+        d3.select(".zoom-out").on("click", () => svg.transition().duration(300).call(zoom.scaleBy, 0.75));
+        d3.select(".reset").on("click", () => svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity));
+      });
+      
+    </script>
+  </body>
+  </html>
+

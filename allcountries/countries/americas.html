@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AllAbroad - USA & Canada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    
+    .content-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      color: #333; /* Ensure text is visible */
+    }
+
+    .study-guide {
+      margin-top: 60px;
+      line-height: 1.8;
+    }
+
+    .study-guide h2 {
+      color: #E63946;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .study-guide h3 {
+      color: #E63946; /* Make subheadings red */
+      font-size: 22px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .study-guide p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #333; /* Ensure paragraph text is visible */
+    }
+
+    .study-guide ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    .study-guide li {
+      margin-bottom: 10px;
+    }
+
+    .university-marker {
+      fill: #E63946;
+      stroke: white;
+      stroke-width: 1.5px;
+      cursor: pointer;
+    }
+
+    .university-marker:hover {
+      fill: #c1121f;
+    }
+
+    .university-tooltip {
+      position: sticky;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      pointer-events: none;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Remove dotted styling from middle articles */
+    .study-guide p:not(:first-of-type) {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    /* Style the page title */
+    .page-title {
+      color: #E63946;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+  
+  </style>
+</head>
+<body>
+  <div class="hamburger-container">
+    <div class="hamburger-icon" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="menu-panel">
+      <nav>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+  <header>
+    <a href="../index.html" class="logo" aria-label="Go to homepage">
+      <span class="all">All</span><span class="abroad">Abroad</span>
+    </a>
+    <div class="nav-right">
+      <nav class="main-nav">
+        <ul>
+          <li class="dropdown">
+            <a href="../countries.html">Countries</a>
+            <div class="dropdown-content">
+              <a href="europe.html">Europe</a>
+              <a href="americas.html">USA and Canada</a>
+              <a href="asia.html">Asia</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="../universities.html">Universities</a>
+            <div class="dropdown-content">
+              <a href="../universities.html#all">All Universities</a>
+              <a href="../universities.html#top">By Ranking</a>
+            </div>
+          </li>
+          <li><a href="../scholarships.html">Scholarships</a></li>
+              <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input type="text" placeholder="Search" aria-label="Search" />
+      </div>
+      <a href="../login.html" class="login-btn">Log in</a>
+    </div>
+   
+  </div>
+
+  </header>
+
+  <main class="main-content">
+    <section class="content-section">
+      <h1 class="page-title">United States of America</h1>
+
+      <div class="map-container">
+        <div class="map-controls">
+          <div class="control-btn zoom-in" aria-label="Zoom In">+</div>
+          <div class="control-btn zoom-out" aria-label="Zoom Out">-</div>
+          <div class="control-btn reset" aria-label="Reset Zoom">↻</div>
+        </div>
+        <div id="usa-map"></div>
+        <div id="university-tooltip" class="university-tooltip"></div>
+      </div>
+    </section>
+
+    <section class="content-section study-guide">
+      <h2>Studying in the United States has been a long-time dream for many ambitious Turkish students.</h2>
+      <p>With world-class education, vast academic resources, and unmatched cultural diversity, the U.S. remains one of the top study-abroad destinations. But behind the bright lights of Ivy League dreams lies a complex system of applications, exams, essays, and paperwork. This guide breaks it all down for you, step by step, with no fluff and answers every question you didn't know you had.</p>
+      <p>Welcome to your ultimate roadmap to studying in the USA.</p>
+    
+      <h3>Why Study in the USA?</h3>
+      <p>Let's start with the most basic (yet most important) question: Why even consider America?</p>
+      <p>For starters, 8 of the world's top 10 universities are located there, and the education system is famous for its flexibility, innovation, and research output. Unlike the rigid systems in many countries, the U.S. offers you academic freedom. You can double major, switch majors mid-way, create your own curriculum, and take classes outside your department.</p>
+      <p>There's also an incredible multicultural student population. In 2025 alone, over one million international students chose to study in the U.S., and Turkish students consistently form a strong part of this community.</p>
+      <p>You're not just earning a degree. You're building a global network, developing your language skills, understanding new cultures, and increasing your future career opportunities.</p>
+    
+      <h3>Understanding the U.S. University System</h3>
+      <p>U.S. higher education is diverse, and choosing the right type of institution is key. Here's what you should know:</p>
+      <ul>
+        <li><strong>Public Universities:</strong> Funded by U.S. states. They're usually larger, more affordable for locals, but pricier for internationals. Still, many are world-class (like the University of California system, Michigan, UNC).</li>
+        <li><strong>Private Universities:</strong> High tuition, but generous aid. Ivy League schools and research powerhouses like Stanford and MIT are in this category.</li>
+        <li><strong>Liberal Arts Colleges:</strong> Small, undergrad-focused, and broad in education. Ideal for students seeking close interaction with professors. (e.g., Williams, Amherst, Swarthmore)</li>
+        <li><strong>Community Colleges:</strong> Affordable, 2-year institutions for associate degrees. Often used as a transfer pathway to 4-year universities.</li>
+        <li><strong>Specialized Institutions:</strong> Focused on fields like art (RISD), music (Juilliard), or tech (Caltech).</li>
+      </ul>
+    
+      <h3>When to Start Preparing</h3>
+      <p>Preparation should begin early — ideally in 9th or 10th grade if you're aiming for undergraduate study.</p>
+      <p>If you're in 12th grade right now it might be tight, but if you're just starting, here's a quick roadmap:</p>
+      <ul>
+        <li><strong>9th–10th Grade:</strong> Focus on GPA, develop English, build extracurriculars.</li>
+        <li><strong>11th Grade:</strong> Research schools, take SAT/ACT, start your CV, seek summer opportunities.</li>
+        <li><strong>12th Grade:</strong> Write essays, collect recommendation letters, and submit applications (deadlines typically fall between November and January).</li>
+      </ul>
+    
+      <h3>The Application Process</h3>
+      <p>The U.S. process is holistic — meaning grades aren't everything. Here's what you'll need:</p>
+      <ul>
+        <li><strong>Academic Transcripts:</strong> Grades 9–12, translated to English and possibly notarized.</li>
+        <li><strong>Standardized Tests:</strong> SAT or ACT (optional at many schools, but still useful). Grad students might need GRE/GMAT.</li>
+        <li><strong>English Proficiency:</strong> TOEFL iBT, IELTS, or Duolingo English Test (check specific requirements).</li>
+        <li><strong>Personal Statement:</strong> The Common App essay (650 words) — your story, your voice.</li>
+        <li><strong>Supplemental Essays:</strong> Many schools ask for extra responses tailored to their values.</li>
+        <li><strong>Letters of Recommendation:</strong> 2–3 from teachers or mentors who know you well.</li>
+        <li><strong>Activities List:</strong> Awards, extracurriculars, leadership, volunteering, projects. Highlight your unique Turkish student experience — MUN, Olympiads, piano, anything that shows depth.</li>
+      </ul>
+    
+      <h3>Financial Aid and Scholarships</h3>
+      <p>Studying in the U.S. can be expensive — but you can absolutely make it affordable:</p>
+      <ul>
+        <li><strong>Need-Based Aid:</strong> Top schools like Harvard, Yale, Princeton, MIT offer full aid based on financial need — even for international students.</li>
+        <li><strong>Merit Scholarships:</strong> Awarded for academic talent, leadership, sports, music. Examples: Emory, USC, NYU.</li>
+        <li><strong>External Scholarships:</strong>
+          <ul>
+            <li>Fulbright (for graduate study)</li>
+            <li>EducationUSA Opportunity Funds (for low-income students)</li>
+            <li>Turkish foundations: TEV, Vehbi Koç, Alarko</li>
+            <li>Short-term exchanges via Erasmus+ or EU programs</li>
+          </ul>
+        </li>
+        <li><strong>CSS Profile:</strong> Required by many U.S. schools to assess financial need (instead of Turkish-style documents).</li>
+      </ul>
+    
+      <h3>Your Final Decision</h3>
+      <p>The U.S. is waiting. If you've read this far, you're already ahead of most.</p>
+      <p>Whether you dream of studying international relations at Georgetown, computer science at Stanford, or economics at the University of Chicago — you've got this. All it takes is the right plan, a bit of courage, and a ton of persistence.</p>
+      <p>And remember — you're not alone. AllAbroad is here to guide you every step of the way.</p>
+    </section>
+  </main>
+
+  <div class="subfooter-wrapper">
+    <div class="subfooter">
+        <div class="subfooter-content">
+            <div class="subfooter-column">
+                <h4>Countries</h4>
+                <ul>
+                    <li><a href="europe.html">Europe</a></li>
+                    <li><a href="americas.html">USA & Canada</a></li>
+                    <li><a href="asia.html">Asia</a></li>
+                </ul>
+            </div>
+            <div class="subfooter-column">
+                <h4>Universities</h4>
+                <ul>
+                    <li><a href="../universities.html#all">All Universities</a></li>
+                    <li><a href="../universities.html#top">Top Rankings</a></li>
+                </ul>
+            </div>
+            <div class="subfooter-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="../scholarships.html">Scholarships</a></li>
+                    <li><a href="../finder.html">Find Your Fit</a></li>
+                </ul>
+            </div>
+            <div class="subfooter-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="subfooter-bottom">
+            <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+        </div>
+    </div>
+</div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tooltip = document.getElementById('university-tooltip');
+      const svg = d3.select("#usa-map")
+        .append("svg")
+        .attr("viewBox", [0, 0, 1000, 600])
+        .attr("preserveAspectRatio", "xMidYMid meet");
+
+      const g = svg.append("g");
+      const projection = d3.geoAlbersUsa().translate([500, 300]).scale(1000);
+      const path = d3.geoPath().projection(projection);
+
+      let currentTransform = d3.zoomIdentity;
+
+      // Zoom behavior
+      const zoom = d3.zoom()
+        .scaleExtent([1, 8])
+        .on("zoom", (event) => {
+          // Only allow panning if zoomed in (scale > 1)
+          if (event.transform.k === 1) {
+            // Reset any translation if at original scale
+            event.transform.x = 0;
+            event.transform.y = 0;
+          }
+          g.attr("transform", event.transform);
+        });
+    
+      svg.call(zoom);
+
+      d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(us => {
+        const states = topojson.feature(us, us.objects.states).features;
+
+        g.selectAll(".state")
+          .data(states)
+          .enter().append("path")
+          .attr("class", "state")
+          .attr("d", path)
+          .attr("fill", "#f0f0f0")
+          .attr("stroke", "#fff")
+          .attr("stroke-width", 0.5);
+
+        const universities = [
+          { name: "Princeton University", lat: 40.3430, lng: -74.6514, city: "Princeton, NJ" },
+          { name: "MIT", lat: 42.3601, lng: -70.0942, city: "Cambridge, MA" },
+          { name: "Harvard", lat: 42.3770, lng: -71.1167, city: "Cambridge, MA" },
+          { name: "Stanford", lat: 37.4275, lng: -122.1697, city: "Stanford, CA" },
+          { name: "Yale", lat: 41.3163, lng: -72.9223, city: "New Haven, CT" },
+          { name: "Caltech", lat: 34.1377, lng: -118.1253, city: "Pasadena, CA" },
+          { name: "Duke", lat: 36.0014, lng: -78.9382, city: "Durham, NC" },
+          { name: "JHU", lat: 39.3299, lng: -76.6205, city: "Baltimore, MD" },
+          { name: "Northwestern", lat: 42.0565, lng: -87.6753, city: "Evanston, IL" },
+          { name: "UPenn", lat: 39.9522, lng: -75.1932, city: "Philadelphia, PA" },
+          { name: "Cornell", lat: 42.4534, lng: -76.4735, city: "Ithaca, NY" },
+          { name: "UChicago", lat: 41.7897, lng: -87.5997, city: "Chicago, IL" },
+          { name: "Brown", lat: 41.8268, lng: -71.4025, city: "Providence, RI" },
+          { name: "Columbia", lat: 40.8075, lng: -73.9626, city: "New York, NY" },
+          { name: "Vanderbilt", lat: 36.1447, lng: -86.8027, city: "Nashville, TN" },
+          { name: "Rice", lat: 29.7174, lng: -95.4018, city: "Houston, TX" },
+          { name: "Notre Dame", lat: 41.7056, lng: -86.2353, city: "Notre Dame, IN" },
+          { name: "UC Berkeley", lat: 37.8719, lng: -122.2585, city: "Berkeley, CA" },
+          { name: "UCLA", lat: 34.0689, lng: -118.4452, city: "Los Angeles, CA" },
+          { name: "WashU", lat: 38.6489, lng: -90.3102, city: "St. Louis, MO" }
+        ];
+
+        g.selectAll(".university-marker")
+          .data(universities)
+          .enter().append("circle")
+          .attr("class", "university-marker")
+          .attr("r", 5)
+          .attr("cx", d => projection([d.lng, d.lat])[0])
+          .attr("cy", d => projection([d.lng, d.lat])[1])
+          .on("mouseover", (event, d) => {
+            d3.select(event.currentTarget).attr("r", 7);
+            tooltip.textContent = `${d.name} (${d.city})`;
+            tooltip.style.opacity = '1';
+          })
+          .on("mouseout", (event) => {
+            d3.select(event.currentTarget).attr("r", 5);
+            tooltip.style.opacity = '0';
+          })
+          .on("mousemove", (event) => {
+            tooltip.style.left = `${event.pageX + 10}px`;
+            tooltip.style.top = `${event.pageY - 30}px`;
+          });
+      });
+
+      d3.select(".zoom-in").on("click", () => svg.transition().duration(300).call(zoom.scaleBy, 1.5));
+      d3.select(".zoom-out").on("click", () => svg.transition().duration(300).call(zoom.scaleBy, 0.75));
+      d3.select(".reset").on("click", () => svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity));
+    });
+  </script>
+</body>
+</html>

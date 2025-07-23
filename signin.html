@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - AllAbroad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            padding: 15px 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-left: 10px;
+            text-decoration: none; /* Removes underline */
+        }
+
+        .logo .all { color: #E63946; }
+        .logo .abroad { color: #000000; }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 120px);
+            padding: 40px 20px;
+        }
+
+        .login-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-form h2 {
+            color: #E63946;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px; /* Increased space */
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #E63946;
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #E63946;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #c1121f;
+            transform: translateY(-2px);
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+        }
+
+        .login-footer a {
+            color: #E63946;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-decoration: none; /* Removes underline */
+        }
+
+        .login-footer a:hover {
+            color: #c1121f;
+            text-decoration: underline; /* Adds underline on hover */
+        }
+
+        .error-message {
+            color: #E63946;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: 8px; /* Adjusted spacing */
+            margin-bottom: 15px;
+        }
+
+        .forgot-password a {
+            color: #666;
+            font-size: 14px;
+            text-decoration: none; /* Removes underline */
+            transition: color 0.3s;
+        }
+
+        .forgot-password a:hover {
+            color: #E63946;
+            text-decoration: underline; /* Adds underline on hover */
+        }
+
+        @media (max-width: 768px) {
+            .login-form {
+                padding: 30px 20px;
+            }
+            
+            .login-form h2 {
+                font-size: 24px;
+            }
+        }
+
+        /* Shake animation */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+        .subfooter-wrapper {
+            background-color: #f1f1f1;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .subfooter {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .subfooter-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .subfooter-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .subfooter-column h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #E63946;
+        }
+
+        .subfooter-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .subfooter-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .subfooter-column ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .subfooter-column ul li a:hover {
+            color: #E63946;
+        }
+
+        .subfooter-bottom {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <span class="all">All</span><span class="abroad">Abroad</span>
+        </a>
+    </header>
+
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Sign In to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-email">Email Address*</label>
+                    <input type="email" id="login-email" name="email" required>
+                    <div class="error-message" id="email-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password*</label>
+                    <input type="password" id="login-password" name="password" required minlength="8">
+                    <div class="forgot-password">
+                        <a href="forgot-password.html">Forgot password?</a>
+                    </div>
+                    <div class="error-message" id="password-error"></div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Sign In</button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Don't have an account? <a href="login.html">Create one</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="subfooter-wrapper">
+        <div class="subfooter">
+            <div class="subfooter-content">
+                <div class="subfooter-column">
+                    <h4>Countries</h4>
+                    <ul>
+                        <li><a href="countries/europe.html">Europe</a></li>
+                        <li><a href="countries/americas.html">USA & Canada</a></li>
+                        <li><a href="countries/asia.html">Asia</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Universities</h4>
+                    <ul>
+                        <li><a href="universities.html#all">All Universities</a></li>
+                        <li><a href="universities.html#top">Top Rankings</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                        <li><a href="finder.html">Find Your Fit</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subfooter-bottom">
+                <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Reset errors
+    document.querySelectorAll('.error-message').forEach(el => {
+        el.style.display = 'none';
+        el.textContent = '';
+    });
+    
+    // Show loading state
+    const btn = e.target.querySelector('button[type="submit"]');
+    const btnText = btn.textContent;
+    btn.disabled = true;
+    btn.innerHTML = 'Signing in...';
+    
+    try {
+        const response = await fetch('auth/login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: document.getElementById('login-email').value,
+                password: document.getElementById('login-password').value
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (!data.success) {
+            throw new Error(data.message || 'Login failed');
+        }
+        
+        window.location.href = data.redirect;
+        
+    } catch (error) {
+        document.getElementById('email-error').textContent = error.message;
+        document.getElementById('email-error').style.display = 'block';
+    } finally {
+        btn.disabled = false;
+        btn.textContent = btnText;
+    }
+});
+    </script>
+</body>
+</html>

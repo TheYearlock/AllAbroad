@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AllAbroad Country Guide Editor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #f7f7f7;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .editor-container {
+      max-width: 1100px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 30px 24px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .editor-section {
+      flex: 1 1 480px;
+      min-width: 350px;
+      margin-bottom: 30px;
+    }
+    .preview-section {
+      flex: 1 1 480px;
+      min-width: 350px;
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 24px;
+      overflow: auto;
+      border: 1px solid #eee;
+      max-height: 900px;
+    }
+    .editor-actions {
+      text-align: right;
+      margin-top: 10px;
+    }
+    .editor-actions button {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 28px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: background 0.2s;
+    }
+    .editor-actions button:hover {
+      background: #c1121f;
+    }
+    /* Preview styles (copy from USA page) */
+    .main-content {
+      max-width: 1000px;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      background: none;
+      box-shadow: none;
+    }
+    .page-title {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #e63946;
+      font-weight: 700;
+    }
+    section.guide-section {
+      margin-bottom: 50px;
+    }
+    section.guide-section h2 {
+      font-size: 28px;
+      color: #e63946;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 6px;
+      font-weight: 700;
+    }
+    section.guide-section p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+      max-width: 850px;
+    }
+    section.guide-section ul {
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+    section.guide-section li {
+      margin-bottom: 10px;
+    }
+    .highlight-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #e63946;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .highlight-box h3 {
+      margin-bottom: 10px;
+      color: #e63946;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    a { color: #e63946; text-decoration: underline; }
+    blockquote {
+      border-left: 4px solid #e63946;
+      margin: 20px 0;
+      padding: 10px 20px;
+      background: #f8f9fa;
+      color: #333;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .editor-container {
+        flex-direction: column;
+        gap: 0;
+      }
+      .editor-section, .preview-section {
+        min-width: 100%;
+        max-width: 100%;
+      }
+      .preview-section {
+        max-height: 500px;
+      }
+    }
+  </style>
+  <script src="https://cdn.tiny.cloud/1/yt3ktzzgbtuyxggi9v1v13lqo6o3r4y8864qhocnqfq8s8fq/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+  <div class="editor-container">
+    <div class="editor-section">
+      <h2>Country Guide Editor</h2>
+      <textarea id="countryGuideEditor"></textarea>
+      <div class="editor-actions">
+        <button onclick="updatePreview()">Preview</button>
+        <button onclick="downloadGuide()">Export HTML</button>
+      </div>
+    </div>
+    <div class="preview-section">
+      <div id="guidePreview" class="main-content">
+        <!-- Rendered guide will appear here -->
+      </div>
+    </div>
+  </div>
+  <script>
+    tinymce.init({
+      selector: '#countryGuideEditor',
+      height: 600,
+      plugins: 'lists table code link advlist autolink autosave fullscreen',
+      menubar: 'edit insert format table tools',
+      toolbar: [
+        'undo redo | blocks | bold italic underline | forecolor backcolor | link | bullist numlist | table | blockquote | styleselect | removeformat | fullscreen | code'
+      ],
+      // Ensure output is valid HTML
+      valid_elements: '*[*]',
+      forced_root_block: false,
+      block_formats: 'Başlık 1=h1;Başlık 2=h2;Başlık 3=h3;Başlık 4=h4;Paragraf=p',
+      style_formats: [
+        { title: 'Highlight Box', block: 'div', classes: 'highlight-box', wrapper: true },
+        { title: 'Normal', block: 'p' },
+        { title: 'Table', selector: 'table', classes: '' }
+      ],
+      color_map: [
+        'e63946', 'AllAbroad Red',
+        'c1121f', 'Dark Red',
+        '2a2a2a', 'Dark Gray',
+        'fafafa', 'Light Gray',
+        'f8f9fa', 'Highlight BG',
+        'f0f0f0', 'Table Header',
+        '333333', 'Text Gray',
+        '000000', 'Black'
+      ],
+      color_cols: 5,
+      content_style: `
+        body { font-family: 'Montserrat', sans-serif; font-size:16px; color: #333; }
+        h1.page-title {
+          font-size: 36px;
+          margin-bottom: 40px;
+          text-align: center;
+          color: #e63946;
+          font-weight: 700;
+        }
+        h2 {
+          font-size: 28px;
+          color: #e63946;
+          margin-bottom: 15px;
+          border-bottom: 3px solid #e63946;
+          padding-bottom: 6px;
+          font-weight: 700;
+        }
+        h3 {
+          margin-bottom: 10px;
+          color: #e63946;
+        }
+        section.guide-section {
+          margin-bottom: 50px;
+        }
+        section.guide-section p {
+          font-size: 16px;
+          color: #333;
+          line-height: 1.5;
+          max-width: 850px;
+        }
+        section.guide-section ul {
+          margin: 15px 0;
+          padding-left: 20px;
+        }
+        section.guide-section li {
+          margin-bottom: 10px;
+        }
+        .highlight-box {
+          background-color: #f8f9fa;
+          border-left: 4px solid #e63946;
+          padding: 15px;
+          margin: 20px 0;
+        }
+        .highlight-box h3 {
+          margin-bottom: 10px;
+          color: #e63946;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 10px 0;
+        }
+        th, td {
+          padding: 8px;
+          border: 1px solid #ddd;
+        }
+        th {
+          background-color: #f0f0f0;
+        }
+        a { color: #e63946; text-decoration: underline; }
+        blockquote {
+          border-left: 4px solid #e63946;
+          margin: 20px 0;
+          padding: 10px 20px;
+          background: #f8f9fa;
+          color: #333;
+        }
+      `
+    });
+
+    function updatePreview() {
+      const html = tinymce.get('countryGuideEditor').getContent();
+      // Directly set the HTML, no extra wrapping/title
+      document.getElementById('guidePreview').innerHTML = html;
+    }
+
+    function downloadGuide() {
+      const html = tinymce.get('countryGuideEditor').getContent();
+      const blob = new Blob([html], {type: 'text/html'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'country-guide.html';
+      a.click();
+    }
+  </script>
+</body>
+</html>

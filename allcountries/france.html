@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AllAbroad - Fransa</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <style>
+    /* Base styles (similar to your existing site) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #000;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-bottom: 50px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      padding: 15px 3%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+    .logo .all {
+      color: #e63946;
+    }
+    .logo .abroad {
+      color: #000000;
+    }
+    nav.main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav.main-nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav.main-nav ul li a:hover {
+      color: #e63946;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      border-radius: 5px;
+      padding: 10px 0;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 10px 15px;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f5f5f5;
+      color: #e63946;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .search-box {
+      position: relative;
+    }
+    .search-box input {
+      padding: 9px 15px 9px 38px;
+      border: 1.5px solid #ddd;
+      border-radius: 24px;
+      width: 190px;
+      font-size: 15px;
+      color: #222;
+      outline-offset: 2px;
+      transition: border-color 0.3s ease;
+    }
+    .search-box input:focus {
+      border-color: #e63946;
+    }
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 16px;
+      pointer-events: none;
+    }
+    .login-btn {
+      background-color: #e63946;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .login-btn:hover {
+      background-color: #c1121f;
+    }
+
+    /* Page Main Content */
+    .main-content {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+    .page-title {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #e63946;
+      font-weight: 700;
+    }
+
+    /* Guide Sections */
+    section.guide-section {
+      margin-bottom: 50px;
+    }
+    section.guide-section h2 {
+      font-size: 28px;
+      color: #e63946;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 6px;
+      font-weight: 700;
+    }
+    section.guide-section p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+      max-width: 850px;
+    }
+    section.guide-section ul {
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+    section.guide-section li {
+      margin-bottom: 10px;
+    }
+    .highlight-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #e63946;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .highlight-box h3 {
+      margin-bottom: 10px;
+      color: #e63946;
+    }
+
+    /* Hamburger Menu */
+    .hamburger-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .hamburger-icon {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .hamburger-icon span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #E63946;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu-panel {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        padding: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .hamburger-container:hover .menu-panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .menu-panel nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-panel nav li {
+        margin-bottom: 10px;
+    }
+
+    .menu-panel nav a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    .menu-panel nav a:hover {
+        color: #E63946;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        margin: 30px 15px;
+        padding: 0 10px;
+      }
+      nav.main-nav ul {
+        gap: 10px;
+      }
+      .search-box input {
+        width: 120px;
+      }
+    }
+
+    /* Sections */
+    section.content-section {
+      margin-bottom: 55px;
+    }
+
+    section.content-section h1,
+    section.content-section h2 {
+      color: #e63946;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 8px;
+    }
+
+    section.content-section h1 {
+      font-size: 32px;
+      margin-top: 0;
+    }
+
+    section.content-section h2 {
+      font-size: 26px;
+    }
+
+    section.content-section h3 {
+      font-size: 20px;
+      color: #e63946;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    section.content-section p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: #333;
+      max-width: 860px;
+      margin-bottom: 20px;
+    }
+
+    section.content-section ul {
+      margin: 18px 0 25px 20px;
+      color: #444;
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 860px;
+    }
+
+    section.content-section ul li {
+      margin-bottom: 12px;
+      padding-left: 5px;
+      position: relative;
+    }
+    section.content-section ul li::marker {
+      color: #e63946;
+      font-weight: 700;
+    }
+
+    /* Highlight Boxes */
+    .highlight-box {
+      background-color: #fff0f0;
+      border-left: 5px solid #e63946;
+      padding: 20px 25px;
+      margin: 30px 0 40px;
+      border-radius: 6px;
+      color: #722121;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 860px;
+    }
+    .highlight-box ul {
+      margin-top: 10px;
+      padding-left: 18px;
+      list-style-type: disc;
+      font-weight: 500;
+      color: #8b2222;
+    }
+    .highlight-box h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #b53030;
+    }
+
+/* Hamburger Menu */
+    .hamburger-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .hamburger-icon {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .hamburger-icon span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #E63946;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+    }
+    .menu-panel {
+      position: absolute;
+      top: 48px;
+      right: 0;
+      width: 220px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      padding: 18px 20px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px);
+      transition: all 0.3s ease;
+    }
+    .hamburger-container:hover .menu-panel,
+    .hamburger-container:focus-within .menu-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .menu-panel nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .menu-panel nav li {
+      margin-bottom: 15px;
+    }
+    .menu-panel nav a {
+      color: #444;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    .menu-panel nav a:hover {
+      color: #e63946;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main.main-content {
+        margin: 40px 15px 50px;
+        padding: 0 14px;
+      }
+      nav.main-nav ul {
+        gap: 15px;
+      }
+      .search-box input {
+        width: 140px;
+      }
+      .page-title {
+        font-size: 30px;
+      }
+      section.content-section h1 {
+        font-size: 28px;
+      }
+      section.content-section h2 {
+        font-size: 22px;
+      }
+    }
+
+    /* Subfooter Styles */
+    .subfooter {
+      background-color: #2a2a2a;
+      color: #fff;
+      padding: 50px 20px 20px;
+    }
+    .subfooter-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #444;
+    }
+    .subfooter-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    .subfooter-column h4 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .subfooter-column h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: #E63946;
+    }
+    .subfooter-column ul {
+      list-style: none;
+    }
+    .subfooter-column ul li {
+      margin-bottom: 12px;
+    }
+    .subfooter-column ul li a {
+      color: #bbb;
+      transition: color 0.3s;
+    }
+    .subfooter-column ul li a:hover {
+      color: #fff;
+    }
+    .subfooter-bottom {
+      max-width: 1200px;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 20px;
+    }
+    .subfooter-bottom p {
+      color: #999;
+      font-size: 14px;
+    }
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    .social-links a {
+      color: #fff;
+      background: #444;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .social-links a:hover {
+      background: #E63946;
+    }
+    @media (max-width: 768px) {
+      .about-column {
+        min-width: 100%;
+      }
+      .subfooter-content {
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 20px;
+      }
+      .subfooter-column {
+        min-width: 100%;
+      }
+      .subfooter {
+        padding: 20px 5px 10px;
+      }
+      .subfooter-bottom {
+        font-size: 12px;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hamburger-container" tabindex="0">
+    <div class="hamburger-icon" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="menu-panel" role="menu" aria-label="Mobile menu">
+      <nav>
+        <ul>
+          <li><a href="../about.html" role="menuitem">About</a></li>
+          <li><a href="../contact.html" role="menuitem">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <header>
+    <a href="../index.html" class="logo" aria-label="Go to homepage">
+      <span class="all">All</span><span class="abroad">Abroad</span>
+    </a>
+    <div class="nav-right">
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="../countries.html" aria-haspopup="true" aria-expanded="false">Countries</a>
+            <div class="dropdown-content" role="menu" aria-label="Countries submenu">
+              <a href="../europe.html" role="menuitem">Europe</a>
+              <a href="../americas.html" role="menuitem">USA and Canada</a>
+              <a href="../asia.html" role="menuitem">Asia</a>
+            </div>
+          </li>
+          <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="../universities.html" aria-haspopup="true" aria-expanded="false">Universities</a>
+            <div class="dropdown-content" role="menu" aria-label="Universities submenu">
+              <a href="../universities.html#all" role="menuitem">All Universities</a>
+              <a href="../universities.html#top" role="menuitem">By Ranking</a>
+            </div>
+          </li>
+          <li><a href="../scholarships.html">Scholarships</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input type="search" placeholder="Search" aria-label="Search the site" />
+      </div>
+      <a href="../login.html" class="login-btn">Log in</a>
+    </div>
+  </header>
+
+<main class="main-content">
+  <h1 class="page-title">Fransa'da Eğitim</h1>
+
+  <section class="content-section">
+    <h2>Giriş</h2>
+    <p>Fransa, Avrupa'nın en köklü akademik sistemlerinden birine sahip olan, kültürü, tarihi ve dünya çapında tanınan üniversiteleriyle öne çıkan bir ülkedir. Fransız hükümetinin sunduğu cazip burslar, düşük öğrenim ücretleri, sosyal destekler ve yüksek yaşam kalitesi ile Fransa, Türk öğrenciler için oldukça tercih edilen bir eğitim destinasyonudur. Ancak Fransız eğitim sistemi karmaşık ve katmanlıdır. Bu nedenle Fransa’da okumayı düşünen her öğrenci sistemin yapısını, giriş yollarını, dil gerekliliklerini ve yaşam koşullarını iyi bilmelidir.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>1. Türk Diploması ile Fransa'da Üniversiteye Giriş Mümkün mü?</h2>
+    <p>Evet, Türk lise diploması ile Fransa’da üniversiteye doğrudan giriş mümkündür. Ancak bazı önemli koşullar ve farklı yollar söz konusudur:</p>
+    <ul>
+      <li><strong>Doğrudan Lisans Başvurusu (Parcoursup):</strong> Devlet üniversitelerine girişte merkezi başvuru sistemi olan <a href="https://www.parcoursup.fr" target="_blank">Parcoursup</a> kullanılır. Fransızca lisans programlarına başvurmak için B2-C1 düzeyinde dil belgesi (DELF, DALF, TCF, TEF vb.) zorunludur.</li>
+      <li><strong>Fransızca Hazırlık Yılı:</strong> Eğer Fransızca yeterliliğin yoksa, üniversiteye geçmeden önce “année préparatoire” adı verilen hazırlık yılını bir dil merkezinde veya üniversite bünyesinde alabilirsin.</li>
+      <li><strong>AP / SAT / IB:</strong> Bazı seçkin üniversiteler (Sciences Po, École Polytechnique gibi) uluslararası diplomaları (AP, IB) veya SAT skorlarını isteyebilir. Ancak devlet üniversiteleri için bu genellikle gerekmez.</li>
+      <li><strong>Licence 1 (1. Sınıf) Başvurusu:</strong> Türkiye’de üniversite sınavına girmene gerek yoktur. Ancak okul not ortalaman yüksek olmalıdır (ortalama en az 70-75 önerilir).</li>
+    </ul>
+    <div class="highlight-box">
+      <strong>Not:</strong> Fransa’daki üniversitelerin %70’i devlet okullarıdır ve yıllık harçlar son derece düşüktür (örneğin 2024 itibariyle lisans için yıllık yaklaşık 277 €). Ancak yabancı öğrenciler için bu miktar bazen 2770 €’ya kadar çıkabilir.
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>2. Fransa’da Üniversite Türleri ve Eğitim Sistemi</h2>
+    <p>Fransa’da yükseköğretim sistemi üç temel tipe ayrılır:</p>
+    <ul>
+      <li><strong>Université:</strong> Kamuya açık devlet üniversiteleridir. Kabul şartları daha esnektir. Geniş program yelpazesi ve düşük harçlarla en çok tercih edilen okul türüdür.</li>
+      <li><strong>Grandes Écoles:</strong> Seçkin ve rekabetçi okullardır. Sciences Po, HEC Paris gibi prestijli kurumlar bu kapsamdadır. Giriş sınavları ve özel mülakatlar yapılır.</li>
+      <li><strong>IUT (Instituts Universitaires de Technologie):</strong> Uygulamalı teknik eğitim veren 2 yıllık üniversitelerdir. Daha sonra lisans programlarına geçiş yapılabilir.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>3. Fransa’da Eğitim Dili: Fransızca mı İngilizce mi?</h2>
+    <p>Fransa’daki üniversitelerin büyük bölümü Fransızcadır. Ancak son yıllarda İngilizce lisans programları artmaktadır. Özellikle işletme, mühendislik ve sosyal bilimlerde tamamen İngilizce programlar mevcuttur.</p>
+    <div class="highlight-box">
+      <strong>Dil Gereklilikleri:</strong>
+      <ul>
+        <li><strong>Fransızca programlar:</strong> DELF B2 veya DALF C1 önerilir</li>
+        <li><strong>İngilizce programlar:</strong> IELTS 6.0+ / TOEFL iBT 80+</li>
+      </ul>
+    </div>
+  </section>
+
+<section class="content-section">
+  <h2>4. Başvuru Süreci: Campus France, Parcoursup ve Direkt Başvurular</h2>
+  <p>Fransa’da üniversiteye başvuru süreci, üniversitenin türüne ve diline göre değişiklik gösterir. Devlet üniversitelerinin çoğu <strong>Parcoursup</strong> adlı merkezi sistem üzerinden öğrenci kabul ederken; <strong>Sciences Po</strong>, <strong>HEC Paris</strong>, <strong>École Polytechnique</strong> gibi prestijli <em>Grandes Écoles</em> ise kendi platformlarından başvuru alır. Ancak <strong>Türkiye’de okuyan her öğrenci</strong> için Campus France sistemine kayıt olmak, vize süreci açısından zorunludur.</p>
+
+  <h3> Campus France Nedir ve Neden Gerekli?</h3>
+  <p><a href="https://www.turquie.campusfrance.org">Campus France</a>, Fransa Dışişleri Bakanlığı’na bağlı bir yapıdır ve Türkiye’deki öğrencilerin belgelerini kontrol edip Fransa’daki üniversitelere iletir. Ayrıca öğrenci vizesi başvurularında da onaylayıcı rolü vardır. Bu sistem aracılığıyla öğrenciler:</p>
+  <ul>
+    <li>Belgelerini düzenler ve sunar</li>
+    <li>Kısa bir motivasyon mülakatına girer</li>
+    <li>Üniversitelerin sizi resmi olarak tanımasını sağlar</li>
+    <li>Öğrenci vizesi için gerekli ön onayı alır</li>
+  </ul>
+  <div class="highlight-box">
+    <h3> Önemli:</h3>
+    <p>Üniversiteye doğrudan başvuru yapılsa dahi (örneğin Sciences Po), <strong>Campus France sistemine kayıt olmadan Fransa vizesi alınamaz.</strong></p>
+  </div>
+
+  <h3> Başvuru Yöntemleri</h3>
+  <ul>
+    <li><strong>Parcoursup Sistemi:</strong> Devlet üniversiteleri ve birçok lisans programı bu sistemle öğrenci kabul eder. Başvurular genellikle Ocak–Mart arasında yapılır. <a href="https://www.parcoursup.fr">parcoursup.fr</a></li>
+    <li><strong>Üniversitelerin Kendi Platformları:</strong> Sciences Po, bazı mühendislik okulları ve işletme okulları doğrudan kendi sistemlerinden başvuru alır. Örneğin: <a href="https://admissions.sciencespo.fr">admissions.sciencespo.fr</a></li>
+    <li><strong>Hazırlık Programı Başvuruları:</strong> Fransızca hazırlık okumak isteyenler, üniversitelerin DUEF gibi dil sertifika programlarına başvurabilir. Campus France bu başvuruları da kabul eder.</li>
+  </ul>
+
+  <h3> Başvuru Adımları</h3>
+  <ul>
+    <li>1. Üniversiteye başvuru (Parcoursup veya kurumun kendi sitesi üzerinden)</li>
+    <li>2. <a href="https://www.turquie.campusfrance.org">Campus France Türkiye</a> sistemine kayıt ve dosya oluşturma</li>
+    <li>3. Belgelerin yüklenmesi: diploma, transkript, dil belgesi, motivasyon mektubu, özgeçmiş</li>
+    <li>4. Campus France mülakatı (kısa bir tanışma görüşmesi, Fransızca yapılabilir)</li>
+    <li>5. Campus France onayı sonrası vize başvuru süreci başlar</li>
+  </ul>
+
+  <div class="highlight-box">
+    <h3> Örnek: Sciences Po Başvurusu</h3>
+    <p>Sciences Po başvurusu <strong>doğrudan kendi sitesinden</strong> yapılır. Ancak bu başvuru tamamlandıktan sonra Campus France sistemine kayıt yapılmalı ve vize süreci için gerekli onay alınmalıdır. Aksi takdirde öğrenci vizesi alınamaz.</p>
+  </div>
+
+  <p>Başvuru süreci karmaşık gibi görünse de Campus France Türkiye, resmi YouTube kanalında ve danışmanlık sisteminde adım adım yardımcı olmaktadır. Başvurudan en az <strong>6–8 ay önce</strong> hazırlıklara başlamak önerilir.</p>
+</section>
+
+
+  <section class="content-section">
+    <h2>5. Fransa’da Yaşam: Konaklama, Ulaşım, Sağlık</h2>
+    <p>Fransa’da öğrenci olarak yaşam, Avrupa’nın birçok ülkesine göre daha uygundur. Devlet destekleri ve öğrenci hakları oldukça gelişmiştir.</p>
+    <ul>
+      <li><strong>Konaklama:</strong> CROUS yurtları aylık 150–350 € arasında değişir. Özel yurtlar ve stüdyo daireler ise 400–800 € civarındadır.</li>
+      <li><strong>CAF Yardımı:</strong> Devlet, öğrencilere kira yardımı (APL veya ALS) yapar. Aylık 90–250 € arasında değişebilir.</li>
+      <li><strong>Ulaşım:</strong> Paris gibi şehirlerde öğrenci abonmanları ile metro/tren kullanımı aylık 20–30 €’ya kadar düşebilir.</li>
+      <li><strong>Sağlık:</strong> Öğrenciler zorunlu sağlık sigortasına kayıt olur. Yıllık yaklaşık 90 €’dur. Devlet, doktor ve ilaç masraflarının %70’ini karşılar.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>6. Burslar ve Finansal Destekler</h2>
+    <p>Fransa’da üniversite okuyan Türk öğrenciler için çeşitli burs imkanları vardır:</p>
+    <ul>
+      <li><strong>Bourse du Gouvernement Français (BGF):</strong> Fransız Hükümeti’nin Türkiye’deki öğrencilere verdiği burs. Genelde yüksek lisans için olsa da bazı istisnai durumlarda lisans için de verilebilir.</li>
+      <li><strong>EIFFEL Bursu:</strong> Fransa'nın en prestijli bursudur. Genellikle master öğrencilerine yöneliktir ama araştırma projeleri olan lisans öğrencileri için istisnalar mevcuttur.</li>
+      <li><strong>CROUS Yerel Bursları:</strong> Bazı şehirlerde yerel yönetimlerin verdiği barınma ve ulaşım destekleri mevcuttur.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>7. Kültürel Uyum ve Sosyal Hayat</h2>
+    <p>Fransa’da yaşam, ilk başta birçok Türk öğrenci için kültürel bir şok olabilir. Fransızlar bireysel ve özel alanlarına düşkün bir toplumdur. Ayrıca dil konusundaki hassasiyetleri nedeniyle Fransızca bilmeyen öğrencilere karşı soğuk davranabilirler.</p>
+    <div class="highlight-box">
+      <strong>İpuçları:</strong>
+      <ul>
+        <li>Fransızcayı öğrenmek için üniversitelerin sunduğu ücretsiz kurslardan faydalanın.</li>
+        <li>Campus France Türkiye YouTube kanalını takip ederek tecrübeli Türk öğrencilerin tavsiyelerini dinleyin.</li>
+        <li>Erasmus+ ve öğrenci topluluklarına katılarak sosyalleşin.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>8. Vize Süreci ve Oturum İzni</h2>
+    <p>Fransa’da lisans okumak isteyen Türk öğrenciler için D tipi uzun süreli öğrenci vizesi alınması gerekir. Vize süreci şu şekildedir:</p>
+    <ul>
+      <li><strong>Campus France onayı:</strong> Başvuru süreci tamamlanmadan vizeye başvuramazsınız.</li>
+      <li><strong>Vize Belgeleri:</strong> Kabul mektubu, finansal yeterlilik belgesi (aylık en az 615 €), konaklama belgesi, sigorta, pasaport.</li>
+      <li><strong>VFS Global:</strong> Randevular İstanbul, Ankara veya İzmir ofislerinden alınır.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Sonuç</h2>
+    <p>Fransa’da üniversite eğitimi, düşük maliyeti, yüksek kalite standardı, uluslararası geçerliliği ve kültürel zenginliği ile Türk öğrenciler için güçlü bir seçenektir. Ancak sistemin karmaşıklığı, dil bariyeri ve başvuru sürecinin çok aşamalı olması nedeniyle dikkatli planlama şarttır.</p>
+  </section>
+</main>
+
+  <div class="subfooter-wrapper">
+    <div class="subfooter">
+      <div class="subfooter-content">
+        <div class="subfooter-column">
+          <h4>Countries</h4>
+          <ul>
+            <li><a href="france.html">Europe</a></li>
+            <li><a href="americas.html">USA & Canada</a></li>
+            <li><a href="asia.html">Asia</a></li>
+          </ul>
+        </div>
+        <div class="subfooter-column">
+          <h4>Universities</h4>
+          <ul>
+            <li><a href="../universities.html#all">All Universities</a></li>
+            <li><a href="../universities.html#top">Top Rankings</a></li>
+          </ul>
+        </div>
+        <div class="subfooter-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="../scholarships.html">Scholarships</a></li>
+            <li><a href="../finder.html">Find Your Fit</a></li>
+          </ul>
+        </div>
+        <div class="subfooter-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="subfooter-bottom">
+        <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
