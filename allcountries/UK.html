@@ -12,7 +12,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
   />
-  <style>
+<style>
     * {
       margin: 0;
       padding: 0;
@@ -26,7 +26,6 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      padding-bottom: 50px;
     }
     a {
       text-decoration: none;
@@ -138,7 +137,10 @@
       max-width: 1000px;
       margin: 40px auto;
       padding: 0 20px;
-      flex: 1;
+      flex: 1 0 auto;
+      /* Ensure same as index.html proportions */
+      box-sizing: border-box;
+      width: 100%;
     }
     .page-title {
       font-size: 36px;
@@ -258,6 +260,7 @@
       .main-content {
         margin: 30px 15px;
         padding: 0 10px;
+        width: 100%;
       }
       nav.main-nav ul {
         gap: 10px;
@@ -267,121 +270,134 @@
       }
     }
 
-.subfooter {
-  background-color: #2a2a2a;
-  color: #fff;
-  padding: 50px 20px 20px;
-}
+    .subfooter-wrapper {
+      width: 100vw;
+      min-width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      background: #2a2a2a;
+      box-sizing: border-box;
+    }
+    .subfooter {
+      background-color: #2a2a2a;
+      color: #fff;
+      padding: 50px 20px 0px; /* Remove bottom padding, set top/bottom as needed */
+    }
+    .subfooter-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #444;
+    }
 
-.subfooter-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #444;
-}
+    .subfooter-column {
+      flex: 1;
+      min-width: 200px;
+    }
 
-.subfooter-column {
-  flex: 1;
-  min-width: 200px;
-}
+    .subfooter-column h4 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
 
-.subfooter-column h4 {
-  color: #fff;
-  font-size: 18px;
-  margin-bottom: 20px;
-  position: relative;
-  padding-bottom: 10px;
-}
+    .subfooter-column h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: #E63946;
+    }
 
-.subfooter-column h4::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 40px;
-  height: 2px;
-  background: #E63946;
-}
+    .subfooter-column ul {
+      list-style: none;
+    }
 
-.subfooter-column ul {
-  list-style: none;
-}
+    .subfooter-column ul li {
+      margin-bottom: 12px;
+    }
 
-.subfooter-column ul li {
-  margin-bottom: 12px;
-}
+    .subfooter-column ul li a {
+      color: #bbb;
+      transition: color 0.3s;
+    }
 
-.subfooter-column ul li a {
-  color: #bbb;
-  transition: color 0.3s;
-}
+    .subfooter-column ul li a:hover {
+      color: #fff;
+    }
 
-.subfooter-column ul li a:hover {
-  color: #fff;
-}
+    .subfooter-bottom {
+      max-width: 1200px;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-top: 20px;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 
-.subfooter-bottom {
-  max-width: 1200px;
-  margin: 20px auto 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding-top: 20px;
-}
+    .subfooter-bottom p {
+      color: #999;
+      font-size: 14px;
+    }
 
-.subfooter-bottom p {
-  color: #999;
-  font-size: 14px;
-}
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
 
-.social-links {
-  display: flex;
-  gap: 15px;
-}
+    .social-links a {
+      color: #fff;
+      background: #444;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
 
-.social-links a {
-  color: #fff;
-  background: #444;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s;
-}
+    .social-links a:hover {
+      background: #E63946;
+    }
 
-.social-links a:hover {
-  background: #E63946;
-}
-
-@media (max-width: 768px) {
-  .about-column {
-    min-width: 100%;
-  }
-  .subfooter-content {
-    flex-direction: column;
-    gap: 10px;
-    padding-bottom: 20px;
-  }
-  .subfooter-column {
-    min-width: 100%;
-  }
-  .subfooter {
-    padding: 20px 5px 10px;
-  }
-  .subfooter-bottom {
-    font-size: 12px;
-    flex-direction: column;
-    text-align: center;
-  }
-}
-  </style>
+    @media (max-width: 768px) {
+      .about-column {
+        min-width: 100%;
+      }
+      .subfooter-content {
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 20px;
+      }
+      .subfooter-column {
+        min-width: 100%;
+      }
+      .subfooter {
+        padding: 20px 5px 0px;
+      }
+      .subfooter-wrapper {
+        width: 100vw;
+        min-width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        padding: 0;
+      }
+      .subfooter-bottom {
+        font-size: 12px;
+        flex-direction: column;
+        text-align: center;
+      }
+      }
   </style>
 </head>
 <body>
@@ -490,43 +506,45 @@
     </section>
   </main>
 
-  <div class="subfooter-wrapper">
-    <div class="subfooter">
-      <div class="subfooter-content">
-        <div class="subfooter-column">
-          <h4>Countries</h4>
-          <ul>
-            <li><a href="UK.html">Europe</a></li>
-            <li><a href="americas.html">USA & Canada</a></li>
-            <li><a href="asia.html">Asia</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Universities</h4>
-          <ul>
-            <li><a href="../universities.html#all">All Universities</a></li>
-            <li><a href="../universities.html#top">Top Rankings</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="../scholarships.html">Scholarships</a></li>
-            <li><a href="../finder.html">Find Your Fit</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="../about.html">About Us</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-          </ul>
-        </div>
+    <!-- Subfooter -->
+    <div class="subfooter-wrapper">
+  <div class="subfooter">
+    <div class="subfooter-content">
+      <div class="subfooter-column">
+        <h4>Countries</h4>
+        <ul>
+          <li><a href="countries/europe.html">Europe</a></li>
+          <li><a href="countries/americas.html">USA & Canada</a></li>
+          <li><a href="countries/asia.html">Asia</a></li>
+        </ul>
       </div>
-      <div class="subfooter-bottom">
-        <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+      <div class="subfooter-column">
+        <h4>Universities</h4>
+        <ul>
+          <li><a href="universities.html#all">All Universities</a></li>
+          <li><a href="universities.html#top">Top Rankings</a></li>
+        </ul>
+      </div>
+      <div class="subfooter-column">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="scholarships.html">Scholarships</a></li>
+          <li><a href="finder.html">Find Your Fit</a></li>
+        </ul>
+      </div>
+      <div class="subfooter-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
     </div>
+    <div class="subfooter-bottom">
+      <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+    </div>
   </div>
-</body>
+</div>
+
+  </body>
 </html>
