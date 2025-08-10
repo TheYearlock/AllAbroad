@@ -1,6 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    /* Mobile header overrides: shrink header, logo, nav, and paddings */
+    @media (max-width: 600px) {
+      header {
+        padding: 6px 2% !important;
+        min-height: 44px !important;
+      }
+      .logo {
+        font-size: 17px !important;
+        margin-left: 0 !important;
+      }
+      .nav-right {
+        gap: 8px !important;
+      }
+      nav.main-nav ul {
+        gap: 4px !important;
+      }
+      nav.main-nav ul li a {
+        font-size: 13px !important;
+        padding: 2px 4px !important;
+      }
+      .search-box input {
+        width: 80px !important;
+        font-size: 12px !important;
+        padding: 6px 10px 6px 28px !important;
+      }
+      .search-icon {
+        font-size: 13px !important;
+        left: 7px !important;
+      }
+      .login-btn {
+        padding: 5px 10px !important;
+        font-size: 13px !important;
+        border-radius: 14px !important;
+      }
+      .dropdown-content {
+        min-width: 120px !important;
+        font-size: 13px !important;
+        padding: 4px 0 !important;
+      }
+      .dropdown-content a {
+        padding: 6px 10px !important;
+      }
+    }
+  </style>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-L36SLS8YBV"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
