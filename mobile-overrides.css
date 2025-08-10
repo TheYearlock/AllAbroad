@@ -6,54 +6,78 @@
   }
   .hamburger-container {
     display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0; left: 0; right: 0;
     width: 100vw;
-    background: #fff;
+    background: #E63946;
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    align-items: center;
     padding: 8px 4vw;
-    height: 48px;
+    height: 52px;
   }
+  .logo.mobile-logo {
+    color: #fff !important;
+    font-size: 21px !important;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 0 !important;
+    letter-spacing: 0.5px;
+  }
+  .logo.mobile-logo .all { color: #fff !important; }
+  .logo.mobile-logo .abroad { color: #fff !important; }
   .hamburger-icon {
-    width: 32px; height: 32px;
+    width: 36px; height: 36px;
     display: flex; flex-direction: column; justify-content: center;
+    align-items: flex-end;
     cursor: pointer;
   }
   .hamburger-icon span {
     display: block;
     height: 4px;
-    background: #333;
-    margin: 4px 0;
+    background: #fff;
+    margin: 5px 0;
     border-radius: 2px;
     transition: all 0.3s;
   }
   .menu-panel {
-    display: none;
+    display: block;
     position: fixed;
-    top: 48px; left: 0; right: 0;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    top: 0; right: -320px;
+    width: 280px;
+    height: 100vh;
+    background: #E63946;
+    color: #fff;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.12);
     z-index: 1001;
-    padding: 16px 0;
+    padding: 32px 0 0 0;
+    transition: right 0.35s cubic-bezier(.77,0,.18,1);
+    overflow-y: auto;
   }
   .menu-panel.open {
-    display: block;
+    right: 0;
   }
   .menu-panel nav ul {
     list-style: none;
     padding: 0; margin: 0;
     display: flex; flex-direction: column;
-    gap: 12px;
+    gap: 18px;
     align-items: flex-start;
   }
   .menu-panel nav ul li a {
-    font-size: 18px;
-    color: #222;
+    font-size: 20px;
+    color: #fff;
     text-decoration: none;
-    padding: 8px 24px;
+    padding: 10px 32px;
     display: block;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .menu-panel nav ul li a:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
   }
   .mobile-search-box {
     width: 100%;
@@ -91,10 +115,10 @@
     background: #f0f0f0;
   }
   .main-content, .map-container, .page-title {
-    margin-top: 60px !important;
+    margin-top: 64px !important;
   }
   .subfooter-wrapper {
-    margin-bottom: 60px !important;
+    margin-bottom: 64px !important;
   }
 }
 

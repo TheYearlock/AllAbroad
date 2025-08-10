@@ -216,13 +216,13 @@ document.addEventListener('DOMContentLoaded', function () {
             .on("click", function (event, d) {
                 const name = fixCountryName(d.properties.name);
                 if (regions.europe.countries.includes(name)) {
-                    window.location.href = "countries/europe.html";
+                    window.location.href = "continents/europe.html";
                 } else if (regions.asia.countries.includes(name)) {
-                    window.location.href = "countries/asia.html";
+                    window.location.href = "continents/asia.html";
                 } else if (regions.americas.countries.includes(name)) {
-                    window.location.href = "countries/americas.html";
+                    window.location.href = "continents/americas.html";
                 } else if (regions.oceania.countries.includes(name)) {
-                    window.location.href = "countries/oceania.html";
+                    window.location.href = "continents/oceania.html";
                 }
             });
             

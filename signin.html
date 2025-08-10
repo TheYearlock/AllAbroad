@@ -314,6 +314,28 @@
     </style>
 </head>
 <body>
+    <!-- Mobil Hamburger Menü ve Header (logo sol, hamburger sağ, arka plan kırmızı, yazılar beyaz, dil seçici yok) -->
+    <div class="hamburger-container" id="hamburger-container">
+        <a href="index.html" class="logo mobile-logo">
+            <span class="all">All</span><span class="abroad">Abroad</span>
+        </a>
+        <div class="hamburger-icon" id="hamburger-icon">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="menu-panel" id="menu-panel">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="countries.html">Ülkeler</a></li>
+                    <li><a href="universities.html">Üniversiteler</a></li>
+                    <li><a href="scholarships.html">Burslar</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li><a href="login.html" class="login-btn">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
     <header>
         <a href="index.html" class="logo">
             <span class="all">All</span><span class="abroad">Abroad</span>
@@ -351,40 +373,72 @@
         <div class="subfooter">
             <div class="subfooter-content">
                 <div class="subfooter-column">
-                    <h4>Countries</h4>
+                    <h4>Kıtalar</h4>
                     <ul>
-                        <li><a href="countries/europe.html">Europe</a></li>
-                        <li><a href="countries/americas.html">USA & Canada</a></li>
-                        <li><a href="countries/asia.html">Asia</a></li>
+                        <li><a href="countries/europe.html">Avrupa</a></li>
+                        <li><a href="countries/americas.html">ABD & Kanada</a></li>
+                        <li><a href="countries/asia.html">Asya</a></li>
                     </ul>
                 </div>
                 <div class="subfooter-column">
-                    <h4>Universities</h4>
+                    <h4>Üniversiteler</h4>
                     <ul>
-                        <li><a href="universities.html#all">All Universities</a></li>
-                        <li><a href="universities.html#top">Top Rankings</a></li>
+                        <li><a href="universities.html">Tüm Üniversiteler</a></li>
+                        <li><a href="universities.html">En Yüksek Sıralamalar</a></li>
                     </ul>
                 </div>
                 <div class="subfooter-column">
-                    <h4>Resources</h4>
+                    <h4>Kaynaklar</h4>
                     <ul>
-                        <li><a href="scholarships.html">Scholarships</a></li>
-                        <li><a href="finder.html">Find Your Fit</a></li>
+                        <li><a href="scholarships.html">Burslar</a></li>
+                        <li><a href="finder.html">Sana Uygununu Bul</a></li>
                     </ul>
                 </div>
                 <div class="subfooter-column">
-                    <h4>Company</h4>
+                    <h4>Şirket</h4>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
                     </ul>
                 </div>
             </div>
             <div class="subfooter-bottom">
-                <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+                <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır.</p>
             </div>
         </div>
     </div>
+</main>
+
+<script>
+// Mobil hamburger menü için sağda, logo solda, arka plan kırmızı, yazılar beyaz, kaydırmalı animasyon
+document.addEventListener('DOMContentLoaded', function() {
+    var hamburgerIcon = document.getElementById('hamburger-icon');
+    var menuPanel = document.getElementById('menu-panel');
+    var container = document.getElementById('hamburger-container');
+    var body = document.body;
+    function openMenu() {
+        menuPanel.classList.add('open');
+        body.classList.add('menu-open');
+    }
+    function closeMenu() {
+        menuPanel.classList.remove('open');
+        body.classList.remove('menu-open');
+    }
+    hamburgerIcon.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if(menuPanel.classList.contains('open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    document.addEventListener('click', function(e) {
+        if(menuPanel.classList.contains('open') && !container.contains(e.target)) {
+            closeMenu();
+        }
+    });
+});
+</script>
 <script>
 document.getElementById('loginForm').addEventListener('submit', async function(e) {
     e.preventDefault();
