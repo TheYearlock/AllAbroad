@@ -1,6 +1,51 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <style>
+    /* Mobile header overrides: shrink header, logo, nav, and paddings */
+    @media (max-width: 600px) {
+      header {
+        padding: 6px 2% !important;
+        min-height: 44px !important;
+      }
+      .logo {
+        font-size: 17px !important;
+        margin-left: 0 !important;
+      }
+      .nav-right {
+        gap: 8px !important;
+      }
+      nav.main-nav ul {
+        gap: 4px !important;
+      }
+      nav.main-nav ul li a {
+        font-size: 13px !important;
+        padding: 2px 4px !important;
+      }
+      .search-box input {
+        width: 80px !important;
+        font-size: 12px !important;
+        padding: 6px 10px 6px 28px !important;
+      }
+      .search-icon {
+        font-size: 13px !important;
+        left: 7px !important;
+      }
+      .login-btn {
+        padding: 5px 10px !important;
+        font-size: 13px !important;
+        border-radius: 14px !important;
+      }
+      .dropdown-content {
+        min-width: 120px !important;
+        font-size: 13px !important;
+        padding: 4px 0 !important;
+      }
+      .dropdown-content a {
+        padding: 6px 10px !important;
+      }
+    }
+  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AllAbroad - Japonya</title>
@@ -566,7 +611,7 @@
       <nav class="main-nav" role="navigation" aria-label="Main navigation">
         <ul>
           <li class="dropdown" aria-haspopup="true" aria-expanded="false">
-            <a href="../countries.html" aria-haspopup="true" aria-expanded="false">Countries</a>
+            <a href="../continents.html" data-i18n="Continents" aria-haspopup="true" aria-expanded="false">Continents</a>
             <div class="dropdown-content" role="menu" aria-label="Countries submenu">
               <a href="../europe.html" role="menuitem">Europe</a>
               <a href="../americas.html" role="menuitem">USA and Canada</a>
