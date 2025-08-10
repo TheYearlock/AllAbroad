@@ -1,0 +1,9 @@
+{
+  "name": "allabroad",
+  "version": "1.0.0",
+  "description": "AllAbroad static site",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
+}
