@@ -1,0 +1,40 @@
+<header>
+  <a href="/" class="logo">
+    <span class="all">All</span><span class="abroad">Abroad</span>
+  </a>
+  <div class="nav-right">
+    <nav class="main-nav">
+      <ul>
+        <li class="dropdown">
+          <a href="/ulkeler">Ülkeler</a>
+          <div class="dropdown-content">
+            <a href="/ulkeler/avrupa">Avrupa</a>
+            <a href="/ulkeler/amerika">ABD ve Kanada</a>
+            <a href="/ulkeler/asya">Asya</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="/universiteler"{% if page.url.startsWith('/universiteler') %} class="active"{% endif %}>Üniversiteler</a>
+          <div class="dropdown-content">
+            <a href="/universiteler/en-iyi-20">En İyi 20 Üniversite</a>
+            <a href="/universiteler#tum">Tüm Üniversiteler</a>
+          </div>
+        </li>
+        <li><a href="/burslar"{% if page.url == '/burslar/' %} class="active"{% endif %}>Burslar</a></li>
+        <li><a href="/hakkimizda"{% if page.url == '/hakkimizda/' %} class="active"{% endif %}>Hakkımızda</a></li>
+      </ul>
+    </nav>
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input type="text" placeholder="Ara...">
+    </div>
+    <a href="/giris" class="login-btn" id="loginBtn">Giriş</a>
+  </div>
+  <div class="mobile-menu">
+    <button class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,56 @@
+---
+title: "Üniversite Eşleşme Anketi"
+description: "Kendinize en uygun üniversiteyi bulun."
+permalink: "/find-your-fit/"
+layout: base.njk
+---
+
+<h1>Üniversite Eşleşme Anketi</h1>
+<form id="fitForm">
+  <div class="step step-1">
+    <label>Hangi alanlara ilgi duyuyorsunuz?</label><br>
+    <input type="checkbox" name="alan" value="Mühendislik"> Mühendislik<br>
+    <input type="checkbox" name="alan" value="Fen Bilimleri"> Fen Bilimleri<br>
+    <input type="checkbox" name="alan" value="Sosyal Bilimler"> Sosyal Bilimler<br>
+    <input type="checkbox" name="alan" value="Sanat"> Sanat<br>
+    <input type="checkbox" name="alan" value="İşletme"> İşletme<br>
+    <button type="button" onclick="nextStep(1)">İleri</button>
+  </div>
+  <div class="step step-2" style="display:none">
+    <label>Yurtdışında okumak istediğiniz ülke?</label><br>
+    <input type="radio" name="ulke" value="ABD"> ABD<br>
+    <input type="radio" name="ulke" value="İngiltere"> İngiltere<br>
+    <input type="radio" name="ulke" value="Almanya"> Almanya<br>
+    <input type="radio" name="ulke" value="Diğer"> Diğer<br>
+    <button type="button" onclick="prevStep(2)">Geri</button>
+    <button type="button" onclick="nextStep(2)">İleri</button>
+  </div>
+  <div class="step step-3" style="display:none">
+    <label>Tercih ettiğiniz üniversite büyüklüğü?</label><br>
+    <input type="radio" name="buyukluk" value="Küçük"> Küçük<br>
+    <input type="radio" name="buyukluk" value="Orta"> Orta<br>
+    <input type="radio" name="buyukluk" value="Büyük"> Büyük<br>
+    <button type="button" onclick="prevStep(3)">Geri</button>
+    <button type="submit">Sonuçları Göster</button>
+  </div>
+</form>
+<div id="fitResults"></div>
+<script>
+function nextStep(n) {
+  document.querySelector('.step-' + n).style.display = 'none';
+  document.querySelector('.step-' + (n+1)).style.display = 'block';
+}
+function prevStep(n) {
+  document.querySelector('.step-' + n).style.display = 'none';
+  document.querySelector('.step-' + (n-1)).style.display = 'block';
+}
+document.getElementById('fitForm').onsubmit = function(e) {
+  e.preventDefault();
+  // Demo: Show static results
+  document.getElementById('fitResults').innerHTML = '<h2>Önerilen Üniversiteler</h2><div class="uni-card">MIT</div><div class="uni-card">Harvard</div><div class="uni-card">Boğaziçi</div>';
+  document.getElementById('fitForm').style.display = 'none';
+};
+</script>
+<style>
+.uni-card { background:#f8f9fa; border:1px solid #e63946; border-radius:8px; padding:16px; margin:10px 0; font-weight:600; }
+</style>

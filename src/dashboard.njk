@@ -1,0 +1,32 @@
+---
+title: "Panelim"
+description: "Kullanıcı paneliniz. Favori üniversiteler ve ayarlar."
+permalink: "/dashboard/"
+layout: base.njk
+---
+
+<h1>Panelim</h1>
+<div id="dashboard-content">
+  <p>Hoş geldiniz, <span id="dashboard-username"></span>!</p>
+  <button onclick="logout()" class="login-btn">Çıkış Yap</button>
+  <h2>Favori Üniversitelerim</h2>
+  <ul id="fav-list"></ul>
+</div>
+<script>
+function logout() {
+  localStorage.removeItem('allabroad_user');
+  window.location.href = '/giris/';
+}
+function loadDashboard() {
+  const user = localStorage.getItem('allabroad_user');
+  if (!user) {
+    window.location.href = '/giris/';
+    return;
+  }
+  document.getElementById('dashboard-username').textContent = user;
+  const favs = JSON.parse(localStorage.getItem('allabroad_favs') || '[]');
+  const favList = document.getElementById('fav-list');
+  favList.innerHTML = favs.length ? favs.map(f => `<li>${f}</li>`).join('') : '<li>Henüz favori yok.</li>';
+}
+document.addEventListener('DOMContentLoaded', loadDashboard);
+</script>

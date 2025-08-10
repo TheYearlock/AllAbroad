@@ -1,0 +1,23 @@
+---
+title: "Giriş Yap"
+description: "Kullanıcı adı ile giriş yapın."
+permalink: "/giris/"
+layout: base.njk
+---
+
+<h1>Giriş Yap</h1>
+<form id="loginForm" class="login-form">
+  <label for="username">Kullanıcı Adı</label>
+  <input type="text" id="username" name="username" required placeholder="Kullanıcı adınızı girin">
+  <button type="submit" class="login-btn">Giriş</button>
+</form>
+<script>
+document.getElementById('loginForm').onsubmit = function(e) {
+  e.preventDefault();
+  const username = document.getElementById('username').value.trim();
+  if (username) {
+    localStorage.setItem('allabroad_user', username);
+    window.location.href = '/dashboard/';
+  }
+};
+</script>

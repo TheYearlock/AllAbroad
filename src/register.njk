@@ -1,0 +1,23 @@
+---
+title: "Kayıt Ol"
+description: "Kullanıcı adı ile kayıt olun."
+permalink: "/kayit/"
+layout: base.njk
+---
+
+<h1>Kayıt Ol</h1>
+<form id="registerForm" class="login-form">
+  <label for="reg-username">Kullanıcı Adı</label>
+  <input type="text" id="reg-username" name="reg-username" required placeholder="Kullanıcı adınızı girin">
+  <button type="submit" class="login-btn">Kayıt Ol</button>
+</form>
+<script>
+document.getElementById('registerForm').onsubmit = function(e) {
+  e.preventDefault();
+  const username = document.getElementById('reg-username').value.trim();
+  if (username) {
+    localStorage.setItem('allabroad_user', username);
+    window.location.href = '/dashboard/';
+  }
+};
+</script>
