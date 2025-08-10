@@ -1,7 +1,7 @@
 {
   "name": "allabroad",
   "version": "1.0.0",
-  "description": "AllAbroad - Yurtdışı Eğitim Rehberi",
+  "mkdir eleventy-sampledescription": "AllAbroad - Yurtdışı Eğitim Rehberi",
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve"
