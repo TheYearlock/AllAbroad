@@ -3,153 +3,143 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburgerContainer = document.querySelector('.hamburger-container');
     let menuTimeout;
     
-    hamburgerContainer.addEventListener('mouseenter', () => {
-        clearTimeout(menuTimeout);
-        const menuPanel = hamburgerContainer.querySelector('.menu-panel');
-        menuPanel.style.opacity = '1';
-        menuPanel.style.visibility = 'visible';
-        menuPanel.style.transform = 'translateY(0)';
-    });
-    
-    hamburgerContainer.addEventListener('mouseleave', () => {
-        const menuPanel = hamburgerContainer.querySelector('.menu-panel');
-        menuTimeout = setTimeout(() => {
-            menuPanel.style.opacity = '0';
-            menuPanel.style.visibility = 'hidden';
-            menuPanel.style.transform = 'translateY(-10px)';
-        }, 300);
-    });
-    
-    // Keep menu open when hovering over panel
-    const menuPanel = document.querySelector('.menu-panel');
-    menuPanel.addEventListener('mouseenter', () => {
-        clearTimeout(menuTimeout);
-    });
-    
-    menuPanel.addEventListener('mouseleave', () => {
-        menuTimeout = setTimeout(() => {
-            menuPanel.style.opacity = '0';
-            menuPanel.style.visibility = 'hidden';
-            menuPanel.style.transform = 'translateY(-10px)';
-        }, 300);
-    });
+    if (hamburgerContainer) {
+        hamburgerContainer.addEventListener('mouseenter', () => {
+            clearTimeout(menuTimeout);
+            const menuPanel = hamburgerContainer.querySelector('.menu-panel');
+            menuPanel.style.opacity = '1';
+            menuPanel.style.visibility = 'visible';
+            menuPanel.style.transform = 'translateY(0)';
+        });
+        
+        hamburgerContainer.addEventListener('mouseleave', () => {
+            const menuPanel = hamburgerContainer.querySelector('.menu-panel');
+            menuTimeout = setTimeout(() => {
+                menuPanel.style.opacity = '0';
+                menuPanel.style.visibility = 'hidden';
+                menuPanel.style.transform = 'translateY(-10px)';
+            }, 300);
+        });
+        
+        // Keep menu open when hovering over panel
+        const menuPanel = document.querySelector('.menu-panel');
+        if (menuPanel) {
+            menuPanel.addEventListener('mouseenter', () => {
+                clearTimeout(menuTimeout);
+            });
+            
+            menuPanel.addEventListener('mouseleave', () => {
+                menuTimeout = setTimeout(() => {
+                    menuPanel.style.opacity = '0';
+                    menuPanel.style.visibility = 'hidden';
+                    menuPanel.style.transform = 'translateY(-10px)';
+                }, 300);
+            });
+        }
+    }
 
     // Map functionality
     const tooltip = document.getElementById('country-tooltip');
     const width = 1200;
     const height = 700;
     
-    const svg = d3.select("#world-map")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("viewBox", [0, 0, width, height]);
+    // Debug: Check if map container exists
+    console.log("Map container:", document.getElementById('world-map'));
 
-    const g = svg.append("g");
-    
-    const projection = d3.geoNaturalEarth1()
-        .scale(width / 5)
-        .translate([width / 2, height / 2]);
-    
-    const path = d3.geoPath().projection(projection);
-    
-    // Zoom behavior
-    const zoom = d3.zoom()
-        .scaleExtent([1, 8])
-        .on("zoom", (event) => {
-            // Only allow panning if zoomed in (scale > 1)
-            if (event.transform.k === 1) {
-                // Reset any translation if at original scale
-                event.transform.x = 0;
-                event.transform.y = 0;
-            }
-            g.attr("transform", event.transform);
-        });
-    
-    svg.call(zoom);
-    
-    d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(data => {
-        const countries = topojson.feature(data, data.objects.countries).features
-            .filter(d => d.properties.name !== 'Antarctica'); // Explicitly filter out Antarctica
-        g.selectAll(".country")
-    .data(countries)
-    .enter()
-    .append("path")
-    .attr("class", "country")
-    .attr("d", path)
-    .on("mouseover", function(event, d) {
-        d3.select(this).attr("fill", "#E63946");
-        tooltip.textContent = d.properties.name;
-        tooltip.style.opacity = '1';
-        tooltip.style.left = `${event.clientX}px`;
-        tooltip.style.top = `${event.clientY - 30}px`;
-    })
-    .on("mouseout", function() {
-        d3.select(this).attr("fill", "#f0f0f0");
-        tooltip.style.opacity = '0';
-    })
-.on("mousemove", function(event) {
-    tooltip.style.left = `${event.clientX}px`;
-    tooltip.style.top = `${event.clientY - 30}px`;
-})
-.on("click", function(event, d) {
-    const countryPages = {
-        "Germany": "allcountries/germany.html",
-        "France": "allcountries/france.html",
-        "United States of America": "allcountries/usa.html",
-        "Turkey": "allcountries/turkey.html",
-        "Japan": "allcountries/japan.html",
-        "United Kingdom": "allcountries/UK.html"
-   
-    };
+    const worldMap = document.getElementById('world-map');
+    if (worldMap) {
+        const svg = d3.select("#world-map")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", [0, 0, width, height]);
 
-    const countryName = d.properties.name;
-    if (countryPages[countryName]) {
-        window.location.href = countryPages[countryName];
-    } else {
-        // Optionally: redirect to a default countries page or do nothing
-        // window.location.href = "Continents.html";
-    }
-});
-
-        g.selectAll(".country")
-            .data(countries)
-            .enter()
-            .append("path")
-            .attr("class", "country")
-            .attr("d", path)
-            .on("mouseover", function(event, d) {
-                d3.select(this).attr("fill", "#E63946");
-                tooltip.textContent = d.properties.name;
-                tooltip.style.opacity = '1';
-                tooltip.style.left = `${event.clientX}px`;
-                tooltip.style.top = `${event.clientY - 30}px`;
-            })
-            .on("mouseout", function() {
-                d3.select(this).attr("fill", "#f0f0f0");
-                tooltip.style.opacity = '0';
-            })
-            .on("mousemove", function(event) {
-                tooltip.style.left = `${event.clientX}px`;
-                tooltip.style.top = `${event.clientY - 30}px`;
+        const g = svg.append("g");
+        
+        const projection = d3.geoNaturalEarth1()
+            .scale(width / 5)
+            .translate([width / 2, height / 2]);
+        
+        const path = d3.geoPath().projection(projection);
+        
+        // Zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([1, 8])
+            .on("zoom", (event) => {
+                // Only allow panning if zoomed in (scale > 1)
+                if (event.transform.k === 1) {
+                    // Reset any translation if at original scale
+                    event.transform.x = 0;
+                    event.transform.y = 0;
+                }
+                g.attr("transform", event.transform);
             });
         
-        d3.select(".zoom-in").on("click", () => {
-            svg.transition().duration(300).call(zoom.scaleBy, 1.5);
-        });
+        svg.call(zoom);
         
-        d3.select(".zoom-out").on("click", () => {
-            svg.transition().duration(300).call(zoom.scaleBy, 0.75);
+        d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(data => {
+            const countries = topojson.feature(data, data.objects.countries).features
+                .filter(d => d.properties.name !== 'Antarctica'); // Explicitly filter out Antarctica
+            g.selectAll(".country")
+                .data(countries)
+                .enter()
+                .append("path")
+                .attr("class", "country")
+                .attr("d", path)
+                .on("mouseover", function(event, d) {
+                    d3.select(this).attr("fill", "#E63946");
+                    if (tooltip) {
+                        tooltip.textContent = d.properties.name;
+                        tooltip.style.opacity = '1';
+                        tooltip.style.left = `${event.clientX}px`;
+                        tooltip.style.top = `${event.clientY - 30}px`;
+                    }
+                })
+                .on("mouseout", function() {
+                    d3.select(this).attr("fill", "#f0f0f0");
+                    if (tooltip) tooltip.style.opacity = '0';
+                })
+                .on("mousemove", function(event) {
+                    if (tooltip) {
+                        tooltip.style.left = `${event.clientX}px`;
+                        tooltip.style.top = `${event.clientY - 30}px`;
+                    }
+                })
+                .on("click", function(event, d) {
+                    const countryPages = {
+                        "Germany": "allcountries/germany.html",
+                        "France": "allcountries/france.html",
+                        "United States of America": "allcountries/usa.html",
+                        "Turkey": "allcountries/turkey.html",
+                        "Japan": "allcountries/japan.html",
+                        "United Kingdom": "allcountries/UK.html"
+                    };
+                    const countryName = d.properties.name;
+                    if (countryPages[countryName]) {
+                        window.location.href = countryPages[countryName];
+                    } else {
+                        // Optionally: redirect to a default countries page or do nothing
+                        // window.location.href = "Continents.html";
+                    }
+                });
+
+            d3.select(".zoom-in").on("click", () => {
+                svg.transition().duration(300).call(zoom.scaleBy, 1.5);
+            });
+            
+            d3.select(".zoom-out").on("click", () => {
+                svg.transition().duration(300).call(zoom.scaleBy, 0.75);
+            });
+            
+            d3.select(".reset").on("click", () => {
+                svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
+            });
         });
-        
-        d3.select(".reset").on("click", () => {
-            svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
-        });
-    });
+    }
 });
 //NEWS DATA NEWS DATA ANLADIN MI GARİ
 const newsData = [
-        {
+    {
         title: "Önemli Duyuru",
         description: "Bu websitesi geliştirme aşamasındadır.",
         category: "Update",
@@ -278,7 +268,3 @@ function initNewsSlider() {
         document.head.appendChild(style);
     }
 }
-// Try this more robust event listener instead:
-document.getElementById('enrollment-year').addEventListener('input', function(e) {
-    document.getElementById('year-value').textContent = e.target.value;
-}, { passive: true });  // <-- Important for touch devices
