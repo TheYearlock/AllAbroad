@@ -1,67 +1,17 @@
   <!DOCTYPE html>
   <html lang="en">
   <head>
-  <style>
-    /* Mobile header overrides: shrink header, logo, nav, and paddings */
-    @media (max-width: 600px) {
-      header {
-        padding: 6px 2% !important;
-        min-height: 44px !important;
-      }
-      .logo {
-        font-size: 17px !important;
-        margin-left: 0 !important;
-      }
-      .nav-right {
-        gap: 8px !important;
-      }
-      nav.main-nav ul {
-        gap: 4px !important;
-      }
-      nav.main-nav ul li a {
-        font-size: 13px !important;
-        padding: 2px 4px !important;
-      }
-      .search-box input {
-        width: 80px !important;
-        font-size: 12px !important;
-        padding: 6px 10px 6px 28px !important;
-      }
-      .search-icon {
-        font-size: 13px !important;
-        left: 7px !important;
-      }
-      .login-btn {
-        padding: 5px 10px !important;
-        font-size: 13px !important;
-        border-radius: 14px !important;
-      }
-      .dropdown-content {
-        min-width: 120px !important;
-        font-size: 13px !important;
-        padding: 4px 0 !important;
-      }
-      .dropdown-content a {
-        padding: 6px 10px !important;
-      }
-    }
-  </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>MIT - AllAbroad</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
   </head>
   <style>
-        /* Global */
-
       h2 { font-size: 28px; color: #E63946; border-bottom: 3px solid #E63946; padding-bottom:6px; margin-top:40px; }
       h3 { font-size: 22px; color: #333; margin-top:30px; }
-    
-      ul, ol { padding-left: 20px; }
-      li { margin-bottom:8px; }
       .highlight-box { background:#f8f9fa; border-left:4px solid #E63946; padding:15px; margin:20px 0; }
       .data-table { width:100%; border-collapse:collapse; margin:20px 0; }
       .data-table th, .data-table td { border:1px solid #ddd; padding:8px; text-align:center; }
@@ -81,125 +31,7 @@
         text-decoration: none;
         color: inherit;
       }
-      header {
-        position: sticky;
-        top: 0;
-        background-color: white;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 100;
-        padding: 15px 3%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .logo {
-        font-size: 24px;
-        font-weight: 700;
-        margin-left: 10px;
-      }
-      .logo .all {
-        color: #e63946;
-      }
-      .logo .abroad {
-        color: #000000;
-      }
-      nav.main-nav ul {
-        display: flex;
-        list-style: none;
-        gap: 20px;
-      }
-      nav.main-nav ul li a {
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-      nav.main-nav ul li a:hover {
-        color: #e63946;
-      }
-      .dropdown {
-        position: relative;
-      }
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: white;
-        min-width: 200px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        border-radius: 5px;
-        padding: 10px 0;
-      }
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-      .dropdown-content a {
-        color: black;
-        padding: 10px 15px;
-        display: block;
-      }
-      .dropdown-content a:hover {
-        background-color: #f5f5f5;
-        color: #e63946;
-      }
-      .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-      .search-box {
-        position: relative;
-      }
-      .search-box input {
-        padding: 9px 15px 9px 38px;
-        border: 1.5px solid #ddd;
-        border-radius: 24px;
-        width: 190px;
-        font-size: 15px;
-        color: #222;
-        outline-offset: 2px;
-        transition: border-color 0.3s ease;
-      }
-      .search-box input:focus {
-        border-color: #e63946;
-      }
-      .search-icon {
-        position: absolute;
-        left: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #aaa;
-        font-size: 16px;
-        pointer-events: none;
-      }
-      .login-btn {
-        background-color: #e63946;
-        color: white;
-        padding: 8px 20px;
-        border-radius: 20px;
-        font-weight: 500;
-        white-space: nowrap;
-      }
-      .login-btn:hover {
-        background-color: #c1121f;
-      }
-
-      /* Page Main Content */
-      .main-content {
-        max-width: 1000px;
-        margin: 40px auto;
-        padding: 0 20px;
-        flex: 1 0 auto;
-        /* Ensure same as index.html proportions */
-        box-sizing: border-box;
-        width: 100%;
-      }
-      .page-title {
-        font-size: 36px;
-        margin-bottom: 40px;
-        text-align: center;
-        color: #e63946;
-        font-weight: 700;
-      }
-
+    
       /* Guide Sections */
       section.guide-section {
         margin-bottom: 50px;
@@ -236,218 +68,8 @@
         color: #e63946;
       }
 
-      /* Hamburger Menu */
-      .hamburger-container {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          z-index: 1000;
-      }
+     
 
-      .hamburger-icon {
-          width: 30px;
-          height: 30px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-      }
-
-      .hamburger-icon span {
-          display: block;
-          width: 20px;
-          height: 2px;
-          background: #E63946;
-          margin: 3px 0;
-          transition: all 0.3s ease;
-      }
-
-      .menu-panel {
-          position: absolute;
-          top: 50px;
-          right: 0;
-          width: 200px;
-          background: white;
-          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-          border-radius: 8px;
-          padding: 15px;
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(-10px);
-          transition: all 0.3s ease;
-      }
-
-      .hamburger-container:hover .menu-panel {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-      }
-
-      .menu-panel nav ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-      }
-
-      .menu-panel nav li {
-          margin-bottom: 10px;
-      }
-
-      .menu-panel nav a {
-          color: #333;
-          text-decoration: none;
-          font-weight: 500;
-          transition: color 0.2s;
-      }
-
-      .menu-panel nav a:hover {
-          color: #E63946;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .main-content {
-          margin: 30px 15px;
-          padding: 0 10px;
-          width: 100%;
-        }
-        nav.main-nav ul {
-          gap: 10px;
-        }
-        .search-box input {
-          width: 120px;
-        }
-      }
-
-      .subfooter-wrapper {
-        width: 100vw;
-        min-width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        background: #2a2a2a;
-        box-sizing: border-box;
-      }
-      .subfooter {
-        background-color: #2a2a2a;
-        color: #fff;
-        padding: 50px 20px 0px; /* Remove bottom padding, set top/bottom as needed */
-      }
-      .subfooter-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
-        padding-bottom: 40px;
-        border-bottom: 1px solid #444;
-      }
-
-      .subfooter-column {
-        flex: 1;
-        min-width: 200px;
-      }
-
-      .subfooter-column h4 {
-        color: #fff;
-        font-size: 18px;
-        margin-bottom: 20px;
-        position: relative;
-        padding-bottom: 10px;
-      }
-
-      .subfooter-column h4::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 40px;
-        height: 2px;
-        background: #E63946;
-      }
-
-      .subfooter-column ul {
-        list-style: none;
-      }
-
-      .subfooter-column ul li {
-        margin-bottom: 12px;
-      }
-
-      .subfooter-column ul li a {
-        color: #bbb;
-        transition: color 0.3s;
-      }
-
-      .subfooter-column ul li a:hover {
-        color: #fff;
-      }
-
-      .subfooter-bottom {
-        max-width: 1200px;
-        margin: 20px auto 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding-top: 20px;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-
-      .subfooter-bottom p {
-        color: #999;
-        font-size: 14px;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 15px;
-      }
-
-      .social-links a {
-        color: #fff;
-        background: #444;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s;
-      }
-
-      .social-links a:hover {
-        background: #E63946;
-      }
-
-      @media (max-width: 768px) {
-        .about-column {
-          min-width: 100%;
-        }
-        .subfooter-content {
-          flex-direction: column;
-          gap: 10px;
-          padding-bottom: 20px;
-        }
-        .subfooter-column {
-          min-width: 100%;
-        }
-        .subfooter {
-          padding: 20px 5px 0px;
-        }
-        .subfooter-wrapper {
-          width: 100vw;
-          min-width: 100vw;
-          margin-left: calc(-50vw + 50%);
-          padding: 0;
-        }
-        .subfooter-bottom {
-          font-size: 12px;
-          flex-direction: column;
-          text-align: center;
-        }
-        }
     </style>
   </head>
   </style>
@@ -460,29 +82,29 @@
         <nav class="main-nav">
           <ul>
             <li class="dropdown">
-              <a href="../continents.html" data-i18n="Continents">Continents</a>
+              <a href="../Continents.html">Kıtalar</a>
               <div class="dropdown-content">
-                <a href="../countries/europe.html">Europe</a>
-                <a href="../countries/americas.html">USA and Canada</a>
-                <a href="../countries/asia.html">Asia</a>
+                <a href="../continents/europe.html">Avrupa</a>
+                <a href="../continents/americas.html">USA and Canada</a>
+                <a href="../continents/asia.html">Asya</a>
               </div>
             </li>
             <li class="dropdown">
-              <a href="../universities.html" class="active">Universities</a>
+              <a href="../universities.html" class="active">Üniversiteler</a>
               <div class="dropdown-content">
-                <a href="top20.html">Top 20 Universities</a>
-                <a href="../universities.html#all">All Universities</a>
+                 
+                <a href="../universities.html">Tüm Üniversiteler</a>
               </div>
             </li>
-            <li><a href="../scholarships.html">Scholarships</a></li>
-            <li><a href="../about.html">About</a></li>
+            <li><a href="../scholarships.html">Burslar</a></li>
+            <li><a href="../about.html">Hakkımızda</a></li>
           </ul>
         </nav>
         <div class="search-box">
           <span class="search-icon">⌕</span>
           <input type="text" placeholder="Search">
         </div>
-        <a href="../login.html" class="login-btn">Log in</a>
+        <a href="../login.html" class="login-btn">Giriş Yap</a>
       </div>
     </header>
     <main class="main-content">
@@ -519,6 +141,7 @@
       <p>
         MIT’in beş okulu vardır:
       </p>
+     <strong>
       <ul>
         <li>Mühendislik</li>
         <li>Fen, Beşeri ve Sosyal Bilimler</li>
@@ -527,9 +150,9 @@
         <li>Fen Bilimleri</li>
         <li>Schwarzman Bilişim Koleji</li>
       </ul>
+      </strong>
       <p>
-        Ayrıca Schwarzman Bilişim Koleji (Bilgisayar Bilimleri) gibi yenilikçi bölümler de 
-        mevcuttur. Kampüsü, Boston’un Cambridge bölgesinde Charles Nehri kıyısında yer alır. 
+        Kampüsü, Boston’un Cambridge bölgesinde Charles Nehri kıyısında yer alır. 
         Cambridge’te yaklaşık 118.200 kişi yaşıyor ve 36.000’den fazla üniversite öğrencisi 
         bulunuyor . Bu kentsel, yürünebilir kampüs ortamı; tarihi binalar, dünyanın önde gelen 
         mimarlarının eseri yapılar ve 500’den fazla öğrenci topluluğu ile (örneğin MIT’te 
@@ -542,7 +165,7 @@
       <!-- ARANAN ÖĞRENCİ PROFİLİ -->
       <h2>Aranan Öğrenci Profili</h2>
       <div class="highlight-box">
-        Aranan Öğrenci Profili: MIT, genellikle bilim ve teknolojiye tutkulu, akademik başarısı yüksek ve yaratıcı 
+         MIT, genellikle bilim ve teknolojiye tutkulu, akademik başarısı yüksek ve yaratıcı 
         kişiler arar. Üniversite sitesinde vurgulandığı üzere, MIT ruhunun özü işbirliği ve insiyatif 
         kullanma üzerine kuruludur . Yani, sınav puanlarınız önemli olsa da, okul sizde 
         “dünya’yı daha iyi hale getirme” vizyonu, işbirlikçi çalışma tarzı, girişimcilik ruhu ve risk 
@@ -550,7 +173,7 @@
         birleştirmeyi (latince “Mens et Manus – Zihin ve El”), derin merakı ve tutkularını 
         vurgulamayı sever . Bunun yanı sıra denge de önemlidir; MIT essay’lerinde “sadece zevk 
         için yaptığın bir şeyden” bahsetmen istenir . Özetle, girişken, işbirlikçi, meraklı ve 
-        topluma katkı sunmaya istekli öğrenciler MIT profiline uygundur.
+        topluma katkı sunmaya istekli öğrenciler MIT profiline uygundur. Ayrıca eğer bir olimpiyat kazananı değilseniz girmeniz güç olacaktır.
       </div>
 
       <!-- SINAVLAR VE SKORLAR -->
@@ -591,16 +214,16 @@
         kredi yerine sadece hazır oluş kanıtı olarak değerlendirilir . Kısacası, SAT/ACT öncelikli; 
         AP/IB deneyimi artı, İngilizceye hâkimiyet ise ek destek niteliğindedir. YGS ve YÖS: ABD 
         lisans başvurularında YÖS ve YGS gibi sınavların bir karşılığı yoktur; bu sınavlara 
-        girmeniz MIT için gerekmiyor.
+        girmeniz MIT için gerekmiyor. Aslında hiçbir Amerikan üniversitesi için bu puanlara ihtiyacınuz yok, zaten başvuru dönemi 12.sınıfa başlamadan önce yer alıyor.
       </p>
           <!-- EXTRACURRICULAR SECTION -->
       <h2>Extracurricular Aktiviteler ve Başvuruya Etkisi</h2>
       <p>
-        MIT, ders dışı etkinliklerde özellikle STEM ve liderlik odaklı başarıları yüksek değerler. Örneğin 
+        MIT, ders dışı etkinliklerde özellikle STEM ve liderlik odaklı başarıları önemli tutar. Örneğin 
         MIT’in rehberlik sitelerinde bilim olimpiyatları, robotik yarışmaları, bilişim turnuvaları ve 
         proje yarışmaları yer alır. Uluslararası Matematik, Fizik, Kimya gibi Olimpiyatlarına 
         katılmak veya Regeneron STS, ISEF gibi bilim projeleriyle ödül almak başvurunuzu öne 
-        çıkarır. Robotik merakı olanlar FIRST, VEX gibi yarışmalara katılabilir. Kodlama/hacker 
+        çıkarır. Robotik merakı olanlar FIRST, VEX gibi yarışmalara katılabilir. Kodlama 
         etkinlikleri (hackathonlar), maket projeleri (makerspace), Model Birleşmiş Milletler ve 
         liderlik programları da değerlidir. Bunun yanı sıra kulüp liderliği, gönüllülük, sosyal sorumluluk 
         projeleri ve sanatsal faaliyetler (müzik, yarışma takımları vs.) da tam profil oluşturmada önemlidir. 
@@ -615,7 +238,7 @@
         <li><b>Başvuru sistemi:</b> MIT, kendi online başvuru portalı üzerinden başvurulur (CommonApp kullanılmaz). (Portal: apply.mitadmissions.org.) Önce MIT sitesinde hesap açıp kişisel bilgilerinizi girin.</li>
         <li><b>Gerekli belgeler:</b> Lise diploması ve transkriptlerinizi hazırlayın. Liseyi Türkçe okuduysanız, tüm belgelerin noter onaylı İngilizce tercümelerini yaptırmalısınız. MIT’ye göre “tüm başvuru malzemeleri İngilizce olmalı” ve tercümeyi başvuran kendisi yapamaz; öğretmen vb. çevirip imzalamalıdır. Orijinal Türkçe belgelerle beraber tercümeleri gönderin. Transkript ve diplomalar, okulda yetkili bir kişinin doğrudan MIT’ye e-posta veya danışman sistemiyle göndermesiyle “resmî” kabul edilir.</li>
         <li><b>Gerekli sınav skorları:</b> SAT/ACT sınav skorlarınızı başvuruya ekleyin. İngilizce yeterlilik için TOEFL/IELTS ekleyebilirsiniz; MIT, yabancı öğrencilerden TOEFL ya da benzeri bir sınav istese de (eğitim dili İngilizce olmayanlardan) bu konuda esnek davranır.</li>
-        <li><b>Başvuru formu ve kompozisyonlar:</b> MIT’nin beş kısa essay sorusu vardır (örneğin “Zeeykiniz için yaptığınız bir etkinlik hakkında bize anlatın” gibi). Bu soruları dikkatlice yanıtlayın; dürüst ve içten ifadeler önemlidir. (MIT bile “bu soruyu kandırmaca sandığımızı düşünmeyin, sadece gerçekten sevdiğiniz bir şeyi yazın” diyor.)</li>
+        <li><b>Başvuru formu ve kompozisyonlar:</b> MIT’nin beş kısa essay sorusu vardır (örneğin “Zevkiniz için yaptığınız bir etkinlik hakkında konuşun” gibi). Bu soruları dikkatlice yanıtlayın; dürüst ve içten ifadeler önemlidir. (MIT bile “bu soruyu kandırmaca sandığımızı düşünmeyin, sadece gerçekten sevdiğiniz bir şeyi yazın” diyor.)</li>
         <li><b>Portföy veya ek materyaller:</b> Sanat, tasarım veya performans portföyü varsa ekleyebilirsiniz.</li>
         <li><b>Gönderim ve takip:</b> Belgeleri tümüyle tamamlayıp randevulara veya posta yoluyla (okulunuz aracılığıyla) MIT’ye ulaştırdıktan sonra, başvuru ücretini ödeyip başvurunuzu gönderebilirsiniz. Başvuru takibi ve kabul durumu için MIT’nin başvuru sistemini kontrol edin.</li>
       </ol>
@@ -660,7 +283,7 @@
       <!-- TIPS -->
       <h2>Türk Öğrenciler İçin Stratejiler ve Tavsiyeler</h2>
       <ul>
-        <li>Türkiye, matematik ve fizik olimpiyatlarında dünya çapında başarılar çıkarır; bu tür rekabetçi deneyimleri mutlaka vurgulayın.</li>
+        <li>Matematik ve fizik/kimya olimpiyatlarında dünya çapında başarılar çıkaran kişiler genelde MIT'yi tercih ediyor;bu tür rekabetçi deneyimlere katılmaya çalışın.</li>
         <li>Robotik, bilişim kulüplerinde liderlik ve inisiyatif örnekleri sunun.</li>
         <li>Başvuru yazılarında samimi ve net olun; “zevk için yaptığınız bir etkinlik” sorusuna gerçek bir hobinizi içtenlikle anlatın.</li>
         <li>TOEFL/IELTS gibi dil sınavları ve sosyal etkinlikler dil yeterliliğinizi destekler.</li>
@@ -677,7 +300,7 @@
         <dd>C: MIT çok seçicidir; son yıllarda kabul oranı ~%4–5 seviyesindedir. Uluslararası başvuru sayısı yüksek olduğundan rekabet fazladır.</dd>
 
         <dt>S: Finansal yardım var mı?</dt>
-        <dd>C: Evet, MIT tüm kabul edilenlerin ihtiyaçlarını karşılamayı taahhüt eder. Geliri $200.000’ın altında olan ailelerin çocukları ücretsiz eğitim alabilir.</dd>
+        <dd>C: Evet, MIT tüm kabul edilenlerin ihtiyaçlarını karşılamayı taahhüt ediyor. Geliri $200.000’ın altında olan ailelerin çocukları ücretsiz eğitim alabilir.</dd>
 
         <dt>S: Yaşam maliyeti ne kadar olur?</dt>
         <dd>C: Cambridge/Boston bölgesinde yıllık ortalama 50.000$. Kira hariç ortalama aylık 1500$, burs almazsanız yaşam pek olanaklı değil.</dd>
@@ -685,10 +308,10 @@
         <dt>S: İngilizce sınavı gerekli mi?</dt>
         <dd>C: MIT, anadili İngilizce olmayanlardan TOEFL/IELTS ister; ancak eğitim dili İngilizce ise bu sınav esneyebilir.</dd>
       </dl>
-
+<h2>AllAbroad Ne Diyor?</h2>
       <!-- FINAL HIGHLIGHT -->
       <div class="highlight-box">
-        Bu rehberde MIT ile ilgili güncel bilgiler ve Türk öğrencilerin ihtiyaçları odaklı detaylar bir araya getirilmiştir. Başvuru sürecine erken hazırlanmak ve kendinize özgü güçlü yanlarınızı vurgulamak başarı şansınızı artıracaktır.
+        MIT, Iron Man sevenlerin çocukluk hayali olsa da maalesef üst düzey bir çalışma ve başarı gerektiriyor. Eğer matematik ve fen bilimlerinde gerçekten yetenekliyseniz, MIT sizin için doğru adres olabilir. Ancak kabul edilmek için sadece yüksek sınav puanları değil, aynı zamanda uluslararsı platformlarda başarı sahibi olmanız gerekir. Hiçbir şey imkansız değildir; ama bazı şeyler, açık ara, daha az olanaklıdır. 
       </div>
 
         </section>
@@ -697,32 +320,33 @@
       <div class="subfooter">
         <div class="subfooter-content">
           <div class="subfooter-column">
-            <h4>Countries</h4>
+            <h4>Kıtalar</h4>
             <ul>
-              <li><a href="../countries/europe.html">Europe</a></li>
-              <li><a href="../countries/americas.html">USA & Canada</a></li>
-              <li><a href="../countries/asia.html">Asia</a></li>
+              <li><a href="../continents/europe.html">Avrupa</a></li>
+              <li><a href="../continents/americas.html">Amerika</a></li>
+              <li><a href="../continents/asia.html">Asya</a></li>
             </ul>
           </div>
           <div class="subfooter-column">
-            <h4>Universities</h4>
+            <h4>Üniversiteler</h4>
             <ul>
-              <li><a href="top20.html">Top 20 Universities</a></li>
-              <li><a href="../universities.html#all">All Universities</a></li>
+              <li> </li>
+              <li><a href="../universities.html">Tüm Üniversiteler</a></li>
+              <li><a href="../universities.html">En İyi Üniversiteler</a></li>
             </ul>
           </div>
           <div class="subfooter-column">
-            <h4>Resources</h4>
+            <h4>Kaynaklar</h4>
             <ul>
-              <li><a href="../scholarships.html">Scholarships</a></li>
-              <li><a href="../finder.html">Find Your Fit</a></li>
+              <li><a href="../scholarships.html">Burslar</a></li>
+              <li><a href="../finder.html">AllAbroad Sihirbazı</a></li>
             </ul>
           </div>
           <div class="subfooter-column">
-            <h4>Company</h4>
+            <h4>Şirket</h4>
             <ul>
-              <li><a href="../about.html">About Us</a></li>
-              <li><a href="../contact.html">Contact</a></li>
+              <li><a href="../about.html">Hakkımızda</a></li>
+              <li><a href="../contact.html">İletişim</a></li>
             </ul>
           </div>
         </div>

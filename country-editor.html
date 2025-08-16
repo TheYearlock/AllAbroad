@@ -1,35 +1,11 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AllAbroad Ülke Rehberi Editörü</title>
-  <meta name="description" content="AllAbroad ile ülke rehberinizi kolayca oluşturun ve düzenleyin. Türk öğrenciler için yurtdışı eğitimde en güvenilir platform.">
-  <meta name="keywords" content="ülke rehberi, editör, AllAbroad, yurtdışı eğitim, Türk öğrenciler">
-  <meta name="robots" content="noindex, follow">
-  <meta name="author" content="AllAbroad Ekibi">
-  <meta property="og:title" content="AllAbroad Ülke Rehberi Editörü">
-  <meta property="og:description" content="AllAbroad ile ülke rehberinizi kolayca oluşturun ve düzenleyin. Türk öğrenciler için yurtdışı eğitimde en güvenilir platform.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.allabroadedu.com/country-editor.html">
-  <meta property="og:image" content="https://www.allabroadedu.com/assets/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AllAbroad Ülke Rehberi Editörü">
-  <meta name="twitter:description" content="AllAbroad ile ülke rehberinizi kolayca oluşturun ve düzenleyin. Türk öğrenciler için yurtdışı eğitimde en güvenilir platform.">
-  <meta name="twitter:image" content="https://www.allabroadedu.com/assets/og-image.jpg">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://www.allabroadedu.com/country-editor.html">
+  <title>AllAbroad Country Guide Editor</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="mobile-overrides.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L36SLS8YBV"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-L36SLS8YBV');
-  </script>
   <style>
     body {
       background: #f7f7f7;
@@ -173,72 +149,13 @@
   <script src="https://cdn.tiny.cloud/1/yt3ktzzgbtuyxggi9v1v13lqo6o3r4y8864qhocnqfq8s8fq/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
-  <!-- Mobil Hamburger Menü ve Header (logo sol, hamburger sağ, arka plan kırmızı, yazılar beyaz, dil seçici yok) -->
-  <div class="hamburger-container" id="hamburger-container">
-    <a href="index.html" class="logo mobile-logo">
-      <span class="all">All</span><span class="abroad">Abroad</span>
-    </a>
-    <div class="hamburger-icon" id="hamburger-icon">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="menu-panel" id="menu-panel">
-      <nav>
-        <ul>
-          <li><a href="index.html">Anasayfa</a></li>
-          <li><a href="countries.html">Ülkeler</a></li>
-          <li><a href="universities.html">Üniversiteler</a></li>
-          <li><a href="scholarships.html">Burslar</a></li>
-          <li><a href="about.html">Hakkımızda</a></li>
-          <li><a href="contact.html">İletişim</a></li>
-          <li><a href="login.html" class="login-btn">Giriş Yap</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <header>
-    <a href="index.html" class="logo">
-      <span class="all">All</span><span class="abroad">Abroad</span>
-    </a>
-  </header>
   <div class="editor-container">
     <div class="editor-section">
-  <h2>Ülke Rehberi Editörü</h2>
+      <h2>Country Guide Editor</h2>
       <textarea id="countryGuideEditor"></textarea>
       <div class="editor-actions">
-  <button onclick="updatePreview()">Önizleme</button>
-  <button onclick="downloadGuide()">HTML Olarak İndir</button>
-</main>
-
-<script>
-// Mobil hamburger menü için sağda, logo solda, arka plan kırmızı, yazılar beyaz, kaydırmalı animasyon
-document.addEventListener('DOMContentLoaded', function() {
-  var hamburgerIcon = document.getElementById('hamburger-icon');
-  var menuPanel = document.getElementById('menu-panel');
-  var container = document.getElementById('hamburger-container');
-  var body = document.body;
-  function openMenu() {
-    menuPanel.classList.add('open');
-    body.classList.add('menu-open');
-  }
-  function closeMenu() {
-    menuPanel.classList.remove('open');
-    body.classList.remove('menu-open');
-  }
-  hamburgerIcon.addEventListener('click', function(e) {
-    e.stopPropagation();
-    if(menuPanel.classList.contains('open')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-  document.addEventListener('click', function(e) {
-    if(menuPanel.classList.contains('open') && !container.contains(e.target)) {
-      closeMenu();
-    }
-  });
-});
-</script>
+        <button onclick="updatePreview()">Preview</button>
+        <button onclick="downloadGuide()">Export HTML</button>
       </div>
     </div>
     <div class="preview-section">

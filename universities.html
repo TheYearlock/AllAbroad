@@ -1,113 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    /* Mobile header overrides: shrink header, logo, nav, and paddings */
-    @media (max-width: 600px) {
-      header {
-        padding: 6px 2% !important;
-        min-height: 44px !important;
-      }
-      .logo {
-        font-size: 17px !important;
-        margin-left: 0 !important;
-      }
-      .nav-right {
-        gap: 8px !important;
-      }
-      nav.main-nav ul {
-        gap: 4px !important;
-      }
-      nav.main-nav ul li a {
-        font-size: 13px !important;
-        padding: 2px 4px !important;
-      }
-      .search-box input {
-        width: 80px !important;
-        font-size: 12px !important;
-        padding: 6px 10px 6px 28px !important;
-      }
-      .search-icon {
-        font-size: 13px !important;
-        left: 7px !important;
-      }
-      .login-btn {
-        padding: 5px 10px !important;
-        font-size: 13px !important;
-        border-radius: 14px !important;
-      }
-      .dropdown-content {
-        min-width: 120px !important;
-        font-size: 13px !important;
-        padding: 4px 0 !important;
-      }
-      .dropdown-content a {
-        padding: 6px 10px !important;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AllAbroad - Üniversiteler</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
-</head>
    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L36SLS8YBV"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-L36SLS8YBV');
-  </script>
 </head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AllAbroad - Üniversiteler</title>
-  <meta name="description" content="AllAbroad üniversiteler listesi, yurtdışında eğitim için en iyi seçenekler.">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="AllAbroad - Üniversiteler">
-  <meta property="og:description" content="AllAbroad üniversiteler listesi, yurtdışında eğitim için en iyi seçenekler.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.allabroadedu.com/universities.html">
-  <meta property="og:image" content="https://www.allabroadedu.com/assets/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AllAbroad - Üniversiteler">
-  <meta name="twitter:description" content="AllAbroad üniversiteler listesi, yurtdışında eğitim için en iyi seçenekler.">
-  <meta name="twitter:image" content="https://www.allabroadedu.com/assets/og-image.jpg">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "AllAbroad - Üniversiteler",
-    "url": "https://www.allabroadedu.com/universities.html",
-    "description": "AllAbroad üniversiteler listesi, yurtdışında eğitim için en iyi seçenekler."
-  }
-  </script>
 <body>
-  <!-- Mobil Hamburger Menü ve Header (logo sol, hamburger sağ, arka plan kırmızı, yazılar beyaz, dil seçici yok) -->
-  <div class="hamburger-container" id="hamburger-container">
-    <a href="index.html" class="logo mobile-logo">
-      <span class="all">All</span><span class="abroad">Abroad</span>
-    </a>
-    <div class="hamburger-icon" id="hamburger-icon">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="menu-panel" id="menu-panel">
-      <nav>
-        <ul>
-          <li><a href="index.html">Anasayfa</a></li>
-          <li><a href="countries.html">Ülkeler</a></li>
-          <li><a href="universities.html">Üniversiteler</a></li>
-          <li><a href="scholarships.html">Burslar</a></li>
-          <li><a href="about.html">Hakkımızda</a></li>
-          <li><a href="contact.html">İletişim</a></li>
-          <li><a href="login.html" class="login-btn">Giriş Yap</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
   <header>
     <a href="index.html" class="logo">
       <span class="all">All</span><span class="abroad">Abroad</span>
@@ -116,15 +18,18 @@
       <nav class="main-nav">
         <ul>
           <li class="dropdown">
-            <a href="continents.html">Kıtalar</a>
+            <a href="Continents.html">Kıtalar</a>
             <div class="dropdown-content">
               <a href="continents/europe.html">Avrupa</a>
-              <a href="continents/americas.html">ABD ve Kanada</a>
+              <a href="continents/americas.html">USA and Canada</a>
               <a href="continents/asia.html">Asya</a>
             </div>
           </li>
           <li class="dropdown">
             <a href="universities.html" class="active">Üniversiteler</a>
+            <div class="dropdown-content">
+              <a href="universities.html">Tüm Üniversiteler</a>
+            </div>
           </li>
           <li><a href="scholarships.html">Burslar</a></li>
           <li><a href="about.html">Hakkımızda</a></li>
@@ -132,27 +37,29 @@
       </nav>
       <div class="search-box">
         <span class="search-icon">⌕</span>
-        <input type="text" placeholder="Ara">
+        <input type="text" placeholder="Search">
       </div>
       <a href="login.html" class="login-btn">Giriş Yap</a>
     </div>
   </header>
 
   <main class="main-content">
-  <h1 class="page-title">Tüm Üniversiteler</h1>
+    <h1 class="page-title">Tüm Üniversiteler</h1>
     <div class="search-filter-container" style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; align-items: center; justify-content: center;">
-      <input type="text" id="search-universities" placeholder="Search by name" data-i18n="Search" style="padding: 10px 15px; border: 1.5px solid #ddd; border-radius: 24px; width: 220px; font-size: 15px; color: #222; outline-offset: 2px;" />
+      <input type="text" id="search-universities" placeholder="İsme Göre arama" style="padding: 10px 15px; border: 1.5px solid #ddd; border-radius: 24px; width: 220px; font-size: 15px; color: #222; outline-offset: 2px;" />
       <select id="country-filter" style="padding: 10px 15px; border-radius: 24px; border: 1.5px solid #ddd; font-size: 15px;">
-        <option value="" data-i18n="Select Country">Select Country</option>
+        <option value="">Ülke Seçiniz</option>
       </select>
       <select id="continent-filter" style="padding: 10px 15px; border-radius: 24px; border: 1.5px solid #ddd; font-size: 15px;">
-        <option value="" data-i18n="Select Continent">Select Continent</option>
+        <option value="">Kıta Seçiniz</option>
       </select>
       <select id="size-filter" style="padding: 10px 15px; border-radius: 24px; border: 1.5px solid #ddd; font-size: 15px;">
-        <option value="" data-i18n="Select Size">Select Size</option>
-        <option value="L" data-i18n="Large">Large</option>
-        <option value="M" data-i18n="Medium">Medium</option>
-        <option value="S" data-i18n="Small">Small</option>
+        <option value="">Büyüklük Seçiniz</option>
+          <option value="XL">Çok Büyük</option>
+        <option value="L">Büyük</option>
+        <option value="M">Orta</option>
+        <option value="S">Küçük</option>
+          <option value="XS">Çok Küçük</option>
       </select>
     </div>
     <ul id="universities-list" class="universities-list" style="list-style: none; padding: 0; margin: 0 auto; max-width: 900px;"></ul>
@@ -166,7 +73,7 @@
           <h4>Kıtalar</h4>
           <ul>
             <li><a href="continents/europe.html">Avrupa</a></li>
-            <li><a href="continents/americas.html">ABD & Kanada</a></li>
+            <li><a href="continents/americas.html">Amerika</a></li>
             <li><a href="continents/asia.html">Asya</a></li>
           </ul>
         </div>
@@ -174,14 +81,14 @@
           <h4>Üniversiteler</h4>
           <ul>
             <li><a href="universities.html">Tüm Üniversiteler</a></li>
-            <li><a href="universities.html">En Yüksek Sıralamalar</a></li>
+            <li><a href="universities.html">En İyi Üniversiteler</a></li>
           </ul>
         </div>
         <div class="subfooter-column">
           <h4>Kaynaklar</h4>
           <ul>
             <li><a href="scholarships.html">Burslar</a></li>
-            <li><a href="finder.html">Sana Uygununu Bul</a></li>
+            <li><a href="finder.html">AllAbroad Sihirbazı</a></li>
           </ul>
         </div>
         <div class="subfooter-column">
@@ -193,39 +100,7 @@
         </div>
       </div>
       <div class="subfooter-bottom">
-  <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır.</p>
-</main>
-
-<script>
-// Mobil hamburger menü için sağda, logo solda, arka plan kırmızı, yazılar beyaz, kaydırmalı animasyon
-document.addEventListener('DOMContentLoaded', function() {
-  var hamburgerIcon = document.getElementById('hamburger-icon');
-  var menuPanel = document.getElementById('menu-panel');
-  var container = document.getElementById('hamburger-container');
-  var body = document.body;
-  function openMenu() {
-    menuPanel.classList.add('open');
-    body.classList.add('menu-open');
-  }
-  function closeMenu() {
-    menuPanel.classList.remove('open');
-    body.classList.remove('menu-open');
-  }
-  hamburgerIcon.addEventListener('click', function(e) {
-    e.stopPropagation();
-    if(menuPanel.classList.contains('open')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-  document.addEventListener('click', function(e) {
-    if(menuPanel.classList.contains('open') && !container.contains(e.target)) {
-      closeMenu();
-    }
-  });
-});
-</script>
+        <p>&copy; 2024 AllAbroad. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -255,17 +130,17 @@ document.addEventListener('DOMContentLoaded', function() {
       countryFilter.length = 1;
       continentFilter.length = 1;
       sizeFilter.length = 1;
-      // Continents for country filter
-      const continents = [...new Set(universities.map(u => u.Location).filter(Boolean))].sort();
-      continents.forEach(c => {
+      // Countries
+      const countries = [...new Set(universities.map(u => u.Location).filter(Boolean))].sort();
+      countries.forEach(c => {
         const opt = document.createElement("option");
         opt.value = c;
         opt.textContent = c;
         countryFilter.appendChild(opt);
       });
-      // Continents for continent filter
-      const continentOptions = [...new Set(universities.map(u => u.Column5).filter(Boolean))].sort();
-      continentOptions.forEach(cont => {
+      // Continents
+      const continents = [...new Set(universities.map(u => u.Column5).filter(Boolean))].sort();
+      continents.forEach(cont => {
         const opt = document.createElement("option");
         opt.value = cont;
         opt.textContent = cont;

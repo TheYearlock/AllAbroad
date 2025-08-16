@@ -1,51 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    /* Mobile header overrides: shrink header, logo, nav, and paddings */
-    @media (max-width: 600px) {
-      header {
-        padding: 6px 2% !important;
-        min-height: 44px !important;
-      }
-      .logo {
-        font-size: 17px !important;
-        margin-left: 0 !important;
-      }
-      .nav-right {
-        gap: 8px !important;
-      }
-      nav.main-nav ul {
-        gap: 4px !important;
-      }
-      nav.main-nav ul li a {
-        font-size: 13px !important;
-        padding: 2px 4px !important;
-      }
-      .search-box input {
-        width: 80px !important;
-        font-size: 12px !important;
-        padding: 6px 10px 6px 28px !important;
-      }
-      .search-icon {
-        font-size: 13px !important;
-        left: 7px !important;
-      }
-      .login-btn {
-        padding: 5px 10px !important;
-        font-size: 13px !important;
-        border-radius: 14px !important;
-      }
-      .dropdown-content {
-        min-width: 120px !important;
-        font-size: 13px !important;
-        padding: 4px 0 !important;
-      }
-      .dropdown-content a {
-        padding: 6px 10px !important;
-      }
-    }
-  </style>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-L36SLS8YBV"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -91,8 +46,8 @@
         <div class="menu-panel">
             <nav>
                 <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
                 </ul>
             </nav>
         </div>
@@ -105,33 +60,33 @@
             <nav class="main-nav">
                 <ul>
                     <li class="dropdown">
-                        <a href="continents.html" data-i18n="Continents">Continents</a>
+                        <a href="continents.html" data-i18n="Continents">Kıtalar</a>
                         <div class="dropdown-content">
-                            <a href="continents/europe.html" data-i18n="Europe">Europe</a>
+                            <a href="continents/europe.html" data-i18n="Europe">Avrupa</a>
                             <a href="continents/americas.html" data-i18n="USA and Canada">USA and Canada</a>
-                            <a href="continents/asia.html" data-i18n="Asia">Asia</a>
+                            <a href="continents/asia.html" data-i18n="Asia">Asya</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="universities.html" data-i18n="Universities">Universities</a>
+                        <a href="universities.html" data-i18n="Universities">Üniversiteler</a>
                         <div class="dropdown-content">
-                            <a href="universities.html#all" data-i18n="All Universities">All Universities</a>
-                            <a href="universities.html#top" data-i18n="Top Rankings">Top Rankings</a>
+                            <a href="universities.html" data-i18n="All Universities">Tüm Üniversiteler</a>
+                            <a href="universities.html" data-i18n="Top Rankings">En İyi Üniversiteler</a>
                         </div>
                     </li>
-                    <li><a href="scholarships.html" data-i18n="Scholarships">Scholarships</a></li>
-                    <li><a href="about.html" data-i18n="About">About</a></li>
+                    <li><a href="scholarships.html" data-i18n="Scholarships">Burslar</a></li>
+                    <li><a href="about.html" data-i18n="About">Hakkımızda</a></li>
                 </ul>
             </nav>
             <div class="search-box">
                 <span class="search-icon">⌕</span>
                 <input type="text" placeholder="Search" data-i18n="Search">
             </div>
-            <a href="login.html" class="login-btn" data-i18n="Login">Log in</a>
+            <a href="login.html" class="login-btn" data-i18n="Login">Giriş Yap</a>
         </div>
     </header>
     <div class="main-content">
-        <h1 class="page-title" data-i18n="World Map">World Map</h1>
+        <h1 class="page-title" data-i18n="World Map">Dünya Haritası</h1>
         <div class="map-container">
             <div class="map-controls">
                 <div class="control-btn zoom-in">+</div>
@@ -146,32 +101,32 @@
         <div class="subfooter">
             <div class="subfooter-content">
                 <div class="subfooter-column">
-                    <h4 data-i18n="Continents">Continents</h4>
+                    <h4 data-i18n="Continents">Kıtalar</h4>
                     <ul>
-                        <li><a href="continents/europe.html" data-i18n="Europe">Europe</a></li>
-                        <li><a href="continents/americas.html" data-i18n="USA and Canada">USA & Canada</a></li>
-                        <li><a href="continents/asia.html" data-i18n="Asia">Asia</a></li>
+                        <li><a href="continents/europe.html" data-i18n="Europe">Avrupa</a></li>
+                        <li><a href="continents/americas.html" data-i18n="USA and Canada">Amerika</a></li>
+                        <li><a href="continents/asia.html" data-i18n="Asia">Asya</a></li>
                     </ul>
                 </div>
                 <div class="subfooter-column">
-                    <h4 data-i18n="Universities">Universities</h4>
+                    <h4 data-i18n="Universities">Üniversiteler</h4>
                     <ul>
-                        <li><a href="universities.html#all" data-i18n="All Universities">All Universities</a></li>
-                        <li><a href="universities.html#top" data-i18n="Top Rankings">Top Rankings</a></li>
+                        <li><a href="universities.html" data-i18n="All Universities">Tüm Üniversiteler</a></li>
+                        <li><a href="universities.html" data-i18n="Top Rankings">En İyi Üniversiteler</a></li>
                     </ul>
                 </div>
                 <div class="subfooter-column">
-                    <h4 data-i18n="Resources">Resources</h4>
+                    <h4 data-i18n="Resources">Kaynaklar</h4>
                     <ul>
-                        <li><a href="scholarships.html" data-i18n="Scholarships">Scholarships</a></li>
-                        <li><a href="finder.html" data-i18n="Find Your Fit Quiz">Find Your Fit</a></li>
+                        <li><a href="scholarships.html" data-i18n="Scholarships">Burslar</a></li>
+                        <li><a href="finder.html" data-i18n="Find Your Fit Quiz">AllAbroad Sihirbazı</a></li>
                     </ul>
                 </div>
                 <div class="subfooter-column">
-                    <h4 data-i18n="Company">Company</h4>
+                    <h4 data-i18n="Company">Şirket</h4>
                     <ul>
-                        <li><a href="about.html" data-i18n="About">About Us</a></li>
-                        <li><a href="contact.html" data-i18n="Contact">Contact</a></li>
+                        <li><a href="about.html" data-i18n="About">Hakkımızda</a></li>
+                        <li><a href="contact.html" data-i18n="Contact">İletişim</a></li>
                     </ul>
                 </div>
             </div>

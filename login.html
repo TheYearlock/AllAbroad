@@ -1,146 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L36SLS8YBV"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-L36SLS8YBV');
-    </script>
-  <style>
-    /* Mobile header overrides: shrink header, logo, nav, and paddings */
-    @media (max-width: 600px) {
-      header {
-        padding: 6px 2% !important;
-        min-height: 44px !important;
-      }
-      .logo {
-        font-size: 17px !important;
-        margin-left: 0 !important;
-      }
-      .nav-right {
-        gap: 8px !important;
-      }
-      nav.main-nav ul {
-        gap: 4px !important;
-      }
-      nav.main-nav ul li a {
-        font-size: 13px !important;
-        padding: 2px 4px !important;
-      }
-      .search-box input {
-        width: 80px !important;
-        font-size: 12px !important;
-        padding: 6px 10px 6px 28px !important;
-      }
-      .search-icon {
-        font-size: 13px !important;
-        left: 7px !important;
-      }
-      .login-btn {
-        padding: 5px 10px !important;
-        font-size: 13px !important;
-        border-radius: 14px !important;
-      }
-      .dropdown-content {
-        min-width: 120px !important;
-        font-size: 13px !important;
-        padding: 4px 0 !important;
-      }
-      .dropdown-content a {
-        padding: 6px 10px !important;
-      }
-    }
-  </style>
-    <!-- Google tag (gtag.js) -->
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - AllAbroad</title>
-    <meta name="description" content="Login to AllAbroad, Türkiye'nin en güvenilir yurtdışı eğitim platformu.">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Login - AllAbroad">
-    <meta property="og:description" content="Login to AllAbroad, Türkiye'nin en güvenilir yurtdışı eğitim platformu.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.allabroadedu.com/login.html">
-    <meta property="og:image" content="https://www.allabroadedu.com/assets/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Login - AllAbroad">
-    <meta name="twitter:description" content="Login to AllAbroad, Türkiye'nin en güvenilir yurtdışı eğitim platformu.">
-    <meta name="twitter:image" content="https://www.allabroadedu.com/assets/og-image.jpg">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Login - AllAbroad",
-      "url": "https://www.allabroadedu.com/login.html",
-      "description": "Login to AllAbroad, Türkiye'nin en güvenilir yurtdışı eğitim platformu."
-    }
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - AllAbroad</title>
+    <title>AllAbroad - Giriş Yap</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
      <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <link rel="stylesheet" href="style.css">
+        <div class="hamburger-container">
+        <div class="hamburger-icon">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="menu-panel">
+            <nav>
+                <ul>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
     <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            background-color: #f9f9f9;
-            color: #000000;
-            line-height: 1.6;
-        }
-
-        /* Header Styles (same as your main site) */
-        header {
-            position: sticky;
-            top: 0;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 100;
-            padding: 15px 3%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            margin-left: 10px;
-            text-decoration: none;
-        }
-
-        .logo .all { color: #E63946; }
-        .logo .abroad { color: #000000; }
-
-        /* Login Container */
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 120px);
-            padding: 40px 20px;
-        }
-
-        .login-form {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 500px;
-            animation: fadeIn 0.5s ease-out;
-        }
-
+       
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -153,9 +35,8 @@
             text-align: center;
         }
 
-        /* Form Styles */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px; /* Increased space */
             position: relative;
         }
 
@@ -166,8 +47,7 @@
             color: #333;
         }
 
-        .form-group input,
-        .form-group select {
+        .form-group input {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #ddd;
@@ -176,54 +56,12 @@
             transition: all 0.3s;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
+        .form-group input:focus {
             outline: none;
             border-color: #E63946;
             box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
         }
 
-        /* Range Slider */
-        .form-group input[type="range"] {
-    
-            height: 6px;
-            background: #ddd;
-            border-radius: 3px;
-            margin: 15px 0;
-            width: 100%;
-        }
-
-        .form-group input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
-            background: #E63946;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .form-group input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-        }
-
-        .year-labels {
-            display: flex;
-            justify-content: space-between;
-            color: #666;
-            font-size: 14px;
-            margin-top: -10px;
-        }
-
-        #year-value {
-            color: #E63946;
-            font-weight: 700;
-            display: inline-block;
-            min-width: 40px;
-            transition: all 0.3s;
-        }
-
-        /* Button Styles */
         .submit-btn {
             width: 100%;
             padding: 14px;
@@ -243,11 +81,6 @@
             transform: translateY(-2px);
         }
 
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Footer Link */
         .login-footer {
             text-align: center;
             margin-top: 25px;
@@ -258,13 +91,14 @@
             color: #E63946;
             font-weight: 500;
             transition: color 0.3s;
+            text-decoration: none; /* Removes underline */
         }
 
         .login-footer a:hover {
             color: #c1121f;
+            text-decoration: underline; /* Adds underline on hover */
         }
 
-        /* Error Messages */
         .error-message {
             color: #E63946;
             font-size: 14px;
@@ -272,66 +106,24 @@
             display: none;
         }
 
-        /* Subfooter Styles */
-        .subfooter-wrapper {
-            background-color: #f1f1f1;
-            padding: 20px 0;
-            margin-top: 40px;
+        .forgot-password {
+            text-align: right;
+            margin-top: 8px; /* Adjusted spacing */
+            margin-bottom: 15px;
         }
 
-        .subfooter {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .subfooter-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .subfooter-column {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .subfooter-column h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #E63946;
-        }
-
-        .subfooter-column ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .subfooter-column ul li {
-            margin-bottom: 8px;
-        }
-
-        .subfooter-column ul li a {
-            color: #333;
-            text-decoration: none;
+        .forgot-password a {
+            color: #666;
+            font-size: 14px;
+            text-decoration: none; /* Removes underline */
             transition: color 0.3s;
         }
 
-        .subfooter-column ul li a:hover {
+        .forgot-password a:hover {
             color: #E63946;
+            text-decoration: underline; /* Adds underline on hover */
         }
 
-        .subfooter-bottom {
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
             .login-form {
                 padding: 30px 20px;
@@ -340,29 +132,19 @@
             .login-form h2 {
                 font-size: 24px;
             }
-
-            .subfooter {
-                flex-direction: column;
-            }
-
-            .subfooter-column {
-                width: 100%;
-            }
         }
 
-        @media (max-width: 480px) {
-            .login-container {
-                padding: 20px 10px;
-            }
-            
-            .login-form {
-                padding: 25px 15px;
-            }
+        /* Shake animation */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
         }
+
+       
     </style>
 </head>
 <body>
-
     <header>
         <a href="index.html" class="logo">
             <span class="all">All</span><span class="abroad">Abroad</span>
@@ -371,87 +153,54 @@
 
     <div class="login-container">
         <div class="login-form">
-            <h2>Create Your Account</h2>
-            <form id="registrationForm">
+            <h2>Hesabınıza Giriş Yapın</h2>
+            <form id="loginForm">
                 <div class="form-group">
-                    <label for="name">First Name (Optional)</label>
-                    <input type="text" id="name" name="name">
+                    <label for="login-email">Email Adresi*</label>
+                    <input type="email" id="login-email" name="email" required>
+                    <div class="error-message" id="email-error"></div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="surname">Last Name (Optional)</label>
-                    <input type="text" id="surname" name="surname">
-                </div>
-                
-                <div class="form-group">
-                    <label for="enrollment-year">High School Start Year: <span id="year-value">2015</span></label>
-                    <input type="range" id="enrollment-year" name="enrollment-year" 
-                           min="2010" max="2025" value="2015" step="1">
-                    <div class="year-labels">
-                        <span>2010</span>
-                        <span>2025</span>
+                    <label for="login-password">Şifre*</label>
+                    <input type="password" id="login-password" name="password" required minlength="8">
+                    <div class="forgot-password">
+                        <a href="forgot-password.html">Şifremi unuttum :(</a>
                     </div>
+                    <div class="error-message" id="password-error"></div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="program-duration">High School Program Length</label>
-                    <select id="program-duration" name="program-duration">
-                        <option value="">Select Duration</option>
-                        <option value="4">4 Years</option>
-                        <option value="5">5 Years</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address*</label>
-                    <input type="email" id="email" name="email" required>
-                    <div class="error-message" id="email-error">Please enter a valid email address</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Password*</label>
-                    <input type="password" id="password" name="password" required minlength="8">
-                    <div class="error-message" id="password-error">Password must be at least 8 characters</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password*</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
-                    <div class="error-message" id="confirm-error">Passwords do not match</div>
-                </div>
-                
-                <button type="submit" class="submit-btn">Create Account</button>
+                <button type="submit" class="submit-btn">Giriş Yap</button>
             </form>
             
             <div class="login-footer">
-                <p>Already have an account? <a href="signin.html">Sign in</a></p>
+                <p>Hesabınız yok mu? <a href="signin.html">Hesap Oluşturun</a></p>
             </div>
         </div>
     </div>
-    
     <div class="subfooter-wrapper">
         <div class="subfooter">
             <div class="subfooter-content">
                 <div class="subfooter-column">
                     <h4>Kıtalar</h4>
                     <ul>
-                        <li><a href="countries/europe.html">Avrupa</a></li>
-                        <li><a href="countries/americas.html">ABD & Kanada</a></li>
-                        <li><a href="countries/asia.html">Asya</a></li>
+                        <li><a href="continents/europe.html">Avrupa</a></li>
+                        <li><a href="continents/americas.html">Amerika</a></li>
+                        <li><a href="continents/asia.html">Asya</a></li>
                     </ul>
                 </div>
                 <div class="subfooter-column">
                     <h4>Üniversiteler</h4>
                     <ul>
                         <li><a href="universities.html">Tüm Üniversiteler</a></li>
-                        <li><a href="universities.html">En Yüksek Sıralamalar</a></li>
+                        <li><a href="universities.html">En İyi Üniversiteler</a></li>
                     </ul>
                 </div>
                 <div class="subfooter-column">
                     <h4>Kaynaklar</h4>
                     <ul>
                         <li><a href="scholarships.html">Burslar</a></li>
-                        <li><a href="finder.html">Sana Uygununu Bul</a></li>
+                        <li><a href="finder.html">AllAbroad Sihirbazı</a></li>
                     </ul>
                 </div>
                 <div class="subfooter-column">
@@ -463,106 +212,54 @@
                 </div>
             </div>
             <div class="subfooter-bottom">
-                <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır.</p>
+                <p>&copy; 2024 AllAbroad. All rights reserved.</p>
             </div>
         </div>
     </div>
-</main>
-
 <script>
-// Mobil hamburger menü için sağda, logo solda, arka plan kırmızı, yazılar beyaz, kaydırmalı animasyon
-document.addEventListener('DOMContentLoaded', function() {
-    var hamburgerIcon = document.getElementById('hamburger-icon');
-    var menuPanel = document.getElementById('menu-panel');
-    var container = document.getElementById('hamburger-container');
-    var body = document.body;
-    function openMenu() {
-        menuPanel.classList.add('open');
-        body.classList.add('menu-open');
-    }
-    function closeMenu() {
-        menuPanel.classList.remove('open');
-        body.classList.remove('menu-open');
-    }
-    hamburgerIcon.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if(menuPanel.classList.contains('open')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Reset errors
+    document.querySelectorAll('.error-message').forEach(el => {
+        el.style.display = 'none';
+        el.textContent = '';
     });
-    document.addEventListener('click', function(e) {
-        if(menuPanel.classList.contains('open') && !container.contains(e.target)) {
-            closeMenu();
+    
+    // Show loading state
+    const btn = e.target.querySelector('button[type="submit"]');
+    const btnText = btn.textContent;
+    btn.disabled = true;
+    btn.innerHTML = 'Signing in...';
+    
+    try {
+        const response = await fetch('auth/login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: document.getElementById('login-email').value,
+                password: document.getElementById('login-password').value
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (!data.success) {
+            throw new Error(data.message || 'Login failed');
         }
-    });
+        
+        window.location.href = data.redirect;
+        
+    } catch (error) {
+        document.getElementById('email-error').textContent = error.message;
+        document.getElementById('email-error').style.display = 'block';
+    } finally {
+        btn.disabled = false;
+        btn.textContent = btnText;
+    }
 });
-</script>
-
-    <script>
-        // Try this more robust event listener instead:
-document.getElementById('enrollment-year').addEventListener('input', function(e) {
-    document.getElementById('year-value').textContent = e.target.value;
-}, { passive: true });  // <-- Important for touch devices
-    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Reset errors
-        document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
-        
-        // Validate form
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
-        
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            document.getElementById('email-error').style.display = 'block';
-            return;
-        }
-        
-        if (password.length < 8) {
-            document.getElementById('password-error').style.display = 'block';
-            return;
-        }
-        
-        if (password !== confirmPassword) {
-            document.getElementById('confirm-error').style.display = 'block';
-            return;
-        }
-        
-        // Submit data
-        try {
-            const response = await fetch('auth/register.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                    firstName: document.getElementById('name').value,
-                    lastName: document.getElementById('surname').value,
-                    startYear: document.getElementById('enrollment-year').value,
-                    programDuration: document.getElementById('program-duration').value
-                })
-            });
-            
-            const data = await response.json();
-            
-            if (!data.success) {
-                throw new Error(data.message || 'Registration failed');
-            }
-            
-            alert('Registration successful! Please sign in.');
-            window.location.href = 'signin.html';
-            
-        } catch (error) {
-            document.getElementById('email-error').textContent = error.message;
-            document.getElementById('email-error').style.display = 'block';
-        }
-        
-    });
- </script>
+    </script>
 </body>
 </html>

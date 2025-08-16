@@ -1,86 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Language system
-    const supportedLanguages = ['tr', 'en'];
-    function getSavedLanguage() {
-        return localStorage.getItem('lang') || (navigator.language.startsWith('tr') ? 'tr' : 'en');
-    }
-    function setLanguage(lang) {
-        if (!supportedLanguages.includes(lang)) lang = 'tr';
-        localStorage.setItem('lang', lang);
-        document.documentElement.lang = lang;
-        translatePage(lang);
-    }
-    function translatePage(lang) {
-        const translations = {
-            tr: {
-                'About': 'Hakkında',
-                'Contact': 'İletişim',
-                'Continents': 'Kıtalar',
-                'Europe': 'Avrupa',
-                'USA and Canada': 'ABD ve Kanada',
-                'Asia': 'Asya',
-                'Universities': 'Üniversiteler',
-                'Scholarships': 'Burslar',
-                'All Universities': 'Tüm Üniversiteler',
-                'Login': 'Giriş',
-                'Sign In': 'Kayıt Ol',
-                'Search': 'Ara',
-                'Remember Me': 'Beni Hatırla',
-                'Password': 'Şifre',
-                'Email': 'E-posta',
-                'Username': 'Kullanıcı Adı',
-                'Find Your Fit Quiz': 'Sana Uygun Üniversite Testi',
-                'Accept': 'Kabul Et',
-                'Decline': 'Reddet',
-                'Privacy Policy': 'Gizlilik Politikası',
-                // ...add more as needed
-            },
-            en: {
-                'About': 'About',
-                'Contact': 'Contact',
-                'Continents': 'Continents',
-                'Europe': 'Europe',
-                'USA and Canada': 'USA and Canada',
-                'Asia': 'Asia',
-                'Universities': 'Universities',
-                'Scholarships': 'Scholarships',
-                'All Universities': 'All Universities',
-                'Login': 'Login',
-                'Sign In': 'Sign In',
-                'Search': 'Search',
-                'Remember Me': 'Remember Me',
-                'Password': 'Password',
-                'Email': 'Email',
-                'Username': 'Username',
-                'Find Your Fit Quiz': 'Find Your Fit Quiz',
-                'Accept': 'Accept',
-                'Decline': 'Decline',
-                'Privacy Policy': 'Privacy Policy',
-                // ...add more as needed
-            }
-        };
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-                el.textContent = translations[lang][key];
-            }
-        });
-    }
-    // Add language toggle to hamburger menu
-    const menuPanelLang = document.querySelector('.menu-panel');
-    if (menuPanelLang && !document.getElementById('lang-toggle')) {
-        const langToggle = document.createElement('div');
-        langToggle.id = 'lang-toggle';
-        langToggle.style.margin = '16px 0 0 16px';
-        langToggle.innerHTML = `
-            <button id="lang-tr" style="margin-right:8px">TR</button>
-            <button id="lang-en">EN</button>
-        `;
-        menuPanelLang.appendChild(langToggle);
-        document.getElementById('lang-tr').onclick = () => setLanguage('tr');
-        document.getElementById('lang-en').onclick = () => setLanguage('en');
-    }
-    setLanguage(getSavedLanguage());
     // Hamburger menu functionality
     const hamburgerContainer = document.querySelector('.hamburger-container');
     let menuTimeout;
@@ -103,16 +21,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Keep menu open when hovering over panel
-    const menuPanelHover = document.querySelector('.menu-panel');
-    menuPanelHover.addEventListener('mouseenter', () => {
+    const menuPanel = document.querySelector('.menu-panel');
+    menuPanel.addEventListener('mouseenter', () => {
         clearTimeout(menuTimeout);
     });
     
-    menuPanelHover.addEventListener('mouseleave', () => {
+    menuPanel.addEventListener('mouseleave', () => {
         menuTimeout = setTimeout(() => {
-            menuPanelHover.style.opacity = '0';
-            menuPanelHover.style.visibility = 'hidden';
-            menuPanelHover.style.transform = 'translateY(-10px)';
+            menuPanel.style.opacity = '0';
+            menuPanel.style.visibility = 'hidden';
+            menuPanel.style.transform = 'translateY(-10px)';
         }, 300);
     });
 
@@ -190,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = countryPages[countryName];
     } else {
         // Optionally: redirect to a default countries page or do nothing
-        // window.location.href = "continents.html";
+        // window.location.href = "Continents.html";
     }
 });
 
@@ -229,8 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// News Data Configuration - Add your links here
+//NEWS DATA NEWS DATA ANLADIN MI GARİ
 const newsData = [
         {
         title: "Önemli Duyuru",

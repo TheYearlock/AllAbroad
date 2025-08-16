@@ -142,6 +142,20 @@ header {
     flex: 1;
 }
 
+.contact-info {
+    font-size: 25px;
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+}
+.email {
+    font-size: 35px;
+    position: relative;
+    text-align: center;
+    color: #e63946;
+    ;
+}
+
 .page-title {
     font-size: 32px;
     margin-bottom: 30px;

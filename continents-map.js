@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
             name: "Europe",
             color: "#4f77aa",
             hoverColor: "#3a5a8a",
-            countries: [
+            : [
                 "Albania", "Andorra", "Austria", "Belarus", "Belgium", 
                 "Bosnia and Herz.", "Bulgaria", "Croatia", "Turkish State of Northern Cyprus",
                 "Czech Republic", "Denmark", "Estonia", "Finland", "France", 

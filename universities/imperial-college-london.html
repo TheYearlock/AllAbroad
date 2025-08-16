@@ -1,51 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    /* Mobile header overrides: shrink header, logo, nav, and paddings */
-    @media (max-width: 600px) {
-      header {
-        padding: 6px 2% !important;
-        min-height: 44px !important;
-      }
-      .logo {
-        font-size: 17px !important;
-        margin-left: 0 !important;
-      }
-      .nav-right {
-        gap: 8px !important;
-      }
-      nav.main-nav ul {
-        gap: 4px !important;
-      }
-      nav.main-nav ul li a {
-        font-size: 13px !important;
-        padding: 2px 4px !important;
-      }
-      .search-box input {
-        width: 80px !important;
-        font-size: 12px !important;
-        padding: 6px 10px 6px 28px !important;
-      }
-      .search-icon {
-        font-size: 13px !important;
-        left: 7px !important;
-      }
-      .login-btn {
-        padding: 5px 10px !important;
-        font-size: 13px !important;
-        border-radius: 14px !important;
-      }
-      .dropdown-content {
-        min-width: 120px !important;
-        font-size: 13px !important;
-        padding: 4px 0 !important;
-      }
-      .dropdown-content a {
-        padding: 6px 10px !important;
-      }
-    }
-  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Imperial College London - AllAbroad</title>
@@ -63,29 +18,29 @@
       <nav class="main-nav">
         <ul>
           <li class="dropdown">
-            <a href="../continents.html" data-i18n="Continents">Continents</a>
+            <a href="../Continents.html">Kıtalar</a>
             <div class="dropdown-content">
-              <a href="../countries/europe.html">Europe</a>
-              <a href="../countries/americas.html">USA and Canada</a>
-              <a href="../countries/asia.html">Asia</a>
+              <a href="../continents/europe.html">Avrupa</a>
+              <a href="../continents/americas.html">USA and Canada</a>
+              <a href="../continents/asia.html">Asya</a>
             </div>
           </li>
           <li class="dropdown">
-            <a href="../universities.html" class="active">Universities</a>
+            <a href="../universities.html" class="active">Üniversiteler</a>
             <div class="dropdown-content">
-              <a href="top20.html">Top 20 Universities</a>
-              <a href="../universities.html#all">All Universities</a>
+               
+              <a href="../universities.html">Tüm Üniversiteler</a>
             </div>
           </li>
-          <li><a href="../scholarships.html">Scholarships</a></li>
-          <li><a href="../about.html">About</a></li>
+          <li><a href="../scholarships.html">Burslar</a></li>
+          <li><a href="../about.html">Hakkımızda</a></li>
         </ul>
       </nav>
       <div class="search-box">
         <span class="search-icon">⌕</span>
         <input type="text" placeholder="Search">
       </div>
-      <a href="../login.html" class="login-btn">Log in</a>
+      <a href="../login.html" class="login-btn">Giriş Yap</a>
     </div>
   </header>
   <main class="main-content">
@@ -119,32 +74,32 @@
     <div class="subfooter">
       <div class="subfooter-content">
         <div class="subfooter-column">
-          <h4>Countries</h4>
+          <h4>Kıtalar</h4>
           <ul>
-            <li><a href="../countries/europe.html">Europe</a></li>
-            <li><a href="../countries/americas.html">USA & Canada</a></li>
-            <li><a href="../countries/asia.html">Asia</a></li>
+            <li><a href="../continents/europe.html">Avrupa</a></li>
+            <li><a href="../continents/americas.html">Amerika</a></li>
+            <li><a href="../continents/asia.html">Asya</a></li>
           </ul>
         </div>
         <div class="subfooter-column">
-          <h4>Universities</h4>
+          <h4>Üniversiteler</h4>
           <ul>
-            <li><a href="top20.html">Top 20 Universities</a></li>
-            <li><a href="../universities.html#all">All Universities</a></li>
+            <li> </li>
+            <li><a href="../universities.html">Tüm Üniversiteler</a></li>
           </ul>
         </div>
         <div class="subfooter-column">
-          <h4>Resources</h4>
+          <h4>Kaynaklar</h4>
           <ul>
-            <li><a href="../scholarships.html">Scholarships</a></li>
-            <li><a href="../finder.html">Find Your Fit</a></li>
+            <li><a href="../scholarships.html">Burslar</a></li>
+            <li><a href="../finder.html">AllAbroad Sihirbazı</a></li>
           </ul>
         </div>
         <div class="subfooter-column">
-          <h4>Company</h4>
+          <h4>Şirket</h4>
           <ul>
-            <li><a href="../about.html">About Us</a></li>
-            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../about.html">Hakkımızda</a></li>
+            <li><a href="../contact.html">İletişim</a></li>
           </ul>
         </div>
       </div>
