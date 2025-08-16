@@ -142,10 +142,10 @@ const newsData = [
     {
         title: "Önemli Duyuru",
         description: "Bu websitesi geliştirme aşamasındadır.",
-        category: "Update",
+        category: "DUYURU",
         date: "June 10, 2025",
         image: "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        url: ""
+        url: "www.allabroadedu.com"
     },
     {
         title: "Erasmus+ Scholarship Guide",
