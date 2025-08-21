@@ -585,7 +585,7 @@ slider-nav {
   max-width: 1200px;
   margin: 20px auto 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center horizontally */
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;

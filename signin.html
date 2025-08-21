@@ -15,6 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
      <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <body>
     <div class="hamburger-container">
         <div class="hamburger-icon">
@@ -314,74 +318,58 @@
                 </div>
             </div>
             <div class="subfooter-bottom">
-                <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+                <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır. </p>
             </div>
         </div>
     </div>
 
     <script>
-        // Try this more robust event listener instead:
-document.getElementById('enrollment-year').addEventListener('input', function(e) {
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmTXsBNmQ8LSkEhYfEtz_h0py0jSM1L3k",
+    authDomain: "allabroad-3812d.firebaseapp.com",
+    projectId: "allabroad-3812d",
+    storageBucket: "allabroad-3812d.firebasestorage.app",
+    messagingSenderId: "269134466848",
+    appId: "1:269134466848:web:849728e50bc9ffde70d145",
+    measurementId: "G-675JECEJKJ"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  document.getElementById('enrollment-year').addEventListener('input', function(e) {
     document.getElementById('year-value').textContent = e.target.value;
-}, { passive: true });  // <-- Important for touch devices
-    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Reset errors
-        document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
-        
-        // Validate form
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
-        
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            document.getElementById('email-error').style.display = 'block';
-            return;
-        }
-        
-        if (password.length < 8) {
-            document.getElementById('password-error').style.display = 'block';
-            return;
-        }
-        
-        if (password !== confirmPassword) {
-            document.getElementById('confirm-error').style.display = 'block';
-            return;
-        }
-        
-        // Submit data
-        try {
-            const response = await fetch('auth/register.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                    firstName: document.getElementById('name').value,
-                    lastName: document.getElementById('surname').value,
-                    startYear: document.getElementById('enrollment-year').value,
-                    programDuration: document.getElementById('program-duration').value
-                })
-            });
-            
-            const data = await response.json();
-            
-            if (!data.success) {
-                throw new Error(data.message || 'Registration failed');
-            }
-            
-            alert('Registration successful! Please sign in.');
-            window.location.href = 'signin.html';
-            
-        } catch (error) {
-            document.getElementById('email-error').textContent = error.message;
-            document.getElementById('email-error').style.display = 'block';
-        }
-        
-    });
- </script>
+  }, { passive: true });
+
+  document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      document.getElementById('email-error').style.display = 'block';
+      return;
+    }
+    if (password.length < 8) {
+      document.getElementById('password-error').style.display = 'block';
+      return;
+    }
+    if (password !== confirmPassword) {
+      document.getElementById('confirm-error').style.display = 'block';
+      return;
+    }
+
+    try {
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
+      alert('Kayıt başarılı! Giriş yapabilirsiniz.');
+      window.location.href = 'login.html';
+    } catch (error) {
+      document.getElementById('email-error').textContent = error.message;
+      document.getElementById('email-error').style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>

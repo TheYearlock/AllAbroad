@@ -219,54 +219,52 @@
                 </div>
             </div>
             <div class="subfooter-bottom">
-                <p>&copy; 2024 AllAbroad. All rights reserved.</p>
+                <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır. </p>
             </div>
         </div>
     </div>
+<!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script>
-document.getElementById('loginForm').addEventListener('submit', async function(e) {
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyCmTXsBNmQ8LSkEhYfEtz_h0py0jSM1L3k",
+    authDomain: "allabroad-3812d.firebaseapp.com",
+    projectId: "allabroad-3812d",
+    storageBucket: "allabroad-3812d.firebasestorage.app",
+    messagingSenderId: "269134466848",
+    appId: "1:269134466848:web:849728e50bc9ffde70d145",
+    measurementId: "G-675JECEJKJ"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  document.getElementById('loginForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    
-    // Reset errors
     document.querySelectorAll('.error-message').forEach(el => {
-        el.style.display = 'none';
-        el.textContent = '';
+      el.style.display = 'none';
+      el.textContent = '';
     });
-    
-    // Show loading state
     const btn = e.target.querySelector('button[type="submit"]');
     const btnText = btn.textContent;
     btn.disabled = true;
     btn.innerHTML = 'Signing in...';
-    
+
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
     try {
-        const response = await fetch('auth/login.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: document.getElementById('login-email').value,
-                password: document.getElementById('login-password').value
-            })
-        });
-        
-        const data = await response.json();
-        
-        if (!data.success) {
-            throw new Error(data.message || 'Login failed');
-        }
-        
-        window.location.href = data.redirect;
-        
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+      window.location.href = "index.html";
     } catch (error) {
-        document.getElementById('email-error').textContent = error.message;
-        document.getElementById('email-error').style.display = 'block';
+      document.getElementById('email-error').textContent = error.message;
+      document.getElementById('email-error').style.display = 'block';
     } finally {
-        btn.disabled = false;
-        btn.textContent = btnText;
+      btn.disabled = false;
+      btn.textContent = btnText;
     }
-});
-    </script>
+  });
+</script>
 </body>
 </html>
