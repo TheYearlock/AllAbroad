@@ -1,168 +1,127 @@
 <!DOCTYPE html>
 <html lang="tr">
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L36SLS8YBV"></script>
-        <script>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllAbroad | İletişim</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L36SLS8YBV"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-L36SLS8YBV');
-        </script>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AllAbroad | İletişim</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">
-      <span class="all">All</span><span class="abroad">Abroad</span>
-    </a>
-    <div class="nav-right">
-      <nav class="main-nav">
-        <ul>
-          <li class="dropdown">
-            <a href="Continents.html">Kıtalar</a>
-            <div class="dropdown-content">
-              <a href="continents/europe.html">Avrupa</a>
-              <a href="continents/americas.html">USA and Canada</a>
-              <a href="continents/asia.html">Asya</a>
+    <header>
+        <a href="index.html" class="logo">
+            <span class="all">All</span><span class="abroad">Abroad</span>
+        </a>
+        <div class="nav-right">
+            <nav class="main-nav">
+                <ul>
+                    <li class="dropdown">
+                        <a href="Continents.html">Kıtalar</a>
+                        <div class="dropdown-content">
+                            <a href="continents/europe.html">Avrupa</a>
+                            <a href="continents/americas.html">USA and Canada</a>
+                            <a href="continents/asia.html">Asya</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="universities.html" class="active">Üniversiteler</a>
+                        <div class="dropdown-content">
+                            <a href="universities.html">Tüm Üniversiteler</a>
+                        </div>
+                    </li>
+                    <li><a href="scholarships.html">Burslar</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <span class="search-icon">⌕</span>
+                <input type="text" placeholder="Search">
             </div>
-          </li>
-          <li class="dropdown">
-            <a href="universities.html" class="active">Üniversiteler</a>
-            <div class="dropdown-content">
-              <a href="universities.html">Tüm Üniversiteler</a>
+            <a href="login.html" class="login-btn">Giriş Yap</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Bize Ulaşın</h1>
+        <!-- The form itself remains the same -->
+        <form id="contact-form" class="contact-form" style="max-width: 600px; margin: 0 auto;">
+            <div class="form-group">
+                <label for="name">İsim - Soyisim</label>
+                <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" />
             </div>
-          </li>
-          <li><a href="scholarships.html">Burslar</a></li>
-          <li><a href="about.html">Hakkımızda</a></li>
-        </ul>
-      </nav>
-      <div class="search-box">
-        <span class="search-icon">⌕</span>
-        <input type="text" placeholder="Search">
-      </div>
-      <a href="login.html" class="login-btn">Giriş Yap</a>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" />
+            </div>
+            <div class="form-group">
+                <label for="message">Mesajınız</label>
+                <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+            </div>
+            <button type="submit" class="submit-btn" style="background-color: #E63946; color: #fff; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Gönder</button>
+        </form>
+        
+      
+        <div id="contact-feedback" style="max-width: 600px; margin: 20px auto; text-align: center; font-weight: bold;"></div>
+
+        <h2 class="contact-info" style="text-align: center; max-width: 600px; margin: 40px auto 10px;">
+            Soru ve iş birliği talepleriniz için:
+        </h2>
+        <h3 class="email" style="text-align: center; max-width: 600px; margin: 0 auto;">
+            info.allabroadedu@gmail.com
+        </h3>
+    </main>
+
+    <div class="subfooter-wrapper">
+        <div class="subfooter">
+            <div class="subfooter-content">
+                <div class="subfooter-column">
+                    <h4>Kıtalar</h4>
+                    <ul>
+                        <li><a href="continents/europe.html">Avrupa</a></li>
+                        <li><a href="continents/americas.html">Amerika</a></li>
+                        <li><a href="continents/asia.html">Asya</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Üniversiteler</h4>
+                    <ul>
+                        <li><a href="universities.html">Tüm Üniversiteler</a></li>
+                        <li><a href="universities.html">En İyi Üniversiteler</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Kaynaklar</h4>
+                    <ul>
+                        <li><a href="scholarships.html">Burslar</a></li>
+                        <li><a href="finder.html">AllAbroad Sihirbazı</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Şirket</h4>
+                    <ul>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subfooter-bottom">
+                <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır. </p>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <main class="main-content">
-    <h1 class="page-title">Bize Ulaşın</h1>
-    <form action="#" method="POST" class="contact-form" style="max-width: 600px; margin: 0 auto;">
-      <div class="form-group">
-        <label for="name">İsim - Soyisim</label>
-        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" />
-      </div>
-      <div class="form-group">
-        <label for="message">Mesajınız</label>
-        <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
-      </div>
-      <button type="submit" class="submit-btn" style="background-color: #E63946; color: #fff; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Gönder</button>
-    </form>
-      <h2 class="contact-info">
-      Soru ve iş birliği talepleriniz için: 
-      </h2>
-      <h3 class="email">
-        info.allabroadedu@gmail.com
-      </h3>
-    </div>
-  </main>
-
-  <div class="subfooter-wrapper">
-    <div class="subfooter">
-      <div class="subfooter-content">
-        <div class="subfooter-column">
-          <h4>Kıtalar</h4>
-          <ul>
-            <li><a href="continents/europe.html">Avrupa</a></li>
-            <li><a href="continents/americas.html">Amerika</a></li>
-            <li><a href="continents/asia.html">Asya</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Üniversiteler</h4>
-          <ul>
-            <li><a href="universities.html">Tüm Üniversiteler</a></li>
-            <li><a href="universities.html">En İyi Üniversiteler</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Kaynaklar</h4>
-          <ul>
-            <li><a href="scholarships.html">Burslar</a></li>
-            <li><a href="finder.html">AllAbroad Sihirbazı</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Şirket</h4>
-          <ul>
-            <li><a href="about.html">Hakkımızda</a></li>
-            <li><a href="contact.html">İletişim</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="subfooter-bottom">
-        <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır. </p>
-      </div>
-    </div>
-  </div>
-
-  <script src="firebase-init.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
-  <script>
-    // Contact form submission handler using Firestore modular SDK
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.querySelector('.contact-form');
-      if (!form) return;
-      function showMessage(msg, color) {
-        let el = document.getElementById('contact-feedback');
-        if (!el) {
-          el = document.createElement('div');
-          el.id = 'contact-feedback';
-          el.style.margin = '20px 0';
-          el.style.textAlign = 'center';
-          form.parentNode.insertBefore(el, form.nextSibling);
-        }
-        el.textContent = msg;
-        el.style.color = color || '#333';
-      }
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        const name = form.name.value.trim();
-        const email = form.email.value.trim();
-        const message = form.message.value.trim();
-        if (!name || !email || !message) {
-          showMessage('Lütfen tüm alanları doldurun.', 'red');
-          return;
-        }
-        showMessage('Gönderiliyor...', '#457b9d');
-
-        try {
-          // Use modular Firestore SDK
-          const { getFirestore, collection, addDoc, serverTimestamp } = window.firebase.firestore;
-          const db = getFirestore(window.firebase.app());
-            await addDoc(collection(db, 'messages'), {
-            name,
-            email,
-            message,
-            created: serverTimestamp()
-          });
-          showMessage('Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız.', 'green');
-          form.reset();
-        } catch (err) {
-          showMessage('Bir hata oluştu. Lütfen tekrar deneyin.', 'red');
-        }
-      });
-    });
-  </script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+    <script type="module" src="contact-form-logic.js"></script>
 </body>
 </html>

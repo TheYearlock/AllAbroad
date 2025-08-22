@@ -162,6 +162,60 @@
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" style="display:none; position:fixed; left:50%; bottom:32px; transform:translateX(-50%); background:#fff; border-radius:18px; box-shadow:0 4px 24px #0003; z-index:9999; padding: 18px 24px; font-family: 'Montserrat', sans-serif; min-width:320px; max-width:95vw;">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;">
+      <span style="color:#222; font-size:1rem;">
+        AllAbroad, deneyiminizi geliştirmek için çerezler kullanır. Detaylar için <a href="terms.html" style="color:#E63946; text-decoration:underline;">Kullanım Şartları</a> sayfamıza bakabilirsiniz.
+      </span>
+      <div style="display:flex; gap:10px;">
+        <button id="cookie-accept" style="background:#E63946; color:#fff; border:none; border-radius:8px; padding:7px 18px; font-weight:500; cursor:pointer;">Kabul Et</button>
+        <button id="cookie-decline" style="background:#ddd; color:#222; border:none; border-radius:8px; padding:7px 18px; font-weight:500; cursor:pointer;">Reddet</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+function setCookie(name, value, days) {
+  let expires = '';
+  if (days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    expires = '; expires=' + d.toUTCString();
+  }
+  document.cookie = name + '=' + (value || '')  + expires + '; path=/';
+}
+function getCookie(name) {
+  const nameEQ = name + '=';
+  const ca = document.cookie.split(';');
+  for(let i=0;i < ca.length;i++) {
+    let c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+function eraseCookie(name) {
+  document.cookie = name+'=; Max-Age=-99999999; path=/';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const banner = document.getElementById('cookie-banner');
+  // Only show if not answered before
+  if (!getCookie('allabroad_cookie_consent')) {
+    banner.style.display = 'block';
+  } else {
+    banner.style.display = 'none';
+  }
+  document.getElementById('cookie-accept').onclick = function() {
+    setCookie('allabroad_cookie_consent', 'yes', 365);
+    banner.style.display = 'none';
+  };
+  document.getElementById('cookie-decline').onclick = function() {
+    setCookie('allabroad_cookie_consent', 'no', 365);
+    banner.style.display = 'none';
+  };
+});
+</script>
 </body>
 <script src="script.js"></script>
 <script src="/search.js"></script>
