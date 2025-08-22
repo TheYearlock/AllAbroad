@@ -1,0 +1,12 @@
+[
+  {"name": "Harvard University", "file": "harvard-university.html"},
+{"name": "Massachusetts Institute of Technology", "file": "massachusetts-institute-of-technology-mit.html"},
+  {"name": "Stanford University", "file": "stanford-university.html"},
+  {"name": "University of Oxford", "file": "university-of-oxford.html"},
+  {"name": "University of Cambridge", "file": "university-of-cambridge.html"},
+  {"name": "California Institute of Technology", "file": "california-institute-of-technology.html"},
+  {"name": "ETH Zurich", "file": "eth-zurich.html"},
+  {"name": "Imperial College London", "file": "imperial-college-london.html"},
+  {"name": "University of Chicago", "file": "university-of-chicago.html"},
+  {"name": "University College London", "file": "university-college-london.html"}
+]

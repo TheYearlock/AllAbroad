@@ -10,7 +10,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AllAbroad - İletişim</title>
+  <title>AllAbroad | İletişim</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
@@ -115,8 +115,64 @@
     </div>
   </div>
 
+  <script src="firebase-init.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script>
-    // Add any necessary JavaScript here
+    // Contact form submission handler
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('.contact-form');
+      if (!form) return;
+      // Show feedback
+      function showMessage(msg, color) {
+        let el = document.getElementById('contact-feedback');
+        if (!el) {
+          el = document.createElement('div');
+          el.id = 'contact-feedback';
+          el.style.margin = '20px 0';
+          el.style.textAlign = 'center';
+          form.parentNode.insertBefore(el, form.nextSibling);
+        }
+        el.textContent = msg;
+        el.style.color = color || '#333';
+      }
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+        if (!name || !email || !message) {
+          showMessage('Lütfen tüm alanları doldurun.', 'red');
+          return;
+        }
+        showMessage('Gönderiliyor...', '#457b9d');
+
+        // Try Firestore first, fallback to Realtime DB if needed
+        let sent = false;
+        try {
+          if (firebase.firestore) {
+            await firebase.firestore().collection('contactMessages').add({
+              name, email, message, created: new Date().toISOString()
+            });
+            sent = true;
+          }
+        } catch (err) {}
+        if (!sent && firebase.database) {
+          try {
+            await firebase.database().ref('contactMessages').push({
+              name, email, message, created: new Date().toISOString()
+            });
+            sent = true;
+          } catch (err) {}
+        }
+        if (sent) {
+          showMessage('Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız.', 'green');
+          form.reset();
+        } else {
+          showMessage('Bir hata oluştu. Lütfen tekrar deneyin.', 'red');
+        }
+      });
+    });
   </script>
 </body>
 </html>

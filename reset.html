@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- ...existing code for analytics, meta, fonts, favicon... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllAbroad | Şifre Sıfırla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ...copy login/signin form styles... */
+        .reset-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 120px);
+            padding: 40px 20px;
+        }
+        .reset-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .reset-form h2 {
+            color: #E63946;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #E63946;
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #E63946;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #c1121f;
+            transform: translateY(-2px);
+        }
+        .error-message {
+            color: #E63946;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        .success-message {
+            color: #2dba4e;
+            font-size: 15px;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+        .reset-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+        }
+        .reset-footer a {
+            color: #E63946;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        .reset-footer a:hover {
+            color: #c1121f;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .reset-form { padding: 30px 20px; }
+            .reset-form h2 { font-size: 24px; }
+        }
+        .hamburger-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .hamburger-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .hamburger-icon span {
+            display: block;
+            height: 4px;
+            width: 100%;
+            background: #E63946;
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .menu-panel {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            min-width: 160px;
+            z-index: 101;
+        }
+        .menu-panel.open {
+            display: block;
+        }
+        .menu-panel nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px 0;
+        }
+        .menu-panel nav ul li {
+            padding: 8px 20px;
+        }
+        .menu-panel nav ul li a {
+            color: #E63946;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .menu-panel nav ul li a:hover {
+            color: #c1121f;
+        }
+    </style>
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <!-- Firebase Auth -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <div class="hamburger-container">
+        <div class="hamburger-icon" id="hamburgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="menu-panel" id="menuPanel">
+            <nav>
+                <ul>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <header>
+        <a href="index.html" class="logo">
+            <span class="all">All</span><span class="abroad">Abroad</span>
+        </a>
+    </header>
+    <div class="reset-container">
+        <div class="reset-form">
+            <h2>Şifre Sıfırlama</h2>
+            <form id="resetForm">
+                <div class="form-group">
+                    <label for="reset-email">Kayıtlı Email Adresiniz*</label>
+                    <input type="email" id="reset-email" name="email" required>
+                    <div class="error-message" id="reset-error"></div>
+                </div>
+                <button type="submit" class="submit-btn">Şifre Sıfırlama Linki Gönder</button>
+            </form>
+            <div class="success-message" id="reset-success"></div>
+            <div class="reset-footer">
+                <p>Giriş sayfasına dönmek için <a href="login.html">tıklayın</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="subfooter-wrapper">
+        <div class="subfooter">
+            <div class="subfooter-content">
+                <div class="subfooter-column">
+                    <h4>Kıtalar</h4>
+                    <ul>
+                        <li><a href="continents/europe.html">Avrupa</a></li>
+                        <li><a href="continents/americas.html">Amerika</a></li>
+                        <li><a href="continents/asia.html">Asya</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Üniversiteler</h4>
+                    <ul>
+                        <li><a href="universities.html">Tüm Üniversiteler</a></li>
+                        <li><a href="universities.html">En İyi Üniversiteler</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Kaynaklar</h4>
+                    <ul>
+                        <li><a href="scholarships.html">Burslar</a></li>
+                        <li><a href="finder.html">AllAbroad Sihirbazı</a></li>
+                    </ul>
+                </div>
+                <div class="subfooter-column">
+                    <h4>Şirket</h4>
+                    <ul>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subfooter-bottom">
+                <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır. </p>
+            </div>
+        </div>
+    </div>
+    <script>
+      // Hamburger menu logic
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const menuPanel = document.getElementById('menuPanel');
+      hamburgerBtn.addEventListener('click', function() {
+        menuPanel.classList.toggle('open');
+      });
+      document.addEventListener('click', function(e) {
+        if (!hamburgerBtn.contains(e.target) && !menuPanel.contains(e.target)) {
+          menuPanel.classList.remove('open');
+        }
+      });
+
+      // Firebase config
+      const firebaseConfig = {
+        apiKey: "AIzaSyCmTXsBNmQ8LSkEhYfEtz_h0py0jSM1L3k",
+        authDomain: "allabroad-3812d.firebaseapp.com",
+        projectId: "allabroad-3812d",
+        storageBucket: "allabroad-3812d.firebasestorage.app",
+        messagingSenderId: "269134466848",
+        appId: "1:269134466848:web:849728e50bc9ffde70d145",
+        measurementId: "G-675JECEJKJ"
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      document.getElementById('resetForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        document.getElementById('reset-error').style.display = 'none';
+        document.getElementById('reset-success').style.display = 'none';
+        const email = document.getElementById('reset-email').value;
+        const btn = e.target.querySelector('button[type="submit"]');
+        const btnText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Gönderiliyor...';
+        try {
+          await firebase.auth().sendPasswordResetEmail(email);
+          document.getElementById('reset-success').textContent = 'Şifre sıfırlama bağlantısı e-posta adresinize gönderildi.';
+          document.getElementById('reset-success').style.display = 'block';
+        } catch (error) {
+          // Firebase error code for user-not-found
+          if (error.code === 'auth/user-not-found') {
+            document.getElementById('reset-error').textContent = 'Bu e-posta adresi sistemde bulunamadı.';
+          } else {
+            document.getElementById('reset-error').textContent = error.message;
+          }
+          document.getElementById('reset-error').style.display = 'block';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = btnText;
+        }
+      });
+    </script>
+</body>
+</html>
