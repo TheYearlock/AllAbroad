@@ -1,3 +1,27 @@
      [
   {"name": "Almanya", "file": "germany.html"}
+, 
+  {"name": "Amerika Birleşik Devletleri", "file": "usa.html"}, 
+  {"name": "Avustralya", "file": "australia.html"}, 
+  {"name": "Belçika", "file": "belgium.html"}, 
+  {"name": "Brezilya", "file": "brazil.html"}, 
+  {"name": "Çin", "file": "china.html"}, 
+  {"name": "Danimarka", "file": "denmark.html"}, 
+  {"name": "Fransa", "file": "france.html"}, 
+  {"name": "Hindistan", "file": "india.html"}, 
+  {"name": "İngiltere", "file": "UK.html"}, 
+  {"name": "İspanya", "file": "spain.html"}, 
+  {"name": "İsveç", "file": "sweden.html"}, 
+  {"name": "İsviçre", "file": "switzerland.html"}, 
+  {"name": "Japonya", "file": "japan.html"}, 
+  {"name": "Kanada", "file": "canada.html"}, 
+  {"name": "Norveç", "file": "norway.html"}, 
+  {"name": "Polonya", "file": "poland.html"}, 
+  {"name": "Rusya", "file": "russia.html"}, 
+  {"name": "Singapur", "file": "singapore.html"}, 
+  {"name": "Türkiye", "file": "turkey.html"}, 
+  {"name": "Yunanistan", "file": "greece.html"}, 
+  {"name": "Güney Kore", "file": "south-korea.html"}, 
+  {"name": "Hollanda", "file": "netherlands.html"}, 
+  {"name": "İtalya", "file": "italy.html"}
 ]

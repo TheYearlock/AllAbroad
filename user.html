@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllAbroad | Kullanıcı Profili</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <span class="all">All</span><span class="abroad">Abroad</span>
+        </a>
+        <div class="nav-right">
+            <nav class="main-nav">
+                <ul>
+                    <li class="dropdown">
+                        <a href="Continents.html">Kıtalar</a>
+                        <div class="dropdown-content">
+                            <a href="continents/europe.html">Avrupa</a>
+                            <a href="continents/americas.html">USA and Canada</a>
+                            <a href="continents/asia.html">Asya</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="universities.html">Üniversiteler</a>
+                        <div class="dropdown-content">
+                            <a href="universities.html">Tüm Üniversiteler</a>
+                        </div>
+                    </li>
+                    <li><a href="scholarships.html">Burslar</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <span class="search-icon">⌕</span>
+                <input type="text" placeholder="Search">
+            </div>
+            <a href="#" class="user-btn" id="user-btn" style="display:none;"><i class="fas fa-user-circle" style="font-size: 28px;"></i></a>
+            <a href="login.html" class="login-btn" id="login-btn">Giriş Yap</a>
+        </div>
+    </header>
+    <main class="main-content">
+        <h1 class="page-title">Kullanıcı Profili</h1>
+        <div id="user-info" style="max-width:600px;margin:0 auto;text-align:center;"></div>
+    </main>
+    <script type="module" src="firebase-init.js"></script>
+    <script type="module" src="user-profile.js"></script>
+</body>
+</html>
