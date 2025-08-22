@@ -116,13 +116,12 @@
   </div>
 
   <script src="firebase-init.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
   <script>
-    // Contact form submission handler
+    // Contact form submission handler using Firestore modular SDK
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.querySelector('.contact-form');
       if (!form) return;
-      // Show feedback
       function showMessage(msg, color) {
         let el = document.getElementById('contact-feedback');
         if (!el) {
@@ -147,28 +146,19 @@
         }
         showMessage('Gönderiliyor...', '#457b9d');
 
-        // Try Firestore first, fallback to Realtime DB if needed
-        let sent = false;
         try {
-          if (firebase.firestore) {
-            await firebase.firestore().collection('contactMessages').add({
-              name, email, message, created: new Date().toISOString()
-            });
-            sent = true;
-          }
-        } catch (err) {}
-        if (!sent && firebase.database) {
-          try {
-            await firebase.database().ref('contactMessages').push({
-              name, email, message, created: new Date().toISOString()
-            });
-            sent = true;
-          } catch (err) {}
-        }
-        if (sent) {
+          // Use modular Firestore SDK
+          const { getFirestore, collection, addDoc, serverTimestamp } = window.firebase.firestore;
+          const db = getFirestore(window.firebase.app());
+          await addDoc(collection(db, 'contactMessages'), {
+            name,
+            email,
+            message,
+            created: serverTimestamp()
+          });
           showMessage('Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız.', 'green');
           form.reset();
-        } else {
+        } catch (err) {
           showMessage('Bir hata oluştu. Lütfen tekrar deneyin.', 'red');
         }
       });
