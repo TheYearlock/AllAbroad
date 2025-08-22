@@ -67,14 +67,13 @@
       </div>
       <button type="submit" class="submit-btn" style="background-color: #E63946; color: #fff; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Gönder</button>
     </form>
-    <!-- Add a div here for feedback messages to the user -->
-    <div id="contact-feedback" style="margin: 20px 0; text-align: center;"></div>
-    <h2 class="contact-info">
-      Soru ve iş birliği talepleriniz için:
-    </h2>
-    <h3 class="email">
-      info.allabroadedu@gmail.com
-    </h3>
+      <h2 class="contact-info">
+      Soru ve iş birliği talepleriniz için: 
+      </h2>
+      <h3 class="email">
+        info.allabroadedu@gmail.com
+      </h3>
+    </div>
   </main>
 
   <div class="subfooter-wrapper">
@@ -116,66 +115,51 @@
     </div>
   </div>
 
-  <!-- Load firebase-init.js as a module FIRST to initialize the app -->
-  <script type="module" src="firebase-init.js"></script>
-
-  <!-- Your main script for the contact form, also as a module -->
-  <script type="module">
-    // Import the 'app' instance from your firebase-init.js
-    // Import the specific Firestore functions you need from the CDN
-    import { app } from './firebase-init.js';
-    import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
-
+  <script src="firebase-init.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+  <script>
+    // Contact form submission handler using Firestore modular SDK
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.querySelector('.contact-form');
-      if (!form) return; // Exit if the form isn't found
-
-      // Function to display feedback messages to the user
+      if (!form) return;
       function showMessage(msg, color) {
         let el = document.getElementById('contact-feedback');
-        if (el) { // Check if the feedback element exists
-          el.textContent = msg;
-          el.style.color = color || '#333';
-        } else {
-          console.error("Feedback element with ID 'contact-feedback' not found!");
+        if (!el) {
+          el = document.createElement('div');
+          el.id = 'contact-feedback';
+          el.style.margin = '20px 0';
+          el.style.textAlign = 'center';
+          form.parentNode.insertBefore(el, form.nextSibling);
         }
+        el.textContent = msg;
+        el.style.color = color || '#333';
       }
 
       form.addEventListener('submit', async function (e) {
-        e.preventDefault(); // Prevent the default form submission behavior
-
+        e.preventDefault();
         const name = form.name.value.trim();
         const email = form.email.value.trim();
         const message = form.message.value.trim();
-
-        // Basic client-side validation
         if (!name || !email || !message) {
           showMessage('Lütfen tüm alanları doldurun.', 'red');
           return;
         }
-
-        // Inform the user that the submission is in progress
         showMessage('Gönderiliyor...', '#457b9d');
 
         try {
-          // Get the Firestore instance, passing the initialized Firebase app
-          const db = getFirestore(app);
-
-          // Add a new document to the 'contactMessages' collection
-          await addDoc(collection(db, 'contactMessages'), {
-            name: name,
-            email: email,
-            message: message,
-            created: serverTimestamp() // Use Firestore's server timestamp for creation time
+          // Use modular Firestore SDK
+          const { getFirestore, collection, addDoc, serverTimestamp } = window.firebase.firestore;
+          const db = getFirestore(window.firebase.app());
+            await addDoc(collection(db, 'messages'), {
+            name,
+            email,
+            message,
+            created: serverTimestamp()
           });
-
-          // Success message
           showMessage('Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız.', 'green');
-          form.reset(); // Clear the form fields after successful submission
+          form.reset();
         } catch (err) {
-          // Error message
           showMessage('Bir hata oluştu. Lütfen tekrar deneyin.', 'red');
-          console.error("Error submitting contact message to Firestore: ", err); // Log the full error for debugging
         }
       });
     });
