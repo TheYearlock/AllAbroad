@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const countryPages = {
                         "Germany": "allcountries/germany.html",
                         "France": "allcountries/france.html",
-                        "United States of America": "allcountries/usa.html",
+                        "United States of America": "allcountries/united-states-of-america.html",
                         "Turkey": "allcountries/turkey.html",
                         "Japan": "allcountries/japan.html",
                         "United Kingdom": "allcountries/UK.html"
