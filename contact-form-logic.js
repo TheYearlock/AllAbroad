@@ -1,11 +1,8 @@
-// contact-form-logic.js
 
-// This file handles the logic for the contact form submission.
-
-// Import the necessary functions from the Firestore SDK
+//  necessary functions from the Firestore SDK
 import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// Import the database connection object from our init file
+//  database connection object from our init file
 import { db } from './firebase-init.js';
 
 // Wait for the entire HTML document to be loaded before running the script
@@ -15,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     const feedbackEl = document.getElementById('contact-feedback');
 
-    // If the form doesn't exist on the page, stop running the script
+    // If the form doesn't exist stop running the script
     if (!contactForm) {
         return;
     }
