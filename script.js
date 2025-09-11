@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         });
         
-        // Keep menu open when hovering over panel
+
         const menuPanel = document.querySelector('.menu-panel');
         if (menuPanel) {
             menuPanel.addEventListener('mouseenter', () => {
