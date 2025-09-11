@@ -12,6 +12,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AllAbroad - Japonya</title>
+  <link rel="stylesheet" href="../style.css" />
    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
@@ -22,13 +23,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
   />
   <style>
-    /* Base styles (similar to your existing site) */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
+    
     body {
       background-color: #fff;
       color: #000;
@@ -36,7 +31,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      padding-bottom: 50px;
+
     }
     a {
       text-decoration: none;
@@ -425,130 +420,7 @@
       color: #e63946;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      main.main-content {
-        margin: 40px 15px 50px;
-        padding: 0 14px;
-      }
-      nav.main-nav ul {
-        gap: 15px;
-      }
-      .search-box input {
-        width: 140px;
-      }
-      .page-title {
-        font-size: 30px;
-      }
-      section.content-section h1 {
-        font-size: 28px;
-      }
-      section.content-section h2 {
-        font-size: 22px;
-      }
-    }
 
-    /* Subfooter Styles */
-    .subfooter {
-      background-color: #2a2a2a;
-      color: #fff;
-      padding: 50px 20px 20px;
-    }
-    .subfooter-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid #444;
-    }
-    .subfooter-column {
-      flex: 1;
-      min-width: 200px;
-    }
-    .subfooter-column h4 {
-      color: #fff;
-      font-size: 18px;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-    .subfooter-column h4::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 40px;
-      height: 2px;
-      background: #E63946;
-    }
-    .subfooter-column ul {
-      list-style: none;
-    }
-    .subfooter-column ul li {
-      margin-bottom: 12px;
-    }
-    .subfooter-column ul li a {
-      color: #bbb;
-      transition: color 0.3s;
-    }
-    .subfooter-column ul li a:hover {
-      color: #fff;
-    }
-    .subfooter-bottom {
-      max-width: 1200px;
-      margin: 20px auto 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding-top: 20px;
-    }
-    .subfooter-bottom p {
-      color: #999;
-      font-size: 14px;
-    }
-    .social-links {
-      display: flex;
-      gap: 15px;
-    }
-    .social-links a {
-      color: #fff;
-      background: #444;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s;
-    }
-    .social-links a:hover {
-      background: #E63946;
-    }
-    @media (max-width: 768px) {
-      .about-column {
-        min-width: 100%;
-      }
-      .subfooter-content {
-        flex-direction: column;
-        gap: 10px;
-        padding-bottom: 20px;
-      }
-      .subfooter-column {
-        min-width: 100%;
-      }
-      .subfooter {
-        padding: 20px 5px 10px;
-      }
-      .subfooter-bottom {
-        font-size: 12px;
-        flex-direction: column;
-        text-align: center;
-      }
-    }
   </style>
 </head>
 
