@@ -323,72 +323,75 @@
         </div>
     </div>
 
-    <script>
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyCmTXsBNmQ8LSkEhYfEtz_h0py0jSM1L3k",
-    authDomain: "allabroad-3812d.firebaseapp.com",
-    projectId: "allabroad-3812d",
-    storageBucket: "allabroad-3812d.firebasestorage.app",
-    messagingSenderId: "269134466848",
-    appId: "1:269134466848:web:849728e50bc9ffde70d145",
-    measurementId: "G-675JECEJKJ"
-  };
-  firebase.initializeApp(firebaseConfig);
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+            import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+            import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-  document.getElementById('enrollment-year').addEventListener('input', function(e) {
-    document.getElementById('year-value').textContent = e.target.value;
-  }, { passive: true });
+            const firebaseConfig = {
+                apiKey: "AIzaSyCmTXsBNmQ8LSkEhYfEtz_h0py0jSM1L3k",
+                authDomain: "allabroad-3812d.firebaseapp.com",
+                projectId: "allabroad-3812d",
+                storageBucket: "allabroad-3812d.appspot.com",
+                messagingSenderId: "269134466848",
+                appId: "1:269134466848:web:849728e50bc9ffde70d145",
+                measurementId: "G-675JECEJKJ"
+            };
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const db = getFirestore(app);
 
-    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+            document.getElementById('enrollment-year').addEventListener('input', function(e) {
+                document.getElementById('year-value').textContent = e.target.value;
+            }, { passive: true });
 
-        const name = document.getElementById('name').value;
-        const surname = document.getElementById('surname').value;
-        const enrollmentYear = document.getElementById('enrollment-year').value;
-        const programDuration = document.getElementById('program-duration').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
+            document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
 
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            document.getElementById('email-error').style.display = 'block';
-            return;
-        }
-        if (password.length < 8) {
-            document.getElementById('password-error').style.display = 'block';
-            return;
-        }
-        if (password !== confirmPassword) {
-            document.getElementById('confirm-error').style.display = 'block';
-            return;
-        }
+                const name = document.getElementById('name').value;
+                const surname = document.getElementById('surname').value;
+                const enrollmentYear = document.getElementById('enrollment-year').value;
+                const programDuration = document.getElementById('program-duration').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
 
-        try {
-            const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
-            const user = userCredential.user;
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('email-error').style.display = 'block';
+                    return;
+                }
+                if (password.length < 8) {
+                    document.getElementById('password-error').style.display = 'block';
+                    return;
+                }
+                if (password !== confirmPassword) {
+                    document.getElementById('confirm-error').style.display = 'block';
+                    return;
+                }
 
-            // Save user info to Firestore
-            import('./save-user-info.js').then(module => {
-                module.saveUserInfo(user.uid, {
-                    name: name,
-                    surname: surname,
-                    enrollmentYear: enrollmentYear,
-                    programDuration: programDuration,
-                    email: email,
-                    createdAt: new Date().toISOString()
-                });
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+
+                    // Save user info to Firestore
+                    await setDoc(doc(collection(db, "user info"), user.uid), {
+                        name: name,
+                        surname: surname,
+                        enrollmentYear: enrollmentYear,
+                        programDuration: programDuration,
+                        email: email,
+                        createdAt: new Date().toISOString()
+                    });
+
+                    alert('Kayıt başarılı! Giriş yapabilirsiniz.');
+                    window.location.href = 'login.html';
+                } catch (error) {
+                    document.getElementById('email-error').textContent = error.message;
+                    document.getElementById('email-error').style.display = 'block';
+                }
             });
-
-            alert('Kayıt başarılı! Giriş yapabilirsiniz.');
-            window.location.href = 'login.html';
-        } catch (error) {
-            document.getElementById('email-error').textContent = error.message;
-            document.getElementById('email-error').style.display = 'block';
-        }
-    });
-</script>
+        </script>
 </body>
 <script src="script.js"></script>
 </html>
