@@ -18,40 +18,110 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburgerContainer = document.querySelector('.hamburger-container');
     let menuTimeout;
     
-    if (hamburgerContainer) {
-        hamburgerContainer.addEventListener('mouseenter', () => {
-            clearTimeout(menuTimeout);
-            const menuPanel = hamburgerContainer.querySelector('.menu-panel');
-            menuPanel.style.opacity = '1';
-            menuPanel.style.visibility = 'visible';
-            menuPanel.style.transform = 'translateY(0)';
-        });
-        
-        hamburgerContainer.addEventListener('mouseleave', () => {
-            const menuPanel = hamburgerContainer.querySelector('.menu-panel');
-            menuTimeout = setTimeout(() => {
-                menuPanel.style.opacity = '0';
-                menuPanel.style.visibility = 'hidden';
-                menuPanel.style.transform = 'translateY(-10px)';
-            }, 300);
-        });
-        
+  if (hamburgerContainer) {
+    // keep a reference to the menu panel for both hover and click handlers
+    const menuPanel = hamburgerContainer.querySelector('.menu-panel');
 
-        const menuPanel = document.querySelector('.menu-panel');
-        if (menuPanel) {
-            menuPanel.addEventListener('mouseenter', () => {
-                clearTimeout(menuTimeout);
-            });
-            
-            menuPanel.addEventListener('mouseleave', () => {
-                menuTimeout = setTimeout(() => {
-                    menuPanel.style.opacity = '0';
-                    menuPanel.style.visibility = 'hidden';
-                    menuPanel.style.transform = 'translateY(-10px)';
-                }, 300);
-            });
-        }
+    hamburgerContainer.addEventListener('mouseenter', () => {
+      clearTimeout(menuTimeout);
+      if (menuPanel) {
+        menuPanel.style.opacity = '1';
+        menuPanel.style.visibility = 'visible';
+        menuPanel.style.transform = 'translateY(0)';
+      }
+    });
+
+    hamburgerContainer.addEventListener('mouseleave', () => {
+      if (!menuPanel) return;
+      menuTimeout = setTimeout(() => {
+        menuPanel.style.opacity = '0';
+        menuPanel.style.visibility = 'hidden';
+        menuPanel.style.transform = 'translateY(-10px)';
+      }, 300);
+    });
+
+    if (menuPanel) {
+      menuPanel.addEventListener('mouseenter', () => {
+        clearTimeout(menuTimeout);
+      });
+
+      menuPanel.addEventListener('mouseleave', () => {
+        menuTimeout = setTimeout(() => {
+          menuPanel.style.opacity = '0';
+          menuPanel.style.visibility = 'hidden';
+          menuPanel.style.transform = 'translateY(-10px)';
+        }, 300);
+      });
     }
+  }
+
+  // Mobile-specific behavior: toggle menu on click (keep existing hover behavior for desktop)
+  const hamburgerBtn = document.querySelector('.hamburger-icon');
+  if (hamburgerBtn && hamburgerContainer) {
+    // re-query menuPanel to ensure it's available in this scope
+    const menuPanel = hamburgerContainer.querySelector('.menu-panel');
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hamburgerContainer.classList.toggle('open');
+      if (menuPanel) menuPanel.setAttribute('aria-hidden', hamburgerContainer.classList.contains('open') ? 'false' : 'true');
+      // when opening on mobile, ensure login button is inside menu
+      if (hamburgerContainer.classList.contains('open')) {
+        const loginBtn = document.querySelector('.login-btn');
+        const existingMobile = menuPanel && menuPanel.querySelector('.login-btn-mobile');
+        if (!existingMobile && loginBtn && menuPanel) {
+          const clone = loginBtn.cloneNode(true);
+          clone.classList.add('login-btn-mobile');
+          clone.classList.remove('login-btn');
+          // adjust hrefs for relative paths when menu is in different folder
+          menuPanel.insertBefore(clone, menuPanel.firstChild);
+        }
+      }
+    });
+
+    // keyboard activation for accessibility (Enter/Space)
+    hamburgerBtn.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Enter' || ev.key === ' ') {
+        ev.preventDefault();
+        hamburgerBtn.click();
+      }
+    });
+
+    // close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburgerContainer.contains(e.target)) {
+        hamburgerContainer.classList.remove('open');
+      }
+    });
+  }
+
+  // Expandable mobile search
+  document.querySelectorAll('.search-box').forEach(sb => {
+    const icon = sb.querySelector('.search-icon');
+    const input = sb.querySelector('input');
+    if (!icon || !input) return;
+
+    icon.addEventListener('click', (e) => {
+      // toggle expanded only on small screens
+      if (window.innerWidth <= 420) {
+        const expanded = sb.classList.toggle('expanded');
+        if (expanded) {
+          input.focus();
+        } else {
+          input.blur();
+        }
+      } else {
+        input.focus();
+      }
+    });
+
+    // collapse on escape or when clicking outside
+    input.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape') sb.classList.remove('expanded');
+    });
+    document.addEventListener('click', (ev) => {
+      if (!sb.contains(ev.target)) sb.classList.remove('expanded');
+    });
+  });
 
     // Map functionality
     const tooltip = document.getElementById('country-tooltip');
