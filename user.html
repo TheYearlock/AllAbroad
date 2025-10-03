@@ -20,7 +20,7 @@
                         <a href="continents.html">Kıtalar</a>
                         <div class="dropdown-content">
                             <a href="continents/europe.html">Avrupa</a>
-                            <a href="continents/americas.html">ABD ve Kanada</a>
+                            <a href="continents/americas.html">Amerika</a>
                             <a href="continents/asia.html">Asya</a>
                         </div>
                     </li>
@@ -38,16 +38,80 @@
                 <span class="search-icon">⌕</span>
                 <input type="text" placeholder="Search">
             </div>
-            <a href="#" class="user-btn" id="user-btn" style="display:none;"><i class="fas fa-user-circle" style="font-size: 28px;"></i></a>
-            <a href="login.html" class="login-btn" id="login-btn">Giriş Yap</a>
+            <a href="user.html" class="user-btn" style="display:none;"><i class="fas fa-user-circle" style="color:#E63946;font-size:28px;"></i></a>
+            <a href="login.html" class="login-btn">Giriş Yap</a>
         </div>
     </header>
     <main class="main-content">
-        <h1 class="page-title">Kullanıcı Profili</h1>
-        <div id="user-info" style="max-width:600px;margin:0 auto;text-align:center;"></div>
+        <h1 class="page-title">Kullanıcı Paneli</h1>
+        <nav class="user-menu" style="margin: 0 auto; max-width: 600px; text-align: center;">
+            <a href="#userinfo" class="user-menu-link" onclick="showSection('userinfo')">Kullanıcı Bilgileri</a> |
+            <a href="#calendar" class="user-menu-link" onclick="showSection('calendar')">Takvim</a> |
+            <a href="#myuniversities" class="user-menu-link" onclick="showSection('myuniversities')">Üniversitelerim</a> |
+            <a href="#wizard" class="user-menu-link" onclick="showSection('wizard')">AllAbroad Sihirbazı</a>
+        </nav>
+        <section id="userinfo">
+            <div id="user-info" style="max-width:600px;margin:0 auto;text-align:center;"></div>
+        </section>
+        <section id="calendar" style="display:none;">
+            <h2>Takvim (Yakında)</h2>
+        </section>
+        <section id="myuniversities" style="display:none;">
+            <h2>Üniversitelerim (Yakında)</h2>
+        </section>
+        <section id="wizard" style="display:none;">
+            <h2>AllAbroad Sihirbazı (Yakında)</h2>
+        </section>
     </main>
-    <script type="module" src="firebase-init.js"></script>
-    <script type="module" src="user-profile.js"></script>
-</body>
-<script src="script.js"></script>
-</html>
+            <div class="subfooter-wrapper">
+                <div class="subfooter">
+                    <div class="subfooter-content">
+                        <div class="subfooter-column">
+                            <h4>Kıtalar</h4>
+                            <ul>
+                                <li><a href="continents/europe.html">Avrupa</a></li>
+                                <li><a href="continents/americas.html">Amerika</a></li>
+                                <li><a href="continents/asia.html">Asya</a></li>
+                            </ul>
+                        </div>
+                        <div class="subfooter-column">
+                            <h4>Üniversiteler</h4>
+                            <ul>
+                                <li><a href="universities.html">Tüm Üniversiteler</a></li>
+                                <li><a href="universities.html"> </a></li>
+                            </ul>
+                        </div>
+                        <div class="subfooter-column">
+                            <h4>Kaynaklar</h4>
+                            <ul>
+                                <li><a href="scholarships.html">Burslar</a></li>
+                                <li><a href="finder.html">AllAbroad Sihirbazı</a></li>
+                            </ul>
+                        </div>
+                        <div class="subfooter-column">
+                            <h4>Şirket</h4>
+                            <ul>
+                                <li><a href="about.html">Hakkımızda</a></li>
+                                <li><a href="contact.html">İletişim</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="subfooter-bottom">
+                        <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır. </p>
+                    </div>
+                </div>
+            </div>
+            <script type="module" src="firebase-init.js"></script>
+            <script type="module" src="user-profile.js"></script>
+            <script type="module" src="auth-ui.js"></script>
+            <script>
+                function showSection(id) {
+                    document.getElementById('userinfo').style.display = 'none';
+                    document.getElementById('calendar').style.display = 'none';
+                    document.getElementById('myuniversities').style.display = 'none';
+                    document.getElementById('wizard').style.display = 'none';
+                    document.getElementById(id).style.display = 'block';
+                }
+            </script>
+    </body>
+    </html>
