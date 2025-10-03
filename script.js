@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Ensure auth UI module is present on pages that include script.js but might not include auth-ui.js
+  (function ensureAuthUiLoaded() {
+    try {
+      const already = Array.from(document.querySelectorAll('script')).some(s => s.src && s.src.endsWith('auth-ui.js'));
+      if (already) return;
+      const mod = document.createElement('script');
+      mod.type = 'module';
+      // Using absolute path so pages in subfolders still load the root auth-ui.js
+      mod.src = '/auth-ui.js';
+      mod.async = true;
+      document.head.appendChild(mod);
+    } catch (e) {
+      // non-fatal
+    }
+  })();
     // Hamburger menu functionality
     const hamburgerContainer = document.querySelector('.hamburger-container');
     let menuTimeout;

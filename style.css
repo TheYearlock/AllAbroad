@@ -114,7 +114,7 @@ header {
       padding: 9px 15px 9px 38px;
       border: 1.5px solid #ddd;
       border-radius: 24px;
-      width: 190px;
+            width: 220px;
       font-size: 15px;
       color: #222;
       outline-offset: 2px;
@@ -144,6 +144,33 @@ header {
 .login-btn:hover {
     background-color: #c1121f;
 }
+
+/* User icon styles */
+.user-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: transparent;
+    padding: 0;
+    margin: 0 4px 0 8px; /* small left gap to separate from search */
+    text-decoration: none;
+}
+.user-btn .user-icon svg {
+    width: 36px;
+    height: 36px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    border-radius: 50%;
+    background: rgba(230,57,70,0.06);
+    padding: 2px;
+}
+.user-btn:hover .user-icon svg {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+.user-btn:focus { outline: none; }
 
 /* Main Content */
 .main-content {

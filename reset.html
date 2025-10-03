@@ -158,10 +158,7 @@
             color: #c1121f;
         }
     </style>
-    <!-- Firebase App (the core Firebase SDK) -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-    <!-- Firebase Auth -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <!-- Use modular Firebase via module script in-page -->
 </head>
 <body>
     <div class="hamburger-container">
@@ -250,44 +247,37 @@
         }
       });
 
-      // Firebase config
-      const firebaseConfig = {
-        apiKey: "AIzaSyCmTXsBNmQ8LSkEhYfEtz_h0py0jSM1L3k",
-        authDomain: "allabroad-3812d.firebaseapp.com",
-        projectId: "allabroad-3812d",
-        storageBucket: "allabroad-3812d.firebasestorage.app",
-        messagingSenderId: "269134466848",
-        appId: "1:269134466848:web:849728e50bc9ffde70d145",
-        measurementId: "G-675JECEJKJ"
-      };
-      firebase.initializeApp(firebaseConfig);
-
-      document.getElementById('resetForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        document.getElementById('reset-error').style.display = 'none';
-        document.getElementById('reset-success').style.display = 'none';
-        const email = document.getElementById('reset-email').value;
-        const btn = e.target.querySelector('button[type="submit"]');
-        const btnText = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = 'Gönderiliyor...';
-        try {
-          await firebase.auth().sendPasswordResetEmail(email);
-          document.getElementById('reset-success').textContent = 'Şifre sıfırlama bağlantısı e-posta adresinize gönderildi.';
-          document.getElementById('reset-success').style.display = 'block';
-        } catch (error) {
-          // Firebase error code for user-not-found
-          if (error.code === 'auth/user-not-found') {
-            document.getElementById('reset-error').textContent = 'Bu e-posta adresi sistemde bulunamadı.';
-          } else {
-            document.getElementById('reset-error').textContent = error.message;
-          }
-          document.getElementById('reset-error').style.display = 'block';
-        } finally {
-          btn.disabled = false;
-          btn.textContent = btnText;
-        }
-      });
+            // Use modular Firebase: sendPasswordResetEmail
+            import('./firebase-init.js').then(({ auth }) => {
+                return Promise.all([Promise.resolve(auth), import('https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js')]);
+            }).then(([authModule, authSdk]) => {
+                const { sendPasswordResetEmail } = authSdk;
+                document.getElementById('resetForm').addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    document.getElementById('reset-error').style.display = 'none';
+                    document.getElementById('reset-success').style.display = 'none';
+                    const email = document.getElementById('reset-email').value;
+                    const btn = e.target.querySelector('button[type="submit"]');
+                    const btnText = btn.textContent;
+                    btn.disabled = true;
+                    btn.textContent = 'Gönderiliyor...';
+                    try {
+                        await sendPasswordResetEmail(authModule, email);
+                        document.getElementById('reset-success').textContent = 'Şifre sıfırlama bağlantısı e-posta adresinize gönderildi.';
+                        document.getElementById('reset-success').style.display = 'block';
+                    } catch (error) {
+                        if (error.code === 'auth/user-not-found') {
+                            document.getElementById('reset-error').textContent = 'Bu e-posta adresi sistemde bulunamadı.';
+                        } else {
+                            document.getElementById('reset-error').textContent = error.message;
+                        }
+                        document.getElementById('reset-error').style.display = 'block';
+                    } finally {
+                        btn.disabled = false;
+                        btn.textContent = btnText;
+                    }
+                });
+            }).catch(e => console.error('Failed to load Firebase auth for reset:', e));
     </script>
 </body>
 <script src="script.js"></script>

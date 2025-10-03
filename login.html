@@ -223,48 +223,40 @@
             </div>
         </div>
     </div>
-<!-- Firebase App (the core Firebase SDK) -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<!-- Firebase Auth -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script>
-  // Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyCmTXsBNmQ8LSkEhYfEtz_h0py0jSM1L3k",
-    authDomain: "allabroad-3812d.firebaseapp.com",
-    projectId: "allabroad-3812d",
-    storageBucket: "allabroad-3812d.firebasestorage.app",
-    messagingSenderId: "269134466848",
-    appId: "1:269134466848:web:849728e50bc9ffde70d145",
-    measurementId: "G-675JECEJKJ"
-  };
-  firebase.initializeApp(firebaseConfig);
+<script type="module">
+    import { auth } from './firebase-init.js';
+    import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 
-  document.getElementById('loginForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    document.querySelectorAll('.error-message').forEach(el => {
-      el.style.display = 'none';
-      el.textContent = '';
+    // Clear cached signed-in flag when visiting login page (user intends to sign in)
+    try { localStorage.setItem('allabroad_signed_in', '0'); } catch (e) {}
+
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.error-message').forEach(el => {
+            el.style.display = 'none';
+            el.textContent = '';
+        });
+        const btn = e.target.querySelector('button[type="submit"]');
+        const btnText = btn.textContent;
+        btn.disabled = true;
+        btn.innerHTML = 'Signing in...';
+
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            // Immediately update cached state and UI helper
+            try { if (window.allabroadAuthUpdate) window.allabroadAuthUpdate(true); } catch (e) {}
+            window.location.href = "index.html";
+        } catch (error) {
+            document.getElementById('email-error').textContent = error.message;
+            document.getElementById('email-error').style.display = 'block';
+        } finally {
+            btn.disabled = false;
+            btn.textContent = btnText;
+        }
     });
-    const btn = e.target.querySelector('button[type="submit"]');
-    const btnText = btn.textContent;
-    btn.disabled = true;
-    btn.innerHTML = 'Signing in...';
-
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-
-    try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      window.location.href = "index.html";
-    } catch (error) {
-      document.getElementById('email-error').textContent = error.message;
-      document.getElementById('email-error').style.display = 'block';
-    } finally {
-      btn.disabled = false;
-      btn.textContent = btnText;
-    }
-  });
 </script>
 </body>
 <script src="script.js"></script>
