@@ -83,29 +83,39 @@
     </style>
   </head>
   <body>
-    <header>
-      <a href="../index.html" class="logo">
-        <span class="all">All</span><span class="abroad">Abroad</span>
-      </a>
-      <div class="nav-right">
-        <nav class="main-nav">
-          <ul>
-            <li><a href="../index.html">Ana Sayfa</a></li>
-            <li><a href="../continents.html">Kıtalar</a></li>
-            <li><a href="../allcountries/list.json">Ülkeler</a></li>
-            <li><a href="../universities.html">Üniversiteler</a></li>
-            <li><a href="../scholarships.html">Burslar</a></li>
-            <li><a href="../about.html">Hakkında</a></li>
-            <li><a href="../contact.html">İletişim</a></li>
-          </ul>
-        </nav>
-        <div class="search-box">
-          <span class="search-icon">⌕</span>
-          <input type="text" placeholder="Search">
+        <header>
+        <a href="../index.html" class="logo">
+            <span class="all">All</span><span class="abroad">Abroad</span>
+        </a>
+        
+        <div class="nav-right">
+            <nav class="main-nav">
+                <ul>
+                    <li class="dropdown">
+                        <a href="../continents.html">Kıtalar</a>
+                        <div class="dropdown-content">
+                            <a href="../continents/europe.html">Avrupa</a>
+                            <a href="../continents/americas.html">ABD ve Kanada</a>
+                            <a href="../continents/asia.html">Asya</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="../universities.html">Üniversiteler</a>
+                        <div class="dropdown-content">
+                            <a href="../universities.html">Tüm Üniversiteler</a>
+                        </div>
+                    </li>
+                    <li><a href="../scholarships.html">Burslar</a></li>
+                    <li><a href="../about.html">Hakkımızda</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <span class="search-icon">⌕</span>
+                <input type="text" placeholder="Search">
+            </div>
+            <a href="../user.html" class="user-btn" style="display:none;"><i class="fas fa-user-circle" style="color:#E63946;font-size:28px;"></i></a>
+            <a href="../login.html" class="login-btn">Giriş Yap</a>
         </div>
-  <a href="../user.html" class="user-btn" style="display:none;"><i class="fas fa-user-circle" style="color:#E63946;font-size:28px;"></i></a>
-  <a href="../login.html" class="login-btn">Giriş Yap</a>
-      </div>
     </header>
     <main class="main-content">
       <h1 class="page-title">Imperial College London</h1>
@@ -255,29 +265,44 @@
 
       </section>
       </main>
-    <div class="subfooter-wrapper">
+        <div class="subfooter-wrapper">
       <div class="subfooter">
         <div class="subfooter-content">
-          <div class="footer-section">
-            <h3>AllAbroad</h3>
-            <p>Türk öğrencilerin dünya çapında eğitim fırsatlarını keşfetmelerine yardımcı olmak.</p>
-          </div>
-          <div class="footer-section">
-            <h3>Linkler</h3>
+          <div class="subfooter-column">
+            <h4>Kıtalar</h4>
             <ul>
-              <li><a href="../about.html">Hakkında</a></li>
-              <li><a href="../contact.html">İletişim</a></li>
-              <li><a href="../privacy.html">Gizlilik</a></li>
+              <li><a href="../continents/europe.html">Avrupa</a></li>
+              <li><a href="../continents/americas.html">Amerika</a></li>
+              <li><a href="../continents/asia.html">Asya</a></li>
             </ul>
           </div>
-          <div class="footer-section">
-            <h3>Sosyal Medya</h3>
-            <div class="social-links">
-              <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            </div>
+          <div class="subfooter-column">
+            <h4>Üniversiteler</h4>
+            <ul>
+              <li><a href="../universities.html">Tüm Üniversiteler</a></li>
+              <li><a href="../universities.html"> </a></li>
+            </ul>
+          </div>
+          <div class="subfooter-column">
+            <h4>Kaynaklar</h4>
+            <ul>
+              <li><a href="../scholarships.html">Burslar</a></li>
+              <li><a href="../finder.html">AllAbroad Sihirbazı</a></li>
+            </ul>
+          </div>
+          <div class="subfooter-column">
+            <h4>Şirket</h4>
+            <ul>
+              <li><a href="../about.html">Hakkımızda</a></li>
+              <li><a href="../contact.html">İletişim</a></li>
+            </ul>
           </div>
         </div>
+        <div class="subfooter-bottom">
+          <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır. </p>
+        </div>
+      </div>
+    </div>
         <div class="subfooter-bottom">
           <p>&copy; 2025 AllAbroad. Tüm hakları saklıdır.</p>
         </div>
