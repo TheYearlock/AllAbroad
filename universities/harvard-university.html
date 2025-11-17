@@ -1,15 +1,15 @@
 <!DOCTYPE html>
- <html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Harvard University - AllAbroad</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+   <html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Harvard University - AllAbroad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="universities-styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
-     <script src="../script.js"></script>
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  <script src="../script.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -19,122 +19,279 @@
     "logo": "/assets/uni-placeholder.svg"
   }
   </script>
-</head>
-<body>
-  <header>
-    <a href="../index.html" class="logo">
-      <span class="all">All</span><span class="abroad">Abroad</span>
-    </a>
-    <div class="nav-right">
-      <nav class="main-nav">
-        <ul>
-          <li class="dropdown">
-            <a href="../continents.html">Kıtalar</a>
-            <div class="dropdown-content">
-              <a href="../continents/europe.html">Avrupa</a>
-              <a href="../continents/americas.html">ABD ve Kanada</a>
-              <a href="../continents/asia.html">Asya</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <a href="../universities.html" class="active">Üniversiteler</a>
-            <div class="dropdown-content">
-               
-              <a href="../universities.html">Tüm Üniversiteler</a>
-            </div>
-          </li>
-          <li><a href="../scholarships.html">Burslar</a></li>
-          <li><a href="../about.html">Hakkımızda</a></li>
-        </ul>
-      </nav>
-      <div class="search-box">
-        <span class="search-icon">⌕</span>
-        <input type="text" placeholder="Search">
-      </div>
-  <a href="../user.html" class="user-btn" style="display:none;"><i class="fas fa-user-circle" style="color:#E63946;font-size:28px;"></i></a>
-  <a href="../login.html" class="login-btn">Giriş Yap</a>
-    </div>
-  </header>
-  <main class="main-content">
-    <h1 class="page-title">Harvard University</h1>
-    <div class="uni-details">
-      <div class="uni-hero">
-        <img src="../assets/uni-placeholder.svg" alt="Harvard logo" />
-        <div>
-          <div class="rank-badge">#5 in the World (2026)</div>
-          <h2>Harvard University</h2>
-          <p class="muted">Cambridge, Massachusetts, United States</p>
-        </div>
-      </div>
+  <style>
+      h2 { font-size: 28px; color: #E63946; border-bottom: 3px solid #E63946; padding-bottom:6px; margin-top:40px; }
+      h3 { font-size: 22px; color: #333; margin-top:30px; }
+      .highlight-box { background:#f8f9fa; border-left:4px solid #E63946; padding:15px; margin:20px 0; }
+      .data-table { width:100%; border-collapse:collapse; margin:20px 0; }
+      .data-table th, .data-table td { border:1px solid #ddd; padding:8px; text-align:center; }
+      .data-table th { background:#E63946; color:#fff; font-weight:600; }
+      dt { font-weight:600; margin-top:16px; }
+      dd { margin-left:20px; margin-bottom:12px; }
+      .content-section { max-width: 800px; margin: 0 auto; padding: 20px; }
+      body {
+        background-color: #fff;
+        color: #000;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    
+      /* Guide Sections */
+      section.guide-section {
+        margin-bottom: 50px;
+      }
+      section.guide-section h2 {
+        font-size: 28px;
+        color: #e63946;
+        margin-bottom: 15px;
+        border-bottom: 3px solid #e63946;
+        padding-bottom: 6px;
+        font-weight: 700;
+      }
+      section.guide-section p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.5;
+        max-width: 850px;
+      }
+      section.guide-section ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+      section.guide-section li {
+        margin-bottom: 10px;
+      }
+      .highlight-box {
+        background-color: #f8f9fa;
+        border-left: 4px solid #e63946;
+        padding: 15px;
+        margin: 20px 0;
+      }
+      .highlight-box h3 {
+        margin-bottom: 10px;
+        color: #e63946;
+      }
 
-      <div class="uni-metrics">
-        <div class="metric"><b>Country:</b> United States of America</div>
-        <div class="metric"><b>Continent:</b> Americas</div>
-        <div class="metric"><b>Size:</b> L</div>
-        <div class="metric"><b>Type:</b> Private not for Profit</div>
-        <div class="metric"><b>Academic Reputation:</b> 100</div>
-        <div class="metric"><b>Employer Reputation:</b> 100</div>
-        <div class="metric"><b>Faculty Student Ratio:</b> 98.3</div>
-        <div class="metric"><b>Citations per Faculty:</b> 100</div>
-        <div class="metric"><b>International Faculty:</b> 79.1</div>
-        <div class="metric"><b>International Students:</b> 81.4</div>
-        <div class="metric"><b>International Students Diversity:</b> 60.6</div>
-        <div class="metric"><b>International Research Network:</b> 99.4</div>
-        <div class="metric"><b>Employment Outcomes:</b> 100</div>
-        <div class="metric"><b>Sustainability:</b> 77.8</div>
-        <div class="metric"><b>Overall Score:</b> 97.7</div>
-      </div>
+     
 
-      <div class="cta-row">
-        <a class="btn-primary" href="https://www.harvard.edu/">Official site</a>
-        <a class="btn-outline" href="../universities.html">Back to list</a>
-      </div>
-    </div>
-    <section class="uni-extra-content" style="max-width:700px;margin:32px auto 0 auto;background:#f9f9f9;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,0.04);padding:28px 24px 20px 24px;">
-      <h2 style="font-size:22px;color:#E63946;margin-bottom:12px;">About Harvard University</h2>
-      <div style="font-size:16px;color:#222;min-height:60px;">
-        <!-- Add your custom text about the university here -->
-      </div>
-    </section>
-  </main>
-  <div class="subfooter-wrapper">
-    <div class="subfooter">
-      <div class="subfooter-content">
-        <div class="subfooter-column">
-          <h4>Kıtalar</h4>
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html" class="logo">
+        <span class="all">All</span><span class="abroad">Abroad</span>
+      </a>
+      <div class="nav-right">
+        <nav class="main-nav">
           <ul>
-            <li><a href="../continents/europe.html">Avrupa</a></li>
-            <li><a href="../continents/americas.html">Amerika</a></li>
-            <li><a href="../continents/asia.html">Asya</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Üniversiteler</h4>
-          <ul>
-            <li> </li>
-            <li><a href="../universities.html">Tüm Üniversiteler</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Kaynaklar</h4>
-          <ul>
+            <li><a href="../index.html">Ana Sayfa</a></li>
+            <li><a href="../continents.html">Kıtalar</a></li>
+            <li><a href="../allcountries/list.json">Ülkeler</a></li>
+            <li><a href="../universities.html">Üniversiteler</a></li>
             <li><a href="../scholarships.html">Burslar</a></li>
-            <li><a href="../finder.html">AllAbroad Sihirbazı</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Şirket</h4>
-          <ul>
-            <li><a href="../about.html">Hakkımızda</a></li>
+            <li><a href="../about.html">Hakkında</a></li>
             <li><a href="../contact.html">İletişim</a></li>
           </ul>
+        </nav>
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
+          <input type="text" placeholder="Search">
+        </div>
+  <a href="../user.html" class="user-btn" style="display:none;"><i class="fas fa-user-circle" style="color:#E63946;font-size:28px;"></i></a>
+  <a href="../login.html" class="login-btn">Giriş Yap</a>
+      </div>
+    </header>
+    <main class="main-content">
+      <h1 class="page-title">Harvard University</h1>
+      <div class="uni-details">
+        <div class="uni-hero">
+      
+          <div>
+            <p>Harvard University</p>
+          </div>
+        </div>
+
+        <div class="uni-metrics">
+          <div class="metric"><b>Country:</b> United States of America</div>
+          <div class="metric"><b>Continent:</b> Americas</div>
+          <div class="metric"><b>Size:</b> L</div>
+          <div class="metric"><b>Type:</b> Private not for Profit</div>
+          <div class="metric"><b>Overall Rank:</b> 97.7/100</div>
+          <div class="metric"><b>Academic Reputation:</b> 100.0</div>
+          <div class="metric"><b>Employer Reputation:</b> 100.0</div>
+          <div class="metric"><b>Employment Outcomes:</b> 100.0</div>
+        </div>
+
+        <div class="cta-row">
+          <a href="https://www.harvard.edu" class="cta-btn">Visit Website</a>
+          <a href="https://www.instagram.com" class="cta-btn" style="background:#E63946;">Follow on Instagram</a>
         </div>
       </div>
-      <div class="subfooter-bottom">
-        <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır. </p>
+      <section class="uni-extra-content" style="max-width:700px;margin:32px auto 0 auto;background:#f9f9f9;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,0.04);padding:28px 24px 20px 24px;">
+        <h2 style="font-size:22px;color:#E63946;margin-bottom:12px;"> Harvard University</h2>
+      <section class="content-section">
+      <p>
+        Harvard, Amerika Birleşik Devletleri'nin en eski ve en prestijli üniversitesidir. Harvard, hukuk, tıp, işletme ve fen bilimleri alanlarında dünyanın en üst sıralarında yer almaktadır. Türk öğrencilerin Harvard'a başvuru oranı oldukça yüksektir.
+      </p>
+      
+      <p>
+        Bu üniversitenin ana bölümleri:
+      </p>
+      <strong>
+      <ul>
+        <li>Harvard College</li><li>Harvard Business School</li><li>Harvard Law School</li><li>Harvard Medical School</li><li>Harvard Graduate School of Arts and Sciences</li>
+      </ul>
+      </strong>
+      
+
+      <!-- ARANAN ÖĞRENCİ PROFİLİ -->
+      <h2>Aranan Öğrenci Profili</h2>
+      <div class="highlight-box">
+        <p>Harvard, akademik üstünlükle birlikte liderlik yetenekleri ve toplumsal katkı yapan öğrencileri arıyor. Harvard'a kabul edilenler genellikle lisede çok yüksek GPA, SAT/ACT puanları ve önemli ekstrakurrikuler başarıları olan öğrencilerdir.</p>
+      </div>
+
+      <!-- SINAVLAR VE SKORLAR -->
+      <h2>Giriş için Gereken Sınavlar ve Ortalama Skorlar</h2>
+      <table class="data-table">
+        <tr>
+          <th>Sınav Türü</th>
+          <th>Ortalama Puan</th>
+        </tr>
+        <tr>
+          <td>SAT</td>
+          <td>1480+</td>
+        </tr>
+        <tr>
+          <td>ACT</td>
+          <td>34+</td>
+        </tr>
+        <tr>
+          <td>TOEFL</td>
+          <td>İsteğe bağlı (test-optional)</td>
+        </tr>
+        <tr>
+          <td>IELTS</td>
+          <td>İsteğe bağlı (test-optional)</td>
+        </tr>
+      </table>
+
+      <!-- EXTRACURRICULAR SECTION -->
+      <h2>Extracurricular Aktiviteler ve Başvuruya Etkisi</h2>
+      <p>
+        Harvard, akademik başarının yanında sosyal sorumluluk projelerine katılımı, spor başarılarını, sanatsal yetenekleri ve liderlik deneyimlerini oldukça önemsiyor. Toplumunuza katkıda bulunmuş projeleri öne çıkarın.
+      </p>
+
+      <!-- APPLICATION PROCESS -->
+      <h2>Başvuru Süreci (Adım Adım)</h2>
+      <ol>
+        <li>1. Common Application üzerinden başvuru yapın</li><li>2. Harvard Supplement kısmını tamamlayın</li><li>3. Okul transkriptiniz ve sınav puanlarını yükleyin</li><li>4. Tavsiye mektupları toplayın (en az 2-3 akademik danışman)</li><li>5. Başvuru essayinizi yazın</li><li>6. Alumni interview'ı başvuru sonrası mümkünse yapılır</li>
+      </ol>
+
+      <!-- FINANCIAL AID -->
+      <h2>Burslar, Yardımlar ve Finansman</h2>
+      <div class="highlight-box">
+        <h3>Türk Öğrenciler İçin Finansal Destek</h3>
+      </div>
+      <p>
+        Harvard'ın "Affordable Harvard" programı yüksek finansal destek sunmaktadır. Geliri $85.000'ın altında olan ailelerin çocukları öğrenim ücreti ödememektedir. Uluslararası öğrenciler de kısıtlı da olsa finansal yardım alabilir.
+      </p>
+
+      <!-- VISA PROCESS -->
+      <h2>Vize Süreci</h2>
+      <p>
+        F-1 öğrenci vizesi ile Amerika'ya gidilir. Harvard'dan I-20 belgesi aldıktan sonra, Türkiye'deki ABD konsolosluğunda vize başvurusu yapılır. Vize görüşmesinde öğrenim planınız ve finansal desteğiniz kanıtlanmalıdır.
+      </p>
+
+      <!-- STUDENT LIFE -->
+      <h2>Üniversite Yaşamı ve Türk Topluluğu</h2>
+      <p>
+        Harvard Üniversitesi, Cambridge ve Boston'da bulunan geniş bir kampüs yapısına sahiptir. Türk öğrenci topluluğu aktif ve destekleyicidir. Kütüphaneler, laboratuvarlar, spor tesisleri ve sosyal etkinlikler oldukça gelişmiştir.
+      </p>
+      
+      <!-- GRADUATION & CAREER -->
+      <h2>İş ve Mezuniyet Sonrası Olanaklar</h2>
+      <p>
+        Harvard mezunları, yapıları gereği finans, hukuk, tıp, akademia ve kamu hizmetlerinde yüksek pozisyonlara ulaşmaktadır. OPT ve H-1B vizesi programları aracılığıyla ABD'de veya dünya çapında kariyer yapma imkanları yaygındır.
+      </p>
+
+      <!-- TIPS -->
+      <h2>Türk Öğrenciler İçin Stratejiler ve Tavsiyeler</h2>
+      <ul>
+        <li>Harvard'a başvuran Türk öğrenciler genellikle matematik ve fen bilimleri olimpiyat başarılarını vurgularlar.</li><li>Sosyal sorumluluk projeleri ve toplumsal katkılarınızı öne çıkarın.</li><li>Özgeçmişiniz ve essayinizde özgünlük ve samimiyeti yansıtın.</li><li>Tavsiye mektupları çok önemlidir; öğretmenleriniz sizi iyi tanımalıdır.</li><li>İngilizce yazı becerilerinizi geliştirin ve düzeltme yapın.</li>
+      </ul>
+
+      <!-- FAQ -->
+      <h2>Sık Sorulan Sorular (FAQ)</h2>
+      <dl>
+        
+        <dt>S: Harvard'a başvurmak için SAT zorunlu mu?</dt>
+        <dd>C: 2024 yılından itibaren SAT/ACT test-optional duruma geçmiştir, ancak göndermeniz kabul şansınızı artırabilir.</dd>
+        
+        <dt>S: Kabul oranı nedir?</dt>
+        <dd>C: Harvard'ın kabul oranı yaklaşık %3-4 seviyesindedir. Çok seçicidir ve uluslararası öğrenciler için rekabet daha da fazlayıdır.</dd>
+        
+        <dt>S: Uluslararası öğrencilere finansal yardım veriliyor mu?</dt>
+        <dd>C: Evet, Harvard limited finansal yardım sunmaktadır, ancak yerine konan öğrencilerin ihtiyaçlarını karşılamaya çalışır.</dd>
+        
+        <dt>S: Boston'da yaşam maliyeti nedir?</dt>
+        <dd>C: Ortalama yıllık yaşam gideri 45.000-55.000$ arasındadır.</dd>
+        
+        <dt>S: Harvard'a kaç kez başvurabilirim?</dt>
+        <dd>C: Liseden başvuru yaparsanız Normal Decision (RD) ile 1 defa başvuru şansınız vardır. Deferred olursanız, sınırlı ek bilgiler sunabilirsiniz.</dd>
+        
+      </dl>
+
+      <h2>AllAbroad Ne Diyor?</h2>
+      <!-- FINAL HIGHLIGHT -->
+      <div class="highlight-box">
+        Harvard, Amerikan eğitim sisteminin en tepesindedir. Türk öğrenciler için oldukça zor bir hedef olsa da, başarısı kanıtlanmış akademisyenlerin başvurusu değerlendirilmektedir. Harvard'a gitmek demek, dünyanın en etkili ağlarına katılmak demektir.
+      </div>
+
+      </section>
+      </main>
+    <div class="subfooter-wrapper">
+      <div class="subfooter">
+        <div class="subfooter-content">
+          <div class="footer-section">
+            <h3>AllAbroad</h3>
+            <p>Türk öğrencilerin dünya çapında eğitim fırsatlarını keşfetmelerine yardımcı olmak.</p>
+          </div>
+          <div class="footer-section">
+            <h3>Linkler</h3>
+            <ul>
+              <li><a href="../about.html">Hakkında</a></li>
+              <li><a href="../contact.html">İletişim</a></li>
+              <li><a href="../privacy.html">Gizlilik</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Sosyal Medya</h3>
+            <div class="social-links">
+              <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="subfooter-bottom">
+          <p>&copy; 2025 AllAbroad. Tüm hakları saklıdır.</p>
+        </div>
       </div>
     </div>
-  </div>
-<script type="module" src="../auth-ui.js"></script>
-</body>
-</html>
+  <script type="module" src="../auth-ui.js"></script>
+  <script>
+    (function(){
+      const ctas = document.querySelectorAll('.cta-row a');
+      ctas.forEach(a => {
+        a.target = '_blank';
+        a.setAttribute('rel','noopener noreferrer');
+      });
+    })();
+  </script>
+  </body>
+  </html>

@@ -366,7 +366,7 @@ header {
 
 /* Make the login button appear in the menu on mobile and hide original */
 @media (max-width: 768px) {
-    /* by default we hide the large login button on small screens, but keep it visible on mid-size phones (>=400px) */
+    /* Hide the large login button on small screens - cloned into menu instead */
     .login-btn { display: none !important; }
     .menu-panel .login-btn-mobile {
         display: block;
@@ -380,11 +380,6 @@ header {
         text-decoration: none;
         display: inline-block;
     }
-}
-
-/* Show the regular login button on phones >= 400px wide (e.g. 412x914) */
-@media (min-width: 400px) and (max-width: 768px) {
-    .login-btn { display: inline-block !important; }
 }
 
 /* Mobile search overlay behavior */

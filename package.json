@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "AllAbroad static site",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node server.js",
+    "editor": "node cms-server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
   "author": "",
   "license": "ISC"
 }

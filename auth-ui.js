@@ -60,7 +60,18 @@ function updateNavForAuth(user) {
 
     const showUser = !!user || readCachedAuth();
 
-    if (loginBtn) loginBtn.style.display = showUser ? 'none' : 'inline-block';
+    if (loginBtn) {
+        // Header login button: only show on desktop when not logged in
+        // On mobile (≤768px), CSS has display: none !important, so this only applies on desktop
+        loginBtn.style.display = showUser ? 'none' : '';
+    }
+    
+    // IMPORTANT: Also find and update ALL clones in the menu (both .login-btn-mobile and .login-btn inside menu)
+    const allLoginBtnsInMenu = document.querySelectorAll('.menu-panel .login-btn, .menu-panel .login-btn-mobile');
+    allLoginBtnsInMenu.forEach(btn => {
+        btn.style.display = showUser ? 'none' : 'inline-block';
+    });
+    
     if (userBtn) userBtn.style.display = showUser ? 'inline-block' : 'none';
 }
 

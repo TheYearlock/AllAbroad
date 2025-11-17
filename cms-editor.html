@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllAbroad - CMS Editörü</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .editor-wrapper {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: 280px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 3px solid #E63946;
+        }
+
+        .sidebar h2 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #E63946;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-label {
+            font-size: 11px;
+            color: #aaa;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .university-select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #E63946;
+            border-radius: 4px;
+            background: #34495e;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .sections-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .section-btn {
+            padding: 10px 12px;
+            background: #34495e;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .section-btn:hover {
+            background: #3d5566;
+            border-color: #E63946;
+        }
+
+        .section-btn.active {
+            background: #E63946;
+            border-color: #E63946;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-save {
+            background: #E63946;
+            color: white;
+        }
+
+        .btn-save:hover:not(:disabled) {
+            background: #c91f1f;
+        }
+
+        .btn-commit {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-commit:hover:not(:disabled) {
+            background: #229954;
+        }
+
+        /* ===== MAIN EDITOR ===== */
+        .editor-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-header {
+            background: white;
+            border-bottom: 2px solid #E63946;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .editor-header h1 {
+            font-size: 22px;
+            color: #2c3e50;
+        }
+
+        .editor-status {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .editor-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        .pane {
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .pane-header {
+            background: #f5f5f5;
+            border-bottom: 2px solid #E63946;
+            padding: 12px 15px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 13px;
+        }
+
+        /* EDITOR PANE */
+        .editor-pane {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .toolbar {
+            background: #f0f0f0;
+            border-bottom: 1px solid #ddd;
+            padding: 8px;
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar-btn {
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .toolbar-btn:hover {
+            background: #E63946;
+            color: white;
+            border-color: #E63946;
+        }
+
+        .textarea-editor {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            resize: none;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+
+        .textarea-editor:focus {
+            outline: none;
+        }
+
+        .components-bar {
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            background: #f9f9f9;
+            font-size: 12px;
+        }
+
+        .components-bar label {
+            display: block;
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .components-select {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .components-btn {
+            width: 100%;
+            padding: 6px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .components-btn:hover {
+            background: #229954;
+        }
+
+        /* PREVIEW PANE */
+        .preview-pane {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-content {
+            flex: 1;
+            padding: 12px;
+            overflow-y: auto;
+            background: white;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .preview-content h2 {
+            color: #E63946;
+            border-bottom: 2px solid #E63946;
+            padding-bottom: 8px;
+            margin: 15px 0 10px 0;
+            font-size: 16px;
+        }
+
+        .preview-content p {
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .modal h2 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .modal-input:focus {
+            outline: none;
+            border-color: #E63946;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .modal-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .modal-btn.cancel {
+            background: #ddd;
+            color: #333;
+        }
+
+        .modal-btn.cancel:hover {
+            background: #ccc;
+        }
+
+        .modal-btn.confirm {
+            background: #E63946;
+            color: white;
+        }
+
+        .modal-btn.confirm:hover {
+            background: #c91f1f;
+        }
+
+        /* ===== LOADING & TOAST ===== */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: white;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1500;
+            animation: slideIn 0.3s ease;
+            font-size: 13px;
+            max-width: 300px;
+        }
+
+        .toast.error {
+            background: #E63946;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(400px); }
+            to { transform: translateX(0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .editor-content {
+                grid-template-columns: 1fr;
+            }
+            .preview-pane { display: none; }
+        }
+
+        /* Tablet and smaller devices */
+        @media (max-width: 768px) {
+            .editor-wrapper {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-height: 200px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding: 12px;
+                border-right: none;
+                border-bottom: 3px solid #E63946;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .sidebar h2 {
+                font-size: 13px;
+                margin-bottom: 0;
+                min-width: max-content;
+            }
+
+            .sidebar-section {
+                margin-bottom: 0;
+                min-width: 200px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .sidebar-label {
+                font-size: 10px;
+                margin-bottom: 0;
+                min-width: max-content;
+            }
+
+            .university-select,
+            .components-select {
+                min-width: 150px;
+            }
+
+            .sections-list {
+                display: flex;
+                gap: 6px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                min-width: 300px;
+            }
+
+            .section-btn {
+                padding: 8px 12px;
+                font-size: 11px;
+                white-space: nowrap;
+                min-width: max-content;
+            }
+
+            .action-buttons {
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                margin-top: 0;
+            }
+
+            .btn {
+                padding: 8px;
+                font-size: 11px;
+                flex: 1;
+                min-width: 100px;
+            }
+
+            .editor-header {
+                padding: 12px 15px;
+            }
+
+            .editor-header h1 {
+                font-size: 18px;
+            }
+
+            .editor-status {
+                font-size: 12px;
+            }
+
+            .editor-content {
+                padding: 10px;
+                gap: 10px;
+            }
+
+            .pane {
+                border-radius: 4px;
+            }
+
+            .pane-header {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+
+            .toolbar {
+                padding: 6px;
+                gap: 3px;
+            }
+
+            .toolbar-btn {
+                padding: 4px 8px;
+                font-size: 10px;
+            }
+
+            .textarea-editor {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .components-bar {
+                padding: 8px;
+                font-size: 11px;
+            }
+
+            .components-btn {
+                padding: 5px;
+                font-size: 10px;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 480px) {
+            .sidebar {
+                max-height: 150px;
+                padding: 8px;
+                gap: 12px;
+            }
+
+            .sidebar h2 {
+                font-size: 12px;
+                gap: 4px;
+            }
+
+            .sidebar-section {
+                min-width: 150px;
+                gap: 4px;
+            }
+
+            .university-select,
+            .components-select {
+                min-width: 120px;
+                font-size: 11px;
+            }
+
+            .sections-list {
+                min-width: 250px;
+                gap: 4px;
+            }
+
+            .section-btn {
+                padding: 6px 10px;
+                font-size: 10px;
+            }
+
+            .btn {
+                padding: 6px;
+                font-size: 10px;
+                min-width: 80px;
+            }
+
+            .editor-header h1 {
+                font-size: 16px;
+            }
+
+            .pane-header {
+                padding: 8px 10px;
+                font-size: 11px;
+            }
+
+            .toolbar-btn {
+                padding: 3px 6px;
+                font-size: 9px;
+            }
+
+            .textarea-editor {
+                padding: 8px;
+                font-size: 11px;
+            }
+        }
+
+        .empty-state {
+            color: #999;
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-wrapper">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <h2><i class="fas fa-book"></i> Editör</h2>
+            
+            <div class="sidebar-section">
+                <div class="sidebar-label">Üniversite Seçin</div>
+                <select class="university-select" id="universitySelect">
+                    <option value="">Yükleniyor...</option>
+                </select>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-label">İçerik Bölümleri</div>
+                <div class="sections-list" id="sectionsList">
+                    <div class="empty-state">Üniversite seçin</div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-save" id="saveBtn" disabled>
+                    <i class="fas fa-save"></i> Kaydet
+                </button>
+                <button class="btn btn-commit" id="commitBtn" disabled>
+                    <i class="fas fa-code-branch"></i> GitHub'a Gönder
+                </button>
+            </div>
+        </div>
+
+        <!-- MAIN EDITOR -->
+        <div class="editor-main">
+            <div class="editor-header">
+                <h1 id="pageTitle">AllAbroad CMS Editörü</h1>
+                <div class="editor-status" id="statusText">Başlamak için üniversite seçin</div>
+            </div>
+
+            <div class="editor-content">
+                <!-- EDITOR PANE -->
+                <div class="pane editor-pane">
+                    <div class="pane-header"><i class="fas fa-pen"></i> İçerik Editörü</div>
+                    <div class="toolbar">
+                        <button class="toolbar-btn" onclick="insertStyle('h2')" title="Başlık"><b>H2</b> Başlık</button>
+                        <button class="toolbar-btn" onclick="insertStyle('list')" title="Liste"><i class="fas fa-list"></i> Liste</button>
+                        <button class="toolbar-btn" onclick="insertStyle('highlight')" title="Vurgu"><i class="fas fa-highlighter"></i> Vurgu</button>
+                        <button class="toolbar-btn" onclick="insertStyle('quote')" title="Alıntı"><i class="fas fa-quote-left"></i> Alıntı</button>
+                        <button class="toolbar-btn" onclick="insertStyle('bold')" title="Kalın"><b>B</b></button>
+                    </div>
+                    <textarea class="textarea-editor" id="contentEditor" placeholder="İçeriği buraya yazın..."></textarea>
+                    <div class="components-bar">
+                        <label>Hazır Bileşen Ekle</label>
+                        <select class="components-select" id="componentSelect">
+                            <option value="">Bileşen Seçin</option>
+                            <option value="bursBox">Burs Kutusu</option>
+                            <option value="tipBox">İpucu Kutusu</option>
+                            <option value="warningBox">Uyarı Kutusu</option>
+                            <option value="timeline">Adım Adım Zaman Çizelgesi</option>
+                        </select>
+                        <button class="components-btn" onclick="insertComponent()"><i class="fas fa-plus"></i> Ekle</button>
+                    </div>
+                </div>
+
+                <!-- PREVIEW PANE -->
+                <div class="pane preview-pane">
+                    <div class="pane-header"><i class="fas fa-eye"></i> Ön İzleme</div>
+                    <div class="preview-content" id="previewContent">
+                        <div class="empty-state">Editöre yazın ve burada ön izleme göreceksiniz</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMMIT MODAL -->
+    <div class="modal" id="commitModal">
+        <div class="modal-content">
+            <h2><i class="fas fa-code-branch"></i> GitHub'a Gönder</h2>
+            <label for="commitMessage" style="font-size: 12px; color: #666; margin-bottom: 5px; display: block;">Commit Mesajı (İsteğe Bağlı)</label>
+            <input type="text" id="commitMessage" class="modal-input" placeholder="Değişiklikleri açıklayan bir mesaj girin">
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" onclick="closeCommitModal()">İptal</button>
+                <button class="modal-btn confirm" onclick="performCommit()">Gönder</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOADING -->
+    <div class="loading" id="loading">
+        <div style="text-align: center;">
+            <div class="spinner"></div>
+            <div class="loading-text" id="loadingText">Yükleniyor...</div>
+        </div>
+    </div>
+
+    <script>
+        // STATE
+        let currentUni = null;
+        let currentSection = null;
+        let sections = {};
+        let hasChanges = false;
+
+        // COMPONENTS TEMPLATES
+        const components = {
+            bursBox: `<div style="background: #e8f4f8; border-left: 4px solid #3498db; padding: 15px; margin: 15px 0; border-radius: 4px;">
+<strong style="color: #2c3e50;">💰 Burs Fırsatları:</strong>
+<p style="margin-top: 8px; font-size: 13px;">Bu üniversitedeki burs programları hakkında bilgi ekleyin.</p>
+</div>`,
+            tipBox: `<div style="background: #d5f4e6; border-left: 4px solid #27ae60; padding: 15px; margin: 15px 0; border-radius: 4px;">
+<strong style="color: #2c3e50;">💡 İpucu:</strong>
+<p style="margin-top: 8px; font-size: 13px;">Faydalı bir ipucu veya tavsiye yazın.</p>
+</div>`,
+            warningBox: `<div style="background: #fdeaea; border-left: 4px solid #E63946; padding: 15px; margin: 15px 0; border-radius: 4px;">
+<strong style="color: #2c3e50;">⚠️ Uyarı:</strong>
+<p style="margin-top: 8px; font-size: 13px;">Önemli bilgi ve uyarılar yazın.</p>
+</div>`,
+            timeline: `<div style="display: flex; gap: 12px; margin: 15px 0;">
+<div style="flex: 1; padding: 12px; background: #f5f5f5; border-left: 4px solid #E63946; border-radius: 3px;">
+  <strong style="font-size: 12px;">Adım 1</strong>
+  <p style="margin-top: 6px; font-size: 12px; color: #666;">Açıklama ekleyin</p>
+</div>
+<div style="flex: 1; padding: 12px; background: #f5f5f5; border-left: 4px solid #E63946; border-radius: 3px;">
+  <strong style="font-size: 12px;">Adım 2</strong>
+  <p style="margin-top: 6px; font-size: 12px; color: #666;">Açıklama ekleyin</p>
+</div>
+<div style="flex: 1; padding: 12px; background: #f5f5f5; border-left: 4px solid #E63946; border-radius: 3px;">
+  <strong style="font-size: 12px;">Adım 3</strong>
+  <p style="margin-top: 6px; font-size: 12px; color: #666;">Açıklama ekleyin</p>
+</div>
+</div>`
+        };
+
+        // INIT
+        document.addEventListener('DOMContentLoaded', () => {
+            loadUniversities();
+            document.getElementById('universitySelect').addEventListener('change', loadUniversity);
+            document.getElementById('contentEditor').addEventListener('input', handleEditorChange);
+            document.getElementById('saveBtn').addEventListener('click', saveChanges);
+            document.getElementById('commitBtn').addEventListener('click', openCommitModal);
+        });
+
+        // API CALLS
+        async function loadUniversities() {
+            try {
+                showLoading('Üniversiteler yükleniyor...');
+                const res = await fetch('/api/universities');
+                const unis = await res.json();
+                
+                const select = document.getElementById('universitySelect');
+                select.innerHTML = '<option value="">Üniversite Seçin</option>';
+                
+                unis.forEach(u => {
+                    const opt = document.createElement('option');
+                    opt.value = u.filename;
+                    opt.textContent = u.name;
+                    select.appendChild(opt);
+                });
+                
+                hideLoading();
+            } catch (err) {
+                showToast('Yükleme hatası: ' + err.message, true);
+                hideLoading();
+            }
+        }
+
+        async function loadUniversity() {
+            const filename = document.getElementById('universitySelect').value;
+            if (!filename) {
+                document.getElementById('sectionsList').innerHTML = '<div class="empty-state">Üniversite seçin</div>';
+                document.getElementById('contentEditor').value = '';
+                document.getElementById('previewContent').innerHTML = '';
+                return;
+            }
+
+            try {
+                showLoading('Sayfa yükleniyor...');
+                const res = await fetch(`/api/university/${filename}`);
+                const data = await res.json();
+                
+                currentUni = filename;
+                sections = data.sections;
+                
+                document.getElementById('pageTitle').textContent = data.sections.universityName;
+                buildSectionsList();
+                hideLoading();
+                hasChanges = false;
+                updateButtons();
+            } catch (err) {
+                showToast('Yükleme hatası: ' + err.message, true);
+                hideLoading();
+            }
+        }
+
+        function buildSectionsList() {
+            const list = document.getElementById('sectionsList');
+            list.innerHTML = '';
+            
+            Object.keys(sections).forEach(key => {
+                if (key !== 'universityName' && key !== 'universityInfo') {
+                    const btn = document.createElement('button');
+                    btn.className = 'section-btn';
+                    const section = sections[key];
+                    btn.textContent = section.title || key.replace(/_/g, ' ');
+                    btn.onclick = () => selectSection(key);
+                    list.appendChild(btn);
+                }
+            });
+        }
+
+        function selectSection(key) {
+            currentSection = key;
+            
+            document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const section = sections[key];
+            document.getElementById('contentEditor').value = section.content;
+            document.getElementById('statusText').textContent = section.title;
+            
+            updatePreview();
+            hasChanges = false;
+            updateButtons();
+        }
+
+        function handleEditorChange() {
+            hasChanges = true;
+            updateButtons();
+            updatePreview();
+        }
+
+        function updatePreview() {
+            const content = document.getElementById('contentEditor').value;
+            const preview = document.getElementById('previewContent');
+            
+            let html = content
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>');
+            
+            preview.innerHTML = `<p>${html}</p>`;
+        }
+
+        async function saveChanges() {
+            if (!currentUni || !currentSection) {
+                showToast('Lütfen bir bölüm seçin', true);
+                return;
+            }
+
+            try {
+                showLoading('Kaydediliyor...');
+                
+                sections[currentSection].content = document.getElementById('contentEditor').value;
+                
+                // Read full HTML and reconstruct with new content
+                const res = await fetch(`/api/university/${currentUni}`);
+                const data = await res.json();
+                let fullHtml = data.fullHtml;
+                
+                // Replace the section content in HTML
+                const section = sections[currentSection];
+                const regex = new RegExp(
+                    `(<h2[^>]*>${section.title}<\\/h2>)[\\s\\S]*?(?=<h2|<\\/div>|$)`,
+                    'i'
+                );
+                fullHtml = fullHtml.replace(regex, `$1\n${sections[currentSection].content}\n`);
+                
+                const saveRes = await fetch(`/api/university/${currentUni}/save`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ fullHtml })
+                });
+
+                const result = await saveRes.json();
+                if (saveRes.ok) {
+                    hasChanges = false;
+                    updateButtons();
+                    showToast('✓ Kaydedildi');
+                } else {
+                    showToast('Kaydetme hatası: ' + result.error, true);
+                }
+                
+                hideLoading();
+            } catch (err) {
+                showToast('Hata: ' + err.message, true);
+                hideLoading();
+            }
+        }
+
+        function openCommitModal() {
+            document.getElementById('commitModal').classList.add('active');
+        }
+
+        function closeCommitModal() {
+            document.getElementById('commitModal').classList.remove('active');
+            document.getElementById('commitMessage').value = '';
+        }
+
+        async function performCommit() {
+            const msg = document.getElementById('commitMessage').value || 'Update university pages via CMS';
+            
+            try {
+                showLoading('GitHub\'a gönderiliyor...');
+                
+                const res = await fetch('/api/commit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: msg })
+                });
+
+                const result = await res.json();
+                if (res.ok) {
+                    showToast('✓ ' + result.message);
+                    closeCommitModal();
+                } else {
+                    showToast('Hata: ' + result.error, true);
+                }
+                hideLoading();
+            } catch (err) {
+                showToast('Hata: ' + err.message, true);
+                hideLoading();
+            }
+        }
+
+        // UI HELPERS
+        function updateButtons() {
+            document.getElementById('saveBtn').disabled = !hasChanges;
+            document.getElementById('commitBtn').disabled = !currentUni;
+        }
+
+        function insertStyle(style) {
+            const ta = document.getElementById('contentEditor');
+            const sel = ta.value.substring(ta.selectionStart, ta.selectionEnd);
+            
+            let insert = '';
+            switch(style) {
+                case 'h2': insert = `\n\n## ${sel || 'Başlık'}\n\n`; break;
+                case 'list': insert = `\n• ${sel || 'Öğe'}\n• Öğe\n• Öğe\n\n`; break;
+                case 'highlight': insert = `\n\n>>> ${sel || 'Önemli'}\n\n`; break;
+                case 'quote': insert = '\n\n"' + (sel || 'Alıntı') + '"\n\n'; break;
+                case 'bold': insert = `**${sel || 'Kalın'}**`; break;
+            }
+            
+            ta.value = ta.value.substring(0, ta.selectionStart) + insert + ta.value.substring(ta.selectionEnd);
+            ta.focus();
+            handleEditorChange();
+        }
+
+        function insertComponent() {
+            const type = document.getElementById('componentSelect').value;
+            if (!type) return;
+            
+            const ta = document.getElementById('contentEditor');
+            ta.value += '\n\n' + components[type] + '\n\n';
+            document.getElementById('componentSelect').value = '';
+            handleEditorChange();
+        }
+
+        function showLoading(text) {
+            document.getElementById('loadingText').textContent = text;
+            document.getElementById('loading').classList.add('active');
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').classList.remove('active');
+        }
+
+        function showToast(msg, isError = false) {
+            const toast = document.createElement('div');
+            toast.className = 'toast' + (isError ? ' error' : '');
+            toast.textContent = msg;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 4000);
+        }
+    </script>
+</body>
+</html>

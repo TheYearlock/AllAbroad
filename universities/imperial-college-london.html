@@ -1,15 +1,15 @@
 <!DOCTYPE html>
- <html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Imperial College London - AllAbroad</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+   <html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Imperial College London - AllAbroad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="universities-styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-   <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
-     <script src="../script.js"></script>
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  <script src="../script.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -19,270 +19,279 @@
     "logo": "/assets/uni-placeholder.svg"
   }
   </script>
-</head>
-<body>
-  <header>
-    <a href="../index.html" class="logo">
-      <span class="all">All</span><span class="abroad">Abroad</span>
-    </a>
-    <div class="nav-right">
-      <nav class="main-nav">
-        <ul>
-          <li class="dropdown">
-            <a href="../continents.html">Kıtalar</a>
-            <div class="dropdown-content">
-              <a href="../continents/europe.html">Avrupa</a>
-              <a href="../continents/americas.html">ABD ve Kanada</a>
-              <a href="../continents/asia.html">Asya</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <a href="../universities.html" class="active">Üniversiteler</a>
-            <div class="dropdown-content">
-               
-              <a href="../universities.html">Tüm Üniversiteler</a>
-            </div>
-          </li>
-          <li><a href="../scholarships.html">Burslar</a></li>
-          <li><a href="../about.html">Hakkımızda</a></li>
-        </ul>
-      </nav>
-      <div class="search-box">
-        <span class="search-icon">⌕</span>
-        <input type="text" placeholder="Search">
-      </div>
-  <a href="../user.html" class="user-btn" style="display:none;"><i class="fas fa-user-circle" style="color:#E63946;font-size:28px;"></i></a>
-  <a href="../login.html" class="login-btn">Giriş Yap</a>
-    </div>
-  </header>
+  <style>
+      h2 { font-size: 28px; color: #E63946; border-bottom: 3px solid #E63946; padding-bottom:6px; margin-top:40px; }
+      h3 { font-size: 22px; color: #333; margin-top:30px; }
+      .highlight-box { background:#f8f9fa; border-left:4px solid #E63946; padding:15px; margin:20px 0; }
+      .data-table { width:100%; border-collapse:collapse; margin:20px 0; }
+      .data-table th, .data-table td { border:1px solid #ddd; padding:8px; text-align:center; }
+      .data-table th { background:#E63946; color:#fff; font-weight:600; }
+      dt { font-weight:600; margin-top:16px; }
+      dd { margin-left:20px; margin-bottom:12px; }
+      .content-section { max-width: 800px; margin: 0 auto; padding: 20px; }
+      body {
+        background-color: #fff;
+        color: #000;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    
+      /* Guide Sections */
+      section.guide-section {
+        margin-bottom: 50px;
+      }
+      section.guide-section h2 {
+        font-size: 28px;
+        color: #e63946;
+        margin-bottom: 15px;
+        border-bottom: 3px solid #e63946;
+        padding-bottom: 6px;
+        font-weight: 700;
+      }
+      section.guide-section p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.5;
+        max-width: 850px;
+      }
+      section.guide-section ul {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+      section.guide-section li {
+        margin-bottom: 10px;
+      }
+      .highlight-box {
+        background-color: #f8f9fa;
+        border-left: 4px solid #e63946;
+        padding: 15px;
+        margin: 20px 0;
+      }
+      .highlight-box h3 {
+        margin-bottom: 10px;
+        color: #e63946;
+      }
 
-    <section class="uni-extra-content">
-      <main class="main-content">
-        <h1 class="page-title">Imperial College London</h1>
+     
 
-        <div class="uni-details">
-          <div class="uni-hero">
-            <img src="../assets/uni-placeholder.svg" alt="Imperial logo" />
-            <div>
-              <div class="rank-badge">Top UK technical university</div>
-              <h2>Imperial College London</h2>
-              <p class="muted">London, United Kingdom</p>
-            </div>
-          </div>
-
-          <div class="uni-metrics">
-            <div class="metric"><b>Continent:</b> Europe</div>
-            <div class="metric"><b>Size:</b> L</div>
-            <div class="metric"><b>Type:</b> Public</div>
-            <div class="metric"><b>Overall Score:</b> —</div>
-            <div class="metric"><b>Academic Reputation:</b> High</div>
-            <div class="metric"><b>Employer Reputation:</b> High</div>
-            <div class="metric"><b>International Students:</b> High</div>
-            <div class="metric"><b>Employment Outcomes:</b> Strong</div>
-          </div>
-
-          <div class="cta-row">
-            <a class="btn-primary" href="https://www.imperial.ac.uk/">Official site</a>
-            <a class="btn-outline" href="../universities.html">Back to list</a>
-          </div>
-        </div>
-
-        <div class="content-section">
-          <p>
-            Imperial College London, bilim, mühendislik, tıp ve işletme alanlarında dünya çapında lider bir 
-            araştırma üniversitesidir. QS ve Times Higher Education gibi sıralamalarda İngiltere’nin en 
-            iyi teknik üniversiteleri arasında yer alır. Teknoloji ile toplum arasındaki kesitte çalışmaları 
-            ve Londra’nın küresel merkezine yakınlığı ile dikkat çeker.
-          </p>
-    <p>
-      Imperial’in ana fakülteleri/okulları şöyledir (seçmeler):
-    </p>
-    <strong>
-      <ul>
-        <li>Engineering (Mühendislik)</li>
-        <li>Natural Sciences (Fen Bilimleri)</li>
-        <li>Medicine (Tıp)</li>
-        <li>Business / Imperial College Business School</li>
-      </ul>
-    </strong>
-    <p>
-      Kampüsleri Londra’da olup, yüksek nüfuslu şehir ortamında, sanayi, girişimcilik ve araştırma iş birlikleriyle 
-      zengin bir öğrenci deneyimi sunar.
-    </p>
-
-    <!-- ARANAN ÖĞRENCİ PROFİLİ -->
-    <h2>Aranan Öğrenci Profili</h2>
-    <div class="highlight-box">
-      Imperial, güçlü akademik altyapıya sahip öğrenciler arar; özellikle matematik, fizik, kimya gibi alanlarda derinlik ve yetkinlik bekler. Yalnızca sınavlarla değil; araştırma projeleri, yarışmalar, liderlik, girişimcilik ve teknoloji projeleri gibi deneyimlerle desteklenmiş bir profil avantaj sağlar. Ayrıca disiplinlerarası ilgi, yenilikçilik ve uluslararası vizyon da değer verdiği özelliklerdir.
-    </div>
-
-    <!-- SINAVLAR VE SKORLAR -->
-    <h2>Giriş İçin Gereken Sınavlar ve Ortalama Beklentiler</h2>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Sınav / Kriter</th>
-          <th>Beklenen Düzey / Not</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>A-Level / IB / AP</td>
-          <td>Başlıca bölümlerde A*A*A (veya IB 38+), 3–4 AP sınavında 5 almak tercih edilir.</td>
-        </tr>
-        <tr>
-          <td>İngilizce Yeterlilik</td>
-          <td>IELTS ~6.5–7.0 veya eşdeğeri sınav (departman şartlarına göre değişir).</td>
-        </tr>
-        <tr>
-          <td>AP / Ek sınavlar</td>
-          <td>3–4 AP sınavında 5 almak başvuruyu güçlendirir.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>
-  Imperial, SAT/ACT gibi sınavlara resmi olarak çoğu lisans programında ihtiyaç duymaz; daha çok uluslararası yeterlilik sistemleri (A-Level, IB, AP gibi) üzerinden değerlendirme yapar.
-      Türkiye lise sistemi ile başvuranlar için genelde A-Level / IB eşdeğerliği ve güçlü ek materyaller önemli rol oynar.
-    </p>
-
-    <!-- EXTRACURRICULAR AKTİVİTELER VE BAŞVURUYA ETKİSİ -->
-    <h2>Extracurricular Aktiviteler ve Başvuruya Etkisi</h2>
-    <p>
-      Imperial, ders dışı başarıları göz önünde bulundurur; araştırma projeleri (özellikle STEM ile ilgili), bilimsel yarışmalar, staj deneyimleri, teknoloji projeleri (robotik, yazılım, yapay zeka, biyoteknoloji vs.), liderlik rolleri, okul kulüplerinde aktiflik ve gönüllü projeler başvuruyu güçlendirir.  
-      Örneğin bir lise öğrencisi olarak bir araştırma laboratuvarında çalışmak ya da uluslararası bilim yarışmalarına (örneğin ISEF, bilim olimpiyatları) katılmak avantaj sağlar.
-    </p>
-
-    <!-- BAŞVURU SÜRECİ -->
-    <h2>Başvuru Süreci (Adım Adım)</h2>
-    <ol>
-  <li><b>Başvuru sistemi:</b> Imperial’daki lisans başvuruları <b>UCAS</b> sistemi üzerinden yapılır.</li>
-  <li><b>Tercih bildirimi:</b> UCAS üzerinden aynı yıl için 5 farklı bölüm tercihi yapabilirsiniz.</li>
-      <li><b>Belgeler:</b> Transkriptler, lise diploması, resmi İngilizce tercümeleri (noter onaylı) ve ek sınav sonuçları (A-Level, AP gibi) gönderilmelidir.</li>
-      <li><b>Kişisel Beyan (Personal Statement):</b> İlgi alanlarınızı, projelerinizi, neden Imperial’ı tercih ettiğinizi, hedeflerinizi net, özgün ve etkileyici şekilde anlatın.</li>
-      <li><b>Referans Mektupları:</b> Genellikle öğretmen referansı istenir (matematik, fen veya ilgili alan öğretmeni tercih edilir).</li>
-      <li><b>Ek gereklilikler:</b> Bazı bölümler mülakat, sınav değerlendirmesi ya da portföy isteyebilir; bölüm sayfalarını detayla inceleyin.</li>
-      <li><b>Başvuru gönderimi ve izleme:</b> Tüm belgeleri UCAS üzerinden gönderip başvurunuzu tamamlayın. Ardından Imperial’ın kabul kararlarını ve tekliflerini kontrol edin.</li>
-    </ol>
-
-    <!-- BURS / YARDIM -->
-    <h2>Burslar, Yardımlar ve Finansman</h2>
-    <div class="highlight-box">
-  Imperial, bazı burslar ve burs/yardım programları sunar; ancak tam ödeme muafiyeti sağlayan yardım programları, özellikle uluslararası öğrenciler için sınırlıdır.
-    </div>
-    <p>
-  • Imperial Bursary (Undergraduate): Yerleşik öğrenci gelir kriterlerine bağlı olarak yıllık £5,000’a kadar burs verilebilir (bursun geri ödenmesi gerekmez). <br>
-  • Lisansüstü programlar için burs ve finansman imkanları, kurum içi ve kurum dışı (dış fon sağlayıcılar) seçeneklerle sunulur. <br>
-  • GREAT Scholarships: Belirli ülkelerden gelen yükseklisans adayları için bir yıllık burs programı. (Ancak Türkiye şu anda listeye dahil değildir.) <br>
-  • Başvuru sonrası bazı burslara otomatik değerlendirme yapılır; bazılarında ek başvuru formu gerekir. <br>
-      • Türkiye kaynaklı burslar (TÜBİTAK, YTB, vakıf bursları vb.) ya da eğitim kredileri ile destek aramak gereklidir.
-    </p>
-
-    <!-- VİZE SÜRECİ -->
-    <h2>Vize Süreci</h2>
-    <p>
-  İngiltere’de lisans eğitimi için “Student visa” gereklidir. Imperial, kabul sonrası size <b>Confirmation of Acceptance for Studies (CAS)</b> belgesi verir. Öğrenci vizesi başvurusu için pasaport, CAS, finansal kanıt (eğitim ve yaşam masraflarını karşılayabileceğinize dair banka dekontları veya sponsor belgeleri) ve İngilizce yeterlilik belgeleri gereklidir.
-    </p>
-
-    <!-- ÖĞRENCİ HAYATI -->
-    <h2>Imperial’da Öğrenci Hayatı ve Türk Topluluğu</h2>
-    <p>
-      Imperial’da çok sayıda kulüp ve topluluk bulunur: teknoloji ve girişimcilik kulüpleri, robotik, yazılım, spor, kültür-sanat vb. Londra konumu sayesinde şehir kaynaklı etkinliklere erişim avantajı vardır. Türk öğrencilerin oluşturabileceği topluluklar (Türk öğrenci derneği vb.) genelde aktif çalışır. Ayrıca şehirde Türk restoranları, kültürel merkezler ve cami imkanları mevcuttur.
-    </p>
-
-    <!-- İŞ & MEZUNİYET SONRASI OLANAKLAR -->
-    <h2>İş ve Mezuniyet Sonrası Olanaklar</h2>
-    <p>
-      İngiltere’de öğrenci vizesi ile kampüs içinde çalışma izni vardır (haftalık saat sınırı). Mezuniyet sonrası “Graduate Route” vizesi ile 2 yıl (lisans sonrası) kalma hakkı elde edilebilir. Imperial mezunları, özellikle mühendislik, teknoloji, finans ve araştırma alanlarında iş bulma olasılığı yüksek olan köklü kariyer ağları ve sektörel bağlantılarla desteklenir.
-    </p>
-
-    <!-- TAVSİYELER (Türk Öğrenciler İçin Stratejiler) -->
-    <h2>Türk Öğrenciler İçin Stratejiler ve Tavsiyeler</h2>
-    <ul>
-      <li>Türkiye lise sistemiyle başvuran adaylar, A-Level/IB/AP sınavlarını almaya yönelmeli ve yüksek performans göstermelidir.</li>
-      <li>Matematik, fizik, kimya projeleri, araştırmalar ve yarışmalarla portföyünüzü güçlendirin.</li>
-      <li>Kişisel beyanınızda, neden Imperial’ı seçtiğinizi, vizyonunuzu ve hikayenizi sahici ve net şekilde anlatın.</li>
-      <li>Burs başvuru tarihlerini iyi takip edin; bazı burslara ek başvuru gerekebilir.</li>
-      <li>Referans mektuplarınızı güçlü öğretmenlerden temin edin; özellikle fen/matematik öğretmenlerinden güçlü destek önemli.</li>
-      <li>İngilizce yeterliliğinizi erkenden tamamlayın; sınavları başvuru son gününe bırakmayın.</li>
-    </ul>
-
-    <!-- SSS -->
-    <h2>Sık Sorulan Sorular (FAQ)</h2>
-    <dl>
-      <dt>S: Türkiye lisans diplomasıyla doğrudan başvuru yapılabilir mi?</dt>
-      <dd>C: Türkiye lise diploması (TYT/AYT sistemine göre) doğrudan yeterli kabul edilmez; genellikle A-Level / IB / uluslararası sınavlarla desteklenmeli ve okulun kabul ettiği ek yeterliliklerle başvuru yapılmalıdır.</dd>
-
-      <dt>S: Imperial’da tam burs kazanma şansı nedir?</dt>
-      <dd>C: Tam burs imkanları sınırlıdır ve genellikle yüksek lisans düzeyinde ya da özel burs programlarında verilir. Lisans düzeyinde tam burs almak çok nadir olacaktır.</dd>
-
-      <dt>S: Başvuru ücreti var mı?</dt>
-      <dd>C: UCAS üzerinden yapılan başvuruda bir ücret (örneğin 2025 için ~£27–30 civarı) ödenir.</dd>
-
-      <dt>S: İngilizce sınavı zorunlu mu?</dt>
-      <dd>C: Anaokul/ortaokul İngilizce eğitim geçmişine sahip olmayan adaylardan IELTS/TOEFL gibi sınavlar istenebilir.</dd>
-    </dl>
-
-    <h2>AllAbroad Ne Diyor?</h2>
-    <div class="highlight-box">
-      Imperial College London, Türk öğrenciler için teknik ve bilim odaklı bir hedef olabilir — ancak doğrudan lise diplomasıyla girilmesi zordur. Eğer sağlam bir akademik altyapınız, uluslararası sınav performansınız ve güçlü projeleriniz varsa, Imperial’ı başvurularınızda kesinlikle değerlendirin. Ancak “kolay bir seçenek” değildir. Hazırlık, strateji ve disiplin şart.
-    </div>
-        </div>
-      </main>
-    </section>
-  <div class="subfooter-wrapper">
-    <div class="subfooter">
-      <div class="subfooter-content">
-        <div class="subfooter-column">
-          <h4>Kıtalar</h4>
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html" class="logo">
+        <span class="all">All</span><span class="abroad">Abroad</span>
+      </a>
+      <div class="nav-right">
+        <nav class="main-nav">
           <ul>
-            <li><a href="../continents/europe.html">Avrupa</a></li>
-            <li><a href="../continents/americas.html">Amerika</a></li>
-            <li><a href="../continents/asia.html">Asya</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Üniversiteler</h4>
-          <ul>
-            <li> </li>
-            <li><a href="../universities.html">Tüm Üniversiteler</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Kaynaklar</h4>
-          <ul>
+            <li><a href="../index.html">Ana Sayfa</a></li>
+            <li><a href="../continents.html">Kıtalar</a></li>
+            <li><a href="../allcountries/list.json">Ülkeler</a></li>
+            <li><a href="../universities.html">Üniversiteler</a></li>
             <li><a href="../scholarships.html">Burslar</a></li>
-            <li><a href="../finder.html">AllAbroad Sihirbazı</a></li>
-          </ul>
-        </div>
-        <div class="subfooter-column">
-          <h4>Şirket</h4>
-          <ul>
-            <li><a href="../about.html">Hakkımızda</a></li>
+            <li><a href="../about.html">Hakkında</a></li>
             <li><a href="../contact.html">İletişim</a></li>
           </ul>
+        </nav>
+        <div class="search-box">
+          <span class="search-icon">⌕</span>
+          <input type="text" placeholder="Search">
+        </div>
+  <a href="../user.html" class="user-btn" style="display:none;"><i class="fas fa-user-circle" style="color:#E63946;font-size:28px;"></i></a>
+  <a href="../login.html" class="login-btn">Giriş Yap</a>
+      </div>
+    </header>
+    <main class="main-content">
+      <h1 class="page-title">Imperial College London</h1>
+      <div class="uni-details">
+        <div class="uni-hero">
+      
+          <div>
+            <p>Imperial College London</p>
+          </div>
+        </div>
+
+        <div class="uni-metrics">
+          <div class="metric"><b>Country:</b> United Kingdom</div>
+          <div class="metric"><b>Continent:</b> Europe</div>
+          <div class="metric"><b>Size:</b> L</div>
+          <div class="metric"><b>Type:</b> Public</div>
+          <div class="metric"><b>Overall Rank:</b> 99.4/100</div>
+          <div class="metric"><b>Academic Reputation:</b> 99.6</div>
+          <div class="metric"><b>Employer Reputation:</b> 100.0</div>
+          <div class="metric"><b>Employment Outcomes:</b> 95.9</div>
+        </div>
+
+        <div class="cta-row">
+          <a href="#" class="cta-btn">Visit Website</a>
+          <a href="https://www.instagram.com" class="cta-btn" style="background:#E63946;">Follow on Instagram</a>
         </div>
       </div>
-      <div class="subfooter-bottom">
-        <p>&copy; 2024 AllAbroad. Tüm hakları saklıdır. </p>
+      <section class="uni-extra-content" style="max-width:700px;margin:32px auto 0 auto;background:#f9f9f9;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,0.04);padding:28px 24px 20px 24px;">
+        <h2 style="font-size:22px;color:#E63946;margin-bottom:12px;"> Imperial College London</h2>
+      <section class="content-section">
+      <p>
+        Imperial College London, United Kingdom konumunda bulunan prestijli bir üniversitesidir. Bu üniversite, birçok alanda akademik üstünlük ile tanınmaktadır ve Türk öğrencileri kabul etmektedir.
+      </p>
+      
+      <p>
+        Bu üniversitenin ana bölümleri:
+      </p>
+      <strong>
+      <ul>
+        
+      </ul>
+      </strong>
+      
+
+      <!-- ARANAN ÖĞRENCİ PROFİLİ -->
+      <h2>Aranan Öğrenci Profili</h2>
+      <div class="highlight-box">
+        <p>Bu üniversite, akademik mükemmeliyeti ve öğrenci katkısını değerlendiren başvuru sürecine sahiptir. Yüksek sınav puanları ve güçlü akademik arka plan beklenmektedir.</p>
+      </div>
+
+      <!-- SINAVLAR VE SKORLAR -->
+      <h2>Giriş için Gereken Sınavlar ve Ortalama Skorlar</h2>
+      <table class="data-table">
+        <tr>
+          <th>Sınav Türü</th>
+          <th>Ortalama Puan</th>
+        </tr>
+        <tr>
+          <td>SAT</td>
+          <td>1400+</td>
+        </tr>
+        <tr>
+          <td>ACT</td>
+          <td>32+</td>
+        </tr>
+        <tr>
+          <td>TOEFL</td>
+          <td>80+</td>
+        </tr>
+        <tr>
+          <td>IELTS</td>
+          <td>6.5+</td>
+        </tr>
+      </table>
+
+      <!-- EXTRACURRICULAR SECTION -->
+      <h2>Extracurricular Aktiviteler ve Başvuruya Etkisi</h2>
+      <p>
+        Ekstrakurrikuler aktivitelerde başarı göstermek üniversite başvurusunda önemli bir rol oynamaktadır. Spor, sanat, bilim veya sosyal hizmetlerde başarılarınızı vurgulayın.
+      </p>
+
+      <!-- APPLICATION PROCESS -->
+      <h2>Başvuru Süreci (Adım Adım)</h2>
+      <ol>
+        <li>1. Üniversitenin web sitesinden başvuru formu indirin</li><li>2. Başvuru formu ve gerekli belgeleri hazırlayın</li><li>3. Resmi transkriptinizi temin edin</li><li>4. SAT/ACT puanlarınız gönderin</li><li>5. Tavsiye mektupları toplayın</li><li>6. Başvuru dosyasını gönderin</li>
+      </ol>
+
+      <!-- FINANCIAL AID -->
+      <h2>Burslar, Yardımlar ve Finansman</h2>
+      <div class="highlight-box">
+        <h3>Türk Öğrenciler İçin Finansal Destek</h3>
+      </div>
+      <p>
+        Bu üniversite, uluslararası öğrencilerin finansal ihtiyaçlarını değerlendirir. Başvurularınızda burs fırsatlarını araştırın. Bazı üniversiteler need-blind admission uygulamaktadır.
+      </p>
+
+      <!-- VISA PROCESS -->
+      <h2>Vize Süreci</h2>
+      <p>
+        F-1 vizesi sürecine üniversiteden I-20 belgesi alındıktan sonra başlanır. Türkiye'deki ABD konsolosluğu ile vize randevusu alınır ve gerekli belgeler hazırlanır.
+      </p>
+
+      <!-- STUDENT LIFE -->
+      <h2>Üniversite Yaşamı ve Türk Topluluğu</h2>
+      <p>
+        Üniversite kampüsünde pek çok öğrenci kulübü ve sosyal etkinlik vardır. Türk öğrenci topluluğu genellikle aktif ve destekleyicidir.
+      </p>
+      
+      <!-- GRADUATION & CAREER -->
+      <h2>İş ve Mezuniyet Sonrası Olanaklar</h2>
+      <p>
+        Mezuniyet sonrası OPT (Optional Practical Training) ve H-1B vizeleri aracılığıyla ABD'de kariyer yapma imkânı vardır. Çoğu mezun başarıyla iş bulmaktadır.
+      </p>
+
+      <!-- TIPS -->
+      <h2>Türk Öğrenciler İçin Stratejiler ve Tavsiyeler</h2>
+      <ul>
+        <li>Üniversitenin web sitesini ve akademik programlarını detaylı olarak araştırın.</li><li>Başvurunuzda kişisel deneyimlerinizi ve hedeflerinizi açık şekilde ifade edin.</li><li>Tavsiye mektupları sizi iyi tanıyan öğretmenlerden alın.</li><li>Başvurunuz içinde bölüm seçimini göz önüne alın.</li><li>Vizyon ve hedeflerinizi üniversitenin değerleriyle bağlantılandırın.</li>
+      </ul>
+
+      <!-- FAQ -->
+      <h2>Sık Sorulan Sorular (FAQ)</h2>
+      <dl>
+        
+        <dt>S: Başvuru için SAT/ACT zorunlu mu?</dt>
+        <dd>C: Çoğu Amerikan üniversitesi SAT/ACT puanı istemektedir. Kontrol etmek için üniversitenin web sitesine bakın.</dd>
+        
+        <dt>S: Türk öğrenciler için burs var mı?</dt>
+        <dd>C: Evet, çoğu üniversite uluslararası öğrencilere kısıtlı da olsa finansal yardım sunmaktadır.</dd>
+        
+        <dt>S: Vize görüşmesi ne kadar zor olabilir?</dt>
+        <dd>C: Eğer finansal desteğiniz varsa ve başarılı bir akademik kaydınız bulunuyorsa, vize almak genellikle sorunsuztur.</dd>
+        
+        <dt>S: Başvuru kaç kez yapabilirim?</dt>
+        <dd>C: Genellikle Normal Decision (RD) ile bir kez başvuru yapabilirsiniz.</dd>
+        
+        <dt>S: GPA ve sınav puanları ne kadar önemlidir?</dt>
+        <dd>C: Çok önemlidir, ancak bütüncül (holistic) değerlendirme yapılmaktadır.</dd>
+        
+      </dl>
+
+      <h2>AllAbroad Ne Diyor?</h2>
+      <!-- FINAL HIGHLIGHT -->
+      <div class="highlight-box">
+        Imperial College London, Türk öğrencileri kabul edip değerlendiren ve onlara üstün bir eğitim fırsatı sunan prestijli bir kurautumdur. Başvurunuzu dikkatli bir şekilde hazırlayın ve başarılarınızı etkili bir şekilde sunun.
+      </div>
+
+      </section>
+      </main>
+    <div class="subfooter-wrapper">
+      <div class="subfooter">
+        <div class="subfooter-content">
+          <div class="footer-section">
+            <h3>AllAbroad</h3>
+            <p>Türk öğrencilerin dünya çapında eğitim fırsatlarını keşfetmelerine yardımcı olmak.</p>
+          </div>
+          <div class="footer-section">
+            <h3>Linkler</h3>
+            <ul>
+              <li><a href="../about.html">Hakkında</a></li>
+              <li><a href="../contact.html">İletişim</a></li>
+              <li><a href="../privacy.html">Gizlilik</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Sosyal Medya</h3>
+            <div class="social-links">
+              <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="subfooter-bottom">
+          <p>&copy; 2025 AllAbroad. Tüm hakları saklıdır.</p>
+        </div>
       </div>
     </div>
-  </div>
-<script type="module" src="../auth-ui.js"></script>
-<script>
-  (function(){
-    const ctas = document.querySelectorAll('.cta-row a');
-    ctas.forEach(a => {
-      a.setAttribute('target','_blank');
-      a.setAttribute('rel','noopener noreferrer');
-      try {
-        const sr = document.createElement('span');
-        sr.className = 'sr-only';
-        sr.style.cssText = 'position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;';
-        sr.textContent = ' (yeni pencerede açılır)';
-        a.appendChild(sr);
-      } catch(e){}
-    });
-  })();
-</script>
-</body>
-</html>
+  <script type="module" src="../auth-ui.js"></script>
+  <script>
+    (function(){
+      const ctas = document.querySelectorAll('.cta-row a');
+      ctas.forEach(a => {
+        a.target = '_blank';
+        a.setAttribute('rel','noopener noreferrer');
+      });
+    })();
+  </script>
+  </body>
+  </html>
