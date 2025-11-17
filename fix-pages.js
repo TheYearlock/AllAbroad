@@ -3,23 +3,7 @@ const path = require('path');
 
 const UNI_DIR = path.join(__dirname, 'universities');
 
-const CORRECT_HEADER = `    <div class="hamburger-container">
-        <div class="hamburger-icon">
-            <span></span><span></span><span></span>
-        </div>
-        <div class="menu-panel" aria-hidden="true">
-            <nav>
-                <ul>
-                    <li><a href="../continents.html">Kıtalar</a></li>
-                    <li><a href="../universities.html">Üniversiteler</a></li>
-                    <li><a href="../scholarships.html">Burslar</a></li>
-                    <li><a href="../about.html">Hakkımızda</a></li>
-                </ul>
-            </nav>
-            <a href="../login.html" class="login-btn-mobile">Giriş Yap</a>
-        </div>
-    </div>
-    <header>
+const CORRECT_HEADER = `    <header>
         <a href="../index.html" class="logo">
             <span class="all">All</span><span class="abroad">Abroad</span>
         </a>
