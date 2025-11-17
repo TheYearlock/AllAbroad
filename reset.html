@@ -110,6 +110,26 @@
             color: #c1121f;
             text-decoration: underline;
         }
+        .password-strength {
+            height: 4px;
+            background-color: #ddd;
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s;
+        }
+        .strength-weak { background-color: #E63946; }
+        .strength-medium { background-color: #f59e0b; }
+        .strength-strong { background-color: #2dba4e; }
+        .password-requirements {
+            font-size: 13px;
+            color: #666;
+            margin-top: 5px;
+        }
         @media (max-width: 768px) {
             .reset-form { padding: 30px 20px; }
             .reset-form h2 { font-size: 24px; }
@@ -191,21 +211,60 @@
     </header>
     <div class="reset-container">
         <div class="reset-form">
-            <h2>Şifre Sıfırlama</h2>
-            <div class="info-box">
-                📧 E-posta adresinizi girin. Şifrenizi sıfırlamak için bir bağlantı size gönderilecektir.
-            </div>
-            <form id="resetForm">
-                <div class="form-group">
-                    <label for="reset-email">Kayıtlı Email Adresiniz*</label>
-                    <input type="email" id="reset-email" name="email" required>
-                    <div class="error-message" id="reset-error"></div>
+            <!-- Email Request Form (shown by default) -->
+            <div id="emailRequestForm">
+                <h2>Şifre Sıfırlama</h2>
+                <div class="info-box">
+                    📧 E-posta adresinizi girin. Şifrenizi sıfırlamak için bir bağlantı size gönderilecektir.
                 </div>
-                <button type="submit" class="submit-btn">Şifre Sıfırlama Linki Gönder</button>
-            </form>
-            <div class="success-message" id="reset-success"></div>
-            <div class="reset-footer">
-                <p>Giriş sayfasına dönmek için <a href="login.html">tıklayın</a></p>
+                <form id="resetForm">
+                    <div class="form-group">
+                        <label for="reset-email">Kayıtlı Email Adresiniz*</label>
+                        <input type="email" id="reset-email" name="email" required>
+                        <div class="error-message" id="reset-error"></div>
+                    </div>
+                    <button type="submit" class="submit-btn">Şifre Sıfırlama Linki Gönder</button>
+                </form>
+                <div class="success-message" id="reset-success"></div>
+                <div class="reset-footer">
+                    <p>Giriş sayfasına dönmek için <a href="login.html">tıklayın</a></p>
+                </div>
+            </div>
+
+            <!-- Password Change Form (shown when reset code is in URL) -->
+            <div id="passwordChangeForm" style="display: none;">
+                <h2>Yeni Şifre Belirle</h2>
+                <div class="info-box" id="loadingMessage" style="display: none;">
+                    ⏳ Şifre sıfırlama bağlantısı doğrulanıyor...
+                </div>
+                <div class="info-box" id="infoMessage" style="display: none;">
+                    🔐 Lütfen yeni şifrenizi girin ve onayla.
+                </div>
+                <div class="error-message" id="mainError" style="display: block;"></div>
+                <form id="newPasswordForm" style="display: none;">
+                    <div class="form-group">
+                        <label for="new-password">Yeni Şifre*</label>
+                        <input type="password" id="new-password" name="password" required>
+                        <div class="password-strength">
+                            <div class="password-strength-bar" id="strengthBar"></div>
+                        </div>
+                        <div class="password-requirements">
+                            Minimum 8 karakter, harf, sayı ve sembol içermelidir.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Şifreyi Onayla*</label>
+                        <input type="password" id="confirm-password" name="confirm" required>
+                        <div class="error-message" id="confirmError"></div>
+                    </div>
+                    <button type="submit" class="submit-btn">Şifre Değiştir</button>
+                </form>
+                <div class="success-message" id="successMessage" style="display: none;">
+                    ✓ Şifreniz başarıyla değiştirildi. <a href="login.html">Giriş sayfasına gidin</a>
+                </div>
+                <div class="reset-footer" id="resetFooter" style="display: none;">
+                    <p><a href="reset.html">Şifre Sıfırlama</a>'ya geri dönün.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -262,54 +321,170 @@
     </script>
 
     <script type="module">
-      // Use modular Firebase: sendPasswordResetEmail
+      // Use modular Firebase
       import { auth } from './firebase-init.js';
-      import { sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+      import { sendPasswordResetEmail, verifyPasswordResetCode, confirmPasswordReset } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 
-      // Determine the base URL (works for both localhost and production)
+      // Determine the base URL
       const baseUrl = window.location.protocol + '//' + window.location.host;
 
-      // Configure action code settings - tells Firebase where to send the reset link
-      const actionCodeSettings = {
-        url: baseUrl + '/reset-password.html',
-        handleCodeInApp: false
-      };
+      // Check URL parameters to see if we're handling a reset code
+      const urlParams = new URLSearchParams(window.location.search);
+      const resetCode = urlParams.get('oobCode');
+      const mode = urlParams.get('mode');
 
-      document.getElementById('resetForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        document.getElementById('reset-error').style.display = 'none';
-        document.getElementById('reset-success').style.display = 'none';
+      if (resetCode && mode === 'resetPassword') {
+        // User clicked the reset link in their email - show password change form
+        handleResetCode(resetCode);
+      } else {
+        // Show normal email request form
+        setupEmailRequestForm();
+      }
 
-        const email = document.getElementById('reset-email').value;
-        const btn = e.target.querySelector('button[type="submit"]');
-        const btnText = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = 'Gönderiliyor...';
+      // Handle the password reset code from email link
+      async function handleResetCode(code) {
+        const emailRequestForm = document.getElementById('emailRequestForm');
+        const passwordChangeForm = document.getElementById('passwordChangeForm');
+        const mainError = document.getElementById('mainError');
+        const loadingMessage = document.getElementById('loadingMessage');
+        const infoMessage = document.getElementById('infoMessage');
+        const newPasswordForm = document.getElementById('newPasswordForm');
+        const successMessage = document.getElementById('successMessage');
+        const resetFooter = document.getElementById('resetFooter');
+
+        // Hide email form, show password change form
+        emailRequestForm.style.display = 'none';
+        passwordChangeForm.style.display = 'block';
+        loadingMessage.style.display = 'block';
+        mainError.style.display = 'none';
 
         try {
-          // Send reset email with action code settings pointing to reset-password.html
-          await sendPasswordResetEmail(auth, email, actionCodeSettings);
-          document.getElementById('reset-success').textContent = 'Şifre sıfırlama bağlantısı e-posta adresinize gönderildi. Lütfen e-postanızı kontrol edin.';
-          document.getElementById('reset-success').style.display = 'block';
-          document.getElementById('resetForm').reset();
+          // Verify the reset code is valid
+          await verifyPasswordResetCode(auth, code);
+          
+          // Code is valid, show password form
+          loadingMessage.style.display = 'none';
+          infoMessage.style.display = 'block';
+          newPasswordForm.style.display = 'block';
+
+          // Handle password form submission
+          document.getElementById('newPasswordForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            document.getElementById('confirmError').style.display = 'none';
+
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (newPassword !== confirmPassword) {
+              document.getElementById('confirmError').textContent = 'Şifreler eşleşmiyor!';
+              document.getElementById('confirmError').style.display = 'block';
+              return;
+            }
+
+            if (newPassword.length < 8) {
+              document.getElementById('confirmError').textContent = 'Şifre en az 8 karakter olmalıdır!';
+              document.getElementById('confirmError').style.display = 'block';
+              return;
+            }
+
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Değiştiriliyor...';
+
+            try {
+              // Confirm the password reset with new password
+              await confirmPasswordReset(auth, code, newPassword);
+
+              // Show success message
+              infoMessage.style.display = 'none';
+              newPasswordForm.style.display = 'none';
+              successMessage.style.display = 'block';
+            } catch (error) {
+              document.getElementById('confirmError').textContent = 'Şifre değiştirme başarısız: ' + error.message;
+              document.getElementById('confirmError').style.display = 'block';
+              btn.disabled = false;
+              btn.textContent = 'Şifre Değiştir';
+            }
+          });
         } catch (error) {
-          let errorMsg = error.message;
-          
-          if (error.code === 'auth/user-not-found') {
-            errorMsg = 'Bu e-posta adresi sistemde bulunamadı.';
-          } else if (error.code === 'auth/invalid-email') {
-            errorMsg = 'Geçersiz e-posta adresi.';
-          } else if (error.code === 'auth/too-many-requests') {
-            errorMsg = 'Çok fazla deneme yapıldı. Lütfen daha sonra tekrar deneyin.';
+          // Code is invalid or expired
+          loadingMessage.style.display = 'none';
+          mainError.textContent = 'Şifre sıfırlama bağlantısı geçersiz veya süresi dolmuş. Lütfen yeni bir istek gönderin.';
+          mainError.style.display = 'block';
+          resetFooter.style.display = 'block';
+        }
+      }
+
+      // Setup normal email request form
+      function setupEmailRequestForm() {
+        const actionCodeSettings = {
+          url: baseUrl + '/reset.html',
+          handleCodeInApp: true
+        };
+
+        document.getElementById('resetForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          document.getElementById('reset-error').style.display = 'none';
+          document.getElementById('reset-success').style.display = 'none';
+
+          const email = document.getElementById('reset-email').value;
+          const btn = e.target.querySelector('button[type="submit"]');
+          const btnText = btn.textContent;
+          btn.disabled = true;
+          btn.textContent = 'Gönderiliyor...';
+
+          try {
+            // Send reset email with action code settings pointing back to reset.html
+            await sendPasswordResetEmail(auth, email, actionCodeSettings);
+            document.getElementById('reset-success').textContent = 'Şifre sıfırlama bağlantısı e-posta adresinize gönderildi. Lütfen e-postanızı kontrol edin.';
+            document.getElementById('reset-success').style.display = 'block';
+            document.getElementById('resetForm').reset();
+          } catch (error) {
+            let errorMsg = error.message;
+            
+            if (error.code === 'auth/user-not-found') {
+              errorMsg = 'Bu e-posta adresi sistemde bulunamadı.';
+            } else if (error.code === 'auth/invalid-email') {
+              errorMsg = 'Geçersiz e-posta adresi.';
+            } else if (error.code === 'auth/too-many-requests') {
+              errorMsg = 'Çok fazla deneme yapıldı. Lütfen daha sonra tekrar deneyin.';
+            }
+            
+            document.getElementById('reset-error').textContent = errorMsg;
+            document.getElementById('reset-error').style.display = 'block';
+          } finally {
+            btn.disabled = false;
+            btn.textContent = btnText;
           }
-          
-          document.getElementById('reset-error').textContent = errorMsg;
-          document.getElementById('reset-error').style.display = 'block';
-        } finally {
-          btn.disabled = false;
-          btn.textContent = btnText;
+        });
+      }
+
+      // Password strength checker (for the password change form)
+      document.addEventListener('input', function(e) {
+        if (e.target.id === 'new-password') {
+          const strength = calculatePasswordStrength(e.target.value);
+          const strengthBar = document.getElementById('strengthBar');
+          strengthBar.style.width = strength.percentage + '%';
+          strengthBar.className = 'password-strength-bar ' + strength.class;
         }
       });
+
+      function calculatePasswordStrength(password) {
+        let strength = 0;
+        
+        if (password.length >= 8) strength += 25;
+        if (password.length >= 12) strength += 25;
+        if (/[a-z]/.test(password)) strength += 10;
+        if (/[A-Z]/.test(password)) strength += 10;
+        if (/[0-9]/.test(password)) strength += 10;
+        if (/[^a-zA-Z0-9]/.test(password)) strength += 10;
+
+        let strengthClass = 'strength-weak';
+        if (strength >= 50) strengthClass = 'strength-medium';
+        if (strength >= 75) strengthClass = 'strength-strong';
+
+        return { percentage: Math.min(strength, 100), class: strengthClass };
+      }
     </script>
 </body>
 <script src="script.js"></script>
