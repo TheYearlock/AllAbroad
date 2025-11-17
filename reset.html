@@ -266,6 +266,15 @@
       import { auth } from './firebase-init.js';
       import { sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 
+      // Determine the base URL (works for both localhost and production)
+      const baseUrl = window.location.protocol + '//' + window.location.host;
+
+      // Configure action code settings - tells Firebase where to send the reset link
+      const actionCodeSettings = {
+        url: baseUrl + '/reset-password.html',
+        handleCodeInApp: false
+      };
+
       document.getElementById('resetForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         document.getElementById('reset-error').style.display = 'none';
@@ -278,7 +287,8 @@
         btn.textContent = 'Gönderiliyor...';
 
         try {
-          await sendPasswordResetEmail(auth, email);
+          // Send reset email with action code settings pointing to reset-password.html
+          await sendPasswordResetEmail(auth, email, actionCodeSettings);
           document.getElementById('reset-success').textContent = 'Şifre sıfırlama bağlantısı e-posta adresinize gönderildi. Lütfen e-postanızı kontrol edin.';
           document.getElementById('reset-success').style.display = 'block';
           document.getElementById('resetForm').reset();

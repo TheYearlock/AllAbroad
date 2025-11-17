@@ -683,6 +683,9 @@
                 <button class="btn btn-save" id="saveBtn" disabled>
                     <i class="fas fa-save"></i> Kaydet
                 </button>
+                <button class="btn btn-save" id="downloadBtn" disabled>
+                    <i class="fas fa-download"></i> İndir
+                </button>
                 <button class="btn btn-commit" id="commitBtn" disabled>
                     <i class="fas fa-code-branch"></i> GitHub'a Gönder
                 </button>
@@ -796,7 +799,14 @@
             document.getElementById('universitySelect').addEventListener('change', loadUniversity);
             document.getElementById('contentEditor').addEventListener('input', handleEditorChange);
             document.getElementById('saveBtn').addEventListener('click', saveChanges);
-            document.getElementById('commitBtn').addEventListener('click', openCommitModal);
+            document.getElementById('downloadBtn').addEventListener('click', downloadFile);
+            document.getElementById('commitBtn').addEventListener('click', () => {
+                if (hasChanges) {
+                    showToast('⚠️ Kaydetmemiş değişiklikler var. Önce kaydet.', true);
+                } else {
+                    openCommitModal();
+                }
+            });
         });
 
         // API CALLS
@@ -892,14 +902,47 @@
             const content = document.getElementById('contentEditor').value;
             const preview = document.getElementById('previewContent');
             
-            let html = content
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/\n\n/g, '</p><p>')
-                .replace(/\n/g, '<br>');
+            // Create iframe for safe HTML rendering
+            const iframeId = 'previewIframe';
+            let iframe = document.getElementById(iframeId);
             
-            preview.innerHTML = `<p>${html}</p>`;
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.id = iframeId;
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+                iframe.style.background = 'white';
+                preview.innerHTML = '';
+                preview.appendChild(iframe);
+            }
+            
+            // Build complete HTML document to preview
+            const previewHtml = `
+                <!DOCTYPE html>
+                <html lang="tr">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+                    <style>
+                        body { font-family: 'Montserrat', sans-serif; padding: 20px; color: #333; line-height: 1.6; }
+                        h1, h2, h3 { color: #E63946; margin: 20px 0 10px 0; }
+                        p { margin-bottom: 15px; }
+                        div[style*="background: #e8f4f8"], div[style*="background: #d5f4e6"], div[style*="background: #fdeaea"] {
+                            margin: 15px 0; padding: 15px; border-radius: 4px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${content}
+                </body>
+                </html>
+            `;
+            
+            iframe.contentDocument.open();
+            iframe.contentDocument.write(previewHtml);
+            iframe.contentDocument.close();
         }
 
         async function saveChanges() {
@@ -948,6 +991,39 @@
             }
         }
 
+        async function downloadFile() {
+            if (!currentUni) {
+                showToast('Lütfen üniversite seçin', true);
+                return;
+            }
+
+            try {
+                showLoading('İndiriliyor...');
+                
+                const res = await fetch(`/api/university/${currentUni}`);
+                const data = await res.json();
+                
+                // Create blob from HTML content
+                const blob = new Blob([data.fullHtml], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                
+                // Create download link
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `${currentUni}.html`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                
+                showToast('✓ Dosya indirildi');
+                hideLoading();
+            } catch (err) {
+                showToast('İndirme hatası: ' + err.message, true);
+                hideLoading();
+            }
+        }
+
         function openCommitModal() {
             document.getElementById('commitModal').classList.add('active');
         }
@@ -961,6 +1037,12 @@
             const msg = document.getElementById('commitMessage').value || 'Update university pages via CMS';
             
             try {
+                // First save any pending changes
+                if (hasChanges) {
+                    showLoading('Değişiklikler kaydediliyor...');
+                    await saveChanges();
+                }
+                
                 showLoading('GitHub\'a gönderiliyor...');
                 
                 const res = await fetch('/api/commit', {
@@ -986,6 +1068,7 @@
         // UI HELPERS
         function updateButtons() {
             document.getElementById('saveBtn').disabled = !hasChanges;
+            document.getElementById('downloadBtn').disabled = !currentUni;
             document.getElementById('commitBtn').disabled = !currentUni;
         }
 
