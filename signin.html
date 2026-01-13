@@ -324,6 +324,20 @@
     </div>
 
         <script type="module">
+            // Map Firebase error codes to user-friendly Turkish messages
+            const getErrorMessage = (errorCode) => {
+                const errorMap = {
+                    'auth/email-already-in-use': 'Bu email adresi zaten kayıtlı. Lütfen giriş yapınız veya başka bir email kullanınız.',
+                    'auth/invalid-email': 'Geçersiz email adresi. Lütfen geçerli bir email giriniz.',
+                    'auth/operation-not-allowed': 'Email/şifre kayıt şu anda devre dışı. Lütfen daha sonra tekrar deneyiniz.',
+                    'auth/weak-password': 'Şifre çok zayıf. En az 8 karakter ve bir harfle birlikte sayı içermelidir.',
+                    'auth/too-many-requests': 'Çok fazla kayıt denemesi. Lütfen daha sonra tekrar deneyiniz.',
+                    'auth/network-request-failed': 'Ağ bağlantısı hatası. İnternet bağlantınızı kontrol ediniz.',
+                    'auth/internal-error': 'Bir hata meydana geldi. Lütfen daha sonra tekrar deneyiniz.',
+                };
+                return errorMap[errorCode] || `Hata: ${errorCode}`;
+            };
+        
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
             import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
             import { getFirestore, collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -358,14 +372,17 @@
                 const confirmPassword = document.getElementById('confirm-password').value;
 
                 if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('email-error').textContent = 'Lütfen geçerli bir email adresi giriniz.';
                     document.getElementById('email-error').style.display = 'block';
                     return;
                 }
                 if (password.length < 8) {
+                    document.getElementById('password-error').textContent = 'Şifre en az 8 karakter olmalıdır.';
                     document.getElementById('password-error').style.display = 'block';
                     return;
                 }
                 if (password !== confirmPassword) {
+                    document.getElementById('confirm-error').textContent = 'Şifreler eşleşmiyor. Lütfen tekrar deneyiniz.';
                     document.getElementById('confirm-error').style.display = 'block';
                     return;
                 }
@@ -375,7 +392,7 @@
                     const user = userCredential.user;
 
                     // Save user info to Firestore
-                await setDoc(doc(collection(db, "user_info"), user.uid), {
+                    await setDoc(doc(collection(db, "user_info"), user.uid), {
                         name: name,
                         surname: surname,
                         enrollmentYear: enrollmentYear,
@@ -387,7 +404,8 @@
                     alert('Kayıt başarılı! Giriş yapabilirsiniz.');
                     window.location.href = 'login.html';
                 } catch (error) {
-                    document.getElementById('email-error').textContent = error.message;
+                    const errorMessage = getErrorMessage(error.code);
+                    document.getElementById('email-error').textContent = errorMessage;
                     document.getElementById('email-error').style.display = 'block';
                 }
             });

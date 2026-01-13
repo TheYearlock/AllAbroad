@@ -267,6 +267,21 @@
         </div>
     </div>
 <script type="module">
+    // Map Firebase error codes to user-friendly Turkish messages
+    const getErrorMessage = (errorCode) => {
+        const errorMap = {
+            'auth/invalid-email': 'Geçersiz email adresi. Lütfen geçerli bir email giriniz.',
+            'auth/user-disabled': 'Bu hesap devre dışı bırakılmıştır. Destek için iletişim kurunuz.',
+            'auth/user-not-found': 'Bu email adresi ile kayıtlı hesap bulunamadı.',
+            'auth/wrong-password': 'Şifre hatalı. Lütfen tekrar deneyiniz.',
+            'auth/invalid-credential': 'Email veya şifre hatalı. Lütfen tekrar deneyiniz.',
+            'auth/too-many-requests': 'Çok fazla başarısız giriş denemesi. Lütfen daha sonra tekrar deneyiniz.',
+            'auth/network-request-failed': 'Ağ bağlantısı hatası. İnternet bağlantınızı kontrol ediniz.',
+            'auth/internal-error': 'Bir hata meydana geldi. Lütfen daha sonra tekrar deneyiniz.',
+        };
+        return errorMap[errorCode] || `Hata: ${errorCode}`;
+    };
+
     import { auth, googleProvider } from './firebase-init.js';
     import { signInWithEmailAndPassword, signInWithPopup } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 
@@ -282,7 +297,7 @@
         const btn = e.target.querySelector('button[type="submit"]');
         const btnText = btn.textContent;
         btn.disabled = true;
-        btn.innerHTML = 'Signing in...';
+        btn.innerHTML = 'Giriş yapılıyor...';
 
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
@@ -293,7 +308,8 @@
             try { if (window.allabroadAuthUpdate) window.allabroadAuthUpdate(true); } catch (e) {}
             window.location.href = "index.html";
         } catch (error) {
-            document.getElementById('email-error').textContent = error.message;
+            const errorMessage = getErrorMessage(error.code);
+            document.getElementById('email-error').textContent = errorMessage;
             document.getElementById('email-error').style.display = 'block';
         } finally {
             btn.disabled = false;
@@ -316,7 +332,8 @@
         } catch (error) {
             // Only show error if it's not a user-dismissed popup
             if (error.code !== 'auth/popup-closed-by-user') {
-                document.getElementById('email-error').textContent = error.message;
+                const errorMessage = getErrorMessage(error.code);
+                document.getElementById('email-error').textContent = errorMessage;
                 document.getElementById('email-error').style.display = 'block';
             }
         } finally {

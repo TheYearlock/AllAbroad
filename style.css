@@ -382,6 +382,13 @@ header {
     }
 }
 
+/* Hide login-btn-mobile on desktop */
+@media (min-width: 769px) {
+    .menu-panel .login-btn-mobile {
+        display: none !important;
+    }
+}
+
 /* Mobile search overlay behavior */
 .search-box {
     position: relative;

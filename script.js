@@ -222,8 +222,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-//NEWS DATA NEWS DATA ANLADIN MI GARİ
+//NEWS DATA NEWS DATA ANLADIN MI GARİ new NEWS NEWS NEWSSSS NEWS NEWS NEWSSSSS
 const newsData = [
+  {
+    title: "AP Sınavları Hk.",
+    description: "2026 AP Sınavları hakkında güncel gelişmeler",
+    category: "Eğitim Haberleri",
+    date:"January 13, 2026",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
+    url: "https://www.hurriyet.com.tr/yazarlar/ebru-dogdu/turkiyede-ap-krizi-cozuldu-mu-42965811",
+  },
     {
         title: "Önemli Duyuru",
         description: "Bu websitesi geliştirme aşamasındadır.",
@@ -331,7 +339,7 @@ function initNewsSlider() {
 
     // Show URL tooltip in development
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        document.querySelector('.beta-tag').textContent = 'Development Mode - Links Visible';
+        
         const style = document.createElement('style');
         style.textContent = `
             .news-card:hover::after {
@@ -388,13 +396,15 @@ function initNewsSlider() {
               name: c.replace(/-/g, ' ').replace(/\.html$/, '').replace(/\b\w/g, l => l.toUpperCase()),
               file: c,
               type: 'Ülke',
-              url: `allcountries/${c}`
+              url: `allcountries/${c}`,
+              searchTerms: c.replace(/-/g, ' ').replace(/\.html$/, '').toLowerCase()
             }
           : {
               name: c.name,
               file: c.file,
               type: 'Ülke',
-              url: `allcountries/${c.file}`
+              url: `allcountries/${c.file}`,
+              searchTerms: (c.name + ' ' + c.file).toLowerCase().replace(/-/g, ' ').replace(/\.html$/, '')
             }
       );
       universityFiles = universities.map(u =>
@@ -403,13 +413,15 @@ function initNewsSlider() {
               name: u.replace(/-/g, ' ').replace(/\.html$/, '').replace(/\b\w/g, l => l.toUpperCase()),
               file: u,
               type: 'Üniversite',
-              url: `universities/${u}`
+              url: `universities/${u}`,
+              searchTerms: u.replace(/-/g, ' ').replace(/\.html$/, '').toLowerCase()
             }
           : {
               name: u.name,
               file: u.file,
               type: 'Üniversite',
-              url: `universities/${u.file}`
+              url: `universities/${u.file}`,
+              searchTerms: (u.name + ' ' + u.file).toLowerCase().replace(/-/g, ' ').replace(/\.html$/, '')
             }
       );
       searchLoaded = true;
@@ -425,25 +437,51 @@ function initNewsSlider() {
       .replace(/ç/g, 'c')
       .replace(/ğ/g, 'g')
       .replace(/ı/g, 'i')
+      .replace(/i/g, 'i')
       .replace(/ö/g, 'o')
       .replace(/ş/g, 's')
       .replace(/ü/g, 'u')
-      .replace(/[â]/g, 'a');
+      .replace(/[â]/g, 'a')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 
   function getSuggestions(query) {
     if (!query) return [];
     const normQuery = normalize(query.trim());
+    
     function score(item) {
       const n = normalize(item.name);
-      if (n === normQuery) return 0;
-      if (n.startsWith(normQuery)) return 1;
-      if (n.includes(normQuery)) return 2;
-      return 3;
+      const st = normalize(item.searchTerms || '');
+      
+      // Check both name and searchTerms
+      const nameMatch = n.includes(normQuery) || n.split(' ').some(w => w.startsWith(normQuery));
+      const searchMatch = st.includes(normQuery) || st.split(' ').some(w => w.startsWith(normQuery));
+      
+      if (!nameMatch && !searchMatch) return 999;
+      
+      // Exact match
+      if (n === normQuery || st === normQuery) return 0;
+      // Starts with (best prefix match)
+      if (n.startsWith(normQuery) || st.startsWith(normQuery)) return 1;
+      // Word starts with query
+      const words = (n + ' ' + st).split(' ');
+      if (words.some(w => w.startsWith(normQuery))) return 2;
+      // Includes somewhere in the middle
+      if (n.includes(normQuery) || st.includes(normQuery)) return 3;
+      return 4;
     }
+    
     function matchList(list) {
-      return list.filter(item => normalize(item.name).includes(normQuery));
+      return list.filter(item => {
+        const n = normalize(item.name);
+        const st = normalize(item.searchTerms || '');
+        // Match if query appears in name or searchTerms
+        return (n.includes(normQuery) || n.split(' ').some(w => w.startsWith(normQuery))) ||
+               (st.includes(normQuery) || st.split(' ').some(w => w.startsWith(normQuery)));
+      });
     }
+    
     const countryMatches = matchList(countryFiles).sort((a, b) => score(a) - score(b)).slice(0, 5);
     const universityMatches = matchList(universityFiles).sort((a, b) => score(a) - score(b)).slice(0, 5);
     return [...countryMatches, ...universityMatches].slice(0, 5);
