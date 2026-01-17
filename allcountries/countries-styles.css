@@ -1,0 +1,280 @@
+/* Country Pages Specific Styles */
+
+/* Page Main Content */
+.main-content {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+.page-title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #e63946;
+  font-weight: 700;
+}
+
+/* Guide Sections */
+section.guide-section {
+  margin-bottom: 50px;
+}
+
+section.guide-section h2 {
+  font-size: 28px;
+  color: #e63946;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #e63946;
+  padding-bottom: 6px;
+  font-weight: 700;
+}
+
+section.guide-section p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  max-width: 850px;
+}
+
+section.guide-section ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+section.guide-section li {
+  margin-bottom: 10px;
+}
+
+/* Content Sections */
+section.content-section {
+  margin-bottom: 55px;
+}
+
+section.content-section h1,
+section.content-section h2 {
+  color: #e63946;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #e63946;
+  padding-bottom: 8px;
+}
+
+section.content-section h1 {
+  font-size: 32px;
+  margin-top: 0;
+}
+
+section.content-section h2 {
+  font-size: 26px;
+}
+
+section.content-section h3 {
+  font-size: 20px;
+  color: #e63946;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+section.content-section p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #333;
+  max-width: 860px;
+  margin-bottom: 20px;
+}
+
+section.content-section ul {
+  margin: 18px 0 25px 20px;
+  color: #444;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 860px;
+}
+
+section.content-section ul li {
+  margin-bottom: 12px;
+  padding-left: 5px;
+  position: relative;
+}
+
+section.content-section ul li::marker {
+  color: #e63946;
+  font-weight: 700;
+}
+
+/* Highlight Boxes */
+.highlight-box {
+  background-color: #fff0f0;
+  border-left: 5px solid #e63946;
+  padding: 20px 25px;
+  margin: 30px 0 40px;
+  border-radius: 6px;
+  color: #722121;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 860px;
+}
+
+.highlight-box ul {
+  margin-top: 10px;
+  padding-left: 18px;
+  list-style-type: disc;
+  font-weight: 500;
+  color: #8b2222;
+}
+
+.highlight-box h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #b53030;
+}
+
+/* Subfooter Styles */
+.subfooter {
+  background-color: #2a2a2a;
+  color: #fff;
+  padding: 50px 20px 20px;
+}
+
+.subfooter-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #444;
+}
+
+.subfooter-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.subfooter-column h4 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.subfooter-column h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background: #E63946;
+}
+
+.subfooter-column ul {
+  list-style: none;
+}
+
+.subfooter-column ul li {
+  margin-bottom: 12px;
+}
+
+.subfooter-column ul li a {
+  color: #bbb;
+  transition: color 0.3s;
+}
+
+.subfooter-column ul li a:hover {
+  color: #fff;
+}
+
+.subfooter-bottom {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.subfooter-bottom p {
+  color: #999;
+  font-size: 14px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #fff;
+  background: #444;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.social-links a:hover {
+  background: #E63946;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    margin: 40px 15px 50px;
+    padding: 0 14px;
+  }
+
+  nav.main-nav ul {
+    gap: 15px;
+  }
+
+  .search-box input {
+    width: 140px;
+  }
+
+  .page-title {
+    font-size: 30px;
+  }
+
+  section.content-section h1 {
+    font-size: 28px;
+  }
+
+  section.content-section h2 {
+    font-size: 22px;
+  }
+
+  .about-column {
+    min-width: 100%;
+  }
+
+  .subfooter-content {
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+  }
+
+  .subfooter-column {
+    min-width: 100%;
+  }
+
+  .subfooter {
+    padding: 20px 5px 10px;
+  }
+
+  .subfooter-bottom {
+    font-size: 12px;
+    flex-direction: column;
+    text-align: center;
+  }
+}

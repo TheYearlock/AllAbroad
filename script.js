@@ -190,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         tooltip.style.top = `${event.clientY - 30}px`;
                     }
                 })
+                // Country click navigation country list el importante 11111111
                 .on("click", function(event, d) {
                     const countryPages = {
                         "Germany": "allcountries/germany.html",
@@ -197,13 +198,27 @@ document.addEventListener('DOMContentLoaded', function() {
                         "United States of America": "allcountries/united-states-of-america.html",
                         "Turkey": "allcountries/turkey.html",
                         "Japan": "allcountries/japan.html",
-                        "United Kingdom": "allcountries/UK.html"
+                        "United Kingdom": "allcountries/UK.html",
+                        "Italy": "allcountries/italy.html",
+                        "Spain": "allcountries/spain.html",
+                        "Canada": "allcountries/canada.html",
+                        "Australia": "allcountries/australia.html",
+                        "Netherlands": "allcountries/netherlands.html",
+                        "Sweden": "allcountries/sweden.html",
+                        "Switzerland": "allcountries/switzerland.html",
+                        "Belgium": "allcountries/belgium.html",
+                        "South Korea": "allcountries/south-korea.html",
+                        "China": "allcountries/china.html",
+                        "Russia": "allcountries/russia.html",
+                        "Austria": "allcountries/austria.html",
+                        "Poland": "allcountries/poland.html",
+                        "Hungary": "allcountries/hungary.html",
+                        "United Arab Emirates": "allcountries/uae.html"
                     };
                     const countryName = d.properties.name;
                     if (countryPages[countryName]) {
                         window.location.href = countryPages[countryName];
                     } else {
-                        // Optionally: redirect to a default countries page or do nothing
                         // window.location.href = "continents.html";
                     }
                 });
