@@ -175,40 +175,24 @@ header {
 /* Mobile header compacting: reduce header footprint on small screens */
 @media (max-width: 768px) {
     header {
-        padding: 10px 3%; /* adjusted vertical padding */
+        padding: 8px 4%; /* much smaller vertical padding */
     }
     .logo {
         font-size: 18px; /* smaller logo */
     }
     .nav-right {
-        gap: 12px;
-        flex-wrap: wrap;
-    }
-    .search-box {
-        order: 3;
-        width: 100%;
-        margin-top: 8px;
+        gap: 10px;
     }
     .search-box input {
-        width: 100%;
-        max-width: 140px; /* narrower search on mobile */
+        width: 140px; /* narrower search on mobile */
     }
     .main-nav {
         display: none; /* collapse full nav into hamburger */
     }
     /* Ensure hamburger is visible and positioned for mobile */
-    .hamburger-container { 
-        display: flex;
-        position:8px 3%;
-    }
-    .search-box {
-        order: 4;
-    }
-    .search-box input {
-        display: none; /* only show search icon */
-        max-width: 100px;
+    .hamburger-container { display: block; }
+    .menu-panel { top: 54px; }
     .user-btn { width: 40px; height: 40px; }
-    .login-btn { display: none !important; }
 }
 
 /* Extra small phones: hide the search input to save space and keep header compact */
@@ -326,8 +310,9 @@ header {
 
 /* Hamburger Menu */
 .hamburger-container {
-    position: relative;
-    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
     z-index: 1000;
 }
 
@@ -352,41 +337,39 @@ header {
 
 .menu-panel {
     position: absolute;
-    top: 40px;
+    top: 50px;
     right: 0;
     width: 200px;
     background: white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    border-radius: 8px;
-    padding: 12px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px) scaleY(0.98);
-    transform-origin: top right;
-    obile login button in menu */
-@media (max-width: 768px) {
-    .menu-panel .login-btn-mobile {
-        display: block;
-        background: #E63946;
-        color: #fff;
-        padding: 8px 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         border-radius: 8px;
-        text-align: center;
-        margin: 6px 0;
-        font-weight: 500;
-        text-decoration: none;
-        width: 100%;
-    }
+        padding: 12px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px) scaleY(0.98);
+        transform-origin: top right;
+        transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease;
 }
 
-/* Hide login-btn-mobile on desktop */
-@media (min-width: 769px) {
-    .hamburger-container { display: none !important; }
+.hamburger-container:hover .menu-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Animated open state when toggled via JS */
+.hamburger-container.open .menu-panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scaleY(1);
+}
+
+/* Make the login button appear in the menu on mobile and hide original */
+@media (max-width: 768px) {
+    /* Hide the large login button on small screens - cloned into menu instead */
+    .login-btn { display: none !important; }
     .menu-panel .login-btn-mobile {
-        display: none !important;
-    }
-    .search-box input {
-        width: 220px; /* restore desktop width */
+        display: block;
         background: #E63946;
         color: #fff;
         padding: 8px 12px;
