@@ -223,11 +223,26 @@ header {
     text-align: center;
 }
 .email {
-    font-size: 28px;
+    font-size: 22px;
     position: relative;
     text-align: center;
     color: #e63946;
     ;
+}
+
+.email-link {
+    font-size: 22px;
+    color: #e63946;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.email-link:hover {
+    color: #a01e2a;
+    transform: scale(1.05);
+    text-shadow: 0 2px 4px rgba(160, 30, 42, 0.3);
 }
 
 .page-title {
@@ -1322,5 +1337,85 @@ blockquote::before {
   .search-suggestions li {
     padding: 11px 12px;
     font-size: 14px;
+  }
+}
+
+/* Legal Pages Styling (Terms & Privacy) */
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.legal-section {
+  padding: 2em 2.5em;
+}
+
+.legal-section h2 {
+  font-size: 22px;
+  color: #e63946;
+  margin-top: 28px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #e63946;
+  padding-bottom: 8px;
+  font-weight: 700;
+}
+
+.legal-section h2:first-child {
+  margin-top: 0;
+}
+
+.legal-section p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.legal-section ul {
+  margin: 16px 0 16px 20px;
+  padding-left: 0;
+}
+
+.legal-section li {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  list-style: disc;
+}
+
+.legal-section strong {
+  color: #222;
+  font-weight: 600;
+}
+
+.legal-section a {
+  color: #e63946;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legal-section a:hover {
+  color: #c1121f;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .legal-section {
+    padding: 1.5em 1.5em;
+  }
+  
+  .legal-section h2 {
+    font-size: 20px;
+    margin-top: 24px;
+  }
+  
+  .legal-section p,
+  .legal-section li {
+    font-size: 15px;
   }
 }
