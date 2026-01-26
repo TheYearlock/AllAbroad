@@ -47,7 +47,7 @@ function addAddToListButton() {
     }
 
     try {
-      const ref = doc(db, 'user info', user.uid);
+      const ref = doc(db, 'user_info', user.uid);
       const snap = await getDoc(ref);
       const userDoc = snap.exists() ? snap.data() : {};
       let savedUnis = (userDoc && Array.isArray(userDoc.savedUniversities)) ? userDoc.savedUniversities : [];

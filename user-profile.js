@@ -53,7 +53,7 @@ const styleEl = document.createElement('style'); styleEl.textContent = css; docu
 
 async function fetchUserDoc(uid) {
   try {
-    const ref = doc(db, 'user info', uid);
+    const ref = doc(db, 'user_info', uid);
     const snap = await getDoc(ref);
     if (snap.exists()) return snap.data();
     // if no doc, create a minimal one from auth
@@ -66,7 +66,7 @@ async function fetchUserDoc(uid) {
 
 async function saveUserDoc(uid, data) {
   try {
-    const ref = doc(db, 'user info', uid);
+    const ref = doc(db, 'user_info', uid);
     await setDoc(ref, data, { merge: true });
     return true;
   } catch (e) { console.error('saveUserDoc', e); return false; }
@@ -216,7 +216,7 @@ async function renderCalendarSection(uid, userDoc) {
   const deleteEvent = async (eventToDelete) => {
     try {
       const newEvents = events.filter(ev => !(ev.date === eventToDelete.date && ev.title === eventToDelete.title));
-      const ref = doc(db, 'user info', uid);
+      const ref = doc(db, 'user_info', uid);
       await setDoc(ref, { events: newEvents }, { merge: true });
       // Update local array
       const idx = events.indexOf(eventToDelete);
