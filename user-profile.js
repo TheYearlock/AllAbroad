@@ -259,7 +259,7 @@ function openAddEvent(uid, events, onDone) {
     if (!date || !title) return alert('Lütfen tarih ve başlık girin');
     // persist into user doc as events array
     try {
-      const ref = doc(db, 'user info', uid);
+      const ref = doc(db, 'user_info', uid);
       // Use setDoc with merge to be safe if doc doesn't exist yet
       await setDoc(ref, { events: arrayUnion({ date, title }) }, { merge: true });
       // update local events array by pushing
